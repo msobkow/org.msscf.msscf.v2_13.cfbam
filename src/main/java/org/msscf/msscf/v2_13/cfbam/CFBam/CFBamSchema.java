@@ -7,7 +7,7 @@
  *	
  *	MSS Code Factory CFBam 2.13 Business Application Model
  *	
- *	Copyright 2020-2021 Mark Stephen Sobkow
+ *	Copyright 2020 Mark Stephen Sobkow
  *	
  *		This file is part of MSS Code Factory.
  *	
@@ -45,6 +45,7 @@ import java.sql.*;
 import java.text.*;
 import java.util.*;
 import org.msscf.msscf.v2_13.cflib.CFLib.*;
+import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
 import org.msscf.msscf.v2_13.cflib.CFLib.Tip.CFTipClientHandler;
 import org.msscf.msscf.v2_13.cfsec.CFSec.*;
 import org.msscf.msscf.v2_13.cfint.CFInt.*;
@@ -372,6 +373,30 @@ public class CFBamSchema
 	protected ICFBamDateColTable tableDateCol;
 	protected ICFBamDateDefTable tableDateDef;
 	protected ICFBamDateTypeTable tableDateType;
+	protected ICFBamDbKeyHash128ColTable tableDbKeyHash128Col;
+	protected ICFBamDbKeyHash128DefTable tableDbKeyHash128Def;
+	protected ICFBamDbKeyHash128GenTable tableDbKeyHash128Gen;
+	protected ICFBamDbKeyHash128TypeTable tableDbKeyHash128Type;
+	protected ICFBamDbKeyHash160ColTable tableDbKeyHash160Col;
+	protected ICFBamDbKeyHash160DefTable tableDbKeyHash160Def;
+	protected ICFBamDbKeyHash160GenTable tableDbKeyHash160Gen;
+	protected ICFBamDbKeyHash160TypeTable tableDbKeyHash160Type;
+	protected ICFBamDbKeyHash224ColTable tableDbKeyHash224Col;
+	protected ICFBamDbKeyHash224DefTable tableDbKeyHash224Def;
+	protected ICFBamDbKeyHash224GenTable tableDbKeyHash224Gen;
+	protected ICFBamDbKeyHash224TypeTable tableDbKeyHash224Type;
+	protected ICFBamDbKeyHash256ColTable tableDbKeyHash256Col;
+	protected ICFBamDbKeyHash256DefTable tableDbKeyHash256Def;
+	protected ICFBamDbKeyHash256GenTable tableDbKeyHash256Gen;
+	protected ICFBamDbKeyHash256TypeTable tableDbKeyHash256Type;
+	protected ICFBamDbKeyHash384ColTable tableDbKeyHash384Col;
+	protected ICFBamDbKeyHash384DefTable tableDbKeyHash384Def;
+	protected ICFBamDbKeyHash384GenTable tableDbKeyHash384Gen;
+	protected ICFBamDbKeyHash384TypeTable tableDbKeyHash384Type;
+	protected ICFBamDbKeyHash512ColTable tableDbKeyHash512Col;
+	protected ICFBamDbKeyHash512DefTable tableDbKeyHash512Def;
+	protected ICFBamDbKeyHash512GenTable tableDbKeyHash512Gen;
+	protected ICFBamDbKeyHash512TypeTable tableDbKeyHash512Type;
 	protected ICFBamDelDepTable tableDelDep;
 	protected ICFBamDelSubDep1Table tableDelSubDep1;
 	protected ICFBamDelSubDep2Table tableDelSubDep2;
@@ -491,6 +516,10 @@ public class CFBamSchema
 	protected ICFBamUInt64DefTable tableUInt64Def;
 	protected ICFBamUInt64TypeTable tableUInt64Type;
 	protected ICFIntURLProtocolTable tableURLProtocol;
+	protected ICFBamUuid6ColTable tableUuid6Col;
+	protected ICFBamUuid6DefTable tableUuid6Def;
+	protected ICFBamUuid6GenTable tableUuid6Gen;
+	protected ICFBamUuid6TypeTable tableUuid6Type;
 	protected ICFBamUuidColTable tableUuidCol;
 	protected ICFBamUuidDefTable tableUuidDef;
 	protected ICFBamUuidGenTable tableUuidGen;
@@ -514,6 +543,30 @@ public class CFBamSchema
 	protected ICFBamDateColFactory factoryDateCol;
 	protected ICFBamDateDefFactory factoryDateDef;
 	protected ICFBamDateTypeFactory factoryDateType;
+	protected ICFBamDbKeyHash128ColFactory factoryDbKeyHash128Col;
+	protected ICFBamDbKeyHash128DefFactory factoryDbKeyHash128Def;
+	protected ICFBamDbKeyHash128GenFactory factoryDbKeyHash128Gen;
+	protected ICFBamDbKeyHash128TypeFactory factoryDbKeyHash128Type;
+	protected ICFBamDbKeyHash160ColFactory factoryDbKeyHash160Col;
+	protected ICFBamDbKeyHash160DefFactory factoryDbKeyHash160Def;
+	protected ICFBamDbKeyHash160GenFactory factoryDbKeyHash160Gen;
+	protected ICFBamDbKeyHash160TypeFactory factoryDbKeyHash160Type;
+	protected ICFBamDbKeyHash224ColFactory factoryDbKeyHash224Col;
+	protected ICFBamDbKeyHash224DefFactory factoryDbKeyHash224Def;
+	protected ICFBamDbKeyHash224GenFactory factoryDbKeyHash224Gen;
+	protected ICFBamDbKeyHash224TypeFactory factoryDbKeyHash224Type;
+	protected ICFBamDbKeyHash256ColFactory factoryDbKeyHash256Col;
+	protected ICFBamDbKeyHash256DefFactory factoryDbKeyHash256Def;
+	protected ICFBamDbKeyHash256GenFactory factoryDbKeyHash256Gen;
+	protected ICFBamDbKeyHash256TypeFactory factoryDbKeyHash256Type;
+	protected ICFBamDbKeyHash384ColFactory factoryDbKeyHash384Col;
+	protected ICFBamDbKeyHash384DefFactory factoryDbKeyHash384Def;
+	protected ICFBamDbKeyHash384GenFactory factoryDbKeyHash384Gen;
+	protected ICFBamDbKeyHash384TypeFactory factoryDbKeyHash384Type;
+	protected ICFBamDbKeyHash512ColFactory factoryDbKeyHash512Col;
+	protected ICFBamDbKeyHash512DefFactory factoryDbKeyHash512Def;
+	protected ICFBamDbKeyHash512GenFactory factoryDbKeyHash512Gen;
+	protected ICFBamDbKeyHash512TypeFactory factoryDbKeyHash512Type;
 	protected ICFBamDelDepFactory factoryDelDep;
 	protected ICFBamDelSubDep1Factory factoryDelSubDep1;
 	protected ICFBamDelSubDep2Factory factoryDelSubDep2;
@@ -633,6 +686,10 @@ public class CFBamSchema
 	protected ICFBamUInt64DefFactory factoryUInt64Def;
 	protected ICFBamUInt64TypeFactory factoryUInt64Type;
 	protected ICFIntURLProtocolFactory factoryURLProtocol;
+	protected ICFBamUuid6ColFactory factoryUuid6Col;
+	protected ICFBamUuid6DefFactory factoryUuid6Def;
+	protected ICFBamUuid6GenFactory factoryUuid6Gen;
+	protected ICFBamUuid6TypeFactory factoryUuid6Type;
 	protected ICFBamUuidColFactory factoryUuidCol;
 	protected ICFBamUuidDefFactory factoryUuidDef;
 	protected ICFBamUuidGenFactory factoryUuidGen;
@@ -661,6 +718,30 @@ public class CFBamSchema
 		tableDateCol = null;
 		tableDateDef = null;
 		tableDateType = null;
+		tableDbKeyHash128Col = null;
+		tableDbKeyHash128Def = null;
+		tableDbKeyHash128Gen = null;
+		tableDbKeyHash128Type = null;
+		tableDbKeyHash160Col = null;
+		tableDbKeyHash160Def = null;
+		tableDbKeyHash160Gen = null;
+		tableDbKeyHash160Type = null;
+		tableDbKeyHash224Col = null;
+		tableDbKeyHash224Def = null;
+		tableDbKeyHash224Gen = null;
+		tableDbKeyHash224Type = null;
+		tableDbKeyHash256Col = null;
+		tableDbKeyHash256Def = null;
+		tableDbKeyHash256Gen = null;
+		tableDbKeyHash256Type = null;
+		tableDbKeyHash384Col = null;
+		tableDbKeyHash384Def = null;
+		tableDbKeyHash384Gen = null;
+		tableDbKeyHash384Type = null;
+		tableDbKeyHash512Col = null;
+		tableDbKeyHash512Def = null;
+		tableDbKeyHash512Gen = null;
+		tableDbKeyHash512Type = null;
 		tableDelDep = null;
 		tableDelSubDep1 = null;
 		tableDelSubDep2 = null;
@@ -780,6 +861,10 @@ public class CFBamSchema
 		tableUInt64Def = null;
 		tableUInt64Type = null;
 		tableURLProtocol = null;
+		tableUuid6Col = null;
+		tableUuid6Def = null;
+		tableUuid6Gen = null;
+		tableUuid6Type = null;
 		tableUuidCol = null;
 		tableUuidDef = null;
 		tableUuidGen = null;
@@ -803,6 +888,30 @@ public class CFBamSchema
 		factoryDateCol = new CFBamDateColDefaultFactory();
 		factoryDateDef = new CFBamDateDefDefaultFactory();
 		factoryDateType = new CFBamDateTypeDefaultFactory();
+		factoryDbKeyHash128Col = new CFBamDbKeyHash128ColDefaultFactory();
+		factoryDbKeyHash128Def = new CFBamDbKeyHash128DefDefaultFactory();
+		factoryDbKeyHash128Gen = new CFBamDbKeyHash128GenDefaultFactory();
+		factoryDbKeyHash128Type = new CFBamDbKeyHash128TypeDefaultFactory();
+		factoryDbKeyHash160Col = new CFBamDbKeyHash160ColDefaultFactory();
+		factoryDbKeyHash160Def = new CFBamDbKeyHash160DefDefaultFactory();
+		factoryDbKeyHash160Gen = new CFBamDbKeyHash160GenDefaultFactory();
+		factoryDbKeyHash160Type = new CFBamDbKeyHash160TypeDefaultFactory();
+		factoryDbKeyHash224Col = new CFBamDbKeyHash224ColDefaultFactory();
+		factoryDbKeyHash224Def = new CFBamDbKeyHash224DefDefaultFactory();
+		factoryDbKeyHash224Gen = new CFBamDbKeyHash224GenDefaultFactory();
+		factoryDbKeyHash224Type = new CFBamDbKeyHash224TypeDefaultFactory();
+		factoryDbKeyHash256Col = new CFBamDbKeyHash256ColDefaultFactory();
+		factoryDbKeyHash256Def = new CFBamDbKeyHash256DefDefaultFactory();
+		factoryDbKeyHash256Gen = new CFBamDbKeyHash256GenDefaultFactory();
+		factoryDbKeyHash256Type = new CFBamDbKeyHash256TypeDefaultFactory();
+		factoryDbKeyHash384Col = new CFBamDbKeyHash384ColDefaultFactory();
+		factoryDbKeyHash384Def = new CFBamDbKeyHash384DefDefaultFactory();
+		factoryDbKeyHash384Gen = new CFBamDbKeyHash384GenDefaultFactory();
+		factoryDbKeyHash384Type = new CFBamDbKeyHash384TypeDefaultFactory();
+		factoryDbKeyHash512Col = new CFBamDbKeyHash512ColDefaultFactory();
+		factoryDbKeyHash512Def = new CFBamDbKeyHash512DefDefaultFactory();
+		factoryDbKeyHash512Gen = new CFBamDbKeyHash512GenDefaultFactory();
+		factoryDbKeyHash512Type = new CFBamDbKeyHash512TypeDefaultFactory();
 		factoryDelDep = new CFBamDelDepDefaultFactory();
 		factoryDelSubDep1 = new CFBamDelSubDep1DefaultFactory();
 		factoryDelSubDep2 = new CFBamDelSubDep2DefaultFactory();
@@ -922,6 +1031,10 @@ public class CFBamSchema
 		factoryUInt64Def = new CFBamUInt64DefDefaultFactory();
 		factoryUInt64Type = new CFBamUInt64TypeDefaultFactory();
 		factoryURLProtocol = new CFBamURLProtocolDefaultFactory();
+		factoryUuid6Col = new CFBamUuid6ColDefaultFactory();
+		factoryUuid6Def = new CFBamUuid6DefDefaultFactory();
+		factoryUuid6Gen = new CFBamUuid6GenDefaultFactory();
+		factoryUuid6Type = new CFBamUuid6TypeDefaultFactory();
 		factoryUuidCol = new CFBamUuidColDefaultFactory();
 		factoryUuidDef = new CFBamUuidDefDefaultFactory();
 		factoryUuidGen = new CFBamUuidGenDefaultFactory();
@@ -955,6 +1068,30 @@ public class CFBamSchema
 		tableDateCol = null;
 		tableDateDef = null;
 		tableDateType = null;
+		tableDbKeyHash128Col = null;
+		tableDbKeyHash128Def = null;
+		tableDbKeyHash128Gen = null;
+		tableDbKeyHash128Type = null;
+		tableDbKeyHash160Col = null;
+		tableDbKeyHash160Def = null;
+		tableDbKeyHash160Gen = null;
+		tableDbKeyHash160Type = null;
+		tableDbKeyHash224Col = null;
+		tableDbKeyHash224Def = null;
+		tableDbKeyHash224Gen = null;
+		tableDbKeyHash224Type = null;
+		tableDbKeyHash256Col = null;
+		tableDbKeyHash256Def = null;
+		tableDbKeyHash256Gen = null;
+		tableDbKeyHash256Type = null;
+		tableDbKeyHash384Col = null;
+		tableDbKeyHash384Def = null;
+		tableDbKeyHash384Gen = null;
+		tableDbKeyHash384Type = null;
+		tableDbKeyHash512Col = null;
+		tableDbKeyHash512Def = null;
+		tableDbKeyHash512Gen = null;
+		tableDbKeyHash512Type = null;
 		tableDelDep = null;
 		tableDelSubDep1 = null;
 		tableDelSubDep2 = null;
@@ -1074,6 +1211,10 @@ public class CFBamSchema
 		tableUInt64Def = null;
 		tableUInt64Type = null;
 		tableURLProtocol = null;
+		tableUuid6Col = null;
+		tableUuid6Def = null;
+		tableUuid6Gen = null;
+		tableUuid6Type = null;
 		tableUuidCol = null;
 		tableUuidDef = null;
 		tableUuidGen = null;
@@ -1097,6 +1238,30 @@ public class CFBamSchema
 		factoryDateCol = new CFBamDateColDefaultFactory();
 		factoryDateDef = new CFBamDateDefDefaultFactory();
 		factoryDateType = new CFBamDateTypeDefaultFactory();
+		factoryDbKeyHash128Col = new CFBamDbKeyHash128ColDefaultFactory();
+		factoryDbKeyHash128Def = new CFBamDbKeyHash128DefDefaultFactory();
+		factoryDbKeyHash128Gen = new CFBamDbKeyHash128GenDefaultFactory();
+		factoryDbKeyHash128Type = new CFBamDbKeyHash128TypeDefaultFactory();
+		factoryDbKeyHash160Col = new CFBamDbKeyHash160ColDefaultFactory();
+		factoryDbKeyHash160Def = new CFBamDbKeyHash160DefDefaultFactory();
+		factoryDbKeyHash160Gen = new CFBamDbKeyHash160GenDefaultFactory();
+		factoryDbKeyHash160Type = new CFBamDbKeyHash160TypeDefaultFactory();
+		factoryDbKeyHash224Col = new CFBamDbKeyHash224ColDefaultFactory();
+		factoryDbKeyHash224Def = new CFBamDbKeyHash224DefDefaultFactory();
+		factoryDbKeyHash224Gen = new CFBamDbKeyHash224GenDefaultFactory();
+		factoryDbKeyHash224Type = new CFBamDbKeyHash224TypeDefaultFactory();
+		factoryDbKeyHash256Col = new CFBamDbKeyHash256ColDefaultFactory();
+		factoryDbKeyHash256Def = new CFBamDbKeyHash256DefDefaultFactory();
+		factoryDbKeyHash256Gen = new CFBamDbKeyHash256GenDefaultFactory();
+		factoryDbKeyHash256Type = new CFBamDbKeyHash256TypeDefaultFactory();
+		factoryDbKeyHash384Col = new CFBamDbKeyHash384ColDefaultFactory();
+		factoryDbKeyHash384Def = new CFBamDbKeyHash384DefDefaultFactory();
+		factoryDbKeyHash384Gen = new CFBamDbKeyHash384GenDefaultFactory();
+		factoryDbKeyHash384Type = new CFBamDbKeyHash384TypeDefaultFactory();
+		factoryDbKeyHash512Col = new CFBamDbKeyHash512ColDefaultFactory();
+		factoryDbKeyHash512Def = new CFBamDbKeyHash512DefDefaultFactory();
+		factoryDbKeyHash512Gen = new CFBamDbKeyHash512GenDefaultFactory();
+		factoryDbKeyHash512Type = new CFBamDbKeyHash512TypeDefaultFactory();
 		factoryDelDep = new CFBamDelDepDefaultFactory();
 		factoryDelSubDep1 = new CFBamDelSubDep1DefaultFactory();
 		factoryDelSubDep2 = new CFBamDelSubDep2DefaultFactory();
@@ -1216,6 +1381,10 @@ public class CFBamSchema
 		factoryUInt64Def = new CFBamUInt64DefDefaultFactory();
 		factoryUInt64Type = new CFBamUInt64TypeDefaultFactory();
 		factoryURLProtocol = new CFBamURLProtocolDefaultFactory();
+		factoryUuid6Col = new CFBamUuid6ColDefaultFactory();
+		factoryUuid6Def = new CFBamUuid6DefDefaultFactory();
+		factoryUuid6Gen = new CFBamUuid6GenDefaultFactory();
+		factoryUuid6Type = new CFBamUuid6TypeDefaultFactory();
 		factoryUuidCol = new CFBamUuidColDefaultFactory();
 		factoryUuidDef = new CFBamUuidDefDefaultFactory();
 		factoryUuidGen = new CFBamUuidGenDefaultFactory();
@@ -1249,6 +1418,30 @@ public class CFBamSchema
 		tableDateCol = null;
 		tableDateDef = null;
 		tableDateType = null;
+		tableDbKeyHash128Col = null;
+		tableDbKeyHash128Def = null;
+		tableDbKeyHash128Gen = null;
+		tableDbKeyHash128Type = null;
+		tableDbKeyHash160Col = null;
+		tableDbKeyHash160Def = null;
+		tableDbKeyHash160Gen = null;
+		tableDbKeyHash160Type = null;
+		tableDbKeyHash224Col = null;
+		tableDbKeyHash224Def = null;
+		tableDbKeyHash224Gen = null;
+		tableDbKeyHash224Type = null;
+		tableDbKeyHash256Col = null;
+		tableDbKeyHash256Def = null;
+		tableDbKeyHash256Gen = null;
+		tableDbKeyHash256Type = null;
+		tableDbKeyHash384Col = null;
+		tableDbKeyHash384Def = null;
+		tableDbKeyHash384Gen = null;
+		tableDbKeyHash384Type = null;
+		tableDbKeyHash512Col = null;
+		tableDbKeyHash512Def = null;
+		tableDbKeyHash512Gen = null;
+		tableDbKeyHash512Type = null;
 		tableDelDep = null;
 		tableDelSubDep1 = null;
 		tableDelSubDep2 = null;
@@ -1368,6 +1561,10 @@ public class CFBamSchema
 		tableUInt64Def = null;
 		tableUInt64Type = null;
 		tableURLProtocol = null;
+		tableUuid6Col = null;
+		tableUuid6Def = null;
+		tableUuid6Gen = null;
+		tableUuid6Type = null;
 		tableUuidCol = null;
 		tableUuidDef = null;
 		tableUuidGen = null;
@@ -1391,6 +1588,30 @@ public class CFBamSchema
 		factoryDateCol = new CFBamDateColDefaultFactory();
 		factoryDateDef = new CFBamDateDefDefaultFactory();
 		factoryDateType = new CFBamDateTypeDefaultFactory();
+		factoryDbKeyHash128Col = new CFBamDbKeyHash128ColDefaultFactory();
+		factoryDbKeyHash128Def = new CFBamDbKeyHash128DefDefaultFactory();
+		factoryDbKeyHash128Gen = new CFBamDbKeyHash128GenDefaultFactory();
+		factoryDbKeyHash128Type = new CFBamDbKeyHash128TypeDefaultFactory();
+		factoryDbKeyHash160Col = new CFBamDbKeyHash160ColDefaultFactory();
+		factoryDbKeyHash160Def = new CFBamDbKeyHash160DefDefaultFactory();
+		factoryDbKeyHash160Gen = new CFBamDbKeyHash160GenDefaultFactory();
+		factoryDbKeyHash160Type = new CFBamDbKeyHash160TypeDefaultFactory();
+		factoryDbKeyHash224Col = new CFBamDbKeyHash224ColDefaultFactory();
+		factoryDbKeyHash224Def = new CFBamDbKeyHash224DefDefaultFactory();
+		factoryDbKeyHash224Gen = new CFBamDbKeyHash224GenDefaultFactory();
+		factoryDbKeyHash224Type = new CFBamDbKeyHash224TypeDefaultFactory();
+		factoryDbKeyHash256Col = new CFBamDbKeyHash256ColDefaultFactory();
+		factoryDbKeyHash256Def = new CFBamDbKeyHash256DefDefaultFactory();
+		factoryDbKeyHash256Gen = new CFBamDbKeyHash256GenDefaultFactory();
+		factoryDbKeyHash256Type = new CFBamDbKeyHash256TypeDefaultFactory();
+		factoryDbKeyHash384Col = new CFBamDbKeyHash384ColDefaultFactory();
+		factoryDbKeyHash384Def = new CFBamDbKeyHash384DefDefaultFactory();
+		factoryDbKeyHash384Gen = new CFBamDbKeyHash384GenDefaultFactory();
+		factoryDbKeyHash384Type = new CFBamDbKeyHash384TypeDefaultFactory();
+		factoryDbKeyHash512Col = new CFBamDbKeyHash512ColDefaultFactory();
+		factoryDbKeyHash512Def = new CFBamDbKeyHash512DefDefaultFactory();
+		factoryDbKeyHash512Gen = new CFBamDbKeyHash512GenDefaultFactory();
+		factoryDbKeyHash512Type = new CFBamDbKeyHash512TypeDefaultFactory();
 		factoryDelDep = new CFBamDelDepDefaultFactory();
 		factoryDelSubDep1 = new CFBamDelSubDep1DefaultFactory();
 		factoryDelSubDep2 = new CFBamDelSubDep2DefaultFactory();
@@ -1510,6 +1731,10 @@ public class CFBamSchema
 		factoryUInt64Def = new CFBamUInt64DefDefaultFactory();
 		factoryUInt64Type = new CFBamUInt64TypeDefaultFactory();
 		factoryURLProtocol = new CFBamURLProtocolDefaultFactory();
+		factoryUuid6Col = new CFBamUuid6ColDefaultFactory();
+		factoryUuid6Def = new CFBamUuid6DefDefaultFactory();
+		factoryUuid6Gen = new CFBamUuid6GenDefaultFactory();
+		factoryUuid6Type = new CFBamUuid6TypeDefaultFactory();
 		factoryUuidCol = new CFBamUuidColDefaultFactory();
 		factoryUuidDef = new CFBamUuidDefDefaultFactory();
 		factoryUuidGen = new CFBamUuidGenDefaultFactory();
@@ -1925,6 +2150,390 @@ public class CFBamSchema
 
 	public void setFactoryDateType( ICFBamDateTypeFactory value ) {
 		factoryDateType = value;
+	}
+
+	public ICFBamDbKeyHash128ColTable getTableDbKeyHash128Col() {
+		return( tableDbKeyHash128Col );
+	}
+
+	public void setTableDbKeyHash128Col( ICFBamDbKeyHash128ColTable value ) {
+		tableDbKeyHash128Col = value;
+	}
+
+	public ICFBamDbKeyHash128ColFactory getFactoryDbKeyHash128Col() {
+		return( factoryDbKeyHash128Col );
+	}
+
+	public void setFactoryDbKeyHash128Col( ICFBamDbKeyHash128ColFactory value ) {
+		factoryDbKeyHash128Col = value;
+	}
+
+	public ICFBamDbKeyHash128DefTable getTableDbKeyHash128Def() {
+		return( tableDbKeyHash128Def );
+	}
+
+	public void setTableDbKeyHash128Def( ICFBamDbKeyHash128DefTable value ) {
+		tableDbKeyHash128Def = value;
+	}
+
+	public ICFBamDbKeyHash128DefFactory getFactoryDbKeyHash128Def() {
+		return( factoryDbKeyHash128Def );
+	}
+
+	public void setFactoryDbKeyHash128Def( ICFBamDbKeyHash128DefFactory value ) {
+		factoryDbKeyHash128Def = value;
+	}
+
+	public ICFBamDbKeyHash128GenTable getTableDbKeyHash128Gen() {
+		return( tableDbKeyHash128Gen );
+	}
+
+	public void setTableDbKeyHash128Gen( ICFBamDbKeyHash128GenTable value ) {
+		tableDbKeyHash128Gen = value;
+	}
+
+	public ICFBamDbKeyHash128GenFactory getFactoryDbKeyHash128Gen() {
+		return( factoryDbKeyHash128Gen );
+	}
+
+	public void setFactoryDbKeyHash128Gen( ICFBamDbKeyHash128GenFactory value ) {
+		factoryDbKeyHash128Gen = value;
+	}
+
+	public ICFBamDbKeyHash128TypeTable getTableDbKeyHash128Type() {
+		return( tableDbKeyHash128Type );
+	}
+
+	public void setTableDbKeyHash128Type( ICFBamDbKeyHash128TypeTable value ) {
+		tableDbKeyHash128Type = value;
+	}
+
+	public ICFBamDbKeyHash128TypeFactory getFactoryDbKeyHash128Type() {
+		return( factoryDbKeyHash128Type );
+	}
+
+	public void setFactoryDbKeyHash128Type( ICFBamDbKeyHash128TypeFactory value ) {
+		factoryDbKeyHash128Type = value;
+	}
+
+	public ICFBamDbKeyHash160ColTable getTableDbKeyHash160Col() {
+		return( tableDbKeyHash160Col );
+	}
+
+	public void setTableDbKeyHash160Col( ICFBamDbKeyHash160ColTable value ) {
+		tableDbKeyHash160Col = value;
+	}
+
+	public ICFBamDbKeyHash160ColFactory getFactoryDbKeyHash160Col() {
+		return( factoryDbKeyHash160Col );
+	}
+
+	public void setFactoryDbKeyHash160Col( ICFBamDbKeyHash160ColFactory value ) {
+		factoryDbKeyHash160Col = value;
+	}
+
+	public ICFBamDbKeyHash160DefTable getTableDbKeyHash160Def() {
+		return( tableDbKeyHash160Def );
+	}
+
+	public void setTableDbKeyHash160Def( ICFBamDbKeyHash160DefTable value ) {
+		tableDbKeyHash160Def = value;
+	}
+
+	public ICFBamDbKeyHash160DefFactory getFactoryDbKeyHash160Def() {
+		return( factoryDbKeyHash160Def );
+	}
+
+	public void setFactoryDbKeyHash160Def( ICFBamDbKeyHash160DefFactory value ) {
+		factoryDbKeyHash160Def = value;
+	}
+
+	public ICFBamDbKeyHash160GenTable getTableDbKeyHash160Gen() {
+		return( tableDbKeyHash160Gen );
+	}
+
+	public void setTableDbKeyHash160Gen( ICFBamDbKeyHash160GenTable value ) {
+		tableDbKeyHash160Gen = value;
+	}
+
+	public ICFBamDbKeyHash160GenFactory getFactoryDbKeyHash160Gen() {
+		return( factoryDbKeyHash160Gen );
+	}
+
+	public void setFactoryDbKeyHash160Gen( ICFBamDbKeyHash160GenFactory value ) {
+		factoryDbKeyHash160Gen = value;
+	}
+
+	public ICFBamDbKeyHash160TypeTable getTableDbKeyHash160Type() {
+		return( tableDbKeyHash160Type );
+	}
+
+	public void setTableDbKeyHash160Type( ICFBamDbKeyHash160TypeTable value ) {
+		tableDbKeyHash160Type = value;
+	}
+
+	public ICFBamDbKeyHash160TypeFactory getFactoryDbKeyHash160Type() {
+		return( factoryDbKeyHash160Type );
+	}
+
+	public void setFactoryDbKeyHash160Type( ICFBamDbKeyHash160TypeFactory value ) {
+		factoryDbKeyHash160Type = value;
+	}
+
+	public ICFBamDbKeyHash224ColTable getTableDbKeyHash224Col() {
+		return( tableDbKeyHash224Col );
+	}
+
+	public void setTableDbKeyHash224Col( ICFBamDbKeyHash224ColTable value ) {
+		tableDbKeyHash224Col = value;
+	}
+
+	public ICFBamDbKeyHash224ColFactory getFactoryDbKeyHash224Col() {
+		return( factoryDbKeyHash224Col );
+	}
+
+	public void setFactoryDbKeyHash224Col( ICFBamDbKeyHash224ColFactory value ) {
+		factoryDbKeyHash224Col = value;
+	}
+
+	public ICFBamDbKeyHash224DefTable getTableDbKeyHash224Def() {
+		return( tableDbKeyHash224Def );
+	}
+
+	public void setTableDbKeyHash224Def( ICFBamDbKeyHash224DefTable value ) {
+		tableDbKeyHash224Def = value;
+	}
+
+	public ICFBamDbKeyHash224DefFactory getFactoryDbKeyHash224Def() {
+		return( factoryDbKeyHash224Def );
+	}
+
+	public void setFactoryDbKeyHash224Def( ICFBamDbKeyHash224DefFactory value ) {
+		factoryDbKeyHash224Def = value;
+	}
+
+	public ICFBamDbKeyHash224GenTable getTableDbKeyHash224Gen() {
+		return( tableDbKeyHash224Gen );
+	}
+
+	public void setTableDbKeyHash224Gen( ICFBamDbKeyHash224GenTable value ) {
+		tableDbKeyHash224Gen = value;
+	}
+
+	public ICFBamDbKeyHash224GenFactory getFactoryDbKeyHash224Gen() {
+		return( factoryDbKeyHash224Gen );
+	}
+
+	public void setFactoryDbKeyHash224Gen( ICFBamDbKeyHash224GenFactory value ) {
+		factoryDbKeyHash224Gen = value;
+	}
+
+	public ICFBamDbKeyHash224TypeTable getTableDbKeyHash224Type() {
+		return( tableDbKeyHash224Type );
+	}
+
+	public void setTableDbKeyHash224Type( ICFBamDbKeyHash224TypeTable value ) {
+		tableDbKeyHash224Type = value;
+	}
+
+	public ICFBamDbKeyHash224TypeFactory getFactoryDbKeyHash224Type() {
+		return( factoryDbKeyHash224Type );
+	}
+
+	public void setFactoryDbKeyHash224Type( ICFBamDbKeyHash224TypeFactory value ) {
+		factoryDbKeyHash224Type = value;
+	}
+
+	public ICFBamDbKeyHash256ColTable getTableDbKeyHash256Col() {
+		return( tableDbKeyHash256Col );
+	}
+
+	public void setTableDbKeyHash256Col( ICFBamDbKeyHash256ColTable value ) {
+		tableDbKeyHash256Col = value;
+	}
+
+	public ICFBamDbKeyHash256ColFactory getFactoryDbKeyHash256Col() {
+		return( factoryDbKeyHash256Col );
+	}
+
+	public void setFactoryDbKeyHash256Col( ICFBamDbKeyHash256ColFactory value ) {
+		factoryDbKeyHash256Col = value;
+	}
+
+	public ICFBamDbKeyHash256DefTable getTableDbKeyHash256Def() {
+		return( tableDbKeyHash256Def );
+	}
+
+	public void setTableDbKeyHash256Def( ICFBamDbKeyHash256DefTable value ) {
+		tableDbKeyHash256Def = value;
+	}
+
+	public ICFBamDbKeyHash256DefFactory getFactoryDbKeyHash256Def() {
+		return( factoryDbKeyHash256Def );
+	}
+
+	public void setFactoryDbKeyHash256Def( ICFBamDbKeyHash256DefFactory value ) {
+		factoryDbKeyHash256Def = value;
+	}
+
+	public ICFBamDbKeyHash256GenTable getTableDbKeyHash256Gen() {
+		return( tableDbKeyHash256Gen );
+	}
+
+	public void setTableDbKeyHash256Gen( ICFBamDbKeyHash256GenTable value ) {
+		tableDbKeyHash256Gen = value;
+	}
+
+	public ICFBamDbKeyHash256GenFactory getFactoryDbKeyHash256Gen() {
+		return( factoryDbKeyHash256Gen );
+	}
+
+	public void setFactoryDbKeyHash256Gen( ICFBamDbKeyHash256GenFactory value ) {
+		factoryDbKeyHash256Gen = value;
+	}
+
+	public ICFBamDbKeyHash256TypeTable getTableDbKeyHash256Type() {
+		return( tableDbKeyHash256Type );
+	}
+
+	public void setTableDbKeyHash256Type( ICFBamDbKeyHash256TypeTable value ) {
+		tableDbKeyHash256Type = value;
+	}
+
+	public ICFBamDbKeyHash256TypeFactory getFactoryDbKeyHash256Type() {
+		return( factoryDbKeyHash256Type );
+	}
+
+	public void setFactoryDbKeyHash256Type( ICFBamDbKeyHash256TypeFactory value ) {
+		factoryDbKeyHash256Type = value;
+	}
+
+	public ICFBamDbKeyHash384ColTable getTableDbKeyHash384Col() {
+		return( tableDbKeyHash384Col );
+	}
+
+	public void setTableDbKeyHash384Col( ICFBamDbKeyHash384ColTable value ) {
+		tableDbKeyHash384Col = value;
+	}
+
+	public ICFBamDbKeyHash384ColFactory getFactoryDbKeyHash384Col() {
+		return( factoryDbKeyHash384Col );
+	}
+
+	public void setFactoryDbKeyHash384Col( ICFBamDbKeyHash384ColFactory value ) {
+		factoryDbKeyHash384Col = value;
+	}
+
+	public ICFBamDbKeyHash384DefTable getTableDbKeyHash384Def() {
+		return( tableDbKeyHash384Def );
+	}
+
+	public void setTableDbKeyHash384Def( ICFBamDbKeyHash384DefTable value ) {
+		tableDbKeyHash384Def = value;
+	}
+
+	public ICFBamDbKeyHash384DefFactory getFactoryDbKeyHash384Def() {
+		return( factoryDbKeyHash384Def );
+	}
+
+	public void setFactoryDbKeyHash384Def( ICFBamDbKeyHash384DefFactory value ) {
+		factoryDbKeyHash384Def = value;
+	}
+
+	public ICFBamDbKeyHash384GenTable getTableDbKeyHash384Gen() {
+		return( tableDbKeyHash384Gen );
+	}
+
+	public void setTableDbKeyHash384Gen( ICFBamDbKeyHash384GenTable value ) {
+		tableDbKeyHash384Gen = value;
+	}
+
+	public ICFBamDbKeyHash384GenFactory getFactoryDbKeyHash384Gen() {
+		return( factoryDbKeyHash384Gen );
+	}
+
+	public void setFactoryDbKeyHash384Gen( ICFBamDbKeyHash384GenFactory value ) {
+		factoryDbKeyHash384Gen = value;
+	}
+
+	public ICFBamDbKeyHash384TypeTable getTableDbKeyHash384Type() {
+		return( tableDbKeyHash384Type );
+	}
+
+	public void setTableDbKeyHash384Type( ICFBamDbKeyHash384TypeTable value ) {
+		tableDbKeyHash384Type = value;
+	}
+
+	public ICFBamDbKeyHash384TypeFactory getFactoryDbKeyHash384Type() {
+		return( factoryDbKeyHash384Type );
+	}
+
+	public void setFactoryDbKeyHash384Type( ICFBamDbKeyHash384TypeFactory value ) {
+		factoryDbKeyHash384Type = value;
+	}
+
+	public ICFBamDbKeyHash512ColTable getTableDbKeyHash512Col() {
+		return( tableDbKeyHash512Col );
+	}
+
+	public void setTableDbKeyHash512Col( ICFBamDbKeyHash512ColTable value ) {
+		tableDbKeyHash512Col = value;
+	}
+
+	public ICFBamDbKeyHash512ColFactory getFactoryDbKeyHash512Col() {
+		return( factoryDbKeyHash512Col );
+	}
+
+	public void setFactoryDbKeyHash512Col( ICFBamDbKeyHash512ColFactory value ) {
+		factoryDbKeyHash512Col = value;
+	}
+
+	public ICFBamDbKeyHash512DefTable getTableDbKeyHash512Def() {
+		return( tableDbKeyHash512Def );
+	}
+
+	public void setTableDbKeyHash512Def( ICFBamDbKeyHash512DefTable value ) {
+		tableDbKeyHash512Def = value;
+	}
+
+	public ICFBamDbKeyHash512DefFactory getFactoryDbKeyHash512Def() {
+		return( factoryDbKeyHash512Def );
+	}
+
+	public void setFactoryDbKeyHash512Def( ICFBamDbKeyHash512DefFactory value ) {
+		factoryDbKeyHash512Def = value;
+	}
+
+	public ICFBamDbKeyHash512GenTable getTableDbKeyHash512Gen() {
+		return( tableDbKeyHash512Gen );
+	}
+
+	public void setTableDbKeyHash512Gen( ICFBamDbKeyHash512GenTable value ) {
+		tableDbKeyHash512Gen = value;
+	}
+
+	public ICFBamDbKeyHash512GenFactory getFactoryDbKeyHash512Gen() {
+		return( factoryDbKeyHash512Gen );
+	}
+
+	public void setFactoryDbKeyHash512Gen( ICFBamDbKeyHash512GenFactory value ) {
+		factoryDbKeyHash512Gen = value;
+	}
+
+	public ICFBamDbKeyHash512TypeTable getTableDbKeyHash512Type() {
+		return( tableDbKeyHash512Type );
+	}
+
+	public void setTableDbKeyHash512Type( ICFBamDbKeyHash512TypeTable value ) {
+		tableDbKeyHash512Type = value;
+	}
+
+	public ICFBamDbKeyHash512TypeFactory getFactoryDbKeyHash512Type() {
+		return( factoryDbKeyHash512Type );
+	}
+
+	public void setFactoryDbKeyHash512Type( ICFBamDbKeyHash512TypeFactory value ) {
+		factoryDbKeyHash512Type = value;
 	}
 
 	public ICFBamDelDepTable getTableDelDep() {
@@ -3829,6 +4438,70 @@ public class CFBamSchema
 
 	public void setFactoryURLProtocol( ICFIntURLProtocolFactory value ) {
 		factoryURLProtocol = value;
+	}
+
+	public ICFBamUuid6ColTable getTableUuid6Col() {
+		return( tableUuid6Col );
+	}
+
+	public void setTableUuid6Col( ICFBamUuid6ColTable value ) {
+		tableUuid6Col = value;
+	}
+
+	public ICFBamUuid6ColFactory getFactoryUuid6Col() {
+		return( factoryUuid6Col );
+	}
+
+	public void setFactoryUuid6Col( ICFBamUuid6ColFactory value ) {
+		factoryUuid6Col = value;
+	}
+
+	public ICFBamUuid6DefTable getTableUuid6Def() {
+		return( tableUuid6Def );
+	}
+
+	public void setTableUuid6Def( ICFBamUuid6DefTable value ) {
+		tableUuid6Def = value;
+	}
+
+	public ICFBamUuid6DefFactory getFactoryUuid6Def() {
+		return( factoryUuid6Def );
+	}
+
+	public void setFactoryUuid6Def( ICFBamUuid6DefFactory value ) {
+		factoryUuid6Def = value;
+	}
+
+	public ICFBamUuid6GenTable getTableUuid6Gen() {
+		return( tableUuid6Gen );
+	}
+
+	public void setTableUuid6Gen( ICFBamUuid6GenTable value ) {
+		tableUuid6Gen = value;
+	}
+
+	public ICFBamUuid6GenFactory getFactoryUuid6Gen() {
+		return( factoryUuid6Gen );
+	}
+
+	public void setFactoryUuid6Gen( ICFBamUuid6GenFactory value ) {
+		factoryUuid6Gen = value;
+	}
+
+	public ICFBamUuid6TypeTable getTableUuid6Type() {
+		return( tableUuid6Type );
+	}
+
+	public void setTableUuid6Type( ICFBamUuid6TypeTable value ) {
+		tableUuid6Type = value;
+	}
+
+	public ICFBamUuid6TypeFactory getFactoryUuid6Type() {
+		return( factoryUuid6Type );
+	}
+
+	public void setFactoryUuid6Type( ICFBamUuid6TypeFactory value ) {
+		factoryUuid6Type = value;
 	}
 
 	public ICFBamUuidColTable getTableUuidCol() {

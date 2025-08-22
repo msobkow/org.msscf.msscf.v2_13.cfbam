@@ -7,7 +7,7 @@
  *	
  *	MSS Code Factory CFBam 2.13 Business Application Model
  *	
- *	Copyright 2020-2021 Mark Stephen Sobkow
+ *	Copyright 2020 Mark Stephen Sobkow
  *	
  *		This file is part of MSS Code Factory.
  *	
@@ -43,6 +43,7 @@ import java.sql.*;
 import java.text.*;
 import java.util.*;
 import org.msscf.msscf.v2_13.cflib.CFLib.*;
+import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
 import org.msscf.msscf.v2_13.cfsec.CFSec.*;
 import org.msscf.msscf.v2_13.cfint.CFInt.*;
 import org.msscf.msscf.v2_13.cfsec.CFSecObj.*;
@@ -522,7 +523,7 @@ public class CFBamInt64ColTableObj
 			schema.getAuthorization(),
 			buff );
 		obj.copyBuffToPKey();
-		if( obj.getPKey().getClassCode().equals( "a85e" ) ) {
+		if( obj.getPKey().getClassCode().equals( "a877" ) ) {
 			obj = (ICFBamInt64ColObj)(obj.realise());
 		}
 		ICFBamValueObj prev = obj.getOptionalLookupPrev();
@@ -2415,7 +2416,7 @@ public class CFBamInt64ColTableObj
 		ICFBamInt64ColObj obj = Obj;
 		((ICFBamSchema)schema.getBackingStore()).getTableInt64Col().updateInt64Col( schema.getAuthorization(),
 			Obj.getInt64ColBuff() );
-		if( Obj.getClassCode().equals( "a85e" ) ) {
+		if( Obj.getClassCode().equals( "a877" ) ) {
 			obj = (ICFBamInt64ColObj)Obj.realise();
 		}
 		obj.endEdit();

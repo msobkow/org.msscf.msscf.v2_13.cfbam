@@ -7,7 +7,7 @@
  *	
  *	MSS Code Factory CFBam 2.13 Business Application Model
  *	
- *	Copyright 2020-2021 Mark Stephen Sobkow
+ *	Copyright 2020 Mark Stephen Sobkow
  *	
  *		This file is part of MSS Code Factory.
  *	
@@ -45,6 +45,7 @@ import java.sql.*;
 import java.text.*;
 import java.util.*;
 import org.msscf.msscf.v2_13.cflib.CFLib.*;
+import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
 import org.msscf.msscf.v2_13.cfsec.CFSec.*;
 import org.msscf.msscf.v2_13.cfint.CFInt.*;
 
@@ -499,6 +500,678 @@ extends ICFSecTablePerms,
 	 *	@param	Authorization	The session authorization information.
 	 */
 	boolean allowDeleteDateType( CFSecAuthorization Authorization );
+
+	/**
+	 *	Is the session allowed to create DbKeyHash128Col instances?
+	 *
+	 *	@param	Authorization	The session authorization information.
+	 */
+	boolean allowCreateDbKeyHash128Col( CFSecAuthorization Authorization );
+
+	/**
+	 *	Is the session allowed to read DbKeyHash128Col instances?
+	 *
+	 *	@param	Authorization	The session authorization information.
+	 */
+	boolean allowReadDbKeyHash128Col( CFSecAuthorization Authorization );
+
+	/**
+	 *	Is the session allowed to update DbKeyHash128Col instances?
+	 *
+	 *	@param	Authorization	The session authorization information.
+	 */
+	boolean allowUpdateDbKeyHash128Col( CFSecAuthorization Authorization );
+
+	/**
+	 *	Is the session allowed to delete DbKeyHash128Col instances?
+	 *
+	 *	@param	Authorization	The session authorization information.
+	 */
+	boolean allowDeleteDbKeyHash128Col( CFSecAuthorization Authorization );
+
+	/**
+	 *	Is the session allowed to create DbKeyHash128Def instances?
+	 *
+	 *	@param	Authorization	The session authorization information.
+	 */
+	boolean allowCreateDbKeyHash128Def( CFSecAuthorization Authorization );
+
+	/**
+	 *	Is the session allowed to read DbKeyHash128Def instances?
+	 *
+	 *	@param	Authorization	The session authorization information.
+	 */
+	boolean allowReadDbKeyHash128Def( CFSecAuthorization Authorization );
+
+	/**
+	 *	Is the session allowed to update DbKeyHash128Def instances?
+	 *
+	 *	@param	Authorization	The session authorization information.
+	 */
+	boolean allowUpdateDbKeyHash128Def( CFSecAuthorization Authorization );
+
+	/**
+	 *	Is the session allowed to delete DbKeyHash128Def instances?
+	 *
+	 *	@param	Authorization	The session authorization information.
+	 */
+	boolean allowDeleteDbKeyHash128Def( CFSecAuthorization Authorization );
+
+	/**
+	 *	Is the session allowed to create DbKeyHash128Gen instances?
+	 *
+	 *	@param	Authorization	The session authorization information.
+	 */
+	boolean allowCreateDbKeyHash128Gen( CFSecAuthorization Authorization );
+
+	/**
+	 *	Is the session allowed to read DbKeyHash128Gen instances?
+	 *
+	 *	@param	Authorization	The session authorization information.
+	 */
+	boolean allowReadDbKeyHash128Gen( CFSecAuthorization Authorization );
+
+	/**
+	 *	Is the session allowed to update DbKeyHash128Gen instances?
+	 *
+	 *	@param	Authorization	The session authorization information.
+	 */
+	boolean allowUpdateDbKeyHash128Gen( CFSecAuthorization Authorization );
+
+	/**
+	 *	Is the session allowed to delete DbKeyHash128Gen instances?
+	 *
+	 *	@param	Authorization	The session authorization information.
+	 */
+	boolean allowDeleteDbKeyHash128Gen( CFSecAuthorization Authorization );
+
+	/**
+	 *	Is the session allowed to create DbKeyHash128Type instances?
+	 *
+	 *	@param	Authorization	The session authorization information.
+	 */
+	boolean allowCreateDbKeyHash128Type( CFSecAuthorization Authorization );
+
+	/**
+	 *	Is the session allowed to read DbKeyHash128Type instances?
+	 *
+	 *	@param	Authorization	The session authorization information.
+	 */
+	boolean allowReadDbKeyHash128Type( CFSecAuthorization Authorization );
+
+	/**
+	 *	Is the session allowed to update DbKeyHash128Type instances?
+	 *
+	 *	@param	Authorization	The session authorization information.
+	 */
+	boolean allowUpdateDbKeyHash128Type( CFSecAuthorization Authorization );
+
+	/**
+	 *	Is the session allowed to delete DbKeyHash128Type instances?
+	 *
+	 *	@param	Authorization	The session authorization information.
+	 */
+	boolean allowDeleteDbKeyHash128Type( CFSecAuthorization Authorization );
+
+	/**
+	 *	Is the session allowed to create DbKeyHash160Col instances?
+	 *
+	 *	@param	Authorization	The session authorization information.
+	 */
+	boolean allowCreateDbKeyHash160Col( CFSecAuthorization Authorization );
+
+	/**
+	 *	Is the session allowed to read DbKeyHash160Col instances?
+	 *
+	 *	@param	Authorization	The session authorization information.
+	 */
+	boolean allowReadDbKeyHash160Col( CFSecAuthorization Authorization );
+
+	/**
+	 *	Is the session allowed to update DbKeyHash160Col instances?
+	 *
+	 *	@param	Authorization	The session authorization information.
+	 */
+	boolean allowUpdateDbKeyHash160Col( CFSecAuthorization Authorization );
+
+	/**
+	 *	Is the session allowed to delete DbKeyHash160Col instances?
+	 *
+	 *	@param	Authorization	The session authorization information.
+	 */
+	boolean allowDeleteDbKeyHash160Col( CFSecAuthorization Authorization );
+
+	/**
+	 *	Is the session allowed to create DbKeyHash160Def instances?
+	 *
+	 *	@param	Authorization	The session authorization information.
+	 */
+	boolean allowCreateDbKeyHash160Def( CFSecAuthorization Authorization );
+
+	/**
+	 *	Is the session allowed to read DbKeyHash160Def instances?
+	 *
+	 *	@param	Authorization	The session authorization information.
+	 */
+	boolean allowReadDbKeyHash160Def( CFSecAuthorization Authorization );
+
+	/**
+	 *	Is the session allowed to update DbKeyHash160Def instances?
+	 *
+	 *	@param	Authorization	The session authorization information.
+	 */
+	boolean allowUpdateDbKeyHash160Def( CFSecAuthorization Authorization );
+
+	/**
+	 *	Is the session allowed to delete DbKeyHash160Def instances?
+	 *
+	 *	@param	Authorization	The session authorization information.
+	 */
+	boolean allowDeleteDbKeyHash160Def( CFSecAuthorization Authorization );
+
+	/**
+	 *	Is the session allowed to create DbKeyHash160Gen instances?
+	 *
+	 *	@param	Authorization	The session authorization information.
+	 */
+	boolean allowCreateDbKeyHash160Gen( CFSecAuthorization Authorization );
+
+	/**
+	 *	Is the session allowed to read DbKeyHash160Gen instances?
+	 *
+	 *	@param	Authorization	The session authorization information.
+	 */
+	boolean allowReadDbKeyHash160Gen( CFSecAuthorization Authorization );
+
+	/**
+	 *	Is the session allowed to update DbKeyHash160Gen instances?
+	 *
+	 *	@param	Authorization	The session authorization information.
+	 */
+	boolean allowUpdateDbKeyHash160Gen( CFSecAuthorization Authorization );
+
+	/**
+	 *	Is the session allowed to delete DbKeyHash160Gen instances?
+	 *
+	 *	@param	Authorization	The session authorization information.
+	 */
+	boolean allowDeleteDbKeyHash160Gen( CFSecAuthorization Authorization );
+
+	/**
+	 *	Is the session allowed to create DbKeyHash160Type instances?
+	 *
+	 *	@param	Authorization	The session authorization information.
+	 */
+	boolean allowCreateDbKeyHash160Type( CFSecAuthorization Authorization );
+
+	/**
+	 *	Is the session allowed to read DbKeyHash160Type instances?
+	 *
+	 *	@param	Authorization	The session authorization information.
+	 */
+	boolean allowReadDbKeyHash160Type( CFSecAuthorization Authorization );
+
+	/**
+	 *	Is the session allowed to update DbKeyHash160Type instances?
+	 *
+	 *	@param	Authorization	The session authorization information.
+	 */
+	boolean allowUpdateDbKeyHash160Type( CFSecAuthorization Authorization );
+
+	/**
+	 *	Is the session allowed to delete DbKeyHash160Type instances?
+	 *
+	 *	@param	Authorization	The session authorization information.
+	 */
+	boolean allowDeleteDbKeyHash160Type( CFSecAuthorization Authorization );
+
+	/**
+	 *	Is the session allowed to create DbKeyHash224Col instances?
+	 *
+	 *	@param	Authorization	The session authorization information.
+	 */
+	boolean allowCreateDbKeyHash224Col( CFSecAuthorization Authorization );
+
+	/**
+	 *	Is the session allowed to read DbKeyHash224Col instances?
+	 *
+	 *	@param	Authorization	The session authorization information.
+	 */
+	boolean allowReadDbKeyHash224Col( CFSecAuthorization Authorization );
+
+	/**
+	 *	Is the session allowed to update DbKeyHash224Col instances?
+	 *
+	 *	@param	Authorization	The session authorization information.
+	 */
+	boolean allowUpdateDbKeyHash224Col( CFSecAuthorization Authorization );
+
+	/**
+	 *	Is the session allowed to delete DbKeyHash224Col instances?
+	 *
+	 *	@param	Authorization	The session authorization information.
+	 */
+	boolean allowDeleteDbKeyHash224Col( CFSecAuthorization Authorization );
+
+	/**
+	 *	Is the session allowed to create DbKeyHash224Def instances?
+	 *
+	 *	@param	Authorization	The session authorization information.
+	 */
+	boolean allowCreateDbKeyHash224Def( CFSecAuthorization Authorization );
+
+	/**
+	 *	Is the session allowed to read DbKeyHash224Def instances?
+	 *
+	 *	@param	Authorization	The session authorization information.
+	 */
+	boolean allowReadDbKeyHash224Def( CFSecAuthorization Authorization );
+
+	/**
+	 *	Is the session allowed to update DbKeyHash224Def instances?
+	 *
+	 *	@param	Authorization	The session authorization information.
+	 */
+	boolean allowUpdateDbKeyHash224Def( CFSecAuthorization Authorization );
+
+	/**
+	 *	Is the session allowed to delete DbKeyHash224Def instances?
+	 *
+	 *	@param	Authorization	The session authorization information.
+	 */
+	boolean allowDeleteDbKeyHash224Def( CFSecAuthorization Authorization );
+
+	/**
+	 *	Is the session allowed to create DbKeyHash224Gen instances?
+	 *
+	 *	@param	Authorization	The session authorization information.
+	 */
+	boolean allowCreateDbKeyHash224Gen( CFSecAuthorization Authorization );
+
+	/**
+	 *	Is the session allowed to read DbKeyHash224Gen instances?
+	 *
+	 *	@param	Authorization	The session authorization information.
+	 */
+	boolean allowReadDbKeyHash224Gen( CFSecAuthorization Authorization );
+
+	/**
+	 *	Is the session allowed to update DbKeyHash224Gen instances?
+	 *
+	 *	@param	Authorization	The session authorization information.
+	 */
+	boolean allowUpdateDbKeyHash224Gen( CFSecAuthorization Authorization );
+
+	/**
+	 *	Is the session allowed to delete DbKeyHash224Gen instances?
+	 *
+	 *	@param	Authorization	The session authorization information.
+	 */
+	boolean allowDeleteDbKeyHash224Gen( CFSecAuthorization Authorization );
+
+	/**
+	 *	Is the session allowed to create DbKeyHash224Type instances?
+	 *
+	 *	@param	Authorization	The session authorization information.
+	 */
+	boolean allowCreateDbKeyHash224Type( CFSecAuthorization Authorization );
+
+	/**
+	 *	Is the session allowed to read DbKeyHash224Type instances?
+	 *
+	 *	@param	Authorization	The session authorization information.
+	 */
+	boolean allowReadDbKeyHash224Type( CFSecAuthorization Authorization );
+
+	/**
+	 *	Is the session allowed to update DbKeyHash224Type instances?
+	 *
+	 *	@param	Authorization	The session authorization information.
+	 */
+	boolean allowUpdateDbKeyHash224Type( CFSecAuthorization Authorization );
+
+	/**
+	 *	Is the session allowed to delete DbKeyHash224Type instances?
+	 *
+	 *	@param	Authorization	The session authorization information.
+	 */
+	boolean allowDeleteDbKeyHash224Type( CFSecAuthorization Authorization );
+
+	/**
+	 *	Is the session allowed to create DbKeyHash256Col instances?
+	 *
+	 *	@param	Authorization	The session authorization information.
+	 */
+	boolean allowCreateDbKeyHash256Col( CFSecAuthorization Authorization );
+
+	/**
+	 *	Is the session allowed to read DbKeyHash256Col instances?
+	 *
+	 *	@param	Authorization	The session authorization information.
+	 */
+	boolean allowReadDbKeyHash256Col( CFSecAuthorization Authorization );
+
+	/**
+	 *	Is the session allowed to update DbKeyHash256Col instances?
+	 *
+	 *	@param	Authorization	The session authorization information.
+	 */
+	boolean allowUpdateDbKeyHash256Col( CFSecAuthorization Authorization );
+
+	/**
+	 *	Is the session allowed to delete DbKeyHash256Col instances?
+	 *
+	 *	@param	Authorization	The session authorization information.
+	 */
+	boolean allowDeleteDbKeyHash256Col( CFSecAuthorization Authorization );
+
+	/**
+	 *	Is the session allowed to create DbKeyHash256Def instances?
+	 *
+	 *	@param	Authorization	The session authorization information.
+	 */
+	boolean allowCreateDbKeyHash256Def( CFSecAuthorization Authorization );
+
+	/**
+	 *	Is the session allowed to read DbKeyHash256Def instances?
+	 *
+	 *	@param	Authorization	The session authorization information.
+	 */
+	boolean allowReadDbKeyHash256Def( CFSecAuthorization Authorization );
+
+	/**
+	 *	Is the session allowed to update DbKeyHash256Def instances?
+	 *
+	 *	@param	Authorization	The session authorization information.
+	 */
+	boolean allowUpdateDbKeyHash256Def( CFSecAuthorization Authorization );
+
+	/**
+	 *	Is the session allowed to delete DbKeyHash256Def instances?
+	 *
+	 *	@param	Authorization	The session authorization information.
+	 */
+	boolean allowDeleteDbKeyHash256Def( CFSecAuthorization Authorization );
+
+	/**
+	 *	Is the session allowed to create DbKeyHash256Gen instances?
+	 *
+	 *	@param	Authorization	The session authorization information.
+	 */
+	boolean allowCreateDbKeyHash256Gen( CFSecAuthorization Authorization );
+
+	/**
+	 *	Is the session allowed to read DbKeyHash256Gen instances?
+	 *
+	 *	@param	Authorization	The session authorization information.
+	 */
+	boolean allowReadDbKeyHash256Gen( CFSecAuthorization Authorization );
+
+	/**
+	 *	Is the session allowed to update DbKeyHash256Gen instances?
+	 *
+	 *	@param	Authorization	The session authorization information.
+	 */
+	boolean allowUpdateDbKeyHash256Gen( CFSecAuthorization Authorization );
+
+	/**
+	 *	Is the session allowed to delete DbKeyHash256Gen instances?
+	 *
+	 *	@param	Authorization	The session authorization information.
+	 */
+	boolean allowDeleteDbKeyHash256Gen( CFSecAuthorization Authorization );
+
+	/**
+	 *	Is the session allowed to create DbKeyHash256Type instances?
+	 *
+	 *	@param	Authorization	The session authorization information.
+	 */
+	boolean allowCreateDbKeyHash256Type( CFSecAuthorization Authorization );
+
+	/**
+	 *	Is the session allowed to read DbKeyHash256Type instances?
+	 *
+	 *	@param	Authorization	The session authorization information.
+	 */
+	boolean allowReadDbKeyHash256Type( CFSecAuthorization Authorization );
+
+	/**
+	 *	Is the session allowed to update DbKeyHash256Type instances?
+	 *
+	 *	@param	Authorization	The session authorization information.
+	 */
+	boolean allowUpdateDbKeyHash256Type( CFSecAuthorization Authorization );
+
+	/**
+	 *	Is the session allowed to delete DbKeyHash256Type instances?
+	 *
+	 *	@param	Authorization	The session authorization information.
+	 */
+	boolean allowDeleteDbKeyHash256Type( CFSecAuthorization Authorization );
+
+	/**
+	 *	Is the session allowed to create DbKeyHash384Col instances?
+	 *
+	 *	@param	Authorization	The session authorization information.
+	 */
+	boolean allowCreateDbKeyHash384Col( CFSecAuthorization Authorization );
+
+	/**
+	 *	Is the session allowed to read DbKeyHash384Col instances?
+	 *
+	 *	@param	Authorization	The session authorization information.
+	 */
+	boolean allowReadDbKeyHash384Col( CFSecAuthorization Authorization );
+
+	/**
+	 *	Is the session allowed to update DbKeyHash384Col instances?
+	 *
+	 *	@param	Authorization	The session authorization information.
+	 */
+	boolean allowUpdateDbKeyHash384Col( CFSecAuthorization Authorization );
+
+	/**
+	 *	Is the session allowed to delete DbKeyHash384Col instances?
+	 *
+	 *	@param	Authorization	The session authorization information.
+	 */
+	boolean allowDeleteDbKeyHash384Col( CFSecAuthorization Authorization );
+
+	/**
+	 *	Is the session allowed to create DbKeyHash384Def instances?
+	 *
+	 *	@param	Authorization	The session authorization information.
+	 */
+	boolean allowCreateDbKeyHash384Def( CFSecAuthorization Authorization );
+
+	/**
+	 *	Is the session allowed to read DbKeyHash384Def instances?
+	 *
+	 *	@param	Authorization	The session authorization information.
+	 */
+	boolean allowReadDbKeyHash384Def( CFSecAuthorization Authorization );
+
+	/**
+	 *	Is the session allowed to update DbKeyHash384Def instances?
+	 *
+	 *	@param	Authorization	The session authorization information.
+	 */
+	boolean allowUpdateDbKeyHash384Def( CFSecAuthorization Authorization );
+
+	/**
+	 *	Is the session allowed to delete DbKeyHash384Def instances?
+	 *
+	 *	@param	Authorization	The session authorization information.
+	 */
+	boolean allowDeleteDbKeyHash384Def( CFSecAuthorization Authorization );
+
+	/**
+	 *	Is the session allowed to create DbKeyHash384Gen instances?
+	 *
+	 *	@param	Authorization	The session authorization information.
+	 */
+	boolean allowCreateDbKeyHash384Gen( CFSecAuthorization Authorization );
+
+	/**
+	 *	Is the session allowed to read DbKeyHash384Gen instances?
+	 *
+	 *	@param	Authorization	The session authorization information.
+	 */
+	boolean allowReadDbKeyHash384Gen( CFSecAuthorization Authorization );
+
+	/**
+	 *	Is the session allowed to update DbKeyHash384Gen instances?
+	 *
+	 *	@param	Authorization	The session authorization information.
+	 */
+	boolean allowUpdateDbKeyHash384Gen( CFSecAuthorization Authorization );
+
+	/**
+	 *	Is the session allowed to delete DbKeyHash384Gen instances?
+	 *
+	 *	@param	Authorization	The session authorization information.
+	 */
+	boolean allowDeleteDbKeyHash384Gen( CFSecAuthorization Authorization );
+
+	/**
+	 *	Is the session allowed to create DbKeyHash384Type instances?
+	 *
+	 *	@param	Authorization	The session authorization information.
+	 */
+	boolean allowCreateDbKeyHash384Type( CFSecAuthorization Authorization );
+
+	/**
+	 *	Is the session allowed to read DbKeyHash384Type instances?
+	 *
+	 *	@param	Authorization	The session authorization information.
+	 */
+	boolean allowReadDbKeyHash384Type( CFSecAuthorization Authorization );
+
+	/**
+	 *	Is the session allowed to update DbKeyHash384Type instances?
+	 *
+	 *	@param	Authorization	The session authorization information.
+	 */
+	boolean allowUpdateDbKeyHash384Type( CFSecAuthorization Authorization );
+
+	/**
+	 *	Is the session allowed to delete DbKeyHash384Type instances?
+	 *
+	 *	@param	Authorization	The session authorization information.
+	 */
+	boolean allowDeleteDbKeyHash384Type( CFSecAuthorization Authorization );
+
+	/**
+	 *	Is the session allowed to create DbKeyHash512Col instances?
+	 *
+	 *	@param	Authorization	The session authorization information.
+	 */
+	boolean allowCreateDbKeyHash512Col( CFSecAuthorization Authorization );
+
+	/**
+	 *	Is the session allowed to read DbKeyHash512Col instances?
+	 *
+	 *	@param	Authorization	The session authorization information.
+	 */
+	boolean allowReadDbKeyHash512Col( CFSecAuthorization Authorization );
+
+	/**
+	 *	Is the session allowed to update DbKeyHash512Col instances?
+	 *
+	 *	@param	Authorization	The session authorization information.
+	 */
+	boolean allowUpdateDbKeyHash512Col( CFSecAuthorization Authorization );
+
+	/**
+	 *	Is the session allowed to delete DbKeyHash512Col instances?
+	 *
+	 *	@param	Authorization	The session authorization information.
+	 */
+	boolean allowDeleteDbKeyHash512Col( CFSecAuthorization Authorization );
+
+	/**
+	 *	Is the session allowed to create DbKeyHash512Def instances?
+	 *
+	 *	@param	Authorization	The session authorization information.
+	 */
+	boolean allowCreateDbKeyHash512Def( CFSecAuthorization Authorization );
+
+	/**
+	 *	Is the session allowed to read DbKeyHash512Def instances?
+	 *
+	 *	@param	Authorization	The session authorization information.
+	 */
+	boolean allowReadDbKeyHash512Def( CFSecAuthorization Authorization );
+
+	/**
+	 *	Is the session allowed to update DbKeyHash512Def instances?
+	 *
+	 *	@param	Authorization	The session authorization information.
+	 */
+	boolean allowUpdateDbKeyHash512Def( CFSecAuthorization Authorization );
+
+	/**
+	 *	Is the session allowed to delete DbKeyHash512Def instances?
+	 *
+	 *	@param	Authorization	The session authorization information.
+	 */
+	boolean allowDeleteDbKeyHash512Def( CFSecAuthorization Authorization );
+
+	/**
+	 *	Is the session allowed to create DbKeyHash512Gen instances?
+	 *
+	 *	@param	Authorization	The session authorization information.
+	 */
+	boolean allowCreateDbKeyHash512Gen( CFSecAuthorization Authorization );
+
+	/**
+	 *	Is the session allowed to read DbKeyHash512Gen instances?
+	 *
+	 *	@param	Authorization	The session authorization information.
+	 */
+	boolean allowReadDbKeyHash512Gen( CFSecAuthorization Authorization );
+
+	/**
+	 *	Is the session allowed to update DbKeyHash512Gen instances?
+	 *
+	 *	@param	Authorization	The session authorization information.
+	 */
+	boolean allowUpdateDbKeyHash512Gen( CFSecAuthorization Authorization );
+
+	/**
+	 *	Is the session allowed to delete DbKeyHash512Gen instances?
+	 *
+	 *	@param	Authorization	The session authorization information.
+	 */
+	boolean allowDeleteDbKeyHash512Gen( CFSecAuthorization Authorization );
+
+	/**
+	 *	Is the session allowed to create DbKeyHash512Type instances?
+	 *
+	 *	@param	Authorization	The session authorization information.
+	 */
+	boolean allowCreateDbKeyHash512Type( CFSecAuthorization Authorization );
+
+	/**
+	 *	Is the session allowed to read DbKeyHash512Type instances?
+	 *
+	 *	@param	Authorization	The session authorization information.
+	 */
+	boolean allowReadDbKeyHash512Type( CFSecAuthorization Authorization );
+
+	/**
+	 *	Is the session allowed to update DbKeyHash512Type instances?
+	 *
+	 *	@param	Authorization	The session authorization information.
+	 */
+	boolean allowUpdateDbKeyHash512Type( CFSecAuthorization Authorization );
+
+	/**
+	 *	Is the session allowed to delete DbKeyHash512Type instances?
+	 *
+	 *	@param	Authorization	The session authorization information.
+	 */
+	boolean allowDeleteDbKeyHash512Type( CFSecAuthorization Authorization );
 
 	/**
 	 *	Is the session allowed to create DelDep instances?
@@ -2935,6 +3608,118 @@ extends ICFSecTablePerms,
 	 *	@param	Authorization	The session authorization information.
 	 */
 	boolean allowDeleteUInt64Type( CFSecAuthorization Authorization );
+
+	/**
+	 *	Is the session allowed to create Uuid6Col instances?
+	 *
+	 *	@param	Authorization	The session authorization information.
+	 */
+	boolean allowCreateUuid6Col( CFSecAuthorization Authorization );
+
+	/**
+	 *	Is the session allowed to read Uuid6Col instances?
+	 *
+	 *	@param	Authorization	The session authorization information.
+	 */
+	boolean allowReadUuid6Col( CFSecAuthorization Authorization );
+
+	/**
+	 *	Is the session allowed to update Uuid6Col instances?
+	 *
+	 *	@param	Authorization	The session authorization information.
+	 */
+	boolean allowUpdateUuid6Col( CFSecAuthorization Authorization );
+
+	/**
+	 *	Is the session allowed to delete Uuid6Col instances?
+	 *
+	 *	@param	Authorization	The session authorization information.
+	 */
+	boolean allowDeleteUuid6Col( CFSecAuthorization Authorization );
+
+	/**
+	 *	Is the session allowed to create Uuid6Def instances?
+	 *
+	 *	@param	Authorization	The session authorization information.
+	 */
+	boolean allowCreateUuid6Def( CFSecAuthorization Authorization );
+
+	/**
+	 *	Is the session allowed to read Uuid6Def instances?
+	 *
+	 *	@param	Authorization	The session authorization information.
+	 */
+	boolean allowReadUuid6Def( CFSecAuthorization Authorization );
+
+	/**
+	 *	Is the session allowed to update Uuid6Def instances?
+	 *
+	 *	@param	Authorization	The session authorization information.
+	 */
+	boolean allowUpdateUuid6Def( CFSecAuthorization Authorization );
+
+	/**
+	 *	Is the session allowed to delete Uuid6Def instances?
+	 *
+	 *	@param	Authorization	The session authorization information.
+	 */
+	boolean allowDeleteUuid6Def( CFSecAuthorization Authorization );
+
+	/**
+	 *	Is the session allowed to create Uuid6Gen instances?
+	 *
+	 *	@param	Authorization	The session authorization information.
+	 */
+	boolean allowCreateUuid6Gen( CFSecAuthorization Authorization );
+
+	/**
+	 *	Is the session allowed to read Uuid6Gen instances?
+	 *
+	 *	@param	Authorization	The session authorization information.
+	 */
+	boolean allowReadUuid6Gen( CFSecAuthorization Authorization );
+
+	/**
+	 *	Is the session allowed to update Uuid6Gen instances?
+	 *
+	 *	@param	Authorization	The session authorization information.
+	 */
+	boolean allowUpdateUuid6Gen( CFSecAuthorization Authorization );
+
+	/**
+	 *	Is the session allowed to delete Uuid6Gen instances?
+	 *
+	 *	@param	Authorization	The session authorization information.
+	 */
+	boolean allowDeleteUuid6Gen( CFSecAuthorization Authorization );
+
+	/**
+	 *	Is the session allowed to create Uuid6Type instances?
+	 *
+	 *	@param	Authorization	The session authorization information.
+	 */
+	boolean allowCreateUuid6Type( CFSecAuthorization Authorization );
+
+	/**
+	 *	Is the session allowed to read Uuid6Type instances?
+	 *
+	 *	@param	Authorization	The session authorization information.
+	 */
+	boolean allowReadUuid6Type( CFSecAuthorization Authorization );
+
+	/**
+	 *	Is the session allowed to update Uuid6Type instances?
+	 *
+	 *	@param	Authorization	The session authorization information.
+	 */
+	boolean allowUpdateUuid6Type( CFSecAuthorization Authorization );
+
+	/**
+	 *	Is the session allowed to delete Uuid6Type instances?
+	 *
+	 *	@param	Authorization	The session authorization information.
+	 */
+	boolean allowDeleteUuid6Type( CFSecAuthorization Authorization );
 
 	/**
 	 *	Is the session allowed to create UuidCol instances?

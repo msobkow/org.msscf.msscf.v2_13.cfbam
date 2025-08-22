@@ -7,7 +7,7 @@
  *	
  *	MSS Code Factory CFBam 2.13 Business Application Model
  *	
- *	Copyright 2020-2021 Mark Stephen Sobkow
+ *	Copyright 2020 Mark Stephen Sobkow
  *	
  *		This file is part of MSS Code Factory.
  *	
@@ -43,6 +43,7 @@ import java.sql.*;
 import java.text.*;
 import java.util.*;
 import org.msscf.msscf.v2_13.cflib.CFLib.*;
+import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
 import org.msscf.msscf.v2_13.cfsec.CFSec.*;
 import org.msscf.msscf.v2_13.cfint.CFInt.*;
 import org.msscf.msscf.v2_13.cfsec.CFSecObj.*;
@@ -53,7 +54,7 @@ public class CFBamId32GenObj
 	extends CFBamInt32TypeObj
 	implements ICFBamId32GenObj
 {
-	public final static String CLASS_CODE = "a85a";
+	public final static String CLASS_CODE = "a873";
 	protected ICFBamTableObj optionalLookupDispenser;
 
 	public CFBamId32GenObj() {

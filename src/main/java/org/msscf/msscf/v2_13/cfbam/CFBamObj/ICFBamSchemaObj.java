@@ -7,7 +7,7 @@
  *	
  *	MSS Code Factory CFBam 2.13 Business Application Model
  *	
- *	Copyright 2020-2021 Mark Stephen Sobkow
+ *	Copyright 2020 Mark Stephen Sobkow
  *	
  *		This file is part of MSS Code Factory.
  *	
@@ -43,6 +43,7 @@ import java.sql.*;
 import java.text.*;
 import java.util.*;
 import org.msscf.msscf.v2_13.cflib.CFLib.*;
+import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
 import org.msscf.msscf.v2_13.cfsec.CFSec.*;
 import org.msscf.msscf.v2_13.cfint.CFInt.*;
 import org.msscf.msscf.v2_13.cfsec.CFSecObj.*;
@@ -164,6 +165,174 @@ public interface ICFBamSchemaObj
 	 *	@return	The ICFBamDateTypeTableObj interface implementation for the schema.
 	 */
 	ICFBamDateTypeTableObj getDateTypeTableObj();
+
+	/**
+	 *	Get the DbKeyHash128Col interface for the schema.
+	 *
+	 *	@return	The ICFBamDbKeyHash128ColTableObj interface implementation for the schema.
+	 */
+	ICFBamDbKeyHash128ColTableObj getDbKeyHash128ColTableObj();
+
+	/**
+	 *	Get the DbKeyHash128Def interface for the schema.
+	 *
+	 *	@return	The ICFBamDbKeyHash128DefTableObj interface implementation for the schema.
+	 */
+	ICFBamDbKeyHash128DefTableObj getDbKeyHash128DefTableObj();
+
+	/**
+	 *	Get the DbKeyHash128Gen interface for the schema.
+	 *
+	 *	@return	The ICFBamDbKeyHash128GenTableObj interface implementation for the schema.
+	 */
+	ICFBamDbKeyHash128GenTableObj getDbKeyHash128GenTableObj();
+
+	/**
+	 *	Get the DbKeyHash128Type interface for the schema.
+	 *
+	 *	@return	The ICFBamDbKeyHash128TypeTableObj interface implementation for the schema.
+	 */
+	ICFBamDbKeyHash128TypeTableObj getDbKeyHash128TypeTableObj();
+
+	/**
+	 *	Get the DbKeyHash160Col interface for the schema.
+	 *
+	 *	@return	The ICFBamDbKeyHash160ColTableObj interface implementation for the schema.
+	 */
+	ICFBamDbKeyHash160ColTableObj getDbKeyHash160ColTableObj();
+
+	/**
+	 *	Get the DbKeyHash160Def interface for the schema.
+	 *
+	 *	@return	The ICFBamDbKeyHash160DefTableObj interface implementation for the schema.
+	 */
+	ICFBamDbKeyHash160DefTableObj getDbKeyHash160DefTableObj();
+
+	/**
+	 *	Get the DbKeyHash160Gen interface for the schema.
+	 *
+	 *	@return	The ICFBamDbKeyHash160GenTableObj interface implementation for the schema.
+	 */
+	ICFBamDbKeyHash160GenTableObj getDbKeyHash160GenTableObj();
+
+	/**
+	 *	Get the DbKeyHash160Type interface for the schema.
+	 *
+	 *	@return	The ICFBamDbKeyHash160TypeTableObj interface implementation for the schema.
+	 */
+	ICFBamDbKeyHash160TypeTableObj getDbKeyHash160TypeTableObj();
+
+	/**
+	 *	Get the DbKeyHash224Col interface for the schema.
+	 *
+	 *	@return	The ICFBamDbKeyHash224ColTableObj interface implementation for the schema.
+	 */
+	ICFBamDbKeyHash224ColTableObj getDbKeyHash224ColTableObj();
+
+	/**
+	 *	Get the DbKeyHash224Def interface for the schema.
+	 *
+	 *	@return	The ICFBamDbKeyHash224DefTableObj interface implementation for the schema.
+	 */
+	ICFBamDbKeyHash224DefTableObj getDbKeyHash224DefTableObj();
+
+	/**
+	 *	Get the DbKeyHash224Gen interface for the schema.
+	 *
+	 *	@return	The ICFBamDbKeyHash224GenTableObj interface implementation for the schema.
+	 */
+	ICFBamDbKeyHash224GenTableObj getDbKeyHash224GenTableObj();
+
+	/**
+	 *	Get the DbKeyHash224Type interface for the schema.
+	 *
+	 *	@return	The ICFBamDbKeyHash224TypeTableObj interface implementation for the schema.
+	 */
+	ICFBamDbKeyHash224TypeTableObj getDbKeyHash224TypeTableObj();
+
+	/**
+	 *	Get the DbKeyHash256Col interface for the schema.
+	 *
+	 *	@return	The ICFBamDbKeyHash256ColTableObj interface implementation for the schema.
+	 */
+	ICFBamDbKeyHash256ColTableObj getDbKeyHash256ColTableObj();
+
+	/**
+	 *	Get the DbKeyHash256Def interface for the schema.
+	 *
+	 *	@return	The ICFBamDbKeyHash256DefTableObj interface implementation for the schema.
+	 */
+	ICFBamDbKeyHash256DefTableObj getDbKeyHash256DefTableObj();
+
+	/**
+	 *	Get the DbKeyHash256Gen interface for the schema.
+	 *
+	 *	@return	The ICFBamDbKeyHash256GenTableObj interface implementation for the schema.
+	 */
+	ICFBamDbKeyHash256GenTableObj getDbKeyHash256GenTableObj();
+
+	/**
+	 *	Get the DbKeyHash256Type interface for the schema.
+	 *
+	 *	@return	The ICFBamDbKeyHash256TypeTableObj interface implementation for the schema.
+	 */
+	ICFBamDbKeyHash256TypeTableObj getDbKeyHash256TypeTableObj();
+
+	/**
+	 *	Get the DbKeyHash384Col interface for the schema.
+	 *
+	 *	@return	The ICFBamDbKeyHash384ColTableObj interface implementation for the schema.
+	 */
+	ICFBamDbKeyHash384ColTableObj getDbKeyHash384ColTableObj();
+
+	/**
+	 *	Get the DbKeyHash384Def interface for the schema.
+	 *
+	 *	@return	The ICFBamDbKeyHash384DefTableObj interface implementation for the schema.
+	 */
+	ICFBamDbKeyHash384DefTableObj getDbKeyHash384DefTableObj();
+
+	/**
+	 *	Get the DbKeyHash384Gen interface for the schema.
+	 *
+	 *	@return	The ICFBamDbKeyHash384GenTableObj interface implementation for the schema.
+	 */
+	ICFBamDbKeyHash384GenTableObj getDbKeyHash384GenTableObj();
+
+	/**
+	 *	Get the DbKeyHash384Type interface for the schema.
+	 *
+	 *	@return	The ICFBamDbKeyHash384TypeTableObj interface implementation for the schema.
+	 */
+	ICFBamDbKeyHash384TypeTableObj getDbKeyHash384TypeTableObj();
+
+	/**
+	 *	Get the DbKeyHash512Col interface for the schema.
+	 *
+	 *	@return	The ICFBamDbKeyHash512ColTableObj interface implementation for the schema.
+	 */
+	ICFBamDbKeyHash512ColTableObj getDbKeyHash512ColTableObj();
+
+	/**
+	 *	Get the DbKeyHash512Def interface for the schema.
+	 *
+	 *	@return	The ICFBamDbKeyHash512DefTableObj interface implementation for the schema.
+	 */
+	ICFBamDbKeyHash512DefTableObj getDbKeyHash512DefTableObj();
+
+	/**
+	 *	Get the DbKeyHash512Gen interface for the schema.
+	 *
+	 *	@return	The ICFBamDbKeyHash512GenTableObj interface implementation for the schema.
+	 */
+	ICFBamDbKeyHash512GenTableObj getDbKeyHash512GenTableObj();
+
+	/**
+	 *	Get the DbKeyHash512Type interface for the schema.
+	 *
+	 *	@return	The ICFBamDbKeyHash512TypeTableObj interface implementation for the schema.
+	 */
+	ICFBamDbKeyHash512TypeTableObj getDbKeyHash512TypeTableObj();
 
 	/**
 	 *	Get the DelDep interface for the schema.
@@ -773,6 +942,34 @@ public interface ICFBamSchemaObj
 	 *	@return	The ICFBamUInt64TypeTableObj interface implementation for the schema.
 	 */
 	ICFBamUInt64TypeTableObj getUInt64TypeTableObj();
+
+	/**
+	 *	Get the Uuid6Col interface for the schema.
+	 *
+	 *	@return	The ICFBamUuid6ColTableObj interface implementation for the schema.
+	 */
+	ICFBamUuid6ColTableObj getUuid6ColTableObj();
+
+	/**
+	 *	Get the Uuid6Def interface for the schema.
+	 *
+	 *	@return	The ICFBamUuid6DefTableObj interface implementation for the schema.
+	 */
+	ICFBamUuid6DefTableObj getUuid6DefTableObj();
+
+	/**
+	 *	Get the Uuid6Gen interface for the schema.
+	 *
+	 *	@return	The ICFBamUuid6GenTableObj interface implementation for the schema.
+	 */
+	ICFBamUuid6GenTableObj getUuid6GenTableObj();
+
+	/**
+	 *	Get the Uuid6Type interface for the schema.
+	 *
+	 *	@return	The ICFBamUuid6TypeTableObj interface implementation for the schema.
+	 */
+	ICFBamUuid6TypeTableObj getUuid6TypeTableObj();
 
 	/**
 	 *	Get the UuidCol interface for the schema.

@@ -7,7 +7,7 @@
  *	
  *	MSS Code Factory CFBam 2.13 Business Application Model
  *	
- *	Copyright 2020-2021 Mark Stephen Sobkow
+ *	Copyright 2020 Mark Stephen Sobkow
  *	
  *		This file is part of MSS Code Factory.
  *	
@@ -43,6 +43,7 @@ import java.sql.*;
 import java.text.*;
 import java.util.*;
 import org.msscf.msscf.v2_13.cflib.CFLib.*;
+import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
 import org.msscf.msscf.v2_13.cfsec.CFSec.*;
 import org.msscf.msscf.v2_13.cfint.CFInt.*;
 import org.msscf.msscf.v2_13.cfsec.CFSecObj.*;
@@ -85,6 +86,30 @@ public class CFBamSchemaObj
 	protected ICFBamDateColTableObj dateColTableObj;
 	protected ICFBamDateDefTableObj dateDefTableObj;
 	protected ICFBamDateTypeTableObj dateTypeTableObj;
+	protected ICFBamDbKeyHash128ColTableObj dbKeyHash128ColTableObj;
+	protected ICFBamDbKeyHash128DefTableObj dbKeyHash128DefTableObj;
+	protected ICFBamDbKeyHash128GenTableObj dbKeyHash128GenTableObj;
+	protected ICFBamDbKeyHash128TypeTableObj dbKeyHash128TypeTableObj;
+	protected ICFBamDbKeyHash160ColTableObj dbKeyHash160ColTableObj;
+	protected ICFBamDbKeyHash160DefTableObj dbKeyHash160DefTableObj;
+	protected ICFBamDbKeyHash160GenTableObj dbKeyHash160GenTableObj;
+	protected ICFBamDbKeyHash160TypeTableObj dbKeyHash160TypeTableObj;
+	protected ICFBamDbKeyHash224ColTableObj dbKeyHash224ColTableObj;
+	protected ICFBamDbKeyHash224DefTableObj dbKeyHash224DefTableObj;
+	protected ICFBamDbKeyHash224GenTableObj dbKeyHash224GenTableObj;
+	protected ICFBamDbKeyHash224TypeTableObj dbKeyHash224TypeTableObj;
+	protected ICFBamDbKeyHash256ColTableObj dbKeyHash256ColTableObj;
+	protected ICFBamDbKeyHash256DefTableObj dbKeyHash256DefTableObj;
+	protected ICFBamDbKeyHash256GenTableObj dbKeyHash256GenTableObj;
+	protected ICFBamDbKeyHash256TypeTableObj dbKeyHash256TypeTableObj;
+	protected ICFBamDbKeyHash384ColTableObj dbKeyHash384ColTableObj;
+	protected ICFBamDbKeyHash384DefTableObj dbKeyHash384DefTableObj;
+	protected ICFBamDbKeyHash384GenTableObj dbKeyHash384GenTableObj;
+	protected ICFBamDbKeyHash384TypeTableObj dbKeyHash384TypeTableObj;
+	protected ICFBamDbKeyHash512ColTableObj dbKeyHash512ColTableObj;
+	protected ICFBamDbKeyHash512DefTableObj dbKeyHash512DefTableObj;
+	protected ICFBamDbKeyHash512GenTableObj dbKeyHash512GenTableObj;
+	protected ICFBamDbKeyHash512TypeTableObj dbKeyHash512TypeTableObj;
 	protected ICFBamDelDepTableObj delDepTableObj;
 	protected ICFBamDelSubDep1TableObj delSubDep1TableObj;
 	protected ICFBamDelSubDep2TableObj delSubDep2TableObj;
@@ -204,6 +229,10 @@ public class CFBamSchemaObj
 	protected ICFBamUInt64DefTableObj uInt64DefTableObj;
 	protected ICFBamUInt64TypeTableObj uInt64TypeTableObj;
 	protected ICFBamURLProtocolTableObj uRLProtocolTableObj;
+	protected ICFBamUuid6ColTableObj uuid6ColTableObj;
+	protected ICFBamUuid6DefTableObj uuid6DefTableObj;
+	protected ICFBamUuid6GenTableObj uuid6GenTableObj;
+	protected ICFBamUuid6TypeTableObj uuid6TypeTableObj;
 	protected ICFBamUuidColTableObj uuidColTableObj;
 	protected ICFBamUuidDefTableObj uuidDefTableObj;
 	protected ICFBamUuidGenTableObj uuidGenTableObj;
@@ -228,6 +257,30 @@ public class CFBamSchemaObj
 		dateColTableObj = new CFBamDateColTableObj( this );
 		dateDefTableObj = new CFBamDateDefTableObj( this );
 		dateTypeTableObj = new CFBamDateTypeTableObj( this );
+		dbKeyHash128ColTableObj = new CFBamDbKeyHash128ColTableObj( this );
+		dbKeyHash128DefTableObj = new CFBamDbKeyHash128DefTableObj( this );
+		dbKeyHash128GenTableObj = new CFBamDbKeyHash128GenTableObj( this );
+		dbKeyHash128TypeTableObj = new CFBamDbKeyHash128TypeTableObj( this );
+		dbKeyHash160ColTableObj = new CFBamDbKeyHash160ColTableObj( this );
+		dbKeyHash160DefTableObj = new CFBamDbKeyHash160DefTableObj( this );
+		dbKeyHash160GenTableObj = new CFBamDbKeyHash160GenTableObj( this );
+		dbKeyHash160TypeTableObj = new CFBamDbKeyHash160TypeTableObj( this );
+		dbKeyHash224ColTableObj = new CFBamDbKeyHash224ColTableObj( this );
+		dbKeyHash224DefTableObj = new CFBamDbKeyHash224DefTableObj( this );
+		dbKeyHash224GenTableObj = new CFBamDbKeyHash224GenTableObj( this );
+		dbKeyHash224TypeTableObj = new CFBamDbKeyHash224TypeTableObj( this );
+		dbKeyHash256ColTableObj = new CFBamDbKeyHash256ColTableObj( this );
+		dbKeyHash256DefTableObj = new CFBamDbKeyHash256DefTableObj( this );
+		dbKeyHash256GenTableObj = new CFBamDbKeyHash256GenTableObj( this );
+		dbKeyHash256TypeTableObj = new CFBamDbKeyHash256TypeTableObj( this );
+		dbKeyHash384ColTableObj = new CFBamDbKeyHash384ColTableObj( this );
+		dbKeyHash384DefTableObj = new CFBamDbKeyHash384DefTableObj( this );
+		dbKeyHash384GenTableObj = new CFBamDbKeyHash384GenTableObj( this );
+		dbKeyHash384TypeTableObj = new CFBamDbKeyHash384TypeTableObj( this );
+		dbKeyHash512ColTableObj = new CFBamDbKeyHash512ColTableObj( this );
+		dbKeyHash512DefTableObj = new CFBamDbKeyHash512DefTableObj( this );
+		dbKeyHash512GenTableObj = new CFBamDbKeyHash512GenTableObj( this );
+		dbKeyHash512TypeTableObj = new CFBamDbKeyHash512TypeTableObj( this );
 		delDepTableObj = new CFBamDelDepTableObj( this );
 		delSubDep1TableObj = new CFBamDelSubDep1TableObj( this );
 		delSubDep2TableObj = new CFBamDelSubDep2TableObj( this );
@@ -347,6 +400,10 @@ public class CFBamSchemaObj
 		uInt64DefTableObj = new CFBamUInt64DefTableObj( this );
 		uInt64TypeTableObj = new CFBamUInt64TypeTableObj( this );
 		uRLProtocolTableObj = new CFBamURLProtocolTableObj( this );
+		uuid6ColTableObj = new CFBamUuid6ColTableObj( this );
+		uuid6DefTableObj = new CFBamUuid6DefTableObj( this );
+		uuid6GenTableObj = new CFBamUuid6GenTableObj( this );
+		uuid6TypeTableObj = new CFBamUuid6TypeTableObj( this );
 		uuidColTableObj = new CFBamUuidColTableObj( this );
 		uuidDefTableObj = new CFBamUuidDefTableObj( this );
 		uuidGenTableObj = new CFBamUuidGenTableObj( this );
@@ -908,6 +965,78 @@ public class CFBamSchemaObj
 		if( dateTypeTableObj != null ) {
 			dateTypeTableObj.minimizeMemory();
 		}
+		if( dbKeyHash128ColTableObj != null ) {
+			dbKeyHash128ColTableObj.minimizeMemory();
+		}
+		if( dbKeyHash128DefTableObj != null ) {
+			dbKeyHash128DefTableObj.minimizeMemory();
+		}
+		if( dbKeyHash128GenTableObj != null ) {
+			dbKeyHash128GenTableObj.minimizeMemory();
+		}
+		if( dbKeyHash128TypeTableObj != null ) {
+			dbKeyHash128TypeTableObj.minimizeMemory();
+		}
+		if( dbKeyHash160ColTableObj != null ) {
+			dbKeyHash160ColTableObj.minimizeMemory();
+		}
+		if( dbKeyHash160DefTableObj != null ) {
+			dbKeyHash160DefTableObj.minimizeMemory();
+		}
+		if( dbKeyHash160GenTableObj != null ) {
+			dbKeyHash160GenTableObj.minimizeMemory();
+		}
+		if( dbKeyHash160TypeTableObj != null ) {
+			dbKeyHash160TypeTableObj.minimizeMemory();
+		}
+		if( dbKeyHash224ColTableObj != null ) {
+			dbKeyHash224ColTableObj.minimizeMemory();
+		}
+		if( dbKeyHash224DefTableObj != null ) {
+			dbKeyHash224DefTableObj.minimizeMemory();
+		}
+		if( dbKeyHash224GenTableObj != null ) {
+			dbKeyHash224GenTableObj.minimizeMemory();
+		}
+		if( dbKeyHash224TypeTableObj != null ) {
+			dbKeyHash224TypeTableObj.minimizeMemory();
+		}
+		if( dbKeyHash256ColTableObj != null ) {
+			dbKeyHash256ColTableObj.minimizeMemory();
+		}
+		if( dbKeyHash256DefTableObj != null ) {
+			dbKeyHash256DefTableObj.minimizeMemory();
+		}
+		if( dbKeyHash256GenTableObj != null ) {
+			dbKeyHash256GenTableObj.minimizeMemory();
+		}
+		if( dbKeyHash256TypeTableObj != null ) {
+			dbKeyHash256TypeTableObj.minimizeMemory();
+		}
+		if( dbKeyHash384ColTableObj != null ) {
+			dbKeyHash384ColTableObj.minimizeMemory();
+		}
+		if( dbKeyHash384DefTableObj != null ) {
+			dbKeyHash384DefTableObj.minimizeMemory();
+		}
+		if( dbKeyHash384GenTableObj != null ) {
+			dbKeyHash384GenTableObj.minimizeMemory();
+		}
+		if( dbKeyHash384TypeTableObj != null ) {
+			dbKeyHash384TypeTableObj.minimizeMemory();
+		}
+		if( dbKeyHash512ColTableObj != null ) {
+			dbKeyHash512ColTableObj.minimizeMemory();
+		}
+		if( dbKeyHash512DefTableObj != null ) {
+			dbKeyHash512DefTableObj.minimizeMemory();
+		}
+		if( dbKeyHash512GenTableObj != null ) {
+			dbKeyHash512GenTableObj.minimizeMemory();
+		}
+		if( dbKeyHash512TypeTableObj != null ) {
+			dbKeyHash512TypeTableObj.minimizeMemory();
+		}
 		if( delDepTableObj != null ) {
 			delDepTableObj.minimizeMemory();
 		}
@@ -1265,6 +1394,18 @@ public class CFBamSchemaObj
 		if( uRLProtocolTableObj != null ) {
 			uRLProtocolTableObj.minimizeMemory();
 		}
+		if( uuid6ColTableObj != null ) {
+			uuid6ColTableObj.minimizeMemory();
+		}
+		if( uuid6DefTableObj != null ) {
+			uuid6DefTableObj.minimizeMemory();
+		}
+		if( uuid6GenTableObj != null ) {
+			uuid6GenTableObj.minimizeMemory();
+		}
+		if( uuid6TypeTableObj != null ) {
+			uuid6TypeTableObj.minimizeMemory();
+		}
 		if( uuidColTableObj != null ) {
 			uuidColTableObj.minimizeMemory();
 		}
@@ -1365,6 +1506,102 @@ public class CFBamSchemaObj
 
 	public ICFBamDateTypeTableObj getDateTypeTableObj() {
 		return( dateTypeTableObj );
+	}
+
+	public ICFBamDbKeyHash128ColTableObj getDbKeyHash128ColTableObj() {
+		return( dbKeyHash128ColTableObj );
+	}
+
+	public ICFBamDbKeyHash128DefTableObj getDbKeyHash128DefTableObj() {
+		return( dbKeyHash128DefTableObj );
+	}
+
+	public ICFBamDbKeyHash128GenTableObj getDbKeyHash128GenTableObj() {
+		return( dbKeyHash128GenTableObj );
+	}
+
+	public ICFBamDbKeyHash128TypeTableObj getDbKeyHash128TypeTableObj() {
+		return( dbKeyHash128TypeTableObj );
+	}
+
+	public ICFBamDbKeyHash160ColTableObj getDbKeyHash160ColTableObj() {
+		return( dbKeyHash160ColTableObj );
+	}
+
+	public ICFBamDbKeyHash160DefTableObj getDbKeyHash160DefTableObj() {
+		return( dbKeyHash160DefTableObj );
+	}
+
+	public ICFBamDbKeyHash160GenTableObj getDbKeyHash160GenTableObj() {
+		return( dbKeyHash160GenTableObj );
+	}
+
+	public ICFBamDbKeyHash160TypeTableObj getDbKeyHash160TypeTableObj() {
+		return( dbKeyHash160TypeTableObj );
+	}
+
+	public ICFBamDbKeyHash224ColTableObj getDbKeyHash224ColTableObj() {
+		return( dbKeyHash224ColTableObj );
+	}
+
+	public ICFBamDbKeyHash224DefTableObj getDbKeyHash224DefTableObj() {
+		return( dbKeyHash224DefTableObj );
+	}
+
+	public ICFBamDbKeyHash224GenTableObj getDbKeyHash224GenTableObj() {
+		return( dbKeyHash224GenTableObj );
+	}
+
+	public ICFBamDbKeyHash224TypeTableObj getDbKeyHash224TypeTableObj() {
+		return( dbKeyHash224TypeTableObj );
+	}
+
+	public ICFBamDbKeyHash256ColTableObj getDbKeyHash256ColTableObj() {
+		return( dbKeyHash256ColTableObj );
+	}
+
+	public ICFBamDbKeyHash256DefTableObj getDbKeyHash256DefTableObj() {
+		return( dbKeyHash256DefTableObj );
+	}
+
+	public ICFBamDbKeyHash256GenTableObj getDbKeyHash256GenTableObj() {
+		return( dbKeyHash256GenTableObj );
+	}
+
+	public ICFBamDbKeyHash256TypeTableObj getDbKeyHash256TypeTableObj() {
+		return( dbKeyHash256TypeTableObj );
+	}
+
+	public ICFBamDbKeyHash384ColTableObj getDbKeyHash384ColTableObj() {
+		return( dbKeyHash384ColTableObj );
+	}
+
+	public ICFBamDbKeyHash384DefTableObj getDbKeyHash384DefTableObj() {
+		return( dbKeyHash384DefTableObj );
+	}
+
+	public ICFBamDbKeyHash384GenTableObj getDbKeyHash384GenTableObj() {
+		return( dbKeyHash384GenTableObj );
+	}
+
+	public ICFBamDbKeyHash384TypeTableObj getDbKeyHash384TypeTableObj() {
+		return( dbKeyHash384TypeTableObj );
+	}
+
+	public ICFBamDbKeyHash512ColTableObj getDbKeyHash512ColTableObj() {
+		return( dbKeyHash512ColTableObj );
+	}
+
+	public ICFBamDbKeyHash512DefTableObj getDbKeyHash512DefTableObj() {
+		return( dbKeyHash512DefTableObj );
+	}
+
+	public ICFBamDbKeyHash512GenTableObj getDbKeyHash512GenTableObj() {
+		return( dbKeyHash512GenTableObj );
+	}
+
+	public ICFBamDbKeyHash512TypeTableObj getDbKeyHash512TypeTableObj() {
+		return( dbKeyHash512TypeTableObj );
 	}
 
 	public ICFBamDelDepTableObj getDelDepTableObj() {
@@ -1841,6 +2078,22 @@ public class CFBamSchemaObj
 
 	public ICFBamURLProtocolTableObj getURLProtocolTableObj() {
 		return( uRLProtocolTableObj );
+	}
+
+	public ICFBamUuid6ColTableObj getUuid6ColTableObj() {
+		return( uuid6ColTableObj );
+	}
+
+	public ICFBamUuid6DefTableObj getUuid6DefTableObj() {
+		return( uuid6DefTableObj );
+	}
+
+	public ICFBamUuid6GenTableObj getUuid6GenTableObj() {
+		return( uuid6GenTableObj );
+	}
+
+	public ICFBamUuid6TypeTableObj getUuid6TypeTableObj() {
+		return( uuid6TypeTableObj );
 	}
 
 	public ICFBamUuidColTableObj getUuidColTableObj() {

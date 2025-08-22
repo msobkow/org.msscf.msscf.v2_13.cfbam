@@ -7,7 +7,7 @@
  *	
  *	MSS Code Factory CFBam 2.13 Business Application Model
  *	
- *	Copyright 2020-2021 Mark Stephen Sobkow
+ *	Copyright 2020 Mark Stephen Sobkow
  *	
  *		This file is part of MSS Code Factory.
  *	
@@ -43,6 +43,7 @@ import java.sql.*;
 import java.text.*;
 import java.util.*;
 import org.msscf.msscf.v2_13.cflib.CFLib.*;
+import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
 import org.msscf.msscf.v2_13.cfsec.CFSec.*;
 import org.msscf.msscf.v2_13.cfint.CFInt.*;
 import org.msscf.msscf.v2_13.cfsec.CFSecObj.*;
@@ -188,7 +189,7 @@ public class CFBamValueTableObj
 		else if( argClassCode.equals( "a80c" ) ) {
 			obj = ((ICFBamSchemaObj)schema).getBlobTypeTableObj().newInstance();
 		}
-		else if( argClassCode.equals( "a852" ) ) {
+		else if( argClassCode.equals( "a86b" ) ) {
 			obj = ((ICFBamSchemaObj)schema).getBlobColTableObj().newInstance();
 		}
 		else if( argClassCode.equals( "a80d" ) ) {
@@ -197,7 +198,7 @@ public class CFBamValueTableObj
 		else if( argClassCode.equals( "a80e" ) ) {
 			obj = ((ICFBamSchemaObj)schema).getBoolTypeTableObj().newInstance();
 		}
-		else if( argClassCode.equals( "a853" ) ) {
+		else if( argClassCode.equals( "a86c" ) ) {
 			obj = ((ICFBamSchemaObj)schema).getBoolColTableObj().newInstance();
 		}
 		else if( argClassCode.equals( "a815" ) ) {
@@ -206,7 +207,7 @@ public class CFBamValueTableObj
 		else if( argClassCode.equals( "a816" ) ) {
 			obj = ((ICFBamSchemaObj)schema).getDateTypeTableObj().newInstance();
 		}
-		else if( argClassCode.equals( "a854" ) ) {
+		else if( argClassCode.equals( "a86d" ) ) {
 			obj = ((ICFBamSchemaObj)schema).getDateColTableObj().newInstance();
 		}
 		else if( argClassCode.equals( "a81c" ) ) {
@@ -215,7 +216,7 @@ public class CFBamValueTableObj
 		else if( argClassCode.equals( "a81d" ) ) {
 			obj = ((ICFBamSchemaObj)schema).getDoubleTypeTableObj().newInstance();
 		}
-		else if( argClassCode.equals( "a855" ) ) {
+		else if( argClassCode.equals( "a86e" ) ) {
 			obj = ((ICFBamSchemaObj)schema).getDoubleColTableObj().newInstance();
 		}
 		else if( argClassCode.equals( "a81f" ) ) {
@@ -224,7 +225,7 @@ public class CFBamValueTableObj
 		else if( argClassCode.equals( "a820" ) ) {
 			obj = ((ICFBamSchemaObj)schema).getFloatTypeTableObj().newInstance();
 		}
-		else if( argClassCode.equals( "a858" ) ) {
+		else if( argClassCode.equals( "a871" ) ) {
 			obj = ((ICFBamSchemaObj)schema).getFloatColTableObj().newInstance();
 		}
 		else if( argClassCode.equals( "a823" ) ) {
@@ -233,16 +234,16 @@ public class CFBamValueTableObj
 		else if( argClassCode.equals( "a824" ) ) {
 			obj = ((ICFBamSchemaObj)schema).getInt16TypeTableObj().newInstance();
 		}
-		else if( argClassCode.equals( "a859" ) ) {
+		else if( argClassCode.equals( "a872" ) ) {
 			obj = ((ICFBamSchemaObj)schema).getId16GenTableObj().newInstance();
 		}
-		else if( argClassCode.equals( "a856" ) ) {
+		else if( argClassCode.equals( "a86f" ) ) {
 			obj = ((ICFBamSchemaObj)schema).getEnumDefTableObj().newInstance();
 		}
-		else if( argClassCode.equals( "a857" ) ) {
+		else if( argClassCode.equals( "a870" ) ) {
 			obj = ((ICFBamSchemaObj)schema).getEnumTypeTableObj().newInstance();
 		}
-		else if( argClassCode.equals( "a85c" ) ) {
+		else if( argClassCode.equals( "a875" ) ) {
 			obj = ((ICFBamSchemaObj)schema).getInt16ColTableObj().newInstance();
 		}
 		else if( argClassCode.equals( "a825" ) ) {
@@ -251,10 +252,10 @@ public class CFBamValueTableObj
 		else if( argClassCode.equals( "a826" ) ) {
 			obj = ((ICFBamSchemaObj)schema).getInt32TypeTableObj().newInstance();
 		}
-		else if( argClassCode.equals( "a85a" ) ) {
+		else if( argClassCode.equals( "a873" ) ) {
 			obj = ((ICFBamSchemaObj)schema).getId32GenTableObj().newInstance();
 		}
-		else if( argClassCode.equals( "a85d" ) ) {
+		else if( argClassCode.equals( "a876" ) ) {
 			obj = ((ICFBamSchemaObj)schema).getInt32ColTableObj().newInstance();
 		}
 		else if( argClassCode.equals( "a827" ) ) {
@@ -263,10 +264,10 @@ public class CFBamValueTableObj
 		else if( argClassCode.equals( "a828" ) ) {
 			obj = ((ICFBamSchemaObj)schema).getInt64TypeTableObj().newInstance();
 		}
-		else if( argClassCode.equals( "a85b" ) ) {
+		else if( argClassCode.equals( "a874" ) ) {
 			obj = ((ICFBamSchemaObj)schema).getId64GenTableObj().newInstance();
 		}
-		else if( argClassCode.equals( "a85e" ) ) {
+		else if( argClassCode.equals( "a877" ) ) {
 			obj = ((ICFBamSchemaObj)schema).getInt64ColTableObj().newInstance();
 		}
 		else if( argClassCode.equals( "a829" ) ) {
@@ -275,7 +276,7 @@ public class CFBamValueTableObj
 		else if( argClassCode.equals( "a82a" ) ) {
 			obj = ((ICFBamSchemaObj)schema).getNmTokenTypeTableObj().newInstance();
 		}
-		else if( argClassCode.equals( "a85f" ) ) {
+		else if( argClassCode.equals( "a878" ) ) {
 			obj = ((ICFBamSchemaObj)schema).getNmTokenColTableObj().newInstance();
 		}
 		else if( argClassCode.equals( "a82b" ) ) {
@@ -284,7 +285,7 @@ public class CFBamValueTableObj
 		else if( argClassCode.equals( "a82c" ) ) {
 			obj = ((ICFBamSchemaObj)schema).getNmTokensTypeTableObj().newInstance();
 		}
-		else if( argClassCode.equals( "a860" ) ) {
+		else if( argClassCode.equals( "a879" ) ) {
 			obj = ((ICFBamSchemaObj)schema).getNmTokensColTableObj().newInstance();
 		}
 		else if( argClassCode.equals( "a82d" ) ) {
@@ -293,121 +294,205 @@ public class CFBamValueTableObj
 		else if( argClassCode.equals( "a82e" ) ) {
 			obj = ((ICFBamSchemaObj)schema).getNumberTypeTableObj().newInstance();
 		}
-		else if( argClassCode.equals( "a861" ) ) {
+		else if( argClassCode.equals( "a87a" ) ) {
 			obj = ((ICFBamSchemaObj)schema).getNumberColTableObj().newInstance();
 		}
-		else if( argClassCode.equals( "a838" ) ) {
-			obj = ((ICFBamSchemaObj)schema).getStringDefTableObj().newInstance();
-		}
 		else if( argClassCode.equals( "a839" ) ) {
-			obj = ((ICFBamSchemaObj)schema).getStringTypeTableObj().newInstance();
+			obj = ((ICFBamSchemaObj)schema).getDbKeyHash128DefTableObj().newInstance();
 		}
-		else if( argClassCode.equals( "a862" ) ) {
-			obj = ((ICFBamSchemaObj)schema).getStringColTableObj().newInstance();
+		else if( argClassCode.equals( "a838" ) ) {
+			obj = ((ICFBamSchemaObj)schema).getDbKeyHash128ColTableObj().newInstance();
 		}
 		else if( argClassCode.equals( "a83a" ) ) {
-			obj = ((ICFBamSchemaObj)schema).getTZDateDefTableObj().newInstance();
+			obj = ((ICFBamSchemaObj)schema).getDbKeyHash128TypeTableObj().newInstance();
 		}
 		else if( argClassCode.equals( "a83b" ) ) {
-			obj = ((ICFBamSchemaObj)schema).getTZDateTypeTableObj().newInstance();
-		}
-		else if( argClassCode.equals( "a863" ) ) {
-			obj = ((ICFBamSchemaObj)schema).getTZDateColTableObj().newInstance();
-		}
-		else if( argClassCode.equals( "a83c" ) ) {
-			obj = ((ICFBamSchemaObj)schema).getTZTimeDefTableObj().newInstance();
+			obj = ((ICFBamSchemaObj)schema).getDbKeyHash128GenTableObj().newInstance();
 		}
 		else if( argClassCode.equals( "a83d" ) ) {
-			obj = ((ICFBamSchemaObj)schema).getTZTimeTypeTableObj().newInstance();
+			obj = ((ICFBamSchemaObj)schema).getDbKeyHash160DefTableObj().newInstance();
 		}
-		else if( argClassCode.equals( "a864" ) ) {
-			obj = ((ICFBamSchemaObj)schema).getTZTimeColTableObj().newInstance();
+		else if( argClassCode.equals( "a83c" ) ) {
+			obj = ((ICFBamSchemaObj)schema).getDbKeyHash160ColTableObj().newInstance();
 		}
 		else if( argClassCode.equals( "a83e" ) ) {
-			obj = ((ICFBamSchemaObj)schema).getTZTimestampDefTableObj().newInstance();
+			obj = ((ICFBamSchemaObj)schema).getDbKeyHash160TypeTableObj().newInstance();
 		}
 		else if( argClassCode.equals( "a83f" ) ) {
-			obj = ((ICFBamSchemaObj)schema).getTZTimestampTypeTableObj().newInstance();
-		}
-		else if( argClassCode.equals( "a865" ) ) {
-			obj = ((ICFBamSchemaObj)schema).getTZTimestampColTableObj().newInstance();
+			obj = ((ICFBamSchemaObj)schema).getDbKeyHash160GenTableObj().newInstance();
 		}
 		else if( argClassCode.equals( "a841" ) ) {
-			obj = ((ICFBamSchemaObj)schema).getTextDefTableObj().newInstance();
-		}
-		else if( argClassCode.equals( "a842" ) ) {
-			obj = ((ICFBamSchemaObj)schema).getTextTypeTableObj().newInstance();
-		}
-		else if( argClassCode.equals( "a866" ) ) {
-			obj = ((ICFBamSchemaObj)schema).getTextColTableObj().newInstance();
-		}
-		else if( argClassCode.equals( "a843" ) ) {
-			obj = ((ICFBamSchemaObj)schema).getTimeDefTableObj().newInstance();
-		}
-		else if( argClassCode.equals( "a845" ) ) {
-			obj = ((ICFBamSchemaObj)schema).getTimeTypeTableObj().newInstance();
-		}
-		else if( argClassCode.equals( "a867" ) ) {
-			obj = ((ICFBamSchemaObj)schema).getTimeColTableObj().newInstance();
-		}
-		else if( argClassCode.equals( "a846" ) ) {
-			obj = ((ICFBamSchemaObj)schema).getTimestampDefTableObj().newInstance();
-		}
-		else if( argClassCode.equals( "a847" ) ) {
-			obj = ((ICFBamSchemaObj)schema).getTimestampTypeTableObj().newInstance();
-		}
-		else if( argClassCode.equals( "a868" ) ) {
-			obj = ((ICFBamSchemaObj)schema).getTimestampColTableObj().newInstance();
-		}
-		else if( argClassCode.equals( "a848" ) ) {
-			obj = ((ICFBamSchemaObj)schema).getTokenDefTableObj().newInstance();
-		}
-		else if( argClassCode.equals( "a849" ) ) {
-			obj = ((ICFBamSchemaObj)schema).getTokenTypeTableObj().newInstance();
-		}
-		else if( argClassCode.equals( "a869" ) ) {
-			obj = ((ICFBamSchemaObj)schema).getTokenColTableObj().newInstance();
-		}
-		else if( argClassCode.equals( "a84a" ) ) {
-			obj = ((ICFBamSchemaObj)schema).getUInt16DefTableObj().newInstance();
-		}
-		else if( argClassCode.equals( "a84b" ) ) {
-			obj = ((ICFBamSchemaObj)schema).getUInt16TypeTableObj().newInstance();
-		}
-		else if( argClassCode.equals( "a86a" ) ) {
-			obj = ((ICFBamSchemaObj)schema).getUInt16ColTableObj().newInstance();
-		}
-		else if( argClassCode.equals( "a84c" ) ) {
-			obj = ((ICFBamSchemaObj)schema).getUInt32DefTableObj().newInstance();
-		}
-		else if( argClassCode.equals( "a84d" ) ) {
-			obj = ((ICFBamSchemaObj)schema).getUInt32TypeTableObj().newInstance();
-		}
-		else if( argClassCode.equals( "a86b" ) ) {
-			obj = ((ICFBamSchemaObj)schema).getUInt32ColTableObj().newInstance();
-		}
-		else if( argClassCode.equals( "a84e" ) ) {
-			obj = ((ICFBamSchemaObj)schema).getUInt64DefTableObj().newInstance();
-		}
-		else if( argClassCode.equals( "a84f" ) ) {
-			obj = ((ICFBamSchemaObj)schema).getUInt64TypeTableObj().newInstance();
-		}
-		else if( argClassCode.equals( "a86c" ) ) {
-			obj = ((ICFBamSchemaObj)schema).getUInt64ColTableObj().newInstance();
-		}
-		else if( argClassCode.equals( "a850" ) ) {
-			obj = ((ICFBamSchemaObj)schema).getUuidDefTableObj().newInstance();
-		}
-		else if( argClassCode.equals( "a851" ) ) {
-			obj = ((ICFBamSchemaObj)schema).getUuidTypeTableObj().newInstance();
-		}
-		else if( argClassCode.equals( "a86e" ) ) {
-			obj = ((ICFBamSchemaObj)schema).getUuidGenTableObj().newInstance();
-		}
-		else if( argClassCode.equals( "a86d" ) ) {
-			obj = ((ICFBamSchemaObj)schema).getUuidColTableObj().newInstance();
+			obj = ((ICFBamSchemaObj)schema).getDbKeyHash224DefTableObj().newInstance();
 		}
 		else if( argClassCode.equals( "a840" ) ) {
+			obj = ((ICFBamSchemaObj)schema).getDbKeyHash224ColTableObj().newInstance();
+		}
+		else if( argClassCode.equals( "a842" ) ) {
+			obj = ((ICFBamSchemaObj)schema).getDbKeyHash224TypeTableObj().newInstance();
+		}
+		else if( argClassCode.equals( "a843" ) ) {
+			obj = ((ICFBamSchemaObj)schema).getDbKeyHash224GenTableObj().newInstance();
+		}
+		else if( argClassCode.equals( "a845" ) ) {
+			obj = ((ICFBamSchemaObj)schema).getDbKeyHash256DefTableObj().newInstance();
+		}
+		else if( argClassCode.equals( "a844" ) ) {
+			obj = ((ICFBamSchemaObj)schema).getDbKeyHash256ColTableObj().newInstance();
+		}
+		else if( argClassCode.equals( "a846" ) ) {
+			obj = ((ICFBamSchemaObj)schema).getDbKeyHash256TypeTableObj().newInstance();
+		}
+		else if( argClassCode.equals( "a847" ) ) {
+			obj = ((ICFBamSchemaObj)schema).getDbKeyHash256GenTableObj().newInstance();
+		}
+		else if( argClassCode.equals( "a849" ) ) {
+			obj = ((ICFBamSchemaObj)schema).getDbKeyHash384DefTableObj().newInstance();
+		}
+		else if( argClassCode.equals( "a848" ) ) {
+			obj = ((ICFBamSchemaObj)schema).getDbKeyHash384ColTableObj().newInstance();
+		}
+		else if( argClassCode.equals( "a84a" ) ) {
+			obj = ((ICFBamSchemaObj)schema).getDbKeyHash384TypeTableObj().newInstance();
+		}
+		else if( argClassCode.equals( "a84b" ) ) {
+			obj = ((ICFBamSchemaObj)schema).getDbKeyHash384GenTableObj().newInstance();
+		}
+		else if( argClassCode.equals( "a84d" ) ) {
+			obj = ((ICFBamSchemaObj)schema).getDbKeyHash512DefTableObj().newInstance();
+		}
+		else if( argClassCode.equals( "a84c" ) ) {
+			obj = ((ICFBamSchemaObj)schema).getDbKeyHash512ColTableObj().newInstance();
+		}
+		else if( argClassCode.equals( "a84e" ) ) {
+			obj = ((ICFBamSchemaObj)schema).getDbKeyHash512TypeTableObj().newInstance();
+		}
+		else if( argClassCode.equals( "a84f" ) ) {
+			obj = ((ICFBamSchemaObj)schema).getDbKeyHash512GenTableObj().newInstance();
+		}
+		else if( argClassCode.equals( "a850" ) ) {
+			obj = ((ICFBamSchemaObj)schema).getStringDefTableObj().newInstance();
+		}
+		else if( argClassCode.equals( "a851" ) ) {
+			obj = ((ICFBamSchemaObj)schema).getStringTypeTableObj().newInstance();
+		}
+		else if( argClassCode.equals( "a87b" ) ) {
+			obj = ((ICFBamSchemaObj)schema).getStringColTableObj().newInstance();
+		}
+		else if( argClassCode.equals( "a852" ) ) {
+			obj = ((ICFBamSchemaObj)schema).getTZDateDefTableObj().newInstance();
+		}
+		else if( argClassCode.equals( "a853" ) ) {
+			obj = ((ICFBamSchemaObj)schema).getTZDateTypeTableObj().newInstance();
+		}
+		else if( argClassCode.equals( "a87c" ) ) {
+			obj = ((ICFBamSchemaObj)schema).getTZDateColTableObj().newInstance();
+		}
+		else if( argClassCode.equals( "a854" ) ) {
+			obj = ((ICFBamSchemaObj)schema).getTZTimeDefTableObj().newInstance();
+		}
+		else if( argClassCode.equals( "a855" ) ) {
+			obj = ((ICFBamSchemaObj)schema).getTZTimeTypeTableObj().newInstance();
+		}
+		else if( argClassCode.equals( "a87d" ) ) {
+			obj = ((ICFBamSchemaObj)schema).getTZTimeColTableObj().newInstance();
+		}
+		else if( argClassCode.equals( "a856" ) ) {
+			obj = ((ICFBamSchemaObj)schema).getTZTimestampDefTableObj().newInstance();
+		}
+		else if( argClassCode.equals( "a857" ) ) {
+			obj = ((ICFBamSchemaObj)schema).getTZTimestampTypeTableObj().newInstance();
+		}
+		else if( argClassCode.equals( "a87e" ) ) {
+			obj = ((ICFBamSchemaObj)schema).getTZTimestampColTableObj().newInstance();
+		}
+		else if( argClassCode.equals( "a859" ) ) {
+			obj = ((ICFBamSchemaObj)schema).getTextDefTableObj().newInstance();
+		}
+		else if( argClassCode.equals( "a85a" ) ) {
+			obj = ((ICFBamSchemaObj)schema).getTextTypeTableObj().newInstance();
+		}
+		else if( argClassCode.equals( "a87f" ) ) {
+			obj = ((ICFBamSchemaObj)schema).getTextColTableObj().newInstance();
+		}
+		else if( argClassCode.equals( "a85b" ) ) {
+			obj = ((ICFBamSchemaObj)schema).getTimeDefTableObj().newInstance();
+		}
+		else if( argClassCode.equals( "a85c" ) ) {
+			obj = ((ICFBamSchemaObj)schema).getTimeTypeTableObj().newInstance();
+		}
+		else if( argClassCode.equals( "a880" ) ) {
+			obj = ((ICFBamSchemaObj)schema).getTimeColTableObj().newInstance();
+		}
+		else if( argClassCode.equals( "a85d" ) ) {
+			obj = ((ICFBamSchemaObj)schema).getTimestampDefTableObj().newInstance();
+		}
+		else if( argClassCode.equals( "a85e" ) ) {
+			obj = ((ICFBamSchemaObj)schema).getTimestampTypeTableObj().newInstance();
+		}
+		else if( argClassCode.equals( "a881" ) ) {
+			obj = ((ICFBamSchemaObj)schema).getTimestampColTableObj().newInstance();
+		}
+		else if( argClassCode.equals( "a85f" ) ) {
+			obj = ((ICFBamSchemaObj)schema).getTokenDefTableObj().newInstance();
+		}
+		else if( argClassCode.equals( "a860" ) ) {
+			obj = ((ICFBamSchemaObj)schema).getTokenTypeTableObj().newInstance();
+		}
+		else if( argClassCode.equals( "a882" ) ) {
+			obj = ((ICFBamSchemaObj)schema).getTokenColTableObj().newInstance();
+		}
+		else if( argClassCode.equals( "a861" ) ) {
+			obj = ((ICFBamSchemaObj)schema).getUInt16DefTableObj().newInstance();
+		}
+		else if( argClassCode.equals( "a862" ) ) {
+			obj = ((ICFBamSchemaObj)schema).getUInt16TypeTableObj().newInstance();
+		}
+		else if( argClassCode.equals( "a883" ) ) {
+			obj = ((ICFBamSchemaObj)schema).getUInt16ColTableObj().newInstance();
+		}
+		else if( argClassCode.equals( "a863" ) ) {
+			obj = ((ICFBamSchemaObj)schema).getUInt32DefTableObj().newInstance();
+		}
+		else if( argClassCode.equals( "a864" ) ) {
+			obj = ((ICFBamSchemaObj)schema).getUInt32TypeTableObj().newInstance();
+		}
+		else if( argClassCode.equals( "a884" ) ) {
+			obj = ((ICFBamSchemaObj)schema).getUInt32ColTableObj().newInstance();
+		}
+		else if( argClassCode.equals( "a865" ) ) {
+			obj = ((ICFBamSchemaObj)schema).getUInt64DefTableObj().newInstance();
+		}
+		else if( argClassCode.equals( "a866" ) ) {
+			obj = ((ICFBamSchemaObj)schema).getUInt64TypeTableObj().newInstance();
+		}
+		else if( argClassCode.equals( "a885" ) ) {
+			obj = ((ICFBamSchemaObj)schema).getUInt64ColTableObj().newInstance();
+		}
+		else if( argClassCode.equals( "a867" ) ) {
+			obj = ((ICFBamSchemaObj)schema).getUuidDefTableObj().newInstance();
+		}
+		else if( argClassCode.equals( "a869" ) ) {
+			obj = ((ICFBamSchemaObj)schema).getUuidTypeTableObj().newInstance();
+		}
+		else if( argClassCode.equals( "a888" ) ) {
+			obj = ((ICFBamSchemaObj)schema).getUuidGenTableObj().newInstance();
+		}
+		else if( argClassCode.equals( "a886" ) ) {
+			obj = ((ICFBamSchemaObj)schema).getUuidColTableObj().newInstance();
+		}
+		else if( argClassCode.equals( "a868" ) ) {
+			obj = ((ICFBamSchemaObj)schema).getUuid6DefTableObj().newInstance();
+		}
+		else if( argClassCode.equals( "a86a" ) ) {
+			obj = ((ICFBamSchemaObj)schema).getUuid6TypeTableObj().newInstance();
+		}
+		else if( argClassCode.equals( "a889" ) ) {
+			obj = ((ICFBamSchemaObj)schema).getUuid6GenTableObj().newInstance();
+		}
+		else if( argClassCode.equals( "a887" ) ) {
+			obj = ((ICFBamSchemaObj)schema).getUuid6ColTableObj().newInstance();
+		}
+		else if( argClassCode.equals( "a858" ) ) {
 			obj = ((ICFBamSchemaObj)schema).getTableColTableObj().newInstance();
 		}
 		return( obj );

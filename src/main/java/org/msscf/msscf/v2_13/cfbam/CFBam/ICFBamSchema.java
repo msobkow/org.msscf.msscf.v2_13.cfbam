@@ -7,7 +7,7 @@
  *	
  *	MSS Code Factory CFBam 2.13 Business Application Model
  *	
- *	Copyright 2020-2021 Mark Stephen Sobkow
+ *	Copyright 2020 Mark Stephen Sobkow
  *	
  *		This file is part of MSS Code Factory.
  *	
@@ -45,6 +45,7 @@ import java.sql.*;
 import java.text.*;
 import java.util.*;
 import org.msscf.msscf.v2_13.cflib.CFLib.*;
+import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
 import org.msscf.msscf.v2_13.cflib.CFLib.Tip.CFTipClientHandler;
 import org.msscf.msscf.v2_13.cfsec.CFSec.*;
 import org.msscf.msscf.v2_13.cfint.CFInt.*;
@@ -539,6 +540,438 @@ extends ICFSecSchema,
 	 *	@throws CFLibNotSupportedException thrown by client-side implementations.
 	 */
 	ICFBamDateTypeFactory getFactoryDateType();
+
+	/**
+	 *	Get the DbKeyHash128Col Table interface for the schema.
+	 *
+	 *	@return	The DbKeyHash128Col Table interface for the schema.
+	 *
+	 *	@throws CFLibNotSupportedException thrown by client-side implementations.
+	 */
+	ICFBamDbKeyHash128ColTable getTableDbKeyHash128Col();
+
+	/**
+	 *	Get the DbKeyHash128Col Factory interface for the schema.
+	 *
+	 *	@return	The DbKeyHash128Col Factory interface for the schema.
+	 *
+	 *	@throws CFLibNotSupportedException thrown by client-side implementations.
+	 */
+	ICFBamDbKeyHash128ColFactory getFactoryDbKeyHash128Col();
+
+	/**
+	 *	Get the DbKeyHash128Def Table interface for the schema.
+	 *
+	 *	@return	The DbKeyHash128Def Table interface for the schema.
+	 *
+	 *	@throws CFLibNotSupportedException thrown by client-side implementations.
+	 */
+	ICFBamDbKeyHash128DefTable getTableDbKeyHash128Def();
+
+	/**
+	 *	Get the DbKeyHash128Def Factory interface for the schema.
+	 *
+	 *	@return	The DbKeyHash128Def Factory interface for the schema.
+	 *
+	 *	@throws CFLibNotSupportedException thrown by client-side implementations.
+	 */
+	ICFBamDbKeyHash128DefFactory getFactoryDbKeyHash128Def();
+
+	/**
+	 *	Get the DbKeyHash128Gen Table interface for the schema.
+	 *
+	 *	@return	The DbKeyHash128Gen Table interface for the schema.
+	 *
+	 *	@throws CFLibNotSupportedException thrown by client-side implementations.
+	 */
+	ICFBamDbKeyHash128GenTable getTableDbKeyHash128Gen();
+
+	/**
+	 *	Get the DbKeyHash128Gen Factory interface for the schema.
+	 *
+	 *	@return	The DbKeyHash128Gen Factory interface for the schema.
+	 *
+	 *	@throws CFLibNotSupportedException thrown by client-side implementations.
+	 */
+	ICFBamDbKeyHash128GenFactory getFactoryDbKeyHash128Gen();
+
+	/**
+	 *	Get the DbKeyHash128Type Table interface for the schema.
+	 *
+	 *	@return	The DbKeyHash128Type Table interface for the schema.
+	 *
+	 *	@throws CFLibNotSupportedException thrown by client-side implementations.
+	 */
+	ICFBamDbKeyHash128TypeTable getTableDbKeyHash128Type();
+
+	/**
+	 *	Get the DbKeyHash128Type Factory interface for the schema.
+	 *
+	 *	@return	The DbKeyHash128Type Factory interface for the schema.
+	 *
+	 *	@throws CFLibNotSupportedException thrown by client-side implementations.
+	 */
+	ICFBamDbKeyHash128TypeFactory getFactoryDbKeyHash128Type();
+
+	/**
+	 *	Get the DbKeyHash160Col Table interface for the schema.
+	 *
+	 *	@return	The DbKeyHash160Col Table interface for the schema.
+	 *
+	 *	@throws CFLibNotSupportedException thrown by client-side implementations.
+	 */
+	ICFBamDbKeyHash160ColTable getTableDbKeyHash160Col();
+
+	/**
+	 *	Get the DbKeyHash160Col Factory interface for the schema.
+	 *
+	 *	@return	The DbKeyHash160Col Factory interface for the schema.
+	 *
+	 *	@throws CFLibNotSupportedException thrown by client-side implementations.
+	 */
+	ICFBamDbKeyHash160ColFactory getFactoryDbKeyHash160Col();
+
+	/**
+	 *	Get the DbKeyHash160Def Table interface for the schema.
+	 *
+	 *	@return	The DbKeyHash160Def Table interface for the schema.
+	 *
+	 *	@throws CFLibNotSupportedException thrown by client-side implementations.
+	 */
+	ICFBamDbKeyHash160DefTable getTableDbKeyHash160Def();
+
+	/**
+	 *	Get the DbKeyHash160Def Factory interface for the schema.
+	 *
+	 *	@return	The DbKeyHash160Def Factory interface for the schema.
+	 *
+	 *	@throws CFLibNotSupportedException thrown by client-side implementations.
+	 */
+	ICFBamDbKeyHash160DefFactory getFactoryDbKeyHash160Def();
+
+	/**
+	 *	Get the DbKeyHash160Gen Table interface for the schema.
+	 *
+	 *	@return	The DbKeyHash160Gen Table interface for the schema.
+	 *
+	 *	@throws CFLibNotSupportedException thrown by client-side implementations.
+	 */
+	ICFBamDbKeyHash160GenTable getTableDbKeyHash160Gen();
+
+	/**
+	 *	Get the DbKeyHash160Gen Factory interface for the schema.
+	 *
+	 *	@return	The DbKeyHash160Gen Factory interface for the schema.
+	 *
+	 *	@throws CFLibNotSupportedException thrown by client-side implementations.
+	 */
+	ICFBamDbKeyHash160GenFactory getFactoryDbKeyHash160Gen();
+
+	/**
+	 *	Get the DbKeyHash160Type Table interface for the schema.
+	 *
+	 *	@return	The DbKeyHash160Type Table interface for the schema.
+	 *
+	 *	@throws CFLibNotSupportedException thrown by client-side implementations.
+	 */
+	ICFBamDbKeyHash160TypeTable getTableDbKeyHash160Type();
+
+	/**
+	 *	Get the DbKeyHash160Type Factory interface for the schema.
+	 *
+	 *	@return	The DbKeyHash160Type Factory interface for the schema.
+	 *
+	 *	@throws CFLibNotSupportedException thrown by client-side implementations.
+	 */
+	ICFBamDbKeyHash160TypeFactory getFactoryDbKeyHash160Type();
+
+	/**
+	 *	Get the DbKeyHash224Col Table interface for the schema.
+	 *
+	 *	@return	The DbKeyHash224Col Table interface for the schema.
+	 *
+	 *	@throws CFLibNotSupportedException thrown by client-side implementations.
+	 */
+	ICFBamDbKeyHash224ColTable getTableDbKeyHash224Col();
+
+	/**
+	 *	Get the DbKeyHash224Col Factory interface for the schema.
+	 *
+	 *	@return	The DbKeyHash224Col Factory interface for the schema.
+	 *
+	 *	@throws CFLibNotSupportedException thrown by client-side implementations.
+	 */
+	ICFBamDbKeyHash224ColFactory getFactoryDbKeyHash224Col();
+
+	/**
+	 *	Get the DbKeyHash224Def Table interface for the schema.
+	 *
+	 *	@return	The DbKeyHash224Def Table interface for the schema.
+	 *
+	 *	@throws CFLibNotSupportedException thrown by client-side implementations.
+	 */
+	ICFBamDbKeyHash224DefTable getTableDbKeyHash224Def();
+
+	/**
+	 *	Get the DbKeyHash224Def Factory interface for the schema.
+	 *
+	 *	@return	The DbKeyHash224Def Factory interface for the schema.
+	 *
+	 *	@throws CFLibNotSupportedException thrown by client-side implementations.
+	 */
+	ICFBamDbKeyHash224DefFactory getFactoryDbKeyHash224Def();
+
+	/**
+	 *	Get the DbKeyHash224Gen Table interface for the schema.
+	 *
+	 *	@return	The DbKeyHash224Gen Table interface for the schema.
+	 *
+	 *	@throws CFLibNotSupportedException thrown by client-side implementations.
+	 */
+	ICFBamDbKeyHash224GenTable getTableDbKeyHash224Gen();
+
+	/**
+	 *	Get the DbKeyHash224Gen Factory interface for the schema.
+	 *
+	 *	@return	The DbKeyHash224Gen Factory interface for the schema.
+	 *
+	 *	@throws CFLibNotSupportedException thrown by client-side implementations.
+	 */
+	ICFBamDbKeyHash224GenFactory getFactoryDbKeyHash224Gen();
+
+	/**
+	 *	Get the DbKeyHash224Type Table interface for the schema.
+	 *
+	 *	@return	The DbKeyHash224Type Table interface for the schema.
+	 *
+	 *	@throws CFLibNotSupportedException thrown by client-side implementations.
+	 */
+	ICFBamDbKeyHash224TypeTable getTableDbKeyHash224Type();
+
+	/**
+	 *	Get the DbKeyHash224Type Factory interface for the schema.
+	 *
+	 *	@return	The DbKeyHash224Type Factory interface for the schema.
+	 *
+	 *	@throws CFLibNotSupportedException thrown by client-side implementations.
+	 */
+	ICFBamDbKeyHash224TypeFactory getFactoryDbKeyHash224Type();
+
+	/**
+	 *	Get the DbKeyHash256Col Table interface for the schema.
+	 *
+	 *	@return	The DbKeyHash256Col Table interface for the schema.
+	 *
+	 *	@throws CFLibNotSupportedException thrown by client-side implementations.
+	 */
+	ICFBamDbKeyHash256ColTable getTableDbKeyHash256Col();
+
+	/**
+	 *	Get the DbKeyHash256Col Factory interface for the schema.
+	 *
+	 *	@return	The DbKeyHash256Col Factory interface for the schema.
+	 *
+	 *	@throws CFLibNotSupportedException thrown by client-side implementations.
+	 */
+	ICFBamDbKeyHash256ColFactory getFactoryDbKeyHash256Col();
+
+	/**
+	 *	Get the DbKeyHash256Def Table interface for the schema.
+	 *
+	 *	@return	The DbKeyHash256Def Table interface for the schema.
+	 *
+	 *	@throws CFLibNotSupportedException thrown by client-side implementations.
+	 */
+	ICFBamDbKeyHash256DefTable getTableDbKeyHash256Def();
+
+	/**
+	 *	Get the DbKeyHash256Def Factory interface for the schema.
+	 *
+	 *	@return	The DbKeyHash256Def Factory interface for the schema.
+	 *
+	 *	@throws CFLibNotSupportedException thrown by client-side implementations.
+	 */
+	ICFBamDbKeyHash256DefFactory getFactoryDbKeyHash256Def();
+
+	/**
+	 *	Get the DbKeyHash256Gen Table interface for the schema.
+	 *
+	 *	@return	The DbKeyHash256Gen Table interface for the schema.
+	 *
+	 *	@throws CFLibNotSupportedException thrown by client-side implementations.
+	 */
+	ICFBamDbKeyHash256GenTable getTableDbKeyHash256Gen();
+
+	/**
+	 *	Get the DbKeyHash256Gen Factory interface for the schema.
+	 *
+	 *	@return	The DbKeyHash256Gen Factory interface for the schema.
+	 *
+	 *	@throws CFLibNotSupportedException thrown by client-side implementations.
+	 */
+	ICFBamDbKeyHash256GenFactory getFactoryDbKeyHash256Gen();
+
+	/**
+	 *	Get the DbKeyHash256Type Table interface for the schema.
+	 *
+	 *	@return	The DbKeyHash256Type Table interface for the schema.
+	 *
+	 *	@throws CFLibNotSupportedException thrown by client-side implementations.
+	 */
+	ICFBamDbKeyHash256TypeTable getTableDbKeyHash256Type();
+
+	/**
+	 *	Get the DbKeyHash256Type Factory interface for the schema.
+	 *
+	 *	@return	The DbKeyHash256Type Factory interface for the schema.
+	 *
+	 *	@throws CFLibNotSupportedException thrown by client-side implementations.
+	 */
+	ICFBamDbKeyHash256TypeFactory getFactoryDbKeyHash256Type();
+
+	/**
+	 *	Get the DbKeyHash384Col Table interface for the schema.
+	 *
+	 *	@return	The DbKeyHash384Col Table interface for the schema.
+	 *
+	 *	@throws CFLibNotSupportedException thrown by client-side implementations.
+	 */
+	ICFBamDbKeyHash384ColTable getTableDbKeyHash384Col();
+
+	/**
+	 *	Get the DbKeyHash384Col Factory interface for the schema.
+	 *
+	 *	@return	The DbKeyHash384Col Factory interface for the schema.
+	 *
+	 *	@throws CFLibNotSupportedException thrown by client-side implementations.
+	 */
+	ICFBamDbKeyHash384ColFactory getFactoryDbKeyHash384Col();
+
+	/**
+	 *	Get the DbKeyHash384Def Table interface for the schema.
+	 *
+	 *	@return	The DbKeyHash384Def Table interface for the schema.
+	 *
+	 *	@throws CFLibNotSupportedException thrown by client-side implementations.
+	 */
+	ICFBamDbKeyHash384DefTable getTableDbKeyHash384Def();
+
+	/**
+	 *	Get the DbKeyHash384Def Factory interface for the schema.
+	 *
+	 *	@return	The DbKeyHash384Def Factory interface for the schema.
+	 *
+	 *	@throws CFLibNotSupportedException thrown by client-side implementations.
+	 */
+	ICFBamDbKeyHash384DefFactory getFactoryDbKeyHash384Def();
+
+	/**
+	 *	Get the DbKeyHash384Gen Table interface for the schema.
+	 *
+	 *	@return	The DbKeyHash384Gen Table interface for the schema.
+	 *
+	 *	@throws CFLibNotSupportedException thrown by client-side implementations.
+	 */
+	ICFBamDbKeyHash384GenTable getTableDbKeyHash384Gen();
+
+	/**
+	 *	Get the DbKeyHash384Gen Factory interface for the schema.
+	 *
+	 *	@return	The DbKeyHash384Gen Factory interface for the schema.
+	 *
+	 *	@throws CFLibNotSupportedException thrown by client-side implementations.
+	 */
+	ICFBamDbKeyHash384GenFactory getFactoryDbKeyHash384Gen();
+
+	/**
+	 *	Get the DbKeyHash384Type Table interface for the schema.
+	 *
+	 *	@return	The DbKeyHash384Type Table interface for the schema.
+	 *
+	 *	@throws CFLibNotSupportedException thrown by client-side implementations.
+	 */
+	ICFBamDbKeyHash384TypeTable getTableDbKeyHash384Type();
+
+	/**
+	 *	Get the DbKeyHash384Type Factory interface for the schema.
+	 *
+	 *	@return	The DbKeyHash384Type Factory interface for the schema.
+	 *
+	 *	@throws CFLibNotSupportedException thrown by client-side implementations.
+	 */
+	ICFBamDbKeyHash384TypeFactory getFactoryDbKeyHash384Type();
+
+	/**
+	 *	Get the DbKeyHash512Col Table interface for the schema.
+	 *
+	 *	@return	The DbKeyHash512Col Table interface for the schema.
+	 *
+	 *	@throws CFLibNotSupportedException thrown by client-side implementations.
+	 */
+	ICFBamDbKeyHash512ColTable getTableDbKeyHash512Col();
+
+	/**
+	 *	Get the DbKeyHash512Col Factory interface for the schema.
+	 *
+	 *	@return	The DbKeyHash512Col Factory interface for the schema.
+	 *
+	 *	@throws CFLibNotSupportedException thrown by client-side implementations.
+	 */
+	ICFBamDbKeyHash512ColFactory getFactoryDbKeyHash512Col();
+
+	/**
+	 *	Get the DbKeyHash512Def Table interface for the schema.
+	 *
+	 *	@return	The DbKeyHash512Def Table interface for the schema.
+	 *
+	 *	@throws CFLibNotSupportedException thrown by client-side implementations.
+	 */
+	ICFBamDbKeyHash512DefTable getTableDbKeyHash512Def();
+
+	/**
+	 *	Get the DbKeyHash512Def Factory interface for the schema.
+	 *
+	 *	@return	The DbKeyHash512Def Factory interface for the schema.
+	 *
+	 *	@throws CFLibNotSupportedException thrown by client-side implementations.
+	 */
+	ICFBamDbKeyHash512DefFactory getFactoryDbKeyHash512Def();
+
+	/**
+	 *	Get the DbKeyHash512Gen Table interface for the schema.
+	 *
+	 *	@return	The DbKeyHash512Gen Table interface for the schema.
+	 *
+	 *	@throws CFLibNotSupportedException thrown by client-side implementations.
+	 */
+	ICFBamDbKeyHash512GenTable getTableDbKeyHash512Gen();
+
+	/**
+	 *	Get the DbKeyHash512Gen Factory interface for the schema.
+	 *
+	 *	@return	The DbKeyHash512Gen Factory interface for the schema.
+	 *
+	 *	@throws CFLibNotSupportedException thrown by client-side implementations.
+	 */
+	ICFBamDbKeyHash512GenFactory getFactoryDbKeyHash512Gen();
+
+	/**
+	 *	Get the DbKeyHash512Type Table interface for the schema.
+	 *
+	 *	@return	The DbKeyHash512Type Table interface for the schema.
+	 *
+	 *	@throws CFLibNotSupportedException thrown by client-side implementations.
+	 */
+	ICFBamDbKeyHash512TypeTable getTableDbKeyHash512Type();
+
+	/**
+	 *	Get the DbKeyHash512Type Factory interface for the schema.
+	 *
+	 *	@return	The DbKeyHash512Type Factory interface for the schema.
+	 *
+	 *	@throws CFLibNotSupportedException thrown by client-side implementations.
+	 */
+	ICFBamDbKeyHash512TypeFactory getFactoryDbKeyHash512Type();
 
 	/**
 	 *	Get the DelDep Table interface for the schema.
@@ -2681,6 +3114,78 @@ extends ICFSecSchema,
 	 *	@throws CFLibNotSupportedException thrown by client-side implementations.
 	 */
 	ICFIntURLProtocolFactory getFactoryURLProtocol();
+
+	/**
+	 *	Get the Uuid6Col Table interface for the schema.
+	 *
+	 *	@return	The Uuid6Col Table interface for the schema.
+	 *
+	 *	@throws CFLibNotSupportedException thrown by client-side implementations.
+	 */
+	ICFBamUuid6ColTable getTableUuid6Col();
+
+	/**
+	 *	Get the Uuid6Col Factory interface for the schema.
+	 *
+	 *	@return	The Uuid6Col Factory interface for the schema.
+	 *
+	 *	@throws CFLibNotSupportedException thrown by client-side implementations.
+	 */
+	ICFBamUuid6ColFactory getFactoryUuid6Col();
+
+	/**
+	 *	Get the Uuid6Def Table interface for the schema.
+	 *
+	 *	@return	The Uuid6Def Table interface for the schema.
+	 *
+	 *	@throws CFLibNotSupportedException thrown by client-side implementations.
+	 */
+	ICFBamUuid6DefTable getTableUuid6Def();
+
+	/**
+	 *	Get the Uuid6Def Factory interface for the schema.
+	 *
+	 *	@return	The Uuid6Def Factory interface for the schema.
+	 *
+	 *	@throws CFLibNotSupportedException thrown by client-side implementations.
+	 */
+	ICFBamUuid6DefFactory getFactoryUuid6Def();
+
+	/**
+	 *	Get the Uuid6Gen Table interface for the schema.
+	 *
+	 *	@return	The Uuid6Gen Table interface for the schema.
+	 *
+	 *	@throws CFLibNotSupportedException thrown by client-side implementations.
+	 */
+	ICFBamUuid6GenTable getTableUuid6Gen();
+
+	/**
+	 *	Get the Uuid6Gen Factory interface for the schema.
+	 *
+	 *	@return	The Uuid6Gen Factory interface for the schema.
+	 *
+	 *	@throws CFLibNotSupportedException thrown by client-side implementations.
+	 */
+	ICFBamUuid6GenFactory getFactoryUuid6Gen();
+
+	/**
+	 *	Get the Uuid6Type Table interface for the schema.
+	 *
+	 *	@return	The Uuid6Type Table interface for the schema.
+	 *
+	 *	@throws CFLibNotSupportedException thrown by client-side implementations.
+	 */
+	ICFBamUuid6TypeTable getTableUuid6Type();
+
+	/**
+	 *	Get the Uuid6Type Factory interface for the schema.
+	 *
+	 *	@return	The Uuid6Type Factory interface for the schema.
+	 *
+	 *	@throws CFLibNotSupportedException thrown by client-side implementations.
+	 */
+	ICFBamUuid6TypeFactory getFactoryUuid6Type();
 
 	/**
 	 *	Get the UuidCol Table interface for the schema.
