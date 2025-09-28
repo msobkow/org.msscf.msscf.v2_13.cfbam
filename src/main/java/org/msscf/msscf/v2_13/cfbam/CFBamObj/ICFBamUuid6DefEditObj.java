@@ -62,16 +62,16 @@ public interface ICFBamUuid6DefEditObj
 	ICFBamUuid6DefObj getOrigAsUuid6Def();
 
 	/**
-	 *	Get the optional UUID attribute InitValue.
+	 *	Get the optional String attribute InitValue.
 	 *
-	 *	@return	The UUID value of the attribute InitValue.
+	 *	@return	The String value of the attribute InitValue.
 	 */
-	UUID getOptionalInitValue();
+	String getOptionalInitValue();
 
 	/**
-	 *	Set the optional UUID attribute InitValue.
+	 *	Set the optional String attribute InitValue.
 	 *
-	 *	@param	value	the UUID value of the attribute InitValue.
+	 *	@param	value	the String value of the attribute InitValue.
 	 */
-	void setOptionalInitValue( UUID value );
+	void setOptionalInitValue( String value );
 }

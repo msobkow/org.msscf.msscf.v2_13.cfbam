@@ -79,10 +79,10 @@ public interface ICFBamUuid6DefObj
 	CFBamUuid6DefBuff getUuid6DefBuff();
 
 	/**
-	 *	Get the optional UUID attribute InitValue.
+	 *	Get the optional String attribute InitValue.
 	 *
-	 *	@return	The optional UUID attribute InitValue.
+	 *	@return	The optional String attribute InitValue.
 	 */
-	UUID getOptionalInitValue();
+	String getOptionalInitValue();
 
 }

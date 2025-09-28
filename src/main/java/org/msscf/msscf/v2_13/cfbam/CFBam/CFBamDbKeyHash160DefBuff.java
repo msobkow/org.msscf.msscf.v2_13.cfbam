@@ -79,13 +79,13 @@ public class CFBamDbKeyHash160DefBuff
 		if( value == null ) {
 			optionalInitValue = null;
 		}
-		else if( value.length() > 320 ) {
+		else if( value.length() > 40 ) {
 			throw new CFLibArgumentOverflowException( getClass(),
 				"setOptionalInitValue",
 				1,
 				"value.length()",
 				value.length(),
-				320 );
+				40 );
 		}
 		else {
 			optionalInitValue = value;

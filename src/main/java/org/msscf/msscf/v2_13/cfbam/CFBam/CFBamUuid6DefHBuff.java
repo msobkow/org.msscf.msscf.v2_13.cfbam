@@ -61,7 +61,7 @@ public class CFBamUuid6DefHBuff
 	public static final long TENANTID_MIN_VALUE = 0L;
 	public static final long ID_MIN_VALUE = 0L;
 
-	protected UUID optionalInitValue;
+	protected String optionalInitValue;
 	public CFBamUuid6DefHBuff() {
 		super();
 		optionalInitValue = null;
@@ -71,13 +71,21 @@ public class CFBamUuid6DefHBuff
 		return( CFBamUuid6DefBuff.CLASS_CODE );
 	}
 
-	public UUID getOptionalInitValue() {
+	public String getOptionalInitValue() {
 		return( optionalInitValue );
 	}
 
-	public void setOptionalInitValue( UUID value ) {
+	public void setOptionalInitValue( String value ) {
 		if( value == null ) {
 			optionalInitValue = null;
+		}
+		else if( value.length() > 62 ) {
+			throw new CFLibArgumentOverflowException( getClass(),
+				"setOptionalInitValue",
+				1,
+				"value.length()",
+				value.length(),
+				62 );
 		}
 		else {
 			optionalInitValue = value;

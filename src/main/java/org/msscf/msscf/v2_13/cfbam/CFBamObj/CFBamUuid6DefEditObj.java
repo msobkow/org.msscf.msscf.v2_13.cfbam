@@ -235,11 +235,11 @@ public class CFBamUuid6DefEditObj
 		return( (CFBamUuid6DefBuff)getBuff() );
 	}
 
-	public UUID getOptionalInitValue() {
+	public String getOptionalInitValue() {
 		return( getUuid6DefBuff().getOptionalInitValue() );
 	}
 
-	public void setOptionalInitValue( UUID value ) {
+	public void setOptionalInitValue( String value ) {
 		if( getUuid6DefBuff().getOptionalInitValue() != value ) {
 			getUuid6DefBuff().setOptionalInitValue( value );
 		}

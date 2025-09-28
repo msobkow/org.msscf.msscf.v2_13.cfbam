@@ -79,13 +79,13 @@ public class CFBamDbKeyHash256DefHBuff
 		if( value == null ) {
 			optionalInitValue = null;
 		}
-		else if( value.length() > 512 ) {
+		else if( value.length() > 64 ) {
 			throw new CFLibArgumentOverflowException( getClass(),
 				"setOptionalInitValue",
 				1,
 				"value.length()",
 				value.length(),
-				512 );
+				64 );
 		}
 		else {
 			optionalInitValue = value;

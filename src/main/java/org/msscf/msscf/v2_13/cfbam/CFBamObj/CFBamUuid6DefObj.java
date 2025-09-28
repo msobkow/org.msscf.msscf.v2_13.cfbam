@@ -283,7 +283,7 @@ public class CFBamUuid6DefObj
 		return( getBuff().getUpdatedAt() );
 	}
 
-	public UUID getOptionalInitValue() {
+	public String getOptionalInitValue() {
 		return( getUuid6DefBuff().getOptionalInitValue() );
 	}
 }
