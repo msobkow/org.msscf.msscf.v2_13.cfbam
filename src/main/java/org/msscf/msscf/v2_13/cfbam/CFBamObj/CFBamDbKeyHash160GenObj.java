@@ -55,13 +55,16 @@ public class CFBamDbKeyHash160GenObj
 	implements ICFBamDbKeyHash160GenObj
 {
 	public final static String CLASS_CODE = "a83f";
+	protected ICFBamTableObj optionalLookupDispenser;
 
 	public CFBamDbKeyHash160GenObj() {
 		super();
+		optionalLookupDispenser = null;
 	}
 
 	public CFBamDbKeyHash160GenObj( ICFBamSchemaObj argSchema ) {
 		super( argSchema );
+		optionalLookupDispenser = null;
 	}
 
 	public String getClassCode() {
@@ -235,6 +238,7 @@ public class CFBamDbKeyHash160GenObj
 		optionalLookupPrev = null;
 		optionalLookupNext = null;
 		requiredContainerSchemaDef = null;
+		optionalLookupDispenser = null;
 	}
 
 	public CFBamDbKeyHash160GenBuff getDbKeyHash160GenBuff() {
@@ -284,7 +288,40 @@ public class CFBamDbKeyHash160GenObj
 		return( getBuff().getUpdatedAt() );
 	}
 
+	public Long getOptionalDispenserTenantId() {
+		return( getDbKeyHash160GenBuff().getOptionalDispenserTenantId() );
+	}
+
+	public Long getOptionalDispenserId() {
+		return( getDbKeyHash160GenBuff().getOptionalDispenserId() );
+	}
+
+	public short getRequiredSlice() {
+		return( getDbKeyHash160GenBuff().getRequiredSlice() );
+	}
+
 	public int getRequiredBlockSize() {
 		return( getDbKeyHash160GenBuff().getRequiredBlockSize() );
+	}
+
+	public ICFBamTableObj getOptionalLookupDispenser() {
+		return( getOptionalLookupDispenser( false ) );
+	}
+
+	public ICFBamTableObj getOptionalLookupDispenser( boolean forceRead ) {
+		if( ( optionalLookupDispenser == null ) || forceRead ) {
+			boolean anyMissing = false;
+			if( getDbKeyHash160GenBuff().getOptionalDispenserTenantId() == null ) {
+				anyMissing = true;
+			}
+			if( getDbKeyHash160GenBuff().getOptionalDispenserId() == null ) {
+				anyMissing = true;
+			}
+			if( ! anyMissing ) {
+				optionalLookupDispenser = ((ICFBamSchemaObj)schema).getTableTableObj().readTableByIdIdx( getDbKeyHash160GenBuff().getOptionalDispenserTenantId(),
+					getDbKeyHash160GenBuff().getOptionalDispenserId(), forceRead );
+			}
+		}
+		return( optionalLookupDispenser );
 	}
 }

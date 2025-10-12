@@ -74,6 +74,8 @@ public class CFBamDbKeyHash256GenTableObj
 		Map<CFBamValuePKey, ICFBamDbKeyHash256GenObj > > indexByContNextIdx;
 	private Map< CFBamDbKeyHash256TypeBySchemaIdxKey,
 		Map<CFBamValuePKey, ICFBamDbKeyHash256GenObj > > indexBySchemaIdx;
+	private Map< CFBamDbKeyHash256GenByDispIdxKey,
+		Map<CFBamValuePKey, ICFBamDbKeyHash256GenObj > > indexByDispIdx;
 	public static String TABLE_NAME = "DbKeyHash256Gen";
 	public static String TABLE_DBNAME = "idgdbk256";
 
@@ -90,6 +92,7 @@ public class CFBamDbKeyHash256GenTableObj
 		indexByContPrevIdx = null;
 		indexByContNextIdx = null;
 		indexBySchemaIdx = null;
+		indexByDispIdx = null;
 	}
 
 	public CFBamDbKeyHash256GenTableObj( ICFBamSchemaObj argSchema ) {
@@ -105,6 +108,7 @@ public class CFBamDbKeyHash256GenTableObj
 		indexByContPrevIdx = null;
 		indexByContNextIdx = null;
 		indexBySchemaIdx = null;
+		indexByDispIdx = null;
 	}
 
 	public ICFBamSchemaObj getSchema() {
@@ -139,6 +143,7 @@ public class CFBamDbKeyHash256GenTableObj
 		indexByContPrevIdx = null;
 		indexByContNextIdx = null;
 		indexBySchemaIdx = null;
+		indexByDispIdx = null;
 		List<ICFBamDbKeyHash256GenObj> toForget = new LinkedList<ICFBamDbKeyHash256GenObj>();
 		ICFBamDbKeyHash256GenObj cur = null;
 		Iterator<ICFBamDbKeyHash256GenObj> iter = members.values().iterator();
@@ -292,6 +297,20 @@ public class CFBamDbKeyHash256GenTableObj
 					indexBySchemaIdx.remove( keySchemaIdx );
 				}
 			}
+
+			if( indexByDispIdx != null ) {
+				CFBamDbKeyHash256GenByDispIdxKey keyDispIdx =
+					((ICFBamSchema)schema.getBackingStore()).getFactoryDbKeyHash256Gen().newDispIdxKey();
+				keyDispIdx.setOptionalDispenserTenantId( keepObj.getOptionalDispenserTenantId() );
+				keyDispIdx.setOptionalDispenserId( keepObj.getOptionalDispenserId() );
+				Map<CFBamValuePKey, ICFBamDbKeyHash256GenObj > mapDispIdx = indexByDispIdx.get( keyDispIdx );
+				if( mapDispIdx != null ) {
+					mapDispIdx.remove( keepObj.getPKey() );
+					if( mapDispIdx.size() <= 0 ) {
+						indexByDispIdx.remove( keyDispIdx );
+					}
+				}
+			}
 			// Keep passing the new object because it's the one with the buffer
 			// that the base table needs to copy to the existing object from
 			// the cache.
@@ -394,6 +413,17 @@ public class CFBamDbKeyHash256GenTableObj
 				Map<CFBamValuePKey, ICFBamDbKeyHash256GenObj > mapSchemaIdx = indexBySchemaIdx.get( keySchemaIdx );
 				if( mapSchemaIdx != null ) {
 					mapSchemaIdx.put( keepObj.getPKey(), keepObj );
+				}
+			}
+
+			if( indexByDispIdx != null ) {
+				CFBamDbKeyHash256GenByDispIdxKey keyDispIdx =
+					((ICFBamSchema)schema.getBackingStore()).getFactoryDbKeyHash256Gen().newDispIdxKey();
+				keyDispIdx.setOptionalDispenserTenantId( keepObj.getOptionalDispenserTenantId() );
+				keyDispIdx.setOptionalDispenserId( keepObj.getOptionalDispenserId() );
+				Map<CFBamValuePKey, ICFBamDbKeyHash256GenObj > mapDispIdx = indexByDispIdx.get( keyDispIdx );
+				if( mapDispIdx != null ) {
+					mapDispIdx.put( keepObj.getPKey(), keepObj );
 				}
 			}
 
@@ -509,6 +539,17 @@ public class CFBamDbKeyHash256GenTableObj
 				}
 			}
 
+			if( indexByDispIdx != null ) {
+				CFBamDbKeyHash256GenByDispIdxKey keyDispIdx =
+					((ICFBamSchema)schema.getBackingStore()).getFactoryDbKeyHash256Gen().newDispIdxKey();
+				keyDispIdx.setOptionalDispenserTenantId( keepObj.getOptionalDispenserTenantId() );
+				keyDispIdx.setOptionalDispenserId( keepObj.getOptionalDispenserId() );
+				Map<CFBamValuePKey, ICFBamDbKeyHash256GenObj > mapDispIdx = indexByDispIdx.get( keyDispIdx );
+				if( mapDispIdx != null ) {
+					mapDispIdx.put( keepObj.getPKey(), keepObj );
+				}
+			}
+
 		}
 		return( keepObj );
 	}
@@ -575,11 +616,24 @@ public class CFBamDbKeyHash256GenTableObj
 			return;
 		}
 		members.remove( pkey );
+		CFBamDbKeyHash256GenByDispIdxKey keyDispIdx = ((ICFBamSchema)schema.getBackingStore()).getFactoryDbKeyHash256Gen().newDispIdxKey();
+		keyDispIdx.setOptionalDispenserTenantId( existing.getOptionalDispenserTenantId() );
+		keyDispIdx.setOptionalDispenserId( existing.getOptionalDispenserId() );
+
 
 		schema.getTableColTableObj().deepDisposeTableColByDataIdx( existing.getRequiredTenantId(),
 						existing.getRequiredId() );
 		schema.getIndexColTableObj().deepDisposeIndexColByColIdx( existing.getRequiredTenantId(),
 						existing.getRequiredId() );
+
+		if( indexByDispIdx != null ) {
+			if( indexByDispIdx.containsKey( keyDispIdx ) ) {
+				indexByDispIdx.get( keyDispIdx ).remove( pkey );
+				if( indexByDispIdx.get( keyDispIdx ).size() <= 0 ) {
+					indexByDispIdx.remove( keyDispIdx );
+				}
+			}
+		}
 
 
 		schema.getDbKeyHash256TypeTableObj().reallyDeepDisposeDbKeyHash256Type( obj );
@@ -1560,6 +1614,101 @@ public class CFBamDbKeyHash256GenTableObj
 		return( sortedList );
 	}
 
+	public List<ICFBamDbKeyHash256GenObj> readDbKeyHash256GenByDispIdx( Long DispenserTenantId,
+		Long DispenserId )
+	{
+		return( readDbKeyHash256GenByDispIdx( DispenserTenantId,
+			DispenserId,
+			false ) );
+	}
+
+	public List<ICFBamDbKeyHash256GenObj> readDbKeyHash256GenByDispIdx( Long DispenserTenantId,
+		Long DispenserId,
+		boolean forceRead )
+	{
+		final String S_ProcName = "readDbKeyHash256GenByDispIdx";
+		CFBamDbKeyHash256GenByDispIdxKey key = ((ICFBamSchema)schema.getBackingStore()).getFactoryDbKeyHash256Gen().newDispIdxKey();
+		key.setOptionalDispenserTenantId( DispenserTenantId );
+		key.setOptionalDispenserId( DispenserId );
+		Map<CFBamValuePKey, ICFBamDbKeyHash256GenObj> dict;
+		if( indexByDispIdx == null ) {
+			indexByDispIdx = new HashMap< CFBamDbKeyHash256GenByDispIdxKey,
+				Map< CFBamValuePKey, ICFBamDbKeyHash256GenObj > >();
+		}
+		if( ( ! forceRead ) && indexByDispIdx.containsKey( key ) ) {
+			dict = indexByDispIdx.get( key );
+		}
+		else {
+			dict = new HashMap<CFBamValuePKey, ICFBamDbKeyHash256GenObj>();
+			ICFBamDbKeyHash256GenObj obj;
+			CFBamDbKeyHash256GenBuff[] buffList = ((ICFBamSchema)schema.getBackingStore()).getTableDbKeyHash256Gen().readDerivedByDispIdx( schema.getAuthorization(),
+				DispenserTenantId,
+				DispenserId );
+			CFBamDbKeyHash256GenBuff buff;
+			for( int idx = 0; idx < buffList.length; idx ++ ) {
+				buff = buffList[ idx ];
+				obj = (ICFBamDbKeyHash256GenObj)schema.getValueTableObj().constructByClassCode( buff.getClassCode() );
+				obj.setPKey( ((ICFBamSchema)schema.getBackingStore()).getFactoryValue().newPKey() );
+				obj.setBuff( buff );
+				ICFBamDbKeyHash256GenObj realised = (ICFBamDbKeyHash256GenObj)obj.realise();
+				dict.put( realised.getPKey(), realised );
+			}
+			indexByDispIdx.put( key, dict );
+		}
+		int len = dict.size();
+		ICFBamDbKeyHash256GenObj arr[] = new ICFBamDbKeyHash256GenObj[len];
+		Iterator<ICFBamDbKeyHash256GenObj> valIter = dict.values().iterator();
+		int idx = 0;
+		while( ( idx < len ) && valIter.hasNext() ) {
+			arr[idx++] = valIter.next();
+		}
+		if( idx < len ) {
+			throw new CFLibArgumentUnderflowException( getClass(),
+				S_ProcName,
+				0,
+				"idx",
+				idx,
+				len );
+		}
+		else if( valIter.hasNext() ) {
+			throw new CFLibArgumentOverflowException( getClass(),
+					S_ProcName,
+					0,
+					"idx",
+					idx,
+					len );
+		}
+		ArrayList<ICFBamDbKeyHash256GenObj> arrayList = new ArrayList<ICFBamDbKeyHash256GenObj>(len);
+		for( idx = 0; idx < len; idx ++ ) {
+			arrayList.add( arr[idx] );
+		}
+
+		Comparator<ICFBamDbKeyHash256GenObj> cmp = new Comparator<ICFBamDbKeyHash256GenObj>() {
+			public int compare( ICFBamDbKeyHash256GenObj lhs, ICFBamDbKeyHash256GenObj rhs ) {
+				if( lhs == null ) {
+					if( rhs == null ) {
+						return( 0 );
+					}
+					else {
+						return( -1 );
+					}
+				}
+				else if( rhs == null ) {
+					return( 1 );
+				}
+				else {
+					CFBamValuePKey lhsPKey = lhs.getPKey();
+					CFBamValuePKey rhsPKey = rhs.getPKey();
+					int ret = lhsPKey.compareTo( rhsPKey );
+					return( ret );
+				}
+			}
+		};
+		Collections.sort( arrayList, cmp );
+		List<ICFBamDbKeyHash256GenObj> sortedList = arrayList;
+		return( sortedList );
+	}
+
 	public ICFBamDbKeyHash256GenObj readCachedDbKeyHash256GenByIdIdx( long TenantId,
 		long Id )
 	{
@@ -2228,6 +2377,83 @@ public class CFBamDbKeyHash256GenTableObj
 		return( arrayList );
 	}
 
+	public List<ICFBamDbKeyHash256GenObj> readCachedDbKeyHash256GenByDispIdx( Long DispenserTenantId,
+		Long DispenserId )
+	{
+		final String S_ProcName = "readCachedDbKeyHash256GenByDispIdx";
+		CFBamDbKeyHash256GenByDispIdxKey key = ((ICFBamSchema)schema.getBackingStore()).getFactoryDbKeyHash256Gen().newDispIdxKey();
+		key.setOptionalDispenserTenantId( DispenserTenantId );
+		key.setOptionalDispenserId( DispenserId );
+		ArrayList<ICFBamDbKeyHash256GenObj> arrayList = new ArrayList<ICFBamDbKeyHash256GenObj>();
+		if( indexByDispIdx != null ) {
+			Map<CFBamValuePKey, ICFBamDbKeyHash256GenObj> dict;
+			if( indexByDispIdx.containsKey( key ) ) {
+				dict = indexByDispIdx.get( key );
+				int len = dict.size();
+				ICFBamDbKeyHash256GenObj arr[] = new ICFBamDbKeyHash256GenObj[len];
+				Iterator<ICFBamDbKeyHash256GenObj> valIter = dict.values().iterator();
+				int idx = 0;
+				while( ( idx < len ) && valIter.hasNext() ) {
+					arr[idx++] = valIter.next();
+				}
+				if( idx < len ) {
+					throw new CFLibArgumentUnderflowException( getClass(),
+						S_ProcName,
+						0,
+						"idx",
+						idx,
+						len );
+				}
+				else if( valIter.hasNext() ) {
+					throw new CFLibArgumentOverflowException( getClass(),
+							S_ProcName,
+							0,
+							"idx",
+							idx,
+							len );
+				}
+				for( idx = 0; idx < len; idx ++ ) {
+					arrayList.add( arr[idx] );
+				}
+			}
+		}
+		else {
+			ICFBamDbKeyHash256GenObj obj;
+			Iterator<ICFBamDbKeyHash256GenObj> valIter = members.values().iterator();
+			while( valIter.hasNext() ) {
+				obj = valIter.next();
+				if( obj != null ) {
+					if( obj.getBuff().compareTo( key ) == 0 ) {
+						arrayList.add( obj );
+					}
+				}
+			}
+		}
+		Comparator<ICFBamDbKeyHash256GenObj> cmp = new Comparator<ICFBamDbKeyHash256GenObj>() {
+			public int compare( ICFBamDbKeyHash256GenObj lhs, ICFBamDbKeyHash256GenObj rhs ) {
+				if( lhs == null ) {
+					if( rhs == null ) {
+						return( 0 );
+					}
+					else {
+						return( -1 );
+					}
+				}
+				else if( rhs == null ) {
+					return( 1 );
+				}
+				else {
+					CFBamValuePKey lhsPKey = lhs.getPKey();
+					CFBamValuePKey rhsPKey = rhs.getPKey();
+					int ret = lhsPKey.compareTo( rhsPKey );
+					return( ret );
+				}
+			}
+		};
+		Collections.sort( arrayList, cmp );
+		return( arrayList );
+	}
+
 	public void deepDisposeDbKeyHash256GenByIdIdx( long TenantId,
 		long Id )
 	{
@@ -2385,6 +2611,24 @@ public class CFBamDbKeyHash256GenTableObj
 		ICFBamDbKeyHash256GenObj obj;
 		List<ICFBamDbKeyHash256GenObj> arrayList = readCachedDbKeyHash256GenBySchemaIdx( TenantId,
 				SchemaDefId );
+		if( arrayList != null )  {
+			Iterator<ICFBamDbKeyHash256GenObj> arrayIter = arrayList.iterator();
+			while( arrayIter.hasNext() ) {
+				obj = arrayIter.next();
+				if( obj != null ) {
+					obj.forget();
+				}
+			}
+		}
+	}
+
+	public void deepDisposeDbKeyHash256GenByDispIdx( Long DispenserTenantId,
+		Long DispenserId )
+	{
+		final String S_ProcName = "deepDisposeDbKeyHash256GenByDispIdx";
+		ICFBamDbKeyHash256GenObj obj;
+		List<ICFBamDbKeyHash256GenObj> arrayList = readCachedDbKeyHash256GenByDispIdx( DispenserTenantId,
+				DispenserId );
 		if( arrayList != null )  {
 			Iterator<ICFBamDbKeyHash256GenObj> arrayIter = arrayList.iterator();
 			while( arrayIter.hasNext() ) {
@@ -2795,6 +3039,44 @@ public class CFBamDbKeyHash256GenTableObj
 		}
 		deepDisposeDbKeyHash256GenBySchemaIdx( TenantId,
 				SchemaDefId );
+	}
+
+	public void deleteDbKeyHash256GenByDispIdx( Long DispenserTenantId,
+		Long DispenserId )
+	{
+		CFBamDbKeyHash256GenByDispIdxKey key = ((ICFBamSchema)schema.getBackingStore()).getFactoryDbKeyHash256Gen().newDispIdxKey();
+		key.setOptionalDispenserTenantId( DispenserTenantId );
+		key.setOptionalDispenserId( DispenserId );
+		if( indexByDispIdx == null ) {
+			indexByDispIdx = new HashMap< CFBamDbKeyHash256GenByDispIdxKey,
+				Map< CFBamValuePKey, ICFBamDbKeyHash256GenObj > >();
+		}
+		if( indexByDispIdx.containsKey( key ) ) {
+			Map<CFBamValuePKey, ICFBamDbKeyHash256GenObj> dict = indexByDispIdx.get( key );
+			((ICFBamSchema)schema.getBackingStore()).getTableDbKeyHash256Gen().deleteDbKeyHash256GenByDispIdx( schema.getAuthorization(),
+				DispenserTenantId,
+				DispenserId );
+			Iterator<ICFBamDbKeyHash256GenObj> iter = dict.values().iterator();
+			ICFBamDbKeyHash256GenObj obj;
+			List<ICFBamDbKeyHash256GenObj> toForget = new LinkedList<ICFBamDbKeyHash256GenObj>();
+			while( iter.hasNext() ) {
+				obj = iter.next();
+				toForget.add( obj );
+			}
+			iter = toForget.iterator();
+			while( iter.hasNext() ) {
+				obj = iter.next();
+				obj.forget();
+			}
+			indexByDispIdx.remove( key );
+		}
+		else {
+			((ICFBamSchema)schema.getBackingStore()).getTableDbKeyHash256Gen().deleteDbKeyHash256GenByDispIdx( schema.getAuthorization(),
+				DispenserTenantId,
+				DispenserId );
+		}
+		deepDisposeDbKeyHash256GenByDispIdx( DispenserTenantId,
+				DispenserId );
 	}
 
 	/**

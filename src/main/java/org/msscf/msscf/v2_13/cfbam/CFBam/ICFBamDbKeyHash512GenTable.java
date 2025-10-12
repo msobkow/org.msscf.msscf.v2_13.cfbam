@@ -93,6 +93,28 @@ public interface ICFBamDbKeyHash512GenTable
 	void deleteDbKeyHash512Gen( CFSecAuthorization Authorization,
 		CFBamDbKeyHash512GenBuff Buff );
 	/**
+	 *	Delete the DbKeyHash512Gen instances identified by the key DispIdx.
+	 *
+	 *	@param	Authorization	The session authorization information.
+	 *
+	 *	@param	argDispenserTenantId	The DbKeyHash512Gen key attribute of the instance generating the id.
+	 *
+	 *	@param	argDispenserId	The DbKeyHash512Gen key attribute of the instance generating the id.
+	 */
+	void deleteDbKeyHash512GenByDispIdx( CFSecAuthorization Authorization,
+		Long argDispenserTenantId,
+		Long argDispenserId );
+
+	/**
+	 *	Delete the DbKeyHash512Gen instances identified by the key DispIdx.
+	 *
+	 *	@param	Authorization	The session authorization information.
+	 *
+	 *	@param	argKey	The key identifying the instances to be deleted.
+	 */
+	void deleteDbKeyHash512GenByDispIdx( CFSecAuthorization Authorization,
+		CFBamDbKeyHash512GenByDispIdxKey argKey );
+	/**
 	 *	Delete the DbKeyHash512Gen instances identified by the key SchemaIdx.
 	 *
 	 *	@param	Authorization	The session authorization information.
@@ -514,6 +536,21 @@ public interface ICFBamDbKeyHash512GenTable
 		long SchemaDefId );
 
 	/**
+	 *	Read an array of the derived DbKeyHash512Gen buffer instances identified by the duplicate key DispIdx.
+	 *
+	 *	@param	Authorization	The session authorization information.
+	 *
+	 *	@param	argDispenserTenantId	The DbKeyHash512Gen key attribute of the instance generating the id.
+	 *
+	 *	@param	argDispenserId	The DbKeyHash512Gen key attribute of the instance generating the id.
+	 *
+	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
+	 */
+	CFBamDbKeyHash512GenBuff[] readDerivedByDispIdx( CFSecAuthorization Authorization,
+		Long DispenserTenantId,
+		Long DispenserId );
+
+	/**
 	 *	Read the specific DbKeyHash512Gen buffer instance identified by the primary key.
 	 *
 	 *	@param	Authorization	The session authorization information.
@@ -729,6 +766,23 @@ public interface ICFBamDbKeyHash512GenTable
 	CFBamDbKeyHash512GenBuff[] readBuffBySchemaIdx( CFSecAuthorization Authorization,
 		long TenantId,
 		long SchemaDefId );
+
+	/**
+	 *	Read an array of the specific DbKeyHash512Gen buffer instances identified by the duplicate key DispIdx.
+	 *
+	 *	@param	Authorization	The session authorization information.
+	 *
+	 *	@param	argDispenserTenantId	The DbKeyHash512Gen key attribute of the instance generating the id.
+	 *
+	 *	@param	argDispenserId	The DbKeyHash512Gen key attribute of the instance generating the id.
+	 *
+	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
+	 *
+	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 */
+	CFBamDbKeyHash512GenBuff[] readBuffByDispIdx( CFSecAuthorization Authorization,
+		Long DispenserTenantId,
+		Long DispenserId );
 
 	/**
 	 *	Move the specified buffer up in the chain (i.e. to the previous position.)

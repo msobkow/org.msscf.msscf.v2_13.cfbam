@@ -58,20 +58,99 @@ public class CFBamDbKeyHash160GenHBuff
 {
 	public static final long TENANTID_INIT_VALUE = 0L;
 	public static final long ID_INIT_VALUE = 0L;
+	public static final long DISPENSERTENANTID_INIT_VALUE = 0L;
+	public static final long DISPENSERID_INIT_VALUE = 0L;
+	public static final short SLICE_INIT_VALUE = (short)0;
 	public static final int BLOCKSIZE_INIT_VALUE = 1;
 	public static final long TENANTID_MIN_VALUE = 0L;
 	public static final long ID_MIN_VALUE = 0L;
+	public static final long DISPENSERTENANTID_MIN_VALUE = 0L;
+	public static final long DISPENSERID_MIN_VALUE = 0L;
+	public static final short SLICE_MIN_VALUE = (short)0;
 	public static final int BLOCKSIZE_MIN_VALUE = 1;
+	public static final short SLICE_MAX_VALUE = (short)32767;
 	public static final int BLOCKSIZE_MAX_VALUE = 2147483647;
 
+	protected Long optionalDispenserTenantId;
+	protected Long optionalDispenserId;
+	protected short requiredSlice;
 	protected int requiredBlockSize;
 	public CFBamDbKeyHash160GenHBuff() {
 		super();
+		optionalDispenserTenantId = null;
+		optionalDispenserId = null;
+		requiredSlice = CFBamDbKeyHash160GenBuff.SLICE_INIT_VALUE;
 		requiredBlockSize = CFBamDbKeyHash160GenBuff.BLOCKSIZE_INIT_VALUE;
 	}
 
 	public String getClassCode() {
 		return( CFBamDbKeyHash160GenBuff.CLASS_CODE );
+	}
+
+	public Long getOptionalDispenserTenantId() {
+		return( optionalDispenserTenantId );
+	}
+
+	public void setOptionalDispenserTenantId( Long value ) {
+		if( value == null ) {
+			optionalDispenserTenantId = null;
+		}
+		else if( value < CFBamDbKeyHash160GenBuff.DISPENSERTENANTID_MIN_VALUE ) {
+			throw new CFLibArgumentUnderflowException( getClass(),
+				"setOptionalDispenserTenantId",
+				1,
+				"value",
+				value,
+				CFBamDbKeyHash160GenBuff.DISPENSERTENANTID_MIN_VALUE );
+		}
+		else {
+			optionalDispenserTenantId = value;
+		}
+	}
+
+	public Long getOptionalDispenserId() {
+		return( optionalDispenserId );
+	}
+
+	public void setOptionalDispenserId( Long value ) {
+		if( value == null ) {
+			optionalDispenserId = null;
+		}
+		else if( value < CFBamDbKeyHash160GenBuff.DISPENSERID_MIN_VALUE ) {
+			throw new CFLibArgumentUnderflowException( getClass(),
+				"setOptionalDispenserId",
+				1,
+				"value",
+				value,
+				CFBamDbKeyHash160GenBuff.DISPENSERID_MIN_VALUE );
+		}
+		else {
+			optionalDispenserId = value;
+		}
+	}
+
+	public short getRequiredSlice() {
+		return( requiredSlice );
+	}
+
+	public void setRequiredSlice( short value ) {
+		if( value < CFBamDbKeyHash160GenBuff.SLICE_MIN_VALUE ) {
+			throw new CFLibArgumentUnderflowException( getClass(),
+				"setRequiredSlice",
+				1,
+				"value",
+				value,
+				CFBamDbKeyHash160GenBuff.SLICE_MIN_VALUE );
+		}
+		if( value > CFBamDbKeyHash160GenBuff.SLICE_MAX_VALUE ) {
+			throw new CFLibArgumentOverflowException( getClass(),
+				"setRequiredSlice",
+				1,
+				"value",
+				value,
+				CFBamDbKeyHash160GenBuff.SLICE_MAX_VALUE );
+		}
+		requiredSlice = value;
 	}
 
 	public int getRequiredBlockSize() {
@@ -113,6 +192,33 @@ public class CFBamDbKeyHash160GenHBuff
 			if( getRequiredId() != rhs.getRequiredId() ) {
 				return( false );
 			}
+			if( getOptionalDispenserTenantId() != null ) {
+				if( rhs.getOptionalDispenserTenantId() != null ) {
+					if( ! getOptionalDispenserTenantId().equals( rhs.getOptionalDispenserTenantId() ) ) {
+						return( false );
+					}
+				}
+			}
+			else {
+				if( rhs.getOptionalDispenserTenantId() != null ) {
+					return( false );
+				}
+			}
+			if( getOptionalDispenserId() != null ) {
+				if( rhs.getOptionalDispenserId() != null ) {
+					if( ! getOptionalDispenserId().equals( rhs.getOptionalDispenserId() ) ) {
+						return( false );
+					}
+				}
+			}
+			else {
+				if( rhs.getOptionalDispenserId() != null ) {
+					return( false );
+				}
+			}
+			if( getRequiredSlice() != rhs.getRequiredSlice() ) {
+				return( false );
+			}
 			if( getRequiredBlockSize() != rhs.getRequiredBlockSize() ) {
 				return( false );
 			}
@@ -129,8 +235,63 @@ public class CFBamDbKeyHash160GenHBuff
 			if( getRequiredId() != rhs.getRequiredId() ) {
 				return( false );
 			}
+			if( getOptionalDispenserTenantId() != null ) {
+				if( rhs.getOptionalDispenserTenantId() != null ) {
+					if( ! getOptionalDispenserTenantId().equals( rhs.getOptionalDispenserTenantId() ) ) {
+						return( false );
+					}
+				}
+			}
+			else {
+				if( rhs.getOptionalDispenserTenantId() != null ) {
+					return( false );
+				}
+			}
+			if( getOptionalDispenserId() != null ) {
+				if( rhs.getOptionalDispenserId() != null ) {
+					if( ! getOptionalDispenserId().equals( rhs.getOptionalDispenserId() ) ) {
+						return( false );
+					}
+				}
+			}
+			else {
+				if( rhs.getOptionalDispenserId() != null ) {
+					return( false );
+				}
+			}
+			if( getRequiredSlice() != rhs.getRequiredSlice() ) {
+				return( false );
+			}
 			if( getRequiredBlockSize() != rhs.getRequiredBlockSize() ) {
 				return( false );
+			}
+			return( true );
+		}
+		else if( obj instanceof CFBamDbKeyHash160GenByDispIdxKey ) {
+			CFBamDbKeyHash160GenByDispIdxKey rhs = (CFBamDbKeyHash160GenByDispIdxKey)obj;
+			if( getOptionalDispenserTenantId() != null ) {
+				if( rhs.getOptionalDispenserTenantId() != null ) {
+					if( ! getOptionalDispenserTenantId().equals( rhs.getOptionalDispenserTenantId() ) ) {
+						return( false );
+					}
+				}
+			}
+			else {
+				if( rhs.getOptionalDispenserTenantId() != null ) {
+					return( false );
+				}
+			}
+			if( getOptionalDispenserId() != null ) {
+				if( rhs.getOptionalDispenserId() != null ) {
+					if( ! getOptionalDispenserId().equals( rhs.getOptionalDispenserId() ) ) {
+						return( false );
+					}
+				}
+			}
+			else {
+				if( rhs.getOptionalDispenserId() != null ) {
+					return( false );
+				}
 			}
 			return( true );
 		}
@@ -141,6 +302,13 @@ public class CFBamDbKeyHash160GenHBuff
 
 	public int hashCode() {
 		int hashCode = super.hashCode();
+		if( getOptionalDispenserTenantId() != null ) {
+			hashCode = hashCode + getOptionalDispenserTenantId().hashCode();
+		}
+		if( getOptionalDispenserId() != null ) {
+			hashCode = hashCode + getOptionalDispenserId().hashCode();
+		}
+		hashCode = ( hashCode * 0x10000 ) + getRequiredSlice();
 		hashCode = hashCode + getRequiredBlockSize();
 		return( hashCode & 0x7fffffff );
 	}
@@ -156,6 +324,46 @@ public class CFBamDbKeyHash160GenHBuff
 				return( retval );
 			}
 			return( 0 );
+		}
+		else if( obj instanceof CFBamDbKeyHash160GenByDispIdxKey ) {
+			CFBamDbKeyHash160GenByDispIdxKey rhs = (CFBamDbKeyHash160GenByDispIdxKey)obj;
+
+			if( getOptionalDispenserTenantId() != null ) {
+				Long lhsDispenserTenantId = getOptionalDispenserTenantId();
+				if( rhs.getOptionalDispenserTenantId() != null ) {
+					Long rhsDispenserTenantId = rhs.getOptionalDispenserTenantId();
+					int cmp = lhsDispenserTenantId.compareTo( rhsDispenserTenantId );
+					if( cmp != 0 ) {
+						return( cmp );
+					}
+				}
+				else {
+					return( 1 );
+				}
+			}
+			else {
+				if( rhs.getOptionalDispenserTenantId() != null ) {
+					return( -1 );
+				}
+			}
+			if( getOptionalDispenserId() != null ) {
+				Long lhsDispenserId = getOptionalDispenserId();
+				if( rhs.getOptionalDispenserId() != null ) {
+					Long rhsDispenserId = rhs.getOptionalDispenserId();
+					int cmp = lhsDispenserId.compareTo( rhsDispenserId );
+					if( cmp != 0 ) {
+						return( cmp );
+					}
+				}
+				else {
+					return( 1 );
+				}
+			}
+			else {
+				if( rhs.getOptionalDispenserId() != null ) {
+					return( -1 );
+				}
+			}			return( 0 );
 		}
 		else if( obj instanceof CFBamDbKeyHash160GenHBuff ) {
 			CFBamDbKeyHash160GenHBuff rhs = (CFBamDbKeyHash160GenHBuff)obj;
@@ -524,6 +732,48 @@ public class CFBamDbKeyHash160GenHBuff
 			else if( getRequiredSchemaDefId() > rhs.getRequiredSchemaDefId() ) {
 				return( 1 );
 			}
+			if( getOptionalDispenserTenantId() != null ) {
+				Long lhsDispenserTenantId = getOptionalDispenserTenantId();
+				if( rhs.getOptionalDispenserTenantId() != null ) {
+					Long rhsDispenserTenantId = rhs.getOptionalDispenserTenantId();
+					int cmp = lhsDispenserTenantId.compareTo( rhsDispenserTenantId );
+					if( cmp != 0 ) {
+						return( cmp );
+					}
+				}
+				else {
+					return( 1 );
+				}
+			}
+			else {
+				if( rhs.getOptionalDispenserTenantId() != null ) {
+					return( -1 );
+				}
+			}
+			if( getOptionalDispenserId() != null ) {
+				Long lhsDispenserId = getOptionalDispenserId();
+				if( rhs.getOptionalDispenserId() != null ) {
+					Long rhsDispenserId = rhs.getOptionalDispenserId();
+					int cmp = lhsDispenserId.compareTo( rhsDispenserId );
+					if( cmp != 0 ) {
+						return( cmp );
+					}
+				}
+				else {
+					return( 1 );
+				}
+			}
+			else {
+				if( rhs.getOptionalDispenserId() != null ) {
+					return( -1 );
+				}
+			}
+			if( getRequiredSlice() < rhs.getRequiredSlice() ) {
+				return( -1 );
+			}
+			else if( getRequiredSlice() > rhs.getRequiredSlice() ) {
+				return( 1 );
+			}
 			if( getRequiredBlockSize() < rhs.getRequiredBlockSize() ) {
 				return( -1 );
 			}
@@ -552,6 +802,9 @@ public class CFBamDbKeyHash160GenHBuff
 
 	public void setDbKeyHash160GenBuff( CFBamDbKeyHash160GenBuff src ) {
 		super.setDbKeyHash160TypeBuff( src );
+		setOptionalDispenserTenantId( src.getOptionalDispenserTenantId() );
+		setOptionalDispenserId( src.getOptionalDispenserId() );
+		setRequiredSlice( src.getRequiredSlice() );
 		setRequiredBlockSize( src.getRequiredBlockSize() );
 	}
 
@@ -570,6 +823,9 @@ public class CFBamDbKeyHash160GenHBuff
 
 	public void setDbKeyHash160GenBuff( CFBamDbKeyHash160GenHBuff src ) {
 		super.setDbKeyHash160TypeBuff( src );
+		setOptionalDispenserTenantId( src.getOptionalDispenserTenantId() );
+		setOptionalDispenserId( src.getOptionalDispenserId() );
+		setRequiredSlice( src.getRequiredSlice() );
 		setRequiredBlockSize( src.getRequiredBlockSize() );
 	}
 }

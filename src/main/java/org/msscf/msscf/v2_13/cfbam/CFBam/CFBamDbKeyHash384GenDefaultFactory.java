@@ -59,6 +59,12 @@ public class CFBamDbKeyHash384GenDefaultFactory
 	public CFBamDbKeyHash384GenDefaultFactory() {
 	}
 
+	public CFBamDbKeyHash384GenByDispIdxKey newDispIdxKey() {
+		CFBamDbKeyHash384GenByDispIdxKey key =
+			new CFBamDbKeyHash384GenByDispIdxKey();
+		return( key );
+	}
+
 	public CFBamDbKeyHash384GenBuff newBuff() {
 		CFBamDbKeyHash384GenBuff buff =
 			new CFBamDbKeyHash384GenBuff();

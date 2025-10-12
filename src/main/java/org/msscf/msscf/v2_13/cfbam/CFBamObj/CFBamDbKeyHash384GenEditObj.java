@@ -55,9 +55,11 @@ public class CFBamDbKeyHash384GenEditObj
 
 	implements ICFBamDbKeyHash384GenEditObj
 {
+	protected ICFBamTableObj optionalLookupDispenser;
 
 	public CFBamDbKeyHash384GenEditObj( ICFBamDbKeyHash384GenObj argOrig ) {
 		super( argOrig );
+		optionalLookupDispenser = null;
 	}
 
 	public String getClassCode() {
@@ -228,11 +230,30 @@ public class CFBamDbKeyHash384GenEditObj
 	public void setBuff( CFBamValueBuff value ) {
 		if( buff != value ) {
 			super.setBuff( value );
+			optionalLookupDispenser = null;
 		}
 	}
 
 	public CFBamDbKeyHash384GenBuff getDbKeyHash384GenBuff() {
 		return( (CFBamDbKeyHash384GenBuff)getBuff() );
+	}
+
+	public Long getOptionalDispenserTenantId() {
+		return( getDbKeyHash384GenBuff().getOptionalDispenserTenantId() );
+	}
+
+	public Long getOptionalDispenserId() {
+		return( getDbKeyHash384GenBuff().getOptionalDispenserId() );
+	}
+
+	public short getRequiredSlice() {
+		return( getDbKeyHash384GenBuff().getRequiredSlice() );
+	}
+
+	public void setRequiredSlice( short value ) {
+		if( getDbKeyHash384GenBuff().getRequiredSlice() != value ) {
+			getDbKeyHash384GenBuff().setRequiredSlice( value );
+		}
 	}
 
 	public int getRequiredBlockSize() {
@@ -243,6 +264,43 @@ public class CFBamDbKeyHash384GenEditObj
 		if( getDbKeyHash384GenBuff().getRequiredBlockSize() != value ) {
 			getDbKeyHash384GenBuff().setRequiredBlockSize( value );
 		}
+	}
+
+	public ICFBamTableObj getOptionalLookupDispenser() {
+		return( getOptionalLookupDispenser( false ) );
+	}
+
+	public ICFBamTableObj getOptionalLookupDispenser( boolean forceRead ) {
+		if( forceRead || ( optionalLookupDispenser == null ) ) {
+			boolean anyMissing = false;
+			if( getDbKeyHash384GenBuff().getOptionalDispenserTenantId() == null ) {
+				anyMissing = true;
+			}
+			if( getDbKeyHash384GenBuff().getOptionalDispenserId() == null ) {
+				anyMissing = true;
+			}
+			if( ! anyMissing ) {
+				ICFBamTableObj obj = ((ICFBamSchemaObj)getOrigAsDbKeyHash384Gen().getSchema()).getTableTableObj().readTableByIdIdx( getDbKeyHash384GenBuff().getOptionalDispenserTenantId(),
+					getDbKeyHash384GenBuff().getOptionalDispenserId() );
+				optionalLookupDispenser = obj;
+			}
+		}
+		return( optionalLookupDispenser );
+	}
+
+	public void setOptionalLookupDispenser( ICFBamTableObj value ) {
+			if( buff == null ) {
+				getDbKeyHash384GenBuff();
+			}
+			if( value != null ) {
+				getDbKeyHash384GenBuff().setOptionalDispenserTenantId( value.getRequiredTenantId() );
+				getDbKeyHash384GenBuff().setOptionalDispenserId( value.getRequiredId() );
+			}
+			else {
+				getDbKeyHash384GenBuff().setOptionalDispenserTenantId( null );
+				getDbKeyHash384GenBuff().setOptionalDispenserId( null );
+			}
+			optionalLookupDispenser = value;
 	}
 
 	public void copyBuffToOrig() {

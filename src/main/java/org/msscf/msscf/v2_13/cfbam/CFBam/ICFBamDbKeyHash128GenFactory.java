@@ -57,6 +57,13 @@ public interface ICFBamDbKeyHash128GenFactory
 {
 
 	/**
+	 *	Allocate a DispIdx key over DbKeyHash128Gen instances.
+	 *
+	 *	@return	The new instance.
+	 */
+	CFBamDbKeyHash128GenByDispIdxKey newDispIdxKey();
+
+	/**
 	 *	Allocate a DbKeyHash128Gen instance buffer.
 	 *
 	 *	@return	The new instance.

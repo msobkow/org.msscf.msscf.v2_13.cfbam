@@ -57,6 +57,13 @@ public interface ICFBamDbKeyHash256GenFactory
 {
 
 	/**
+	 *	Allocate a DispIdx key over DbKeyHash256Gen instances.
+	 *
+	 *	@return	The new instance.
+	 */
+	CFBamDbKeyHash256GenByDispIdxKey newDispIdxKey();
+
+	/**
 	 *	Allocate a DbKeyHash256Gen instance buffer.
 	 *
 	 *	@return	The new instance.

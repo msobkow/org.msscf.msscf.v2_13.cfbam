@@ -418,6 +418,33 @@ public interface ICFBamDbKeyHash160GenTableObj
 		long SchemaDefId,
 		boolean forceRead );
 
+	/**
+	 *	Get the map of CFBamDbKeyHash160GenObj instances sorted by their primary keys for the duplicate DispIdx key.
+	 *
+	 *	@param	argDispenserTenantId	The DbKeyHash160Gen key attribute of the instance generating the id.
+	 *
+	 *	@param	argDispenserId	The DbKeyHash160Gen key attribute of the instance generating the id.
+	 *
+	 *	@return	List of CFBamDbKeyHash160GenObj cached instances sorted by their primary keys for the duplicate DispIdx key,
+	 *		which may be an empty set.
+	 */
+	List<ICFBamDbKeyHash160GenObj> readDbKeyHash160GenByDispIdx( Long DispenserTenantId,
+		Long DispenserId );
+
+	/**
+	 *	Get the map of CFBamDbKeyHash160GenObj instances sorted by their primary keys for the duplicate DispIdx key.
+	 *
+	 *	@param	argDispenserTenantId	The DbKeyHash160Gen key attribute of the instance generating the id.
+	 *
+	 *	@param	argDispenserId	The DbKeyHash160Gen key attribute of the instance generating the id.
+	 *
+	 *	@return	List of CFBamDbKeyHash160GenObj cached instances sorted by their primary keys for the duplicate DispIdx key,
+	 *		which may be an empty set.
+	 */
+	List<ICFBamDbKeyHash160GenObj> readDbKeyHash160GenByDispIdx( Long DispenserTenantId,
+		Long DispenserId,
+		boolean forceRead );
+
 	ICFBamDbKeyHash160GenObj readCachedDbKeyHash160GenByIdIdx( long TenantId,
 		long Id );
 
@@ -450,6 +477,9 @@ public interface ICFBamDbKeyHash160GenTableObj
 	List<ICFBamDbKeyHash160GenObj> readCachedDbKeyHash160GenBySchemaIdx( long TenantId,
 		long SchemaDefId );
 
+	List<ICFBamDbKeyHash160GenObj> readCachedDbKeyHash160GenByDispIdx( Long DispenserTenantId,
+		Long DispenserId );
+
 	void deepDisposeDbKeyHash160GenByIdIdx( long TenantId,
 		long Id );
 
@@ -481,6 +511,9 @@ public interface ICFBamDbKeyHash160GenTableObj
 
 	void deepDisposeDbKeyHash160GenBySchemaIdx( long TenantId,
 		long SchemaDefId );
+
+	void deepDisposeDbKeyHash160GenByDispIdx( Long DispenserTenantId,
+		Long DispenserId );
 
 	/**
 	 *	Internal use only.
@@ -597,6 +630,16 @@ public interface ICFBamDbKeyHash160GenTableObj
 	 */
 	void deleteDbKeyHash160GenBySchemaIdx( long TenantId,
 		long SchemaDefId );
+
+	/**
+	 *	Internal use only.
+	 *
+	 *	@param	argDispenserTenantId	The DbKeyHash160Gen key attribute of the instance generating the id.
+	 *
+	 *	@param	argDispenserId	The DbKeyHash160Gen key attribute of the instance generating the id.
+	 */
+	void deleteDbKeyHash160GenByDispIdx( Long DispenserTenantId,
+		Long DispenserId );
 
 	/**
 	 *	Move the CFBamDbKeyHash160GenObj instance up in the chain.  The instance is always refreshed.

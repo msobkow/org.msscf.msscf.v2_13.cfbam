@@ -59,6 +59,12 @@ public class CFBamDbKeyHash512GenDefaultFactory
 	public CFBamDbKeyHash512GenDefaultFactory() {
 	}
 
+	public CFBamDbKeyHash512GenByDispIdxKey newDispIdxKey() {
+		CFBamDbKeyHash512GenByDispIdxKey key =
+			new CFBamDbKeyHash512GenByDispIdxKey();
+		return( key );
+	}
+
 	public CFBamDbKeyHash512GenBuff newBuff() {
 		CFBamDbKeyHash512GenBuff buff =
 			new CFBamDbKeyHash512GenBuff();

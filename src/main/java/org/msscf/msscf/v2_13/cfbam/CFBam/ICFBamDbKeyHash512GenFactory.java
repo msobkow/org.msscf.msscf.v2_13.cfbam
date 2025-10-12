@@ -57,6 +57,13 @@ public interface ICFBamDbKeyHash512GenFactory
 {
 
 	/**
+	 *	Allocate a DispIdx key over DbKeyHash512Gen instances.
+	 *
+	 *	@return	The new instance.
+	 */
+	CFBamDbKeyHash512GenByDispIdxKey newDispIdxKey();
+
+	/**
 	 *	Allocate a DbKeyHash512Gen instance buffer.
 	 *
 	 *	@return	The new instance.

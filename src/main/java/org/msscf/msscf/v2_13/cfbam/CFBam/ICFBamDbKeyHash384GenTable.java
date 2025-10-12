@@ -93,6 +93,28 @@ public interface ICFBamDbKeyHash384GenTable
 	void deleteDbKeyHash384Gen( CFSecAuthorization Authorization,
 		CFBamDbKeyHash384GenBuff Buff );
 	/**
+	 *	Delete the DbKeyHash384Gen instances identified by the key DispIdx.
+	 *
+	 *	@param	Authorization	The session authorization information.
+	 *
+	 *	@param	argDispenserTenantId	The DbKeyHash384Gen key attribute of the instance generating the id.
+	 *
+	 *	@param	argDispenserId	The DbKeyHash384Gen key attribute of the instance generating the id.
+	 */
+	void deleteDbKeyHash384GenByDispIdx( CFSecAuthorization Authorization,
+		Long argDispenserTenantId,
+		Long argDispenserId );
+
+	/**
+	 *	Delete the DbKeyHash384Gen instances identified by the key DispIdx.
+	 *
+	 *	@param	Authorization	The session authorization information.
+	 *
+	 *	@param	argKey	The key identifying the instances to be deleted.
+	 */
+	void deleteDbKeyHash384GenByDispIdx( CFSecAuthorization Authorization,
+		CFBamDbKeyHash384GenByDispIdxKey argKey );
+	/**
 	 *	Delete the DbKeyHash384Gen instances identified by the key SchemaIdx.
 	 *
 	 *	@param	Authorization	The session authorization information.
@@ -514,6 +536,21 @@ public interface ICFBamDbKeyHash384GenTable
 		long SchemaDefId );
 
 	/**
+	 *	Read an array of the derived DbKeyHash384Gen buffer instances identified by the duplicate key DispIdx.
+	 *
+	 *	@param	Authorization	The session authorization information.
+	 *
+	 *	@param	argDispenserTenantId	The DbKeyHash384Gen key attribute of the instance generating the id.
+	 *
+	 *	@param	argDispenserId	The DbKeyHash384Gen key attribute of the instance generating the id.
+	 *
+	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
+	 */
+	CFBamDbKeyHash384GenBuff[] readDerivedByDispIdx( CFSecAuthorization Authorization,
+		Long DispenserTenantId,
+		Long DispenserId );
+
+	/**
 	 *	Read the specific DbKeyHash384Gen buffer instance identified by the primary key.
 	 *
 	 *	@param	Authorization	The session authorization information.
@@ -729,6 +766,23 @@ public interface ICFBamDbKeyHash384GenTable
 	CFBamDbKeyHash384GenBuff[] readBuffBySchemaIdx( CFSecAuthorization Authorization,
 		long TenantId,
 		long SchemaDefId );
+
+	/**
+	 *	Read an array of the specific DbKeyHash384Gen buffer instances identified by the duplicate key DispIdx.
+	 *
+	 *	@param	Authorization	The session authorization information.
+	 *
+	 *	@param	argDispenserTenantId	The DbKeyHash384Gen key attribute of the instance generating the id.
+	 *
+	 *	@param	argDispenserId	The DbKeyHash384Gen key attribute of the instance generating the id.
+	 *
+	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
+	 *
+	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 */
+	CFBamDbKeyHash384GenBuff[] readBuffByDispIdx( CFSecAuthorization Authorization,
+		Long DispenserTenantId,
+		Long DispenserId );
 
 	/**
 	 *	Move the specified buffer up in the chain (i.e. to the previous position.)

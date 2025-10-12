@@ -62,6 +62,20 @@ public interface ICFBamDbKeyHash384GenEditObj
 	ICFBamDbKeyHash384GenObj getOrigAsDbKeyHash384Gen();
 
 	/**
+	 *	Get the required short attribute Slice.
+	 *
+	 *	@return	The short value of the attribute Slice.
+	 */
+	short getRequiredSlice();
+
+	/**
+	 *	Set the required short attribute Slice.
+	 *
+	 *	@param	value	the short value of the attribute Slice.
+	 */
+	void setRequiredSlice( short value );
+
+	/**
 	 *	Get the required int attribute BlockSize.
 	 *
 	 *	@return	The int value of the attribute BlockSize.
@@ -74,4 +88,18 @@ public interface ICFBamDbKeyHash384GenEditObj
 	 *	@param	value	the int value of the attribute BlockSize.
 	 */
 	void setRequiredBlockSize( int value );
+
+	/**
+	 *	Get the ICFBamTableObj instance referenced by the Dispenser key.
+	 *
+	 *	@return	The ICFBamTableObj instance referenced by the Dispenser key.
+	 */
+	ICFBamTableObj getOptionalLookupDispenser();
+
+	/**
+	 *	Set the ICFBamTableObj instance referenced by the Dispenser key.
+	 *
+	 *	@param	value	the ICFBamTableObj instance to be referenced by the Dispenser key.
+	 */
+	void setOptionalLookupDispenser( ICFBamTableObj value );
 }

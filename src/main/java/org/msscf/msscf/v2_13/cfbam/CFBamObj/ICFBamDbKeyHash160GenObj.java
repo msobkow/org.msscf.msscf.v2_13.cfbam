@@ -79,10 +79,45 @@ public interface ICFBamDbKeyHash160GenObj
 	CFBamDbKeyHash160GenBuff getDbKeyHash160GenBuff();
 
 	/**
+	 *	Get the optional Long attribute DispenserTenantId.
+	 *
+	 *	@return	The optional Long attribute DispenserTenantId.
+	 */
+	Long getOptionalDispenserTenantId();
+
+	/**
+	 *	Get the optional Long attribute DispenserId.
+	 *
+	 *	@return	The optional Long attribute DispenserId.
+	 */
+	Long getOptionalDispenserId();
+
+	/**
+	 *	Get the required short attribute Slice.
+	 *
+	 *	@return	The required short attribute Slice.
+	 */
+	short getRequiredSlice();
+
+	/**
 	 *	Get the required int attribute BlockSize.
 	 *
 	 *	@return	The required int attribute BlockSize.
 	 */
 	int getRequiredBlockSize();
+
+	/**
+	 *	Get the optional ICFBamTableObj instance referenced by the Dispenser key.
+	 *
+	 *	@return	The optional ICFBamTableObj instance referenced by the Dispenser key.
+	 */
+	ICFBamTableObj getOptionalLookupDispenser();
+
+	/**
+	 *	Get the optional ICFBamTableObj instance referenced by the Dispenser key.
+	 *
+	 *	@return	The optional ICFBamTableObj instance referenced by the Dispenser key.
+	 */
+	ICFBamTableObj getOptionalLookupDispenser( boolean forceRead );
 
 }

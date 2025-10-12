@@ -57,6 +57,13 @@ public interface ICFBamDbKeyHash160GenFactory
 {
 
 	/**
+	 *	Allocate a DispIdx key over DbKeyHash160Gen instances.
+	 *
+	 *	@return	The new instance.
+	 */
+	CFBamDbKeyHash160GenByDispIdxKey newDispIdxKey();
+
+	/**
 	 *	Allocate a DbKeyHash160Gen instance buffer.
 	 *
 	 *	@return	The new instance.
