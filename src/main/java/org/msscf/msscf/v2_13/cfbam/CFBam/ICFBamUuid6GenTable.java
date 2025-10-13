@@ -93,6 +93,28 @@ public interface ICFBamUuid6GenTable
 	void deleteUuid6Gen( CFSecAuthorization Authorization,
 		CFBamUuid6GenBuff Buff );
 	/**
+	 *	Delete the Uuid6Gen instances identified by the key DispIdx.
+	 *
+	 *	@param	Authorization	The session authorization information.
+	 *
+	 *	@param	argDispenserTenantId	The Uuid6Gen key attribute of the instance generating the id.
+	 *
+	 *	@param	argDispenserId	The Uuid6Gen key attribute of the instance generating the id.
+	 */
+	void deleteUuid6GenByDispIdx( CFSecAuthorization Authorization,
+		Long argDispenserTenantId,
+		Long argDispenserId );
+
+	/**
+	 *	Delete the Uuid6Gen instances identified by the key DispIdx.
+	 *
+	 *	@param	Authorization	The session authorization information.
+	 *
+	 *	@param	argKey	The key identifying the instances to be deleted.
+	 */
+	void deleteUuid6GenByDispIdx( CFSecAuthorization Authorization,
+		CFBamUuid6GenByDispIdxKey argKey );
+	/**
 	 *	Delete the Uuid6Gen instances identified by the key SchemaIdx.
 	 *
 	 *	@param	Authorization	The session authorization information.
@@ -514,6 +536,21 @@ public interface ICFBamUuid6GenTable
 		long SchemaDefId );
 
 	/**
+	 *	Read an array of the derived Uuid6Gen buffer instances identified by the duplicate key DispIdx.
+	 *
+	 *	@param	Authorization	The session authorization information.
+	 *
+	 *	@param	argDispenserTenantId	The Uuid6Gen key attribute of the instance generating the id.
+	 *
+	 *	@param	argDispenserId	The Uuid6Gen key attribute of the instance generating the id.
+	 *
+	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
+	 */
+	CFBamUuid6GenBuff[] readDerivedByDispIdx( CFSecAuthorization Authorization,
+		Long DispenserTenantId,
+		Long DispenserId );
+
+	/**
 	 *	Read the specific Uuid6Gen buffer instance identified by the primary key.
 	 *
 	 *	@param	Authorization	The session authorization information.
@@ -729,6 +766,23 @@ public interface ICFBamUuid6GenTable
 	CFBamUuid6GenBuff[] readBuffBySchemaIdx( CFSecAuthorization Authorization,
 		long TenantId,
 		long SchemaDefId );
+
+	/**
+	 *	Read an array of the specific Uuid6Gen buffer instances identified by the duplicate key DispIdx.
+	 *
+	 *	@param	Authorization	The session authorization information.
+	 *
+	 *	@param	argDispenserTenantId	The Uuid6Gen key attribute of the instance generating the id.
+	 *
+	 *	@param	argDispenserId	The Uuid6Gen key attribute of the instance generating the id.
+	 *
+	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
+	 *
+	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 */
+	CFBamUuid6GenBuff[] readBuffByDispIdx( CFSecAuthorization Authorization,
+		Long DispenserTenantId,
+		Long DispenserId );
 
 	/**
 	 *	Move the specified buffer up in the chain (i.e. to the previous position.)

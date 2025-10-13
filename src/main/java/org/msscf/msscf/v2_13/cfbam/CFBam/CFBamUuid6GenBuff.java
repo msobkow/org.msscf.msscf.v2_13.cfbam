@@ -59,24 +59,74 @@ public class CFBamUuid6GenBuff
 	public final static String CLASS_CODE = "a889";
 	public static final long TENANTID_INIT_VALUE = 0L;
 	public static final long ID_INIT_VALUE = 0L;
+	public static final long DISPENSERTENANTID_INIT_VALUE = 0L;
+	public static final long DISPENSERID_INIT_VALUE = 0L;
 	public static final short SLICE_INIT_VALUE = (short)0;
 	public static final int BLOCKSIZE_INIT_VALUE = 1;
 	public static final long TENANTID_MIN_VALUE = 0L;
 	public static final long ID_MIN_VALUE = 0L;
+	public static final long DISPENSERTENANTID_MIN_VALUE = 0L;
+	public static final long DISPENSERID_MIN_VALUE = 0L;
 	public static final short SLICE_MIN_VALUE = (short)0;
 	public static final int BLOCKSIZE_MIN_VALUE = 1;
 	public static final short SLICE_MAX_VALUE = (short)32767;
 	public static final int BLOCKSIZE_MAX_VALUE = 2147483647;
+	protected Long optionalDispenserTenantId;
+	protected Long optionalDispenserId;
 	protected short requiredSlice;
 	protected int requiredBlockSize;
 	public CFBamUuid6GenBuff() {
 		super();
+		optionalDispenserTenantId = null;
+		optionalDispenserId = null;
 		requiredSlice = CFBamUuid6GenBuff.SLICE_INIT_VALUE;
 		requiredBlockSize = CFBamUuid6GenBuff.BLOCKSIZE_INIT_VALUE;
 	}
 
 	public String getClassCode() {
 		return( CLASS_CODE );
+	}
+
+	public Long getOptionalDispenserTenantId() {
+		return( optionalDispenserTenantId );
+	}
+
+	public void setOptionalDispenserTenantId( Long value ) {
+		if( value == null ) {
+			optionalDispenserTenantId = null;
+		}
+		else if( value < CFBamUuid6GenBuff.DISPENSERTENANTID_MIN_VALUE ) {
+			throw new CFLibArgumentUnderflowException( getClass(),
+				"setOptionalDispenserTenantId",
+				1,
+				"value",
+				value,
+				CFBamUuid6GenBuff.DISPENSERTENANTID_MIN_VALUE );
+		}
+		else {
+			optionalDispenserTenantId = value;
+		}
+	}
+
+	public Long getOptionalDispenserId() {
+		return( optionalDispenserId );
+	}
+
+	public void setOptionalDispenserId( Long value ) {
+		if( value == null ) {
+			optionalDispenserId = null;
+		}
+		else if( value < CFBamUuid6GenBuff.DISPENSERID_MIN_VALUE ) {
+			throw new CFLibArgumentUnderflowException( getClass(),
+				"setOptionalDispenserId",
+				1,
+				"value",
+				value,
+				CFBamUuid6GenBuff.DISPENSERID_MIN_VALUE );
+		}
+		else {
+			optionalDispenserId = value;
+		}
 	}
 
 	public short getRequiredSlice() {
@@ -139,6 +189,30 @@ public class CFBamUuid6GenBuff
 			if( getRequiredId() != rhs.getRequiredId() ) {
 				return( false );
 			}
+			if( getOptionalDispenserTenantId() != null ) {
+				if( rhs.getOptionalDispenserTenantId() != null ) {
+					if( ! getOptionalDispenserTenantId().equals( rhs.getOptionalDispenserTenantId() ) ) {
+						return( false );
+					}
+				}
+			}
+			else {
+				if( rhs.getOptionalDispenserTenantId() != null ) {
+					return( false );
+				}
+			}
+			if( getOptionalDispenserId() != null ) {
+				if( rhs.getOptionalDispenserId() != null ) {
+					if( ! getOptionalDispenserId().equals( rhs.getOptionalDispenserId() ) ) {
+						return( false );
+					}
+				}
+			}
+			else {
+				if( rhs.getOptionalDispenserId() != null ) {
+					return( false );
+				}
+			}
 			if( getRequiredSlice() != rhs.getRequiredSlice() ) {
 				return( false );
 			}
@@ -165,6 +239,30 @@ public class CFBamUuid6GenBuff
 			if( getRequiredId() != rhs.getRequiredId() ) {
 				return( false );
 			}
+			if( getOptionalDispenserTenantId() != null ) {
+				if( rhs.getOptionalDispenserTenantId() != null ) {
+					if( ! getOptionalDispenserTenantId().equals( rhs.getOptionalDispenserTenantId() ) ) {
+						return( false );
+					}
+				}
+			}
+			else {
+				if( rhs.getOptionalDispenserTenantId() != null ) {
+					return( false );
+				}
+			}
+			if( getOptionalDispenserId() != null ) {
+				if( rhs.getOptionalDispenserId() != null ) {
+					if( ! getOptionalDispenserId().equals( rhs.getOptionalDispenserId() ) ) {
+						return( false );
+					}
+				}
+			}
+			else {
+				if( rhs.getOptionalDispenserId() != null ) {
+					return( false );
+				}
+			}
 			if( getRequiredSlice() != rhs.getRequiredSlice() ) {
 				return( false );
 			}
@@ -183,6 +281,34 @@ public class CFBamUuid6GenBuff
 			}
 			return( true );
 		}
+		else if( obj instanceof CFBamUuid6GenByDispIdxKey ) {
+			CFBamUuid6GenByDispIdxKey rhs = (CFBamUuid6GenByDispIdxKey)obj;
+			if( getOptionalDispenserTenantId() != null ) {
+				if( rhs.getOptionalDispenserTenantId() != null ) {
+					if( ! getOptionalDispenserTenantId().equals( rhs.getOptionalDispenserTenantId() ) ) {
+						return( false );
+					}
+				}
+			}
+			else {
+				if( rhs.getOptionalDispenserTenantId() != null ) {
+					return( false );
+				}
+			}
+			if( getOptionalDispenserId() != null ) {
+				if( rhs.getOptionalDispenserId() != null ) {
+					if( ! getOptionalDispenserId().equals( rhs.getOptionalDispenserId() ) ) {
+						return( false );
+					}
+				}
+			}
+			else {
+				if( rhs.getOptionalDispenserId() != null ) {
+					return( false );
+				}
+			}
+			return( true );
+		}
 		else {
 			boolean retval = super.equals( obj );
 			return( retval );
@@ -191,6 +317,12 @@ public class CFBamUuid6GenBuff
 
 	public int hashCode() {
 		int hashCode = super.hashCode();
+		if( getOptionalDispenserTenantId() != null ) {
+			hashCode = hashCode + getOptionalDispenserTenantId().hashCode();
+		}
+		if( getOptionalDispenserId() != null ) {
+			hashCode = hashCode + getOptionalDispenserId().hashCode();
+		}
 		hashCode = ( hashCode * 0x10000 ) + getRequiredSlice();
 		hashCode = hashCode + getRequiredBlockSize();
 		return( hashCode & 0x7fffffff );
@@ -205,6 +337,42 @@ public class CFBamUuid6GenBuff
 			int retval = super.compareTo( rhs );
 			if( retval != 0 ) {
 				return( retval );
+			}
+			if( getOptionalDispenserTenantId() != null ) {
+				Long lhsDispenserTenantId = getOptionalDispenserTenantId();
+				if( rhs.getOptionalDispenserTenantId() != null ) {
+					Long rhsDispenserTenantId = rhs.getOptionalDispenserTenantId();
+					int cmp = lhsDispenserTenantId.compareTo( rhsDispenserTenantId );
+					if( cmp != 0 ) {
+						return( cmp );
+					}
+				}
+				else {
+					return( 1 );
+				}
+			}
+			else {
+				if( rhs.getOptionalDispenserTenantId() != null ) {
+					return( -1 );
+				}
+			}
+			if( getOptionalDispenserId() != null ) {
+				Long lhsDispenserId = getOptionalDispenserId();
+				if( rhs.getOptionalDispenserId() != null ) {
+					Long rhsDispenserId = rhs.getOptionalDispenserId();
+					int cmp = lhsDispenserId.compareTo( rhsDispenserId );
+					if( cmp != 0 ) {
+						return( cmp );
+					}
+				}
+				else {
+					return( 1 );
+				}
+			}
+			else {
+				if( rhs.getOptionalDispenserId() != null ) {
+					return( -1 );
+				}
 			}
 			if( getRequiredSlice() < rhs.getRequiredSlice() ) {
 				return( -1 );
@@ -268,6 +436,42 @@ public class CFBamUuid6GenBuff
 			if( retval != 0 ) {
 				return( retval );
 			}
+			if( getOptionalDispenserTenantId() != null ) {
+				Long lhsDispenserTenantId = getOptionalDispenserTenantId();
+				if( rhs.getOptionalDispenserTenantId() != null ) {
+					Long rhsDispenserTenantId = rhs.getOptionalDispenserTenantId();
+					int cmp = lhsDispenserTenantId.compareTo( rhsDispenserTenantId );
+					if( cmp != 0 ) {
+						return( cmp );
+					}
+				}
+				else {
+					return( 1 );
+				}
+			}
+			else {
+				if( rhs.getOptionalDispenserTenantId() != null ) {
+					return( -1 );
+				}
+			}
+			if( getOptionalDispenserId() != null ) {
+				Long lhsDispenserId = getOptionalDispenserId();
+				if( rhs.getOptionalDispenserId() != null ) {
+					Long rhsDispenserId = rhs.getOptionalDispenserId();
+					int cmp = lhsDispenserId.compareTo( rhsDispenserId );
+					if( cmp != 0 ) {
+						return( cmp );
+					}
+				}
+				else {
+					return( 1 );
+				}
+			}
+			else {
+				if( rhs.getOptionalDispenserId() != null ) {
+					return( -1 );
+				}
+			}
 			if( getRequiredSlice() < rhs.getRequiredSlice() ) {
 				return( -1 );
 			}
@@ -281,6 +485,46 @@ public class CFBamUuid6GenBuff
 				return( 1 );
 			}
 			return( 0 );
+		}
+		else if( obj instanceof CFBamUuid6GenByDispIdxKey ) {
+			CFBamUuid6GenByDispIdxKey rhs = (CFBamUuid6GenByDispIdxKey)obj;
+
+			if( getOptionalDispenserTenantId() != null ) {
+				Long lhsDispenserTenantId = getOptionalDispenserTenantId();
+				if( rhs.getOptionalDispenserTenantId() != null ) {
+					Long rhsDispenserTenantId = rhs.getOptionalDispenserTenantId();
+					int cmp = lhsDispenserTenantId.compareTo( rhsDispenserTenantId );
+					if( cmp != 0 ) {
+						return( cmp );
+					}
+				}
+				else {
+					return( 1 );
+				}
+			}
+			else {
+				if( rhs.getOptionalDispenserTenantId() != null ) {
+					return( -1 );
+				}
+			}
+			if( getOptionalDispenserId() != null ) {
+				Long lhsDispenserId = getOptionalDispenserId();
+				if( rhs.getOptionalDispenserId() != null ) {
+					Long rhsDispenserId = rhs.getOptionalDispenserId();
+					int cmp = lhsDispenserId.compareTo( rhsDispenserId );
+					if( cmp != 0 ) {
+						return( cmp );
+					}
+				}
+				else {
+					return( 1 );
+				}
+			}
+			else {
+				if( rhs.getOptionalDispenserId() != null ) {
+					return( -1 );
+				}
+			}			return( 0 );
 		}
 		else {
 			int retval = super.compareTo( obj );
@@ -303,6 +547,8 @@ public class CFBamUuid6GenBuff
 
 	public void setUuid6GenBuff( CFBamUuid6GenBuff src ) {
 		super.setUuid6TypeBuff( src );
+		setOptionalDispenserTenantId( src.getOptionalDispenserTenantId() );
+		setOptionalDispenserId( src.getOptionalDispenserId() );
 		setRequiredSlice( src.getRequiredSlice() );
 		setRequiredBlockSize( src.getRequiredBlockSize() );
 	}
@@ -322,6 +568,8 @@ public class CFBamUuid6GenBuff
 
 	public void setUuid6GenBuff( CFBamUuid6GenHBuff src ) {
 		super.setUuid6TypeBuff( src );
+		setOptionalDispenserTenantId( src.getOptionalDispenserTenantId() );
+		setOptionalDispenserId( src.getOptionalDispenserId() );
 		setRequiredSlice( src.getRequiredSlice() );
 		setRequiredBlockSize( src.getRequiredBlockSize() );
 	}

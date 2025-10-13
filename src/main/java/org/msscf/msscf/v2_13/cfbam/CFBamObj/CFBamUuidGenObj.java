@@ -55,13 +55,16 @@ public class CFBamUuidGenObj
 	implements ICFBamUuidGenObj
 {
 	public final static String CLASS_CODE = "a888";
+	protected ICFBamTableObj optionalLookupDispenser;
 
 	public CFBamUuidGenObj() {
 		super();
+		optionalLookupDispenser = null;
 	}
 
 	public CFBamUuidGenObj( ICFBamSchemaObj argSchema ) {
 		super( argSchema );
+		optionalLookupDispenser = null;
 	}
 
 	public String getClassCode() {
@@ -235,6 +238,7 @@ public class CFBamUuidGenObj
 		optionalLookupPrev = null;
 		optionalLookupNext = null;
 		requiredContainerSchemaDef = null;
+		optionalLookupDispenser = null;
 	}
 
 	public CFBamUuidGenBuff getUuidGenBuff() {
@@ -284,11 +288,40 @@ public class CFBamUuidGenObj
 		return( getBuff().getUpdatedAt() );
 	}
 
+	public Long getOptionalDispenserTenantId() {
+		return( getUuidGenBuff().getOptionalDispenserTenantId() );
+	}
+
+	public Long getOptionalDispenserId() {
+		return( getUuidGenBuff().getOptionalDispenserId() );
+	}
+
 	public short getRequiredSlice() {
 		return( getUuidGenBuff().getRequiredSlice() );
 	}
 
 	public int getRequiredBlockSize() {
 		return( getUuidGenBuff().getRequiredBlockSize() );
+	}
+
+	public ICFBamTableObj getOptionalLookupDispenser() {
+		return( getOptionalLookupDispenser( false ) );
+	}
+
+	public ICFBamTableObj getOptionalLookupDispenser( boolean forceRead ) {
+		if( ( optionalLookupDispenser == null ) || forceRead ) {
+			boolean anyMissing = false;
+			if( getUuidGenBuff().getOptionalDispenserTenantId() == null ) {
+				anyMissing = true;
+			}
+			if( getUuidGenBuff().getOptionalDispenserId() == null ) {
+				anyMissing = true;
+			}
+			if( ! anyMissing ) {
+				optionalLookupDispenser = ((ICFBamSchemaObj)schema).getTableTableObj().readTableByIdIdx( getUuidGenBuff().getOptionalDispenserTenantId(),
+					getUuidGenBuff().getOptionalDispenserId(), forceRead );
+			}
+		}
+		return( optionalLookupDispenser );
 	}
 }

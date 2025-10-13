@@ -74,6 +74,8 @@ public class CFBamUuid6GenTableObj
 		Map<CFBamValuePKey, ICFBamUuid6GenObj > > indexByContNextIdx;
 	private Map< CFBamUuid6TypeBySchemaIdxKey,
 		Map<CFBamValuePKey, ICFBamUuid6GenObj > > indexBySchemaIdx;
+	private Map< CFBamUuid6GenByDispIdxKey,
+		Map<CFBamValuePKey, ICFBamUuid6GenObj > > indexByDispIdx;
 	public static String TABLE_NAME = "Uuid6Gen";
 	public static String TABLE_DBNAME = "idguuid6";
 
@@ -90,6 +92,7 @@ public class CFBamUuid6GenTableObj
 		indexByContPrevIdx = null;
 		indexByContNextIdx = null;
 		indexBySchemaIdx = null;
+		indexByDispIdx = null;
 	}
 
 	public CFBamUuid6GenTableObj( ICFBamSchemaObj argSchema ) {
@@ -105,6 +108,7 @@ public class CFBamUuid6GenTableObj
 		indexByContPrevIdx = null;
 		indexByContNextIdx = null;
 		indexBySchemaIdx = null;
+		indexByDispIdx = null;
 	}
 
 	public ICFBamSchemaObj getSchema() {
@@ -139,6 +143,7 @@ public class CFBamUuid6GenTableObj
 		indexByContPrevIdx = null;
 		indexByContNextIdx = null;
 		indexBySchemaIdx = null;
+		indexByDispIdx = null;
 		List<ICFBamUuid6GenObj> toForget = new LinkedList<ICFBamUuid6GenObj>();
 		ICFBamUuid6GenObj cur = null;
 		Iterator<ICFBamUuid6GenObj> iter = members.values().iterator();
@@ -292,6 +297,20 @@ public class CFBamUuid6GenTableObj
 					indexBySchemaIdx.remove( keySchemaIdx );
 				}
 			}
+
+			if( indexByDispIdx != null ) {
+				CFBamUuid6GenByDispIdxKey keyDispIdx =
+					((ICFBamSchema)schema.getBackingStore()).getFactoryUuid6Gen().newDispIdxKey();
+				keyDispIdx.setOptionalDispenserTenantId( keepObj.getOptionalDispenserTenantId() );
+				keyDispIdx.setOptionalDispenserId( keepObj.getOptionalDispenserId() );
+				Map<CFBamValuePKey, ICFBamUuid6GenObj > mapDispIdx = indexByDispIdx.get( keyDispIdx );
+				if( mapDispIdx != null ) {
+					mapDispIdx.remove( keepObj.getPKey() );
+					if( mapDispIdx.size() <= 0 ) {
+						indexByDispIdx.remove( keyDispIdx );
+					}
+				}
+			}
 			// Keep passing the new object because it's the one with the buffer
 			// that the base table needs to copy to the existing object from
 			// the cache.
@@ -394,6 +413,17 @@ public class CFBamUuid6GenTableObj
 				Map<CFBamValuePKey, ICFBamUuid6GenObj > mapSchemaIdx = indexBySchemaIdx.get( keySchemaIdx );
 				if( mapSchemaIdx != null ) {
 					mapSchemaIdx.put( keepObj.getPKey(), keepObj );
+				}
+			}
+
+			if( indexByDispIdx != null ) {
+				CFBamUuid6GenByDispIdxKey keyDispIdx =
+					((ICFBamSchema)schema.getBackingStore()).getFactoryUuid6Gen().newDispIdxKey();
+				keyDispIdx.setOptionalDispenserTenantId( keepObj.getOptionalDispenserTenantId() );
+				keyDispIdx.setOptionalDispenserId( keepObj.getOptionalDispenserId() );
+				Map<CFBamValuePKey, ICFBamUuid6GenObj > mapDispIdx = indexByDispIdx.get( keyDispIdx );
+				if( mapDispIdx != null ) {
+					mapDispIdx.put( keepObj.getPKey(), keepObj );
 				}
 			}
 
@@ -509,6 +539,17 @@ public class CFBamUuid6GenTableObj
 				}
 			}
 
+			if( indexByDispIdx != null ) {
+				CFBamUuid6GenByDispIdxKey keyDispIdx =
+					((ICFBamSchema)schema.getBackingStore()).getFactoryUuid6Gen().newDispIdxKey();
+				keyDispIdx.setOptionalDispenserTenantId( keepObj.getOptionalDispenserTenantId() );
+				keyDispIdx.setOptionalDispenserId( keepObj.getOptionalDispenserId() );
+				Map<CFBamValuePKey, ICFBamUuid6GenObj > mapDispIdx = indexByDispIdx.get( keyDispIdx );
+				if( mapDispIdx != null ) {
+					mapDispIdx.put( keepObj.getPKey(), keepObj );
+				}
+			}
+
 		}
 		return( keepObj );
 	}
@@ -575,11 +616,24 @@ public class CFBamUuid6GenTableObj
 			return;
 		}
 		members.remove( pkey );
+		CFBamUuid6GenByDispIdxKey keyDispIdx = ((ICFBamSchema)schema.getBackingStore()).getFactoryUuid6Gen().newDispIdxKey();
+		keyDispIdx.setOptionalDispenserTenantId( existing.getOptionalDispenserTenantId() );
+		keyDispIdx.setOptionalDispenserId( existing.getOptionalDispenserId() );
+
 
 		schema.getTableColTableObj().deepDisposeTableColByDataIdx( existing.getRequiredTenantId(),
 						existing.getRequiredId() );
 		schema.getIndexColTableObj().deepDisposeIndexColByColIdx( existing.getRequiredTenantId(),
 						existing.getRequiredId() );
+
+		if( indexByDispIdx != null ) {
+			if( indexByDispIdx.containsKey( keyDispIdx ) ) {
+				indexByDispIdx.get( keyDispIdx ).remove( pkey );
+				if( indexByDispIdx.get( keyDispIdx ).size() <= 0 ) {
+					indexByDispIdx.remove( keyDispIdx );
+				}
+			}
+		}
 
 
 		schema.getUuid6TypeTableObj().reallyDeepDisposeUuid6Type( obj );
@@ -1560,6 +1614,101 @@ public class CFBamUuid6GenTableObj
 		return( sortedList );
 	}
 
+	public List<ICFBamUuid6GenObj> readUuid6GenByDispIdx( Long DispenserTenantId,
+		Long DispenserId )
+	{
+		return( readUuid6GenByDispIdx( DispenserTenantId,
+			DispenserId,
+			false ) );
+	}
+
+	public List<ICFBamUuid6GenObj> readUuid6GenByDispIdx( Long DispenserTenantId,
+		Long DispenserId,
+		boolean forceRead )
+	{
+		final String S_ProcName = "readUuid6GenByDispIdx";
+		CFBamUuid6GenByDispIdxKey key = ((ICFBamSchema)schema.getBackingStore()).getFactoryUuid6Gen().newDispIdxKey();
+		key.setOptionalDispenserTenantId( DispenserTenantId );
+		key.setOptionalDispenserId( DispenserId );
+		Map<CFBamValuePKey, ICFBamUuid6GenObj> dict;
+		if( indexByDispIdx == null ) {
+			indexByDispIdx = new HashMap< CFBamUuid6GenByDispIdxKey,
+				Map< CFBamValuePKey, ICFBamUuid6GenObj > >();
+		}
+		if( ( ! forceRead ) && indexByDispIdx.containsKey( key ) ) {
+			dict = indexByDispIdx.get( key );
+		}
+		else {
+			dict = new HashMap<CFBamValuePKey, ICFBamUuid6GenObj>();
+			ICFBamUuid6GenObj obj;
+			CFBamUuid6GenBuff[] buffList = ((ICFBamSchema)schema.getBackingStore()).getTableUuid6Gen().readDerivedByDispIdx( schema.getAuthorization(),
+				DispenserTenantId,
+				DispenserId );
+			CFBamUuid6GenBuff buff;
+			for( int idx = 0; idx < buffList.length; idx ++ ) {
+				buff = buffList[ idx ];
+				obj = (ICFBamUuid6GenObj)schema.getValueTableObj().constructByClassCode( buff.getClassCode() );
+				obj.setPKey( ((ICFBamSchema)schema.getBackingStore()).getFactoryValue().newPKey() );
+				obj.setBuff( buff );
+				ICFBamUuid6GenObj realised = (ICFBamUuid6GenObj)obj.realise();
+				dict.put( realised.getPKey(), realised );
+			}
+			indexByDispIdx.put( key, dict );
+		}
+		int len = dict.size();
+		ICFBamUuid6GenObj arr[] = new ICFBamUuid6GenObj[len];
+		Iterator<ICFBamUuid6GenObj> valIter = dict.values().iterator();
+		int idx = 0;
+		while( ( idx < len ) && valIter.hasNext() ) {
+			arr[idx++] = valIter.next();
+		}
+		if( idx < len ) {
+			throw new CFLibArgumentUnderflowException( getClass(),
+				S_ProcName,
+				0,
+				"idx",
+				idx,
+				len );
+		}
+		else if( valIter.hasNext() ) {
+			throw new CFLibArgumentOverflowException( getClass(),
+					S_ProcName,
+					0,
+					"idx",
+					idx,
+					len );
+		}
+		ArrayList<ICFBamUuid6GenObj> arrayList = new ArrayList<ICFBamUuid6GenObj>(len);
+		for( idx = 0; idx < len; idx ++ ) {
+			arrayList.add( arr[idx] );
+		}
+
+		Comparator<ICFBamUuid6GenObj> cmp = new Comparator<ICFBamUuid6GenObj>() {
+			public int compare( ICFBamUuid6GenObj lhs, ICFBamUuid6GenObj rhs ) {
+				if( lhs == null ) {
+					if( rhs == null ) {
+						return( 0 );
+					}
+					else {
+						return( -1 );
+					}
+				}
+				else if( rhs == null ) {
+					return( 1 );
+				}
+				else {
+					CFBamValuePKey lhsPKey = lhs.getPKey();
+					CFBamValuePKey rhsPKey = rhs.getPKey();
+					int ret = lhsPKey.compareTo( rhsPKey );
+					return( ret );
+				}
+			}
+		};
+		Collections.sort( arrayList, cmp );
+		List<ICFBamUuid6GenObj> sortedList = arrayList;
+		return( sortedList );
+	}
+
 	public ICFBamUuid6GenObj readCachedUuid6GenByIdIdx( long TenantId,
 		long Id )
 	{
@@ -2228,6 +2377,83 @@ public class CFBamUuid6GenTableObj
 		return( arrayList );
 	}
 
+	public List<ICFBamUuid6GenObj> readCachedUuid6GenByDispIdx( Long DispenserTenantId,
+		Long DispenserId )
+	{
+		final String S_ProcName = "readCachedUuid6GenByDispIdx";
+		CFBamUuid6GenByDispIdxKey key = ((ICFBamSchema)schema.getBackingStore()).getFactoryUuid6Gen().newDispIdxKey();
+		key.setOptionalDispenserTenantId( DispenserTenantId );
+		key.setOptionalDispenserId( DispenserId );
+		ArrayList<ICFBamUuid6GenObj> arrayList = new ArrayList<ICFBamUuid6GenObj>();
+		if( indexByDispIdx != null ) {
+			Map<CFBamValuePKey, ICFBamUuid6GenObj> dict;
+			if( indexByDispIdx.containsKey( key ) ) {
+				dict = indexByDispIdx.get( key );
+				int len = dict.size();
+				ICFBamUuid6GenObj arr[] = new ICFBamUuid6GenObj[len];
+				Iterator<ICFBamUuid6GenObj> valIter = dict.values().iterator();
+				int idx = 0;
+				while( ( idx < len ) && valIter.hasNext() ) {
+					arr[idx++] = valIter.next();
+				}
+				if( idx < len ) {
+					throw new CFLibArgumentUnderflowException( getClass(),
+						S_ProcName,
+						0,
+						"idx",
+						idx,
+						len );
+				}
+				else if( valIter.hasNext() ) {
+					throw new CFLibArgumentOverflowException( getClass(),
+							S_ProcName,
+							0,
+							"idx",
+							idx,
+							len );
+				}
+				for( idx = 0; idx < len; idx ++ ) {
+					arrayList.add( arr[idx] );
+				}
+			}
+		}
+		else {
+			ICFBamUuid6GenObj obj;
+			Iterator<ICFBamUuid6GenObj> valIter = members.values().iterator();
+			while( valIter.hasNext() ) {
+				obj = valIter.next();
+				if( obj != null ) {
+					if( obj.getBuff().compareTo( key ) == 0 ) {
+						arrayList.add( obj );
+					}
+				}
+			}
+		}
+		Comparator<ICFBamUuid6GenObj> cmp = new Comparator<ICFBamUuid6GenObj>() {
+			public int compare( ICFBamUuid6GenObj lhs, ICFBamUuid6GenObj rhs ) {
+				if( lhs == null ) {
+					if( rhs == null ) {
+						return( 0 );
+					}
+					else {
+						return( -1 );
+					}
+				}
+				else if( rhs == null ) {
+					return( 1 );
+				}
+				else {
+					CFBamValuePKey lhsPKey = lhs.getPKey();
+					CFBamValuePKey rhsPKey = rhs.getPKey();
+					int ret = lhsPKey.compareTo( rhsPKey );
+					return( ret );
+				}
+			}
+		};
+		Collections.sort( arrayList, cmp );
+		return( arrayList );
+	}
+
 	public void deepDisposeUuid6GenByIdIdx( long TenantId,
 		long Id )
 	{
@@ -2385,6 +2611,24 @@ public class CFBamUuid6GenTableObj
 		ICFBamUuid6GenObj obj;
 		List<ICFBamUuid6GenObj> arrayList = readCachedUuid6GenBySchemaIdx( TenantId,
 				SchemaDefId );
+		if( arrayList != null )  {
+			Iterator<ICFBamUuid6GenObj> arrayIter = arrayList.iterator();
+			while( arrayIter.hasNext() ) {
+				obj = arrayIter.next();
+				if( obj != null ) {
+					obj.forget();
+				}
+			}
+		}
+	}
+
+	public void deepDisposeUuid6GenByDispIdx( Long DispenserTenantId,
+		Long DispenserId )
+	{
+		final String S_ProcName = "deepDisposeUuid6GenByDispIdx";
+		ICFBamUuid6GenObj obj;
+		List<ICFBamUuid6GenObj> arrayList = readCachedUuid6GenByDispIdx( DispenserTenantId,
+				DispenserId );
 		if( arrayList != null )  {
 			Iterator<ICFBamUuid6GenObj> arrayIter = arrayList.iterator();
 			while( arrayIter.hasNext() ) {
@@ -2795,6 +3039,44 @@ public class CFBamUuid6GenTableObj
 		}
 		deepDisposeUuid6GenBySchemaIdx( TenantId,
 				SchemaDefId );
+	}
+
+	public void deleteUuid6GenByDispIdx( Long DispenserTenantId,
+		Long DispenserId )
+	{
+		CFBamUuid6GenByDispIdxKey key = ((ICFBamSchema)schema.getBackingStore()).getFactoryUuid6Gen().newDispIdxKey();
+		key.setOptionalDispenserTenantId( DispenserTenantId );
+		key.setOptionalDispenserId( DispenserId );
+		if( indexByDispIdx == null ) {
+			indexByDispIdx = new HashMap< CFBamUuid6GenByDispIdxKey,
+				Map< CFBamValuePKey, ICFBamUuid6GenObj > >();
+		}
+		if( indexByDispIdx.containsKey( key ) ) {
+			Map<CFBamValuePKey, ICFBamUuid6GenObj> dict = indexByDispIdx.get( key );
+			((ICFBamSchema)schema.getBackingStore()).getTableUuid6Gen().deleteUuid6GenByDispIdx( schema.getAuthorization(),
+				DispenserTenantId,
+				DispenserId );
+			Iterator<ICFBamUuid6GenObj> iter = dict.values().iterator();
+			ICFBamUuid6GenObj obj;
+			List<ICFBamUuid6GenObj> toForget = new LinkedList<ICFBamUuid6GenObj>();
+			while( iter.hasNext() ) {
+				obj = iter.next();
+				toForget.add( obj );
+			}
+			iter = toForget.iterator();
+			while( iter.hasNext() ) {
+				obj = iter.next();
+				obj.forget();
+			}
+			indexByDispIdx.remove( key );
+		}
+		else {
+			((ICFBamSchema)schema.getBackingStore()).getTableUuid6Gen().deleteUuid6GenByDispIdx( schema.getAuthorization(),
+				DispenserTenantId,
+				DispenserId );
+		}
+		deepDisposeUuid6GenByDispIdx( DispenserTenantId,
+				DispenserId );
 	}
 
 	/**

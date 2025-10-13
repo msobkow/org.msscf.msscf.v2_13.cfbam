@@ -55,9 +55,11 @@ public class CFBamUuid6GenEditObj
 
 	implements ICFBamUuid6GenEditObj
 {
+	protected ICFBamTableObj optionalLookupDispenser;
 
 	public CFBamUuid6GenEditObj( ICFBamUuid6GenObj argOrig ) {
 		super( argOrig );
+		optionalLookupDispenser = null;
 	}
 
 	public String getClassCode() {
@@ -228,11 +230,20 @@ public class CFBamUuid6GenEditObj
 	public void setBuff( CFBamValueBuff value ) {
 		if( buff != value ) {
 			super.setBuff( value );
+			optionalLookupDispenser = null;
 		}
 	}
 
 	public CFBamUuid6GenBuff getUuid6GenBuff() {
 		return( (CFBamUuid6GenBuff)getBuff() );
+	}
+
+	public Long getOptionalDispenserTenantId() {
+		return( getUuid6GenBuff().getOptionalDispenserTenantId() );
+	}
+
+	public Long getOptionalDispenserId() {
+		return( getUuid6GenBuff().getOptionalDispenserId() );
 	}
 
 	public short getRequiredSlice() {
@@ -253,6 +264,43 @@ public class CFBamUuid6GenEditObj
 		if( getUuid6GenBuff().getRequiredBlockSize() != value ) {
 			getUuid6GenBuff().setRequiredBlockSize( value );
 		}
+	}
+
+	public ICFBamTableObj getOptionalLookupDispenser() {
+		return( getOptionalLookupDispenser( false ) );
+	}
+
+	public ICFBamTableObj getOptionalLookupDispenser( boolean forceRead ) {
+		if( forceRead || ( optionalLookupDispenser == null ) ) {
+			boolean anyMissing = false;
+			if( getUuid6GenBuff().getOptionalDispenserTenantId() == null ) {
+				anyMissing = true;
+			}
+			if( getUuid6GenBuff().getOptionalDispenserId() == null ) {
+				anyMissing = true;
+			}
+			if( ! anyMissing ) {
+				ICFBamTableObj obj = ((ICFBamSchemaObj)getOrigAsUuid6Gen().getSchema()).getTableTableObj().readTableByIdIdx( getUuid6GenBuff().getOptionalDispenserTenantId(),
+					getUuid6GenBuff().getOptionalDispenserId() );
+				optionalLookupDispenser = obj;
+			}
+		}
+		return( optionalLookupDispenser );
+	}
+
+	public void setOptionalLookupDispenser( ICFBamTableObj value ) {
+			if( buff == null ) {
+				getUuid6GenBuff();
+			}
+			if( value != null ) {
+				getUuid6GenBuff().setOptionalDispenserTenantId( value.getRequiredTenantId() );
+				getUuid6GenBuff().setOptionalDispenserId( value.getRequiredId() );
+			}
+			else {
+				getUuid6GenBuff().setOptionalDispenserTenantId( null );
+				getUuid6GenBuff().setOptionalDispenserId( null );
+			}
+			optionalLookupDispenser = value;
 	}
 
 	public void copyBuffToOrig() {

@@ -57,6 +57,13 @@ public interface ICFBamUuidGenFactory
 {
 
 	/**
+	 *	Allocate a DispIdx key over UuidGen instances.
+	 *
+	 *	@return	The new instance.
+	 */
+	CFBamUuidGenByDispIdxKey newDispIdxKey();
+
+	/**
 	 *	Allocate a UuidGen instance buffer.
 	 *
 	 *	@return	The new instance.

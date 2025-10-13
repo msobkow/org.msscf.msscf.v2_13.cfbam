@@ -418,6 +418,33 @@ public interface ICFBamUuid6GenTableObj
 		long SchemaDefId,
 		boolean forceRead );
 
+	/**
+	 *	Get the map of CFBamUuid6GenObj instances sorted by their primary keys for the duplicate DispIdx key.
+	 *
+	 *	@param	argDispenserTenantId	The Uuid6Gen key attribute of the instance generating the id.
+	 *
+	 *	@param	argDispenserId	The Uuid6Gen key attribute of the instance generating the id.
+	 *
+	 *	@return	List of CFBamUuid6GenObj cached instances sorted by their primary keys for the duplicate DispIdx key,
+	 *		which may be an empty set.
+	 */
+	List<ICFBamUuid6GenObj> readUuid6GenByDispIdx( Long DispenserTenantId,
+		Long DispenserId );
+
+	/**
+	 *	Get the map of CFBamUuid6GenObj instances sorted by their primary keys for the duplicate DispIdx key.
+	 *
+	 *	@param	argDispenserTenantId	The Uuid6Gen key attribute of the instance generating the id.
+	 *
+	 *	@param	argDispenserId	The Uuid6Gen key attribute of the instance generating the id.
+	 *
+	 *	@return	List of CFBamUuid6GenObj cached instances sorted by their primary keys for the duplicate DispIdx key,
+	 *		which may be an empty set.
+	 */
+	List<ICFBamUuid6GenObj> readUuid6GenByDispIdx( Long DispenserTenantId,
+		Long DispenserId,
+		boolean forceRead );
+
 	ICFBamUuid6GenObj readCachedUuid6GenByIdIdx( long TenantId,
 		long Id );
 
@@ -450,6 +477,9 @@ public interface ICFBamUuid6GenTableObj
 	List<ICFBamUuid6GenObj> readCachedUuid6GenBySchemaIdx( long TenantId,
 		long SchemaDefId );
 
+	List<ICFBamUuid6GenObj> readCachedUuid6GenByDispIdx( Long DispenserTenantId,
+		Long DispenserId );
+
 	void deepDisposeUuid6GenByIdIdx( long TenantId,
 		long Id );
 
@@ -481,6 +511,9 @@ public interface ICFBamUuid6GenTableObj
 
 	void deepDisposeUuid6GenBySchemaIdx( long TenantId,
 		long SchemaDefId );
+
+	void deepDisposeUuid6GenByDispIdx( Long DispenserTenantId,
+		Long DispenserId );
 
 	/**
 	 *	Internal use only.
@@ -597,6 +630,16 @@ public interface ICFBamUuid6GenTableObj
 	 */
 	void deleteUuid6GenBySchemaIdx( long TenantId,
 		long SchemaDefId );
+
+	/**
+	 *	Internal use only.
+	 *
+	 *	@param	argDispenserTenantId	The Uuid6Gen key attribute of the instance generating the id.
+	 *
+	 *	@param	argDispenserId	The Uuid6Gen key attribute of the instance generating the id.
+	 */
+	void deleteUuid6GenByDispIdx( Long DispenserTenantId,
+		Long DispenserId );
 
 	/**
 	 *	Move the CFBamUuid6GenObj instance up in the chain.  The instance is always refreshed.

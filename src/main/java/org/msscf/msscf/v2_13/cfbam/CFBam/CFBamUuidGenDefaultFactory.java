@@ -59,6 +59,12 @@ public class CFBamUuidGenDefaultFactory
 	public CFBamUuidGenDefaultFactory() {
 	}
 
+	public CFBamUuidGenByDispIdxKey newDispIdxKey() {
+		CFBamUuidGenByDispIdxKey key =
+			new CFBamUuidGenByDispIdxKey();
+		return( key );
+	}
+
 	public CFBamUuidGenBuff newBuff() {
 		CFBamUuidGenBuff buff =
 			new CFBamUuidGenBuff();
