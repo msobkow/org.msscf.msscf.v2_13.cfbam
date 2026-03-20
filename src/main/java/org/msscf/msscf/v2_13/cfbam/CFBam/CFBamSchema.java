@@ -284,6 +284,9 @@ public class CFBamSchema
 			newMap.put( "System", SecScopeEnum.System );
 			newMap.put( "Cluster", SecScopeEnum.Cluster );
 			newMap.put( "Tenant", SecScopeEnum.Tenant );
+			newMap.put( "SystemGroup", SecScopeEnum.SystemGroup );
+			newMap.put( "ClusterGroup", SecScopeEnum.ClusterGroup );
+			newMap.put( "TenantGroup", SecScopeEnum.TenantGroup );
 			lookupSecScopeEnum = newMap;
 		}
 		SecScopeEnum retval;
@@ -346,6 +349,9 @@ public class CFBamSchema
 			newMap.put( Integer.valueOf( SecScopeEnum.System.ordinal() ), SecScopeEnum.System );
 			newMap.put( Integer.valueOf( SecScopeEnum.Cluster.ordinal() ), SecScopeEnum.Cluster );
 			newMap.put( Integer.valueOf( SecScopeEnum.Tenant.ordinal() ), SecScopeEnum.Tenant );
+			newMap.put( Integer.valueOf( SecScopeEnum.SystemGroup.ordinal() ), SecScopeEnum.SystemGroup );
+			newMap.put( Integer.valueOf( SecScopeEnum.ClusterGroup.ordinal() ), SecScopeEnum.ClusterGroup );
+			newMap.put( Integer.valueOf( SecScopeEnum.TenantGroup.ordinal() ), SecScopeEnum.TenantGroup );
 			lookupOrdinalSecScopeEnum = newMap;
 		}
 		SecScopeEnum retval;

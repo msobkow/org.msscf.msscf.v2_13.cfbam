@@ -285,7 +285,7 @@ public class CFBamTableBuff
 	public static final ICFBamSchema.LoaderBehaviourEnum LOADERBEHAVIOUR_MIN_VALUE = ICFBamSchema.LoaderBehaviourEnum.Insert;
 	public static final ICFBamSchema.SecScopeEnum SECSCOPE_MIN_VALUE = ICFBamSchema.SecScopeEnum.None;
 	public static final ICFBamSchema.LoaderBehaviourEnum LOADERBEHAVIOUR_MAX_VALUE = ICFBamSchema.LoaderBehaviourEnum.Replace;
-	public static final ICFBamSchema.SecScopeEnum SECSCOPE_MAX_VALUE = ICFBamSchema.SecScopeEnum.Tenant;
+	public static final ICFBamSchema.SecScopeEnum SECSCOPE_MAX_VALUE = ICFBamSchema.SecScopeEnum.TenantGroup;
 	protected long requiredSchemaDefId;
 	protected Long optionalDefSchemaTenantId;
 	protected Long optionalDefSchemaId;

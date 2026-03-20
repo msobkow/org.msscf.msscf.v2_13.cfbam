@@ -84,7 +84,10 @@ extends ICFSecSchema,
 		None,
 		System,
 		Cluster,
-		Tenant
+		Tenant,
+		SystemGroup,
+		ClusterGroup,
+		TenantGroup
 	};
 
 	CFSecConfigurationFile getConfigurationFile();
