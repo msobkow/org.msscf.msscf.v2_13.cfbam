@@ -281,6 +281,7 @@ public class CFBamSchema
 		if( lookupSecScopeEnum == null ) {
 			HashMap<String,SecScopeEnum> newMap = new HashMap<String,SecScopeEnum>();
 			newMap.put( "None", SecScopeEnum.None );
+			newMap.put( "Global", SecScopeEnum.Global );
 			newMap.put( "System", SecScopeEnum.System );
 			newMap.put( "Cluster", SecScopeEnum.Cluster );
 			newMap.put( "Tenant", SecScopeEnum.Tenant );
@@ -346,6 +347,7 @@ public class CFBamSchema
 		if( lookupOrdinalSecScopeEnum == null ) {
 			HashMap<Integer,SecScopeEnum> newMap = new HashMap<Integer,SecScopeEnum>();
 			newMap.put( Integer.valueOf( SecScopeEnum.None.ordinal() ), SecScopeEnum.None );
+			newMap.put( Integer.valueOf( SecScopeEnum.Global.ordinal() ), SecScopeEnum.Global );
 			newMap.put( Integer.valueOf( SecScopeEnum.System.ordinal() ), SecScopeEnum.System );
 			newMap.put( Integer.valueOf( SecScopeEnum.Cluster.ordinal() ), SecScopeEnum.Cluster );
 			newMap.put( Integer.valueOf( SecScopeEnum.Tenant.ordinal() ), SecScopeEnum.Tenant );
