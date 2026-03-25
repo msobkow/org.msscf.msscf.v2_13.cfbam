@@ -82,8 +82,8 @@ extends ICFSecSchema,
 
 	public enum SecScopeEnum {
 		None,
-		Global,
 		System,
+		Global,
 		Cluster,
 		Tenant,
 		SystemGroup,
