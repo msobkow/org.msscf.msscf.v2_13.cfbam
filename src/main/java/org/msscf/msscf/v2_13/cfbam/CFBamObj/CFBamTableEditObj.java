@@ -174,6 +174,11 @@ public class CFBamTableEditObj
 				getRequiredId(),
 				nextName, false );
 		}
+		if( subObj == null ) {
+			subObj = ((ICFBamSchemaObj)getSchema()).getTweakTableObj().readTweakByUNameIdx( getRequiredTenantId(),
+				getRequiredId(),
+				nextName, false );
+		}
 		if( remainingName == null ) {
 			retObj = subObj;
 		}
@@ -2660,6 +2665,22 @@ public class CFBamTableEditObj
 	public List<ICFBamServerMethodObj> getOptionalComponentsServerMethods( boolean forceRead ) {
 		List<ICFBamServerMethodObj> retval;
 		retval = ((ICFBamSchemaObj)getOrigAsTable().getSchema()).getServerMethodTableObj().readServerMethodByMethTableIdx( getPKey().getRequiredTenantId(),
+					getPKey().getRequiredId(),
+			forceRead );
+		return( retval );
+	}
+
+	public List<ICFBamTweakObj> getOptionalComponentsTweaks() {
+		List<ICFBamTweakObj> retval;
+		retval = ((ICFBamSchemaObj)getOrigAsTable().getSchema()).getTweakTableObj().readTweakByScopeIdx( getPKey().getRequiredTenantId(),
+					getPKey().getRequiredId(),
+			false );
+		return( retval );
+	}
+
+	public List<ICFBamTweakObj> getOptionalComponentsTweaks( boolean forceRead ) {
+		List<ICFBamTweakObj> retval;
+		retval = ((ICFBamSchemaObj)getOrigAsTable().getSchema()).getTweakTableObj().readTweakByScopeIdx( getPKey().getRequiredTenantId(),
 					getPKey().getRequiredId(),
 			forceRead );
 		return( retval );

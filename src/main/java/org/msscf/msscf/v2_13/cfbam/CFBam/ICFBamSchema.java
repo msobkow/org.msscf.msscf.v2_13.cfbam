@@ -2031,6 +2031,24 @@ extends ICFSecSchema,
 	ICFBamSchemaRefFactory getFactorySchemaRef();
 
 	/**
+	 *	Get the SchemaTweak Table interface for the schema.
+	 *
+	 *	@return	The SchemaTweak Table interface for the schema.
+	 *
+	 *	@throws CFLibNotSupportedException thrown by client-side implementations.
+	 */
+	ICFBamSchemaTweakTable getTableSchemaTweak();
+
+	/**
+	 *	Get the SchemaTweak Factory interface for the schema.
+	 *
+	 *	@return	The SchemaTweak Factory interface for the schema.
+	 *
+	 *	@throws CFLibNotSupportedException thrown by client-side implementations.
+	 */
+	ICFBamSchemaTweakFactory getFactorySchemaTweak();
+
+	/**
 	 *	Get the Scope Table interface for the schema.
 	 *
 	 *	@return	The Scope Table interface for the schema.
@@ -2661,6 +2679,24 @@ extends ICFSecSchema,
 	ICFBamTableColFactory getFactoryTableCol();
 
 	/**
+	 *	Get the TableTweak Table interface for the schema.
+	 *
+	 *	@return	The TableTweak Table interface for the schema.
+	 *
+	 *	@throws CFLibNotSupportedException thrown by client-side implementations.
+	 */
+	ICFBamTableTweakTable getTableTableTweak();
+
+	/**
+	 *	Get the TableTweak Factory interface for the schema.
+	 *
+	 *	@return	The TableTweak Factory interface for the schema.
+	 *
+	 *	@throws CFLibNotSupportedException thrown by client-side implementations.
+	 */
+	ICFBamTableTweakFactory getFactoryTableTweak();
+
+	/**
 	 *	Get the Tenant Table interface for the schema.
 	 *
 	 *	@return	The Tenant Table interface for the schema.
@@ -2947,6 +2983,24 @@ extends ICFSecSchema,
 	 *	@throws CFLibNotSupportedException thrown by client-side implementations.
 	 */
 	ICFIntTopProjectFactory getFactoryTopProject();
+
+	/**
+	 *	Get the Tweak Table interface for the schema.
+	 *
+	 *	@return	The Tweak Table interface for the schema.
+	 *
+	 *	@throws CFLibNotSupportedException thrown by client-side implementations.
+	 */
+	ICFBamTweakTable getTableTweak();
+
+	/**
+	 *	Get the Tweak Factory interface for the schema.
+	 *
+	 *	@return	The Tweak Factory interface for the schema.
+	 *
+	 *	@throws CFLibNotSupportedException thrown by client-side implementations.
+	 */
+	ICFBamTweakFactory getFactoryTweak();
 
 	/**
 	 *	Get the UInt16Col Table interface for the schema.

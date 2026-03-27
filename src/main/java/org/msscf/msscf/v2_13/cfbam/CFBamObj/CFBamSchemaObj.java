@@ -177,6 +177,7 @@ public class CFBamSchemaObj
 	protected ICFBamRelationColTableObj relationColTableObj;
 	protected ICFBamSchemaDefTableObj schemaDefTableObj;
 	protected ICFBamSchemaRefTableObj schemaRefTableObj;
+	protected ICFBamSchemaTweakTableObj schemaTweakTableObj;
 	protected ICFBamScopeTableObj scopeTableObj;
 	protected ICFBamSecAppTableObj secAppTableObj;
 	protected ICFBamSecDeviceTableObj secDeviceTableObj;
@@ -212,6 +213,7 @@ public class CFBamSchemaObj
 	protected ICFBamTZTimestampTypeTableObj tZTimestampTypeTableObj;
 	protected ICFBamTableTableObj tableTableObj;
 	protected ICFBamTableColTableObj tableColTableObj;
+	protected ICFBamTableTweakTableObj tableTweakTableObj;
 	protected ICFBamTenantTableObj tenantTableObj;
 	protected ICFBamTextColTableObj textColTableObj;
 	protected ICFBamTextDefTableObj textDefTableObj;
@@ -228,6 +230,7 @@ public class CFBamSchemaObj
 	protected ICFBamTokenTypeTableObj tokenTypeTableObj;
 	protected ICFBamTopDomainTableObj topDomainTableObj;
 	protected ICFBamTopProjectTableObj topProjectTableObj;
+	protected ICFBamTweakTableObj tweakTableObj;
 	protected ICFBamUInt16ColTableObj uInt16ColTableObj;
 	protected ICFBamUInt16DefTableObj uInt16DefTableObj;
 	protected ICFBamUInt16TypeTableObj uInt16TypeTableObj;
@@ -348,6 +351,7 @@ public class CFBamSchemaObj
 		relationColTableObj = new CFBamRelationColTableObj( this );
 		schemaDefTableObj = new CFBamSchemaDefTableObj( this );
 		schemaRefTableObj = new CFBamSchemaRefTableObj( this );
+		schemaTweakTableObj = new CFBamSchemaTweakTableObj( this );
 		scopeTableObj = new CFBamScopeTableObj( this );
 		secAppTableObj = new CFBamSecAppTableObj( this );
 		secDeviceTableObj = new CFBamSecDeviceTableObj( this );
@@ -383,6 +387,7 @@ public class CFBamSchemaObj
 		tZTimestampTypeTableObj = new CFBamTZTimestampTypeTableObj( this );
 		tableTableObj = new CFBamTableTableObj( this );
 		tableColTableObj = new CFBamTableColTableObj( this );
+		tableTweakTableObj = new CFBamTableTweakTableObj( this );
 		tenantTableObj = new CFBamTenantTableObj( this );
 		textColTableObj = new CFBamTextColTableObj( this );
 		textDefTableObj = new CFBamTextDefTableObj( this );
@@ -399,6 +404,7 @@ public class CFBamSchemaObj
 		tokenTypeTableObj = new CFBamTokenTypeTableObj( this );
 		topDomainTableObj = new CFBamTopDomainTableObj( this );
 		topProjectTableObj = new CFBamTopProjectTableObj( this );
+		tweakTableObj = new CFBamTweakTableObj( this );
 		uInt16ColTableObj = new CFBamUInt16ColTableObj( this );
 		uInt16DefTableObj = new CFBamUInt16DefTableObj( this );
 		uInt16TypeTableObj = new CFBamUInt16TypeTableObj( this );
@@ -1220,6 +1226,9 @@ public class CFBamSchemaObj
 		if( schemaRefTableObj != null ) {
 			schemaRefTableObj.minimizeMemory();
 		}
+		if( schemaTweakTableObj != null ) {
+			schemaTweakTableObj.minimizeMemory();
+		}
 		if( scopeTableObj != null ) {
 			scopeTableObj.minimizeMemory();
 		}
@@ -1325,6 +1334,9 @@ public class CFBamSchemaObj
 		if( tableColTableObj != null ) {
 			tableColTableObj.minimizeMemory();
 		}
+		if( tableTweakTableObj != null ) {
+			tableTweakTableObj.minimizeMemory();
+		}
 		if( tenantTableObj != null ) {
 			tenantTableObj.minimizeMemory();
 		}
@@ -1372,6 +1384,9 @@ public class CFBamSchemaObj
 		}
 		if( topProjectTableObj != null ) {
 			topProjectTableObj.minimizeMemory();
+		}
+		if( tweakTableObj != null ) {
+			tweakTableObj.minimizeMemory();
 		}
 		if( uInt16ColTableObj != null ) {
 			uInt16ColTableObj.minimizeMemory();
@@ -1845,6 +1860,10 @@ public class CFBamSchemaObj
 		return( schemaRefTableObj );
 	}
 
+	public ICFBamSchemaTweakTableObj getSchemaTweakTableObj() {
+		return( schemaTweakTableObj );
+	}
+
 	public ICFBamScopeTableObj getScopeTableObj() {
 		return( scopeTableObj );
 	}
@@ -1985,6 +2004,10 @@ public class CFBamSchemaObj
 		return( tableColTableObj );
 	}
 
+	public ICFBamTableTweakTableObj getTableTweakTableObj() {
+		return( tableTweakTableObj );
+	}
+
 	public ICFBamTenantTableObj getTenantTableObj() {
 		return( tenantTableObj );
 	}
@@ -2047,6 +2070,10 @@ public class CFBamSchemaObj
 
 	public ICFBamTopProjectTableObj getTopProjectTableObj() {
 		return( topProjectTableObj );
+	}
+
+	public ICFBamTweakTableObj getTweakTableObj() {
+		return( tweakTableObj );
 	}
 
 	public ICFBamUInt16ColTableObj getUInt16ColTableObj() {

@@ -472,6 +472,7 @@ public class CFBamSchema
 	protected ICFBamRelationColTable tableRelationCol;
 	protected ICFBamSchemaDefTable tableSchemaDef;
 	protected ICFBamSchemaRefTable tableSchemaRef;
+	protected ICFBamSchemaTweakTable tableSchemaTweak;
 	protected ICFBamScopeTable tableScope;
 	protected ICFSecSecAppTable tableSecApp;
 	protected ICFSecSecDeviceTable tableSecDevice;
@@ -507,6 +508,7 @@ public class CFBamSchema
 	protected ICFBamTZTimestampTypeTable tableTZTimestampType;
 	protected ICFBamTableTable tableTable;
 	protected ICFBamTableColTable tableTableCol;
+	protected ICFBamTableTweakTable tableTableTweak;
 	protected ICFSecTenantTable tableTenant;
 	protected ICFBamTextColTable tableTextCol;
 	protected ICFBamTextDefTable tableTextDef;
@@ -523,6 +525,7 @@ public class CFBamSchema
 	protected ICFBamTokenTypeTable tableTokenType;
 	protected ICFIntTopDomainTable tableTopDomain;
 	protected ICFIntTopProjectTable tableTopProject;
+	protected ICFBamTweakTable tableTweak;
 	protected ICFBamUInt16ColTable tableUInt16Col;
 	protected ICFBamUInt16DefTable tableUInt16Def;
 	protected ICFBamUInt16TypeTable tableUInt16Type;
@@ -642,6 +645,7 @@ public class CFBamSchema
 	protected ICFBamRelationColFactory factoryRelationCol;
 	protected ICFBamSchemaDefFactory factorySchemaDef;
 	protected ICFBamSchemaRefFactory factorySchemaRef;
+	protected ICFBamSchemaTweakFactory factorySchemaTweak;
 	protected ICFBamScopeFactory factoryScope;
 	protected ICFSecSecAppFactory factorySecApp;
 	protected ICFSecSecDeviceFactory factorySecDevice;
@@ -677,6 +681,7 @@ public class CFBamSchema
 	protected ICFBamTZTimestampTypeFactory factoryTZTimestampType;
 	protected ICFBamTableFactory factoryTable;
 	protected ICFBamTableColFactory factoryTableCol;
+	protected ICFBamTableTweakFactory factoryTableTweak;
 	protected ICFSecTenantFactory factoryTenant;
 	protected ICFBamTextColFactory factoryTextCol;
 	protected ICFBamTextDefFactory factoryTextDef;
@@ -693,6 +698,7 @@ public class CFBamSchema
 	protected ICFBamTokenTypeFactory factoryTokenType;
 	protected ICFIntTopDomainFactory factoryTopDomain;
 	protected ICFIntTopProjectFactory factoryTopProject;
+	protected ICFBamTweakFactory factoryTweak;
 	protected ICFBamUInt16ColFactory factoryUInt16Col;
 	protected ICFBamUInt16DefFactory factoryUInt16Def;
 	protected ICFBamUInt16TypeFactory factoryUInt16Type;
@@ -817,6 +823,7 @@ public class CFBamSchema
 		tableRelationCol = null;
 		tableSchemaDef = null;
 		tableSchemaRef = null;
+		tableSchemaTweak = null;
 		tableScope = null;
 		tableSecApp = null;
 		tableSecDevice = null;
@@ -852,6 +859,7 @@ public class CFBamSchema
 		tableTZTimestampType = null;
 		tableTable = null;
 		tableTableCol = null;
+		tableTableTweak = null;
 		tableTenant = null;
 		tableTextCol = null;
 		tableTextDef = null;
@@ -868,6 +876,7 @@ public class CFBamSchema
 		tableTokenType = null;
 		tableTopDomain = null;
 		tableTopProject = null;
+		tableTweak = null;
 		tableUInt16Col = null;
 		tableUInt16Def = null;
 		tableUInt16Type = null;
@@ -987,6 +996,7 @@ public class CFBamSchema
 		factoryRelationCol = new CFBamRelationColDefaultFactory();
 		factorySchemaDef = new CFBamSchemaDefDefaultFactory();
 		factorySchemaRef = new CFBamSchemaRefDefaultFactory();
+		factorySchemaTweak = new CFBamSchemaTweakDefaultFactory();
 		factoryScope = new CFBamScopeDefaultFactory();
 		factorySecApp = new CFBamSecAppDefaultFactory();
 		factorySecDevice = new CFBamSecDeviceDefaultFactory();
@@ -1022,6 +1032,7 @@ public class CFBamSchema
 		factoryTZTimestampType = new CFBamTZTimestampTypeDefaultFactory();
 		factoryTable = new CFBamTableDefaultFactory();
 		factoryTableCol = new CFBamTableColDefaultFactory();
+		factoryTableTweak = new CFBamTableTweakDefaultFactory();
 		factoryTenant = new CFBamTenantDefaultFactory();
 		factoryTextCol = new CFBamTextColDefaultFactory();
 		factoryTextDef = new CFBamTextDefDefaultFactory();
@@ -1038,6 +1049,7 @@ public class CFBamSchema
 		factoryTokenType = new CFBamTokenTypeDefaultFactory();
 		factoryTopDomain = new CFBamTopDomainDefaultFactory();
 		factoryTopProject = new CFBamTopProjectDefaultFactory();
+		factoryTweak = new CFBamTweakDefaultFactory();
 		factoryUInt16Col = new CFBamUInt16ColDefaultFactory();
 		factoryUInt16Def = new CFBamUInt16DefDefaultFactory();
 		factoryUInt16Type = new CFBamUInt16TypeDefaultFactory();
@@ -1167,6 +1179,7 @@ public class CFBamSchema
 		tableRelationCol = null;
 		tableSchemaDef = null;
 		tableSchemaRef = null;
+		tableSchemaTweak = null;
 		tableScope = null;
 		tableSecApp = null;
 		tableSecDevice = null;
@@ -1202,6 +1215,7 @@ public class CFBamSchema
 		tableTZTimestampType = null;
 		tableTable = null;
 		tableTableCol = null;
+		tableTableTweak = null;
 		tableTenant = null;
 		tableTextCol = null;
 		tableTextDef = null;
@@ -1218,6 +1232,7 @@ public class CFBamSchema
 		tableTokenType = null;
 		tableTopDomain = null;
 		tableTopProject = null;
+		tableTweak = null;
 		tableUInt16Col = null;
 		tableUInt16Def = null;
 		tableUInt16Type = null;
@@ -1337,6 +1352,7 @@ public class CFBamSchema
 		factoryRelationCol = new CFBamRelationColDefaultFactory();
 		factorySchemaDef = new CFBamSchemaDefDefaultFactory();
 		factorySchemaRef = new CFBamSchemaRefDefaultFactory();
+		factorySchemaTweak = new CFBamSchemaTweakDefaultFactory();
 		factoryScope = new CFBamScopeDefaultFactory();
 		factorySecApp = new CFBamSecAppDefaultFactory();
 		factorySecDevice = new CFBamSecDeviceDefaultFactory();
@@ -1372,6 +1388,7 @@ public class CFBamSchema
 		factoryTZTimestampType = new CFBamTZTimestampTypeDefaultFactory();
 		factoryTable = new CFBamTableDefaultFactory();
 		factoryTableCol = new CFBamTableColDefaultFactory();
+		factoryTableTweak = new CFBamTableTweakDefaultFactory();
 		factoryTenant = new CFBamTenantDefaultFactory();
 		factoryTextCol = new CFBamTextColDefaultFactory();
 		factoryTextDef = new CFBamTextDefDefaultFactory();
@@ -1388,6 +1405,7 @@ public class CFBamSchema
 		factoryTokenType = new CFBamTokenTypeDefaultFactory();
 		factoryTopDomain = new CFBamTopDomainDefaultFactory();
 		factoryTopProject = new CFBamTopProjectDefaultFactory();
+		factoryTweak = new CFBamTweakDefaultFactory();
 		factoryUInt16Col = new CFBamUInt16ColDefaultFactory();
 		factoryUInt16Def = new CFBamUInt16DefDefaultFactory();
 		factoryUInt16Type = new CFBamUInt16TypeDefaultFactory();
@@ -1517,6 +1535,7 @@ public class CFBamSchema
 		tableRelationCol = null;
 		tableSchemaDef = null;
 		tableSchemaRef = null;
+		tableSchemaTweak = null;
 		tableScope = null;
 		tableSecApp = null;
 		tableSecDevice = null;
@@ -1552,6 +1571,7 @@ public class CFBamSchema
 		tableTZTimestampType = null;
 		tableTable = null;
 		tableTableCol = null;
+		tableTableTweak = null;
 		tableTenant = null;
 		tableTextCol = null;
 		tableTextDef = null;
@@ -1568,6 +1588,7 @@ public class CFBamSchema
 		tableTokenType = null;
 		tableTopDomain = null;
 		tableTopProject = null;
+		tableTweak = null;
 		tableUInt16Col = null;
 		tableUInt16Def = null;
 		tableUInt16Type = null;
@@ -1687,6 +1708,7 @@ public class CFBamSchema
 		factoryRelationCol = new CFBamRelationColDefaultFactory();
 		factorySchemaDef = new CFBamSchemaDefDefaultFactory();
 		factorySchemaRef = new CFBamSchemaRefDefaultFactory();
+		factorySchemaTweak = new CFBamSchemaTweakDefaultFactory();
 		factoryScope = new CFBamScopeDefaultFactory();
 		factorySecApp = new CFBamSecAppDefaultFactory();
 		factorySecDevice = new CFBamSecDeviceDefaultFactory();
@@ -1722,6 +1744,7 @@ public class CFBamSchema
 		factoryTZTimestampType = new CFBamTZTimestampTypeDefaultFactory();
 		factoryTable = new CFBamTableDefaultFactory();
 		factoryTableCol = new CFBamTableColDefaultFactory();
+		factoryTableTweak = new CFBamTableTweakDefaultFactory();
 		factoryTenant = new CFBamTenantDefaultFactory();
 		factoryTextCol = new CFBamTextColDefaultFactory();
 		factoryTextDef = new CFBamTextDefDefaultFactory();
@@ -1738,6 +1761,7 @@ public class CFBamSchema
 		factoryTokenType = new CFBamTokenTypeDefaultFactory();
 		factoryTopDomain = new CFBamTopDomainDefaultFactory();
 		factoryTopProject = new CFBamTopProjectDefaultFactory();
+		factoryTweak = new CFBamTweakDefaultFactory();
 		factoryUInt16Col = new CFBamUInt16ColDefaultFactory();
 		factoryUInt16Def = new CFBamUInt16DefDefaultFactory();
 		factoryUInt16Type = new CFBamUInt16TypeDefaultFactory();
@@ -3481,6 +3505,22 @@ public class CFBamSchema
 		factorySchemaRef = value;
 	}
 
+	public ICFBamSchemaTweakTable getTableSchemaTweak() {
+		return( tableSchemaTweak );
+	}
+
+	public void setTableSchemaTweak( ICFBamSchemaTweakTable value ) {
+		tableSchemaTweak = value;
+	}
+
+	public ICFBamSchemaTweakFactory getFactorySchemaTweak() {
+		return( factorySchemaTweak );
+	}
+
+	public void setFactorySchemaTweak( ICFBamSchemaTweakFactory value ) {
+		factorySchemaTweak = value;
+	}
+
 	public ICFBamScopeTable getTableScope() {
 		return( tableScope );
 	}
@@ -4041,6 +4081,22 @@ public class CFBamSchema
 		factoryTableCol = value;
 	}
 
+	public ICFBamTableTweakTable getTableTableTweak() {
+		return( tableTableTweak );
+	}
+
+	public void setTableTableTweak( ICFBamTableTweakTable value ) {
+		tableTableTweak = value;
+	}
+
+	public ICFBamTableTweakFactory getFactoryTableTweak() {
+		return( factoryTableTweak );
+	}
+
+	public void setFactoryTableTweak( ICFBamTableTweakFactory value ) {
+		factoryTableTweak = value;
+	}
+
 	public ICFSecTenantTable getTableTenant() {
 		return( tableTenant );
 	}
@@ -4295,6 +4351,22 @@ public class CFBamSchema
 
 	public void setFactoryTopProject( ICFIntTopProjectFactory value ) {
 		factoryTopProject = value;
+	}
+
+	public ICFBamTweakTable getTableTweak() {
+		return( tableTweak );
+	}
+
+	public void setTableTweak( ICFBamTweakTable value ) {
+		tableTweak = value;
+	}
+
+	public ICFBamTweakFactory getFactoryTweak() {
+		return( factoryTweak );
+	}
+
+	public void setFactoryTweak( ICFBamTweakFactory value ) {
+		factoryTweak = value;
 	}
 
 	public ICFBamUInt16ColTable getTableUInt16Col() {

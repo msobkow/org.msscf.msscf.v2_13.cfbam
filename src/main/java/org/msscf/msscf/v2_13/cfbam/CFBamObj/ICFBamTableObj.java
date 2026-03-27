@@ -1767,6 +1767,20 @@ public interface ICFBamTableObj
 	 */
 	List<ICFBamServerMethodObj> getOptionalComponentsServerMethods( boolean forceRead );
 
+	/**
+	 *	Get the array of optional ICFBamTweakObj array of instances referenced by the Tweaks key.
+	 *
+	 *	@return	The optional ICFBamTweakObj[] array of instances referenced by the Tweaks key.
+	 */
+	List<ICFBamTweakObj> getOptionalComponentsTweaks();
+
+	/**
+	 *	Get the array of optional ICFBamTweakObj array of instances referenced by the Tweaks key.
+	 *
+	 *	@return	The optional ICFBamTweakObj[] array of instances referenced by the Tweaks key.
+	 */
+	List<ICFBamTweakObj> getOptionalComponentsTweaks( boolean forceRead );
+
 	List<ICFBamRelationObj> getOnlyOwnerRelations();
 	List<ICFBamRelationObj> getContainerOwnerRelations();
 	ICFBamRelationObj getContainerRelation();

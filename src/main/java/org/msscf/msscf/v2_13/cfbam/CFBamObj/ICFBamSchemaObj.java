@@ -673,6 +673,13 @@ public interface ICFBamSchemaObj
 	ICFBamSchemaRefTableObj getSchemaRefTableObj();
 
 	/**
+	 *	Get the SchemaTweak interface for the schema.
+	 *
+	 *	@return	The ICFBamSchemaTweakTableObj interface implementation for the schema.
+	 */
+	ICFBamSchemaTweakTableObj getSchemaTweakTableObj();
+
+	/**
 	 *	Get the Scope interface for the schema.
 	 *
 	 *	@return	The ICFBamScopeTableObj interface implementation for the schema.
@@ -806,6 +813,13 @@ public interface ICFBamSchemaObj
 	ICFBamTableColTableObj getTableColTableObj();
 
 	/**
+	 *	Get the TableTweak interface for the schema.
+	 *
+	 *	@return	The ICFBamTableTweakTableObj interface implementation for the schema.
+	 */
+	ICFBamTableTweakTableObj getTableTweakTableObj();
+
+	/**
 	 *	Get the TextCol interface for the schema.
 	 *
 	 *	@return	The ICFBamTextColTableObj interface implementation for the schema.
@@ -888,6 +902,13 @@ public interface ICFBamSchemaObj
 	 *	@return	The ICFBamTokenTypeTableObj interface implementation for the schema.
 	 */
 	ICFBamTokenTypeTableObj getTokenTypeTableObj();
+
+	/**
+	 *	Get the Tweak interface for the schema.
+	 *
+	 *	@return	The ICFBamTweakTableObj interface implementation for the schema.
+	 */
+	ICFBamTweakTableObj getTweakTableObj();
 
 	/**
 	 *	Get the UInt16Col interface for the schema.
