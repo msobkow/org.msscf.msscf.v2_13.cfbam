@@ -171,6 +171,37 @@ public interface ICFBamSchemaTweakTable
 	void deleteSchemaTweakByUNameIdx( CFSecAuthorization Authorization,
 		CFBamTweakByUNameIdxKey argKey );
 	/**
+	 *	Delete the SchemaTweak instances identified by the key UDefIdx.
+	 *
+	 *	@param	Authorization	The session authorization information.
+	 *
+	 *	@param	argTenantId	The SchemaTweak key attribute of the instance generating the id.
+	 *
+	 *	@param	argScopeId	The SchemaTweak key attribute of the instance generating the id.
+	 *
+	 *	@param	argDefSchemaTenantId	The SchemaTweak key attribute of the instance generating the id.
+	 *
+	 *	@param	argDefSchemaId	The SchemaTweak key attribute of the instance generating the id.
+	 *
+	 *	@param	argName	The SchemaTweak key attribute of the instance generating the id.
+	 */
+	void deleteSchemaTweakByUDefIdx( CFSecAuthorization Authorization,
+		long argTenantId,
+		long argScopeId,
+		Long argDefSchemaTenantId,
+		Long argDefSchemaId,
+		String argName );
+
+	/**
+	 *	Delete the SchemaTweak instances identified by the key UDefIdx.
+	 *
+	 *	@param	Authorization	The session authorization information.
+	 *
+	 *	@param	argKey	The key identifying the instances to be deleted.
+	 */
+	void deleteSchemaTweakByUDefIdx( CFSecAuthorization Authorization,
+		CFBamTweakByUDefIdxKey argKey );
+	/**
 	 *	Delete the SchemaTweak instances identified by the key ValTentIdx.
 	 *
 	 *	@param	Authorization	The session authorization information.
@@ -306,6 +337,31 @@ public interface ICFBamSchemaTweakTable
 		String Name );
 
 	/**
+	 *	Read the derived SchemaTweak buffer instance identified by the unique key UDefIdx.
+	 *
+	 *	@param	Authorization	The session authorization information.
+	 *
+	 *	@param	argTenantId	The SchemaTweak key attribute of the instance generating the id.
+	 *
+	 *	@param	argScopeId	The SchemaTweak key attribute of the instance generating the id.
+	 *
+	 *	@param	argDefSchemaTenantId	The SchemaTweak key attribute of the instance generating the id.
+	 *
+	 *	@param	argDefSchemaId	The SchemaTweak key attribute of the instance generating the id.
+	 *
+	 *	@param	argName	The SchemaTweak key attribute of the instance generating the id.
+	 *
+	 *	@return The buffer instance for the specified key, or null if there is
+	 *		no such existing key value.
+	 */
+	CFBamSchemaTweakBuff readDerivedByUDefIdx( CFSecAuthorization Authorization,
+		long TenantId,
+		long ScopeId,
+		Long DefSchemaTenantId,
+		Long DefSchemaId,
+		String Name );
+
+	/**
 	 *	Read an array of the derived SchemaTweak buffer instances identified by the duplicate key ValTentIdx.
 	 *
 	 *	@param	Authorization	The session authorization information.
@@ -438,6 +494,33 @@ public interface ICFBamSchemaTweakTable
 	CFBamSchemaTweakBuff readBuffByUNameIdx( CFSecAuthorization Authorization,
 		long TenantId,
 		long ScopeId,
+		String Name );
+
+	/**
+	 *	Read the specific SchemaTweak buffer instance identified by the unique key UDefIdx.
+	 *
+	 *	@param	Authorization	The session authorization information.
+	 *
+	 *	@param	argTenantId	The SchemaTweak key attribute of the instance generating the id.
+	 *
+	 *	@param	argScopeId	The SchemaTweak key attribute of the instance generating the id.
+	 *
+	 *	@param	argDefSchemaTenantId	The SchemaTweak key attribute of the instance generating the id.
+	 *
+	 *	@param	argDefSchemaId	The SchemaTweak key attribute of the instance generating the id.
+	 *
+	 *	@param	argName	The SchemaTweak key attribute of the instance generating the id.
+	 *
+	 *	@return The buffer instance for the specified key, or null if there is
+	 *		no such existing key value.
+	 *
+	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 */
+	CFBamSchemaTweakBuff readBuffByUDefIdx( CFSecAuthorization Authorization,
+		long TenantId,
+		long ScopeId,
+		Long DefSchemaTenantId,
+		Long DefSchemaId,
 		String Name );
 
 	/**

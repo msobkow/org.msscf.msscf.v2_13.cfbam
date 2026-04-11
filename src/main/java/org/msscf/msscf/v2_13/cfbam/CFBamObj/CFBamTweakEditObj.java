@@ -412,6 +412,16 @@ public class CFBamTweakEditObj
 		}
 	}
 
+	public boolean getRequiredReplacesInherited() {
+		return( getTweakBuff().getRequiredReplacesInherited() );
+	}
+
+	public void setRequiredReplacesInherited( boolean value ) {
+		if( getTweakBuff().getRequiredReplacesInherited() != value ) {
+			getTweakBuff().setRequiredReplacesInherited( value );
+		}
+	}
+
 	public String getRequiredTweakGelText() {
 		return( getTweakBuff().getRequiredTweakGelText() );
 	}

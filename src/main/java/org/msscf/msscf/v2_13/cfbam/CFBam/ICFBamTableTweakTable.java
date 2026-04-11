@@ -171,6 +171,37 @@ public interface ICFBamTableTweakTable
 	void deleteTableTweakByUNameIdx( CFSecAuthorization Authorization,
 		CFBamTweakByUNameIdxKey argKey );
 	/**
+	 *	Delete the TableTweak instances identified by the key UDefIdx.
+	 *
+	 *	@param	Authorization	The session authorization information.
+	 *
+	 *	@param	argTenantId	The TableTweak key attribute of the instance generating the id.
+	 *
+	 *	@param	argScopeId	The TableTweak key attribute of the instance generating the id.
+	 *
+	 *	@param	argDefSchemaTenantId	The TableTweak key attribute of the instance generating the id.
+	 *
+	 *	@param	argDefSchemaId	The TableTweak key attribute of the instance generating the id.
+	 *
+	 *	@param	argName	The TableTweak key attribute of the instance generating the id.
+	 */
+	void deleteTableTweakByUDefIdx( CFSecAuthorization Authorization,
+		long argTenantId,
+		long argScopeId,
+		Long argDefSchemaTenantId,
+		Long argDefSchemaId,
+		String argName );
+
+	/**
+	 *	Delete the TableTweak instances identified by the key UDefIdx.
+	 *
+	 *	@param	Authorization	The session authorization information.
+	 *
+	 *	@param	argKey	The key identifying the instances to be deleted.
+	 */
+	void deleteTableTweakByUDefIdx( CFSecAuthorization Authorization,
+		CFBamTweakByUDefIdxKey argKey );
+	/**
 	 *	Delete the TableTweak instances identified by the key ValTentIdx.
 	 *
 	 *	@param	Authorization	The session authorization information.
@@ -306,6 +337,31 @@ public interface ICFBamTableTweakTable
 		String Name );
 
 	/**
+	 *	Read the derived TableTweak buffer instance identified by the unique key UDefIdx.
+	 *
+	 *	@param	Authorization	The session authorization information.
+	 *
+	 *	@param	argTenantId	The TableTweak key attribute of the instance generating the id.
+	 *
+	 *	@param	argScopeId	The TableTweak key attribute of the instance generating the id.
+	 *
+	 *	@param	argDefSchemaTenantId	The TableTweak key attribute of the instance generating the id.
+	 *
+	 *	@param	argDefSchemaId	The TableTweak key attribute of the instance generating the id.
+	 *
+	 *	@param	argName	The TableTweak key attribute of the instance generating the id.
+	 *
+	 *	@return The buffer instance for the specified key, or null if there is
+	 *		no such existing key value.
+	 */
+	CFBamTableTweakBuff readDerivedByUDefIdx( CFSecAuthorization Authorization,
+		long TenantId,
+		long ScopeId,
+		Long DefSchemaTenantId,
+		Long DefSchemaId,
+		String Name );
+
+	/**
 	 *	Read an array of the derived TableTweak buffer instances identified by the duplicate key ValTentIdx.
 	 *
 	 *	@param	Authorization	The session authorization information.
@@ -438,6 +494,33 @@ public interface ICFBamTableTweakTable
 	CFBamTableTweakBuff readBuffByUNameIdx( CFSecAuthorization Authorization,
 		long TenantId,
 		long ScopeId,
+		String Name );
+
+	/**
+	 *	Read the specific TableTweak buffer instance identified by the unique key UDefIdx.
+	 *
+	 *	@param	Authorization	The session authorization information.
+	 *
+	 *	@param	argTenantId	The TableTweak key attribute of the instance generating the id.
+	 *
+	 *	@param	argScopeId	The TableTweak key attribute of the instance generating the id.
+	 *
+	 *	@param	argDefSchemaTenantId	The TableTweak key attribute of the instance generating the id.
+	 *
+	 *	@param	argDefSchemaId	The TableTweak key attribute of the instance generating the id.
+	 *
+	 *	@param	argName	The TableTweak key attribute of the instance generating the id.
+	 *
+	 *	@return The buffer instance for the specified key, or null if there is
+	 *		no such existing key value.
+	 *
+	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 */
+	CFBamTableTweakBuff readBuffByUDefIdx( CFSecAuthorization Authorization,
+		long TenantId,
+		long ScopeId,
+		Long DefSchemaTenantId,
+		Long DefSchemaId,
 		String Name );
 
 	/**

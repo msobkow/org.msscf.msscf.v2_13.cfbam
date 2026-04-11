@@ -86,6 +86,12 @@ public class CFBamTweakDefaultFactory
 		return( key );
 	}
 
+	public CFBamTweakByUDefIdxKey newUDefIdxKey() {
+		CFBamTweakByUDefIdxKey key =
+			new CFBamTweakByUDefIdxKey();
+		return( key );
+	}
+
 	public CFBamTweakByValTentIdxKey newValTentIdxKey() {
 		CFBamTweakByValTentIdxKey key =
 			new CFBamTweakByValTentIdxKey();

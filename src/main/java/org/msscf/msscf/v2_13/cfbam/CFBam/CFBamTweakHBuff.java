@@ -71,6 +71,7 @@ public class CFBamTweakHBuff
 	public static final long DEFSCHEMATENANTID_INIT_VALUE = 0L;
 	public static final long DEFSCHEMAID_INIT_VALUE = 0L;
 	public static final String NAME_INIT_VALUE = new String( "" );
+	public final static boolean REPLACESINHERITED_INIT_VALUE = false;
 	public static final String TWEAKGELTEXT_INIT_VALUE = new String( "" );
 	public static final long TENANTID_MIN_VALUE = 0L;
 	public static final long SCOPEID_MIN_VALUE = 0L;
@@ -84,6 +85,7 @@ public class CFBamTweakHBuff
 	protected Long optionalDefSchemaTenantId;
 	protected Long optionalDefSchemaId;
 	protected String requiredName;
+	protected boolean requiredReplacesInherited;
 	protected String requiredTweakGelText;
 	public CFBamTweakHBuff() {
 		super();
@@ -93,6 +95,7 @@ public class CFBamTweakHBuff
 		optionalDefSchemaTenantId = null;
 		optionalDefSchemaId = null;
 		requiredName = new String( CFBamTweakBuff.NAME_INIT_VALUE );
+		requiredReplacesInherited = CFBamTweakBuff.REPLACESINHERITED_INIT_VALUE;
 		requiredTweakGelText = new String( CFBamTweakBuff.TWEAKGELTEXT_INIT_VALUE );
 	}
 
@@ -212,6 +215,14 @@ public class CFBamTweakHBuff
 		requiredName = value;
 	}
 
+	public boolean getRequiredReplacesInherited() {
+		return( requiredReplacesInherited );
+	}
+
+	public void setRequiredReplacesInherited( boolean value ) {
+		requiredReplacesInherited = value;
+	}
+
 	public String getRequiredTweakGelText() {
 		return( requiredTweakGelText );
 	}
@@ -279,6 +290,9 @@ public class CFBamTweakHBuff
 			if( ! getRequiredName().equals( rhs.getRequiredName() ) ) {
 				return( false );
 			}
+			if( getRequiredReplacesInherited() != rhs.getRequiredReplacesInherited() ) {
+				return( false );
+			}
 			if( ! getRequiredTweakGelText().equals( rhs.getRequiredTweakGelText() ) ) {
 				return( false );
 			}
@@ -325,6 +339,9 @@ public class CFBamTweakHBuff
 			if( ! getRequiredName().equals( rhs.getRequiredName() ) ) {
 				return( false );
 			}
+			if( getRequiredReplacesInherited() != rhs.getRequiredReplacesInherited() ) {
+				return( false );
+			}
 			if( ! getRequiredTweakGelText().equals( rhs.getRequiredTweakGelText() ) ) {
 				return( false );
 			}
@@ -337,6 +354,43 @@ public class CFBamTweakHBuff
 			}
 			if( getRequiredScopeId() != rhs.getRequiredScopeId() ) {
 				return( false );
+			}
+			if( ! getRequiredName().equals( rhs.getRequiredName() ) ) {
+				return( false );
+			}
+			return( true );
+		}
+		else if( obj instanceof CFBamTweakByUDefIdxKey ) {
+			CFBamTweakByUDefIdxKey rhs = (CFBamTweakByUDefIdxKey)obj;
+			if( getRequiredTenantId() != rhs.getRequiredTenantId() ) {
+				return( false );
+			}
+			if( getRequiredScopeId() != rhs.getRequiredScopeId() ) {
+				return( false );
+			}
+			if( getOptionalDefSchemaTenantId() != null ) {
+				if( rhs.getOptionalDefSchemaTenantId() != null ) {
+					if( ! getOptionalDefSchemaTenantId().equals( rhs.getOptionalDefSchemaTenantId() ) ) {
+						return( false );
+					}
+				}
+			}
+			else {
+				if( rhs.getOptionalDefSchemaTenantId() != null ) {
+					return( false );
+				}
+			}
+			if( getOptionalDefSchemaId() != null ) {
+				if( rhs.getOptionalDefSchemaId() != null ) {
+					if( ! getOptionalDefSchemaId().equals( rhs.getOptionalDefSchemaId() ) ) {
+						return( false );
+					}
+				}
+			}
+			else {
+				if( rhs.getOptionalDefSchemaId() != null ) {
+					return( false );
+				}
 			}
 			if( ! getRequiredName().equals( rhs.getRequiredName() ) ) {
 				return( false );
@@ -541,6 +595,12 @@ public class CFBamTweakHBuff
 		if( getRequiredName() != null ) {
 			hashCode = hashCode + getRequiredName().hashCode();
 		}
+		if( getRequiredReplacesInherited() ) {
+			hashCode = ( hashCode * 2 ) + 1;
+		}
+		else {
+			hashCode = hashCode * 2;
+		}
 		if( getRequiredTweakGelText() != null ) {
 			hashCode = hashCode + getRequiredTweakGelText().hashCode();
 		}
@@ -573,6 +633,64 @@ public class CFBamTweakHBuff
 			}
 			else if( getRequiredScopeId() > rhs.getRequiredScopeId() ) {
 				return( 1 );
+			}
+			{
+				int cmp = getRequiredName().compareTo( rhs.getRequiredName() );
+				if( cmp != 0 ) {
+					return( cmp );
+				}
+			}			return( 0 );
+		}
+		else if( obj instanceof CFBamTweakByUDefIdxKey ) {
+			CFBamTweakByUDefIdxKey rhs = (CFBamTweakByUDefIdxKey)obj;
+
+			if( getRequiredTenantId() < rhs.getRequiredTenantId() ) {
+				return( -1 );
+			}
+			else if( getRequiredTenantId() > rhs.getRequiredTenantId() ) {
+				return( 1 );
+			}
+			if( getRequiredScopeId() < rhs.getRequiredScopeId() ) {
+				return( -1 );
+			}
+			else if( getRequiredScopeId() > rhs.getRequiredScopeId() ) {
+				return( 1 );
+			}
+			if( getOptionalDefSchemaTenantId() != null ) {
+				Long lhsDefSchemaTenantId = getOptionalDefSchemaTenantId();
+				if( rhs.getOptionalDefSchemaTenantId() != null ) {
+					Long rhsDefSchemaTenantId = rhs.getOptionalDefSchemaTenantId();
+					int cmp = lhsDefSchemaTenantId.compareTo( rhsDefSchemaTenantId );
+					if( cmp != 0 ) {
+						return( cmp );
+					}
+				}
+				else {
+					return( 1 );
+				}
+			}
+			else {
+				if( rhs.getOptionalDefSchemaTenantId() != null ) {
+					return( -1 );
+				}
+			}
+			if( getOptionalDefSchemaId() != null ) {
+				Long lhsDefSchemaId = getOptionalDefSchemaId();
+				if( rhs.getOptionalDefSchemaId() != null ) {
+					Long rhsDefSchemaId = rhs.getOptionalDefSchemaId();
+					int cmp = lhsDefSchemaId.compareTo( rhsDefSchemaId );
+					if( cmp != 0 ) {
+						return( cmp );
+					}
+				}
+				else {
+					return( 1 );
+				}
+			}
+			else {
+				if( rhs.getOptionalDefSchemaId() != null ) {
+					return( -1 );
+				}
 			}
 			{
 				int cmp = getRequiredName().compareTo( rhs.getRequiredName() );
@@ -843,6 +961,16 @@ public class CFBamTweakHBuff
 					return( cmp );
 				}
 			}
+			if( getRequiredReplacesInherited() ) {
+				if( ! rhs.getRequiredReplacesInherited() ) {
+					return( 1 );
+				}
+			}
+			else {
+				if( rhs.getRequiredReplacesInherited() ) {
+					return( -1 );
+				}
+			}
 			{
 				int cmp = getRequiredTweakGelText().compareTo( rhs.getRequiredTweakGelText() );
 				if( cmp != 0 ) {
@@ -979,6 +1107,7 @@ public class CFBamTweakHBuff
 		setOptionalDefSchemaTenantId( src.getOptionalDefSchemaTenantId() );
 		setOptionalDefSchemaId( src.getOptionalDefSchemaId() );
 		setRequiredName( src.getRequiredName() );
+		setRequiredReplacesInherited( src.getRequiredReplacesInherited() );
 		setRequiredTweakGelText( src.getRequiredTweakGelText() );
 		setRequiredRevision( src.getRequiredRevision() );
 	}
@@ -994,6 +1123,7 @@ public class CFBamTweakHBuff
 		setOptionalDefSchemaTenantId( src.getOptionalDefSchemaTenantId() );
 		setOptionalDefSchemaId( src.getOptionalDefSchemaId() );
 		setRequiredName( src.getRequiredName() );
+		setRequiredReplacesInherited( src.getRequiredReplacesInherited() );
 		setRequiredTweakGelText( src.getRequiredTweakGelText() );
 		setRequiredRevision( src.getRequiredRevision() );
 	}

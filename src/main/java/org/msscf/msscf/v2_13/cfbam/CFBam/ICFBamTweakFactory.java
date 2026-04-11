@@ -87,6 +87,13 @@ public interface ICFBamTweakFactory
 	CFBamTweakByUNameIdxKey newUNameIdxKey();
 
 	/**
+	 *	Allocate a UDefIdx key over Tweak instances.
+	 *
+	 *	@return	The new instance.
+	 */
+	CFBamTweakByUDefIdxKey newUDefIdxKey();
+
+	/**
 	 *	Allocate a ValTentIdx key over Tweak instances.
 	 *
 	 *	@return	The new instance.

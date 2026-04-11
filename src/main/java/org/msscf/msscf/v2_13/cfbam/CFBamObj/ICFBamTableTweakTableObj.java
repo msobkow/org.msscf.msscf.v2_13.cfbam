@@ -206,6 +206,51 @@ public interface ICFBamTableTweakTableObj
 		boolean forceRead );
 
 	/**
+	 *	Get the CFBamTweakObj instance for the unique UDefIdx key.
+	 *
+	 *	@param	argTenantId	The TableTweak key attribute of the instance generating the id.
+	 *
+	 *	@param	argScopeId	The TableTweak key attribute of the instance generating the id.
+	 *
+	 *	@param	argDefSchemaTenantId	The TableTweak key attribute of the instance generating the id.
+	 *
+	 *	@param	argDefSchemaId	The TableTweak key attribute of the instance generating the id.
+	 *
+	 *	@param	argName	The TableTweak key attribute of the instance generating the id.
+	 *
+	 *	@return	CFBamTweakObj cached instance for the unique UDefIdx key, or
+	 *		null if no such instance exists.
+	 */
+	ICFBamTableTweakObj readTableTweakByUDefIdx( long TenantId,
+		long ScopeId,
+		Long DefSchemaTenantId,
+		Long DefSchemaId,
+		String Name );
+
+	/**
+	 *	Get the CFBamTweakObj instance for the unique UDefIdx key.
+	 *
+	 *	@param	argTenantId	The TableTweak key attribute of the instance generating the id.
+	 *
+	 *	@param	argScopeId	The TableTweak key attribute of the instance generating the id.
+	 *
+	 *	@param	argDefSchemaTenantId	The TableTweak key attribute of the instance generating the id.
+	 *
+	 *	@param	argDefSchemaId	The TableTweak key attribute of the instance generating the id.
+	 *
+	 *	@param	argName	The TableTweak key attribute of the instance generating the id.
+	 *
+	 *	@return	CFBamTweakObj refreshed instance for the unique UDefIdx key, or
+	 *		null if no such instance exists.
+	 */
+	ICFBamTableTweakObj readTableTweakByUDefIdx( long TenantId,
+		long ScopeId,
+		Long DefSchemaTenantId,
+		Long DefSchemaId,
+		String Name,
+		boolean forceRead );
+
+	/**
 	 *	Get the map of CFBamTweakObj instances sorted by their primary keys for the duplicate ValTentIdx key.
 	 *
 	 *	@param	argTenantId	The TableTweak key attribute of the instance generating the id.
@@ -314,6 +359,12 @@ public interface ICFBamTableTweakTableObj
 		long ScopeId,
 		String Name );
 
+	ICFBamTableTweakObj readCachedTableTweakByUDefIdx( long TenantId,
+		long ScopeId,
+		Long DefSchemaTenantId,
+		Long DefSchemaId,
+		String Name );
+
 	List<ICFBamTableTweakObj> readCachedTableTweakByValTentIdx( long TenantId );
 
 	List<ICFBamTableTweakObj> readCachedTableTweakByScopeIdx( long TenantId,
@@ -330,6 +381,12 @@ public interface ICFBamTableTweakTableObj
 
 	void deepDisposeTableTweakByUNameIdx( long TenantId,
 		long ScopeId,
+		String Name );
+
+	void deepDisposeTableTweakByUDefIdx( long TenantId,
+		long ScopeId,
+		Long DefSchemaTenantId,
+		Long DefSchemaId,
 		String Name );
 
 	void deepDisposeTableTweakByValTentIdx( long TenantId );
@@ -374,6 +431,25 @@ public interface ICFBamTableTweakTableObj
 	 */
 	void deleteTableTweakByUNameIdx( long TenantId,
 		long ScopeId,
+		String Name );
+
+	/**
+	 *	Internal use only.
+	 *
+	 *	@param	argTenantId	The TableTweak key attribute of the instance generating the id.
+	 *
+	 *	@param	argScopeId	The TableTweak key attribute of the instance generating the id.
+	 *
+	 *	@param	argDefSchemaTenantId	The TableTweak key attribute of the instance generating the id.
+	 *
+	 *	@param	argDefSchemaId	The TableTweak key attribute of the instance generating the id.
+	 *
+	 *	@param	argName	The TableTweak key attribute of the instance generating the id.
+	 */
+	void deleteTableTweakByUDefIdx( long TenantId,
+		long ScopeId,
+		Long DefSchemaTenantId,
+		Long DefSchemaId,
 		String Name );
 
 	/**

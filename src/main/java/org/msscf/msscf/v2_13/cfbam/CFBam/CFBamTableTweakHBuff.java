@@ -316,6 +316,16 @@ public class CFBamTableTweakHBuff
 					return( cmp );
 				}
 			}
+			if( getRequiredReplacesInherited() ) {
+				if( ! rhs.getRequiredReplacesInherited() ) {
+					return( 1 );
+				}
+			}
+			else {
+				if( rhs.getRequiredReplacesInherited() ) {
+					return( -1 );
+				}
+			}
 			{
 				int cmp = getRequiredTweakGelText().compareTo( rhs.getRequiredTweakGelText() );
 				if( cmp != 0 ) {

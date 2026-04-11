@@ -392,6 +392,10 @@ public class CFBamTweakObj
 		return( getTweakBuff().getRequiredName() );
 	}
 
+	public boolean getRequiredReplacesInherited() {
+		return( getTweakBuff().getRequiredReplacesInherited() );
+	}
+
 	public String getRequiredTweakGelText() {
 		return( getTweakBuff().getRequiredTweakGelText() );
 	}

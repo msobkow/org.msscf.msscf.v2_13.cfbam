@@ -67,6 +67,8 @@ public class CFBamTableTweakTableObj
 	private Map<CFBamTweakPKey, ICFBamTableTweakObj> allTableTweak;
 	private Map< CFBamTweakByUNameIdxKey,
 		ICFBamTableTweakObj > indexByUNameIdx;
+	private Map< CFBamTweakByUDefIdxKey,
+		ICFBamTableTweakObj > indexByUDefIdx;
 	private Map< CFBamTweakByValTentIdxKey,
 		Map<CFBamTweakPKey, ICFBamTableTweakObj > > indexByValTentIdx;
 	private Map< CFBamTweakByScopeIdxKey,
@@ -83,6 +85,7 @@ public class CFBamTableTweakTableObj
 		members = new HashMap<CFBamTweakPKey, ICFBamTableTweakObj>();
 		allTableTweak = null;
 		indexByUNameIdx = null;
+		indexByUDefIdx = null;
 		indexByValTentIdx = null;
 		indexByScopeIdx = null;
 		indexByDefSchemaIdx = null;
@@ -94,6 +97,7 @@ public class CFBamTableTweakTableObj
 		members = new HashMap<CFBamTweakPKey, ICFBamTableTweakObj>();
 		allTableTweak = null;
 		indexByUNameIdx = null;
+		indexByUDefIdx = null;
 		indexByValTentIdx = null;
 		indexByScopeIdx = null;
 		indexByDefSchemaIdx = null;
@@ -124,6 +128,7 @@ public class CFBamTableTweakTableObj
 	public void minimizeMemory() {
 		allTableTweak = null;
 		indexByUNameIdx = null;
+		indexByUDefIdx = null;
 		indexByValTentIdx = null;
 		indexByScopeIdx = null;
 		indexByDefSchemaIdx = null;
@@ -193,6 +198,17 @@ public class CFBamTableTweakTableObj
 				indexByUNameIdx.remove( keyUNameIdx );
 			}
 
+			if( indexByUDefIdx != null ) {
+				CFBamTweakByUDefIdxKey keyUDefIdx =
+					((ICFBamSchema)schema.getBackingStore()).getFactoryTweak().newUDefIdxKey();
+				keyUDefIdx.setRequiredTenantId( keepObj.getRequiredTenantId() );
+				keyUDefIdx.setRequiredScopeId( keepObj.getRequiredScopeId() );
+				keyUDefIdx.setOptionalDefSchemaTenantId( keepObj.getOptionalDefSchemaTenantId() );
+				keyUDefIdx.setOptionalDefSchemaId( keepObj.getOptionalDefSchemaId() );
+				keyUDefIdx.setRequiredName( keepObj.getRequiredName() );
+				indexByUDefIdx.remove( keyUDefIdx );
+			}
+
 			if( indexByValTentIdx != null ) {
 				CFBamTweakByValTentIdxKey keyValTentIdx =
 					((ICFBamSchema)schema.getBackingStore()).getFactoryTweak().newValTentIdxKey();
@@ -252,6 +268,17 @@ public class CFBamTableTweakTableObj
 				keyUNameIdx.setRequiredScopeId( keepObj.getRequiredScopeId() );
 				keyUNameIdx.setRequiredName( keepObj.getRequiredName() );
 				indexByUNameIdx.put( keyUNameIdx, keepObj );
+			}
+
+			if( indexByUDefIdx != null ) {
+				CFBamTweakByUDefIdxKey keyUDefIdx =
+					((ICFBamSchema)schema.getBackingStore()).getFactoryTweak().newUDefIdxKey();
+				keyUDefIdx.setRequiredTenantId( keepObj.getRequiredTenantId() );
+				keyUDefIdx.setRequiredScopeId( keepObj.getRequiredScopeId() );
+				keyUDefIdx.setOptionalDefSchemaTenantId( keepObj.getOptionalDefSchemaTenantId() );
+				keyUDefIdx.setOptionalDefSchemaId( keepObj.getOptionalDefSchemaId() );
+				keyUDefIdx.setRequiredName( keepObj.getRequiredName() );
+				indexByUDefIdx.put( keyUDefIdx, keepObj );
 			}
 
 			if( indexByValTentIdx != null ) {
@@ -318,6 +345,17 @@ public class CFBamTableTweakTableObj
 				keyUNameIdx.setRequiredScopeId( keepObj.getRequiredScopeId() );
 				keyUNameIdx.setRequiredName( keepObj.getRequiredName() );
 				indexByUNameIdx.put( keyUNameIdx, keepObj );
+			}
+
+			if( indexByUDefIdx != null ) {
+				CFBamTweakByUDefIdxKey keyUDefIdx =
+					((ICFBamSchema)schema.getBackingStore()).getFactoryTweak().newUDefIdxKey();
+				keyUDefIdx.setRequiredTenantId( keepObj.getRequiredTenantId() );
+				keyUDefIdx.setRequiredScopeId( keepObj.getRequiredScopeId() );
+				keyUDefIdx.setOptionalDefSchemaTenantId( keepObj.getOptionalDefSchemaTenantId() );
+				keyUDefIdx.setOptionalDefSchemaId( keepObj.getOptionalDefSchemaId() );
+				keyUDefIdx.setRequiredName( keepObj.getRequiredName() );
+				indexByUDefIdx.put( keyUDefIdx, keepObj );
 			}
 
 			if( indexByValTentIdx != null ) {
@@ -643,6 +681,57 @@ public class CFBamTableTweakTableObj
 			CFBamTweakBuff buff = ((ICFBamSchema)schema.getBackingStore()).getTableTweak().readDerivedByUNameIdx( schema.getAuthorization(),
 				TenantId,
 				ScopeId,
+				Name );
+			if( buff != null ) {
+				obj = (ICFBamTableTweakObj)schema.getTweakTableObj().constructByClassCode( buff.getClassCode() );
+				obj.setPKey( ((ICFBamSchema)schema.getBackingStore()).getFactoryTweak().newPKey() );
+				obj.setBuff( buff );
+				obj = (ICFBamTableTweakObj)obj.realise();
+			}
+		}
+		return( obj );
+	}
+
+	public ICFBamTableTweakObj readTableTweakByUDefIdx( long TenantId,
+		long ScopeId,
+		Long DefSchemaTenantId,
+		Long DefSchemaId,
+		String Name )
+	{
+		return( readTableTweakByUDefIdx( TenantId,
+			ScopeId,
+			DefSchemaTenantId,
+			DefSchemaId,
+			Name,
+			false ) );
+	}
+
+	public ICFBamTableTweakObj readTableTweakByUDefIdx( long TenantId,
+		long ScopeId,
+		Long DefSchemaTenantId,
+		Long DefSchemaId,
+		String Name, boolean forceRead )
+	{
+		if( indexByUDefIdx == null ) {
+			indexByUDefIdx = new HashMap< CFBamTweakByUDefIdxKey,
+				ICFBamTableTweakObj >();
+		}
+		CFBamTweakByUDefIdxKey key = ((ICFBamSchema)schema.getBackingStore()).getFactoryTweak().newUDefIdxKey();
+		key.setRequiredTenantId( TenantId );
+		key.setRequiredScopeId( ScopeId );
+		key.setOptionalDefSchemaTenantId( DefSchemaTenantId );
+		key.setOptionalDefSchemaId( DefSchemaId );
+		key.setRequiredName( Name );
+		ICFBamTableTweakObj obj = null;
+		if( ( ! forceRead ) && indexByUDefIdx.containsKey( key ) ) {
+			obj = indexByUDefIdx.get( key );
+		}
+		else {
+			CFBamTweakBuff buff = ((ICFBamSchema)schema.getBackingStore()).getTableTweak().readDerivedByUDefIdx( schema.getAuthorization(),
+				TenantId,
+				ScopeId,
+				DefSchemaTenantId,
+				DefSchemaId,
 				Name );
 			if( buff != null ) {
 				obj = (ICFBamTableTweakObj)schema.getTweakTableObj().constructByClassCode( buff.getClassCode() );
@@ -1079,6 +1168,49 @@ public class CFBamTableTweakTableObj
 		return( obj );
 	}
 
+	public ICFBamTableTweakObj readCachedTableTweakByUDefIdx( long TenantId,
+		long ScopeId,
+		Long DefSchemaTenantId,
+		Long DefSchemaId,
+		String Name )
+	{
+		ICFBamTableTweakObj obj = null;
+		CFBamTweakByUDefIdxKey key = ((ICFBamSchema)schema.getBackingStore()).getFactoryTweak().newUDefIdxKey();
+		key.setRequiredTenantId( TenantId );
+		key.setRequiredScopeId( ScopeId );
+		key.setOptionalDefSchemaTenantId( DefSchemaTenantId );
+		key.setOptionalDefSchemaId( DefSchemaId );
+		key.setRequiredName( Name );
+		if( indexByUDefIdx != null ) {
+			if( indexByUDefIdx.containsKey( key ) ) {
+				obj = indexByUDefIdx.get( key );
+			}
+			else {
+				Iterator<ICFBamTableTweakObj> valIter = members.values().iterator();
+				while( ( obj == null ) && valIter.hasNext() ) {
+					obj = valIter.next();
+					if( obj != null ) {
+						if( obj.getBuff().compareTo( key ) != 0 ) {
+							obj = null;
+						}
+					}
+				}
+			}
+		}
+		else {
+			Iterator<ICFBamTableTweakObj> valIter = members.values().iterator();
+			while( valIter.hasNext() ) {
+				obj = valIter.next();
+				if( obj != null ) {
+					if( obj.getBuff().compareTo( key ) != 0 ) {
+						obj = null;
+					}
+				}
+			}
+		}
+		return( obj );
+	}
+
 	public List<ICFBamTableTweakObj> readCachedTableTweakByValTentIdx( long TenantId )
 	{
 		final String S_ProcName = "readCachedTableTweakByValTentIdx";
@@ -1407,6 +1539,22 @@ public class CFBamTableTweakTableObj
 		}
 	}
 
+	public void deepDisposeTableTweakByUDefIdx( long TenantId,
+		long ScopeId,
+		Long DefSchemaTenantId,
+		Long DefSchemaId,
+		String Name )
+	{
+		ICFBamTableTweakObj obj = readCachedTableTweakByUDefIdx( TenantId,
+				ScopeId,
+				DefSchemaTenantId,
+				DefSchemaId,
+				Name );
+		if( obj != null ) {
+			obj.forget();
+		}
+	}
+
 	public void deepDisposeTableTweakByValTentIdx( long TenantId )
 	{
 		final String S_ProcName = "deepDisposeTableTweakByValTentIdx";
@@ -1558,6 +1706,48 @@ public class CFBamTableTweakTableObj
 		}
 		deepDisposeTableTweakByUNameIdx( TenantId,
 				ScopeId,
+				Name );
+	}
+
+	public void deleteTableTweakByUDefIdx( long TenantId,
+		long ScopeId,
+		Long DefSchemaTenantId,
+		Long DefSchemaId,
+		String Name )
+	{
+		if( indexByUDefIdx == null ) {
+			indexByUDefIdx = new HashMap< CFBamTweakByUDefIdxKey,
+				ICFBamTableTweakObj >();
+		}
+		CFBamTweakByUDefIdxKey key = ((ICFBamSchema)schema.getBackingStore()).getFactoryTweak().newUDefIdxKey();
+		key.setRequiredTenantId( TenantId );
+		key.setRequiredScopeId( ScopeId );
+		key.setOptionalDefSchemaTenantId( DefSchemaTenantId );
+		key.setOptionalDefSchemaId( DefSchemaId );
+		key.setRequiredName( Name );
+		ICFBamTableTweakObj obj = null;
+		if( indexByUDefIdx.containsKey( key ) ) {
+			obj = indexByUDefIdx.get( key );
+			((ICFBamSchema)schema.getBackingStore()).getTableTableTweak().deleteTableTweakByUDefIdx( schema.getAuthorization(),
+				TenantId,
+				ScopeId,
+				DefSchemaTenantId,
+				DefSchemaId,
+				Name );
+			obj.forget();
+		}
+		else {
+			((ICFBamSchema)schema.getBackingStore()).getTableTableTweak().deleteTableTweakByUDefIdx( schema.getAuthorization(),
+				TenantId,
+				ScopeId,
+				DefSchemaTenantId,
+				DefSchemaId,
+				Name );
+		}
+		deepDisposeTableTweakByUDefIdx( TenantId,
+				ScopeId,
+				DefSchemaTenantId,
+				DefSchemaId,
 				Name );
 	}
 
