@@ -65,7 +65,7 @@ public class CFBamTextDefBuff
 	implements Comparable<Object>,
 		Serializable
 {
-	public final static String CLASS_CODE = "a859";
+	public final static String CLASS_CODE = "a85c";
 	public static final long TENANTID_INIT_VALUE = 0L;
 	public static final long ID_INIT_VALUE = 0L;
 	public static final int MAXLEN_INIT_VALUE = 0;

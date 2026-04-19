@@ -491,7 +491,7 @@ public class CFBamEnumDefTableObj
 			schema.getAuthorization(),
 			buff );
 		obj.copyBuffToPKey();
-		if( obj.getPKey().getClassCode().equals( "a86f" ) ) {
+		if( obj.getPKey().getClassCode().equals( "a872" ) ) {
 			obj = (ICFBamEnumDefObj)(obj.realise());
 		}
 		ICFBamValueObj prev = obj.getOptionalLookupPrev();
@@ -2183,7 +2183,7 @@ public class CFBamEnumDefTableObj
 		ICFBamEnumDefObj obj = Obj;
 		((ICFBamSchema)schema.getBackingStore()).getTableEnumDef().updateEnumDef( schema.getAuthorization(),
 			Obj.getEnumDefBuff() );
-		if( Obj.getClassCode().equals( "a86f" ) ) {
+		if( Obj.getClassCode().equals( "a872" ) ) {
 			obj = (ICFBamEnumDefObj)Obj.realise();
 		}
 		obj.endEdit();

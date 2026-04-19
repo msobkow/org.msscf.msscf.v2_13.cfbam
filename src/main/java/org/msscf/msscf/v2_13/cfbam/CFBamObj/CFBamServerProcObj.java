@@ -63,7 +63,7 @@ public class CFBamServerProcObj
 	extends CFBamServerMethodObj
 	implements ICFBamServerProcObj
 {
-	public final static String CLASS_CODE = "a807";
+	public final static String CLASS_CODE = "a806";
 
 	public CFBamServerProcObj() {
 		super();

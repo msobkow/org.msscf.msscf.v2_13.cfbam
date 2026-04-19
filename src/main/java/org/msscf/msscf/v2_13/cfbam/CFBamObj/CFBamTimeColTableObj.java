@@ -532,7 +532,7 @@ public class CFBamTimeColTableObj
 			schema.getAuthorization(),
 			buff );
 		obj.copyBuffToPKey();
-		if( obj.getPKey().getClassCode().equals( "a880" ) ) {
+		if( obj.getPKey().getClassCode().equals( "a883" ) ) {
 			obj = (ICFBamTimeColObj)(obj.realise());
 		}
 		ICFBamValueObj prev = obj.getOptionalLookupPrev();
@@ -2425,7 +2425,7 @@ public class CFBamTimeColTableObj
 		ICFBamTimeColObj obj = Obj;
 		((ICFBamSchema)schema.getBackingStore()).getTableTimeCol().updateTimeCol( schema.getAuthorization(),
 			Obj.getTimeColBuff() );
-		if( Obj.getClassCode().equals( "a880" ) ) {
+		if( Obj.getClassCode().equals( "a883" ) ) {
 			obj = (ICFBamTimeColObj)Obj.realise();
 		}
 		obj.endEdit();

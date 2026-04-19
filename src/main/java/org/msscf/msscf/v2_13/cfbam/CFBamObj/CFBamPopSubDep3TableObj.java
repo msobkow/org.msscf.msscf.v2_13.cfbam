@@ -374,7 +374,7 @@ public class CFBamPopSubDep3TableObj
 			schema.getAuthorization(),
 			buff );
 		obj.copyBuffToPKey();
-		if( obj.getPKey().getClassCode().equals( "a833" ) ) {
+		if( obj.getPKey().getClassCode().equals( "a836" ) ) {
 			obj = (ICFBamPopSubDep3Obj)(obj.realise());
 		}
 		obj.endEdit();
@@ -1490,7 +1490,7 @@ public class CFBamPopSubDep3TableObj
 		ICFBamPopSubDep3Obj obj = Obj;
 		((ICFBamSchema)schema.getBackingStore()).getTablePopSubDep3().updatePopSubDep3( schema.getAuthorization(),
 			Obj.getPopSubDep3Buff() );
-		if( Obj.getClassCode().equals( "a833" ) ) {
+		if( Obj.getClassCode().equals( "a836" ) ) {
 			obj = (ICFBamPopSubDep3Obj)Obj.realise();
 		}
 		obj.endEdit();

@@ -63,7 +63,7 @@ public class CFBamDbKeyHash384GenObj
 	extends CFBamDbKeyHash384TypeObj
 	implements ICFBamDbKeyHash384GenObj
 {
-	public final static String CLASS_CODE = "a84b";
+	public final static String CLASS_CODE = "a84e";
 	protected ICFBamTableObj optionalLookupDispenser;
 
 	public CFBamDbKeyHash384GenObj() {

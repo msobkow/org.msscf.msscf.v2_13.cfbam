@@ -333,7 +333,7 @@ public class CFBamServerProcTableObj
 			schema.getAuthorization(),
 			buff );
 		obj.copyBuffToPKey();
-		if( obj.getPKey().getClassCode().equals( "a807" ) ) {
+		if( obj.getPKey().getClassCode().equals( "a806" ) ) {
 			obj = (ICFBamServerProcObj)(obj.realise());
 		}
 		obj.endEdit();
@@ -1239,7 +1239,7 @@ public class CFBamServerProcTableObj
 		ICFBamServerProcObj obj = Obj;
 		((ICFBamSchema)schema.getBackingStore()).getTableServerProc().updateServerProc( schema.getAuthorization(),
 			Obj.getServerProcBuff() );
-		if( Obj.getClassCode().equals( "a807" ) ) {
+		if( Obj.getClassCode().equals( "a806" ) ) {
 			obj = (ICFBamServerProcObj)Obj.realise();
 		}
 		obj.endEdit();

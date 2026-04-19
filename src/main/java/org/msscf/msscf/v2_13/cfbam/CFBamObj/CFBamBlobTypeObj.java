@@ -63,7 +63,7 @@ public class CFBamBlobTypeObj
 	extends CFBamBlobDefObj
 	implements ICFBamBlobTypeObj
 {
-	public final static String CLASS_CODE = "a80c";
+	public final static String CLASS_CODE = "a80f";
 	protected ICFBamSchemaDefObj requiredContainerSchemaDef;
 
 	public CFBamBlobTypeObj() {

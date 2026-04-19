@@ -63,7 +63,7 @@ public class CFBamPopSubDep1Obj
 	extends CFBamPopDepObj
 	implements ICFBamPopSubDep1Obj
 {
-	public final static String CLASS_CODE = "a831";
+	public final static String CLASS_CODE = "a834";
 	protected ICFBamPopTopDepObj requiredContainerContPopTopDep;
 
 	public CFBamPopSubDep1Obj() {

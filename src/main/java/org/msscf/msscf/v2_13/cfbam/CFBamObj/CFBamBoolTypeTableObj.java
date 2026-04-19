@@ -532,7 +532,7 @@ public class CFBamBoolTypeTableObj
 			schema.getAuthorization(),
 			buff );
 		obj.copyBuffToPKey();
-		if( obj.getPKey().getClassCode().equals( "a80e" ) ) {
+		if( obj.getPKey().getClassCode().equals( "a811" ) ) {
 			obj = (ICFBamBoolTypeObj)(obj.realise());
 		}
 		ICFBamValueObj prev = obj.getOptionalLookupPrev();
@@ -2425,7 +2425,7 @@ public class CFBamBoolTypeTableObj
 		ICFBamBoolTypeObj obj = Obj;
 		((ICFBamSchema)schema.getBackingStore()).getTableBoolType().updateBoolType( schema.getAuthorization(),
 			Obj.getBoolTypeBuff() );
-		if( Obj.getClassCode().equals( "a80e" ) ) {
+		if( Obj.getClassCode().equals( "a811" ) ) {
 			obj = (ICFBamBoolTypeObj)Obj.realise();
 		}
 		obj.endEdit();

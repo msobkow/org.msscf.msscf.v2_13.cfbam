@@ -532,7 +532,7 @@ public class CFBamTokenTypeTableObj
 			schema.getAuthorization(),
 			buff );
 		obj.copyBuffToPKey();
-		if( obj.getPKey().getClassCode().equals( "a860" ) ) {
+		if( obj.getPKey().getClassCode().equals( "a863" ) ) {
 			obj = (ICFBamTokenTypeObj)(obj.realise());
 		}
 		ICFBamValueObj prev = obj.getOptionalLookupPrev();
@@ -2425,7 +2425,7 @@ public class CFBamTokenTypeTableObj
 		ICFBamTokenTypeObj obj = Obj;
 		((ICFBamSchema)schema.getBackingStore()).getTableTokenType().updateTokenType( schema.getAuthorization(),
 			Obj.getTokenTypeBuff() );
-		if( Obj.getClassCode().equals( "a860" ) ) {
+		if( Obj.getClassCode().equals( "a863" ) ) {
 			obj = (ICFBamTokenTypeObj)Obj.realise();
 		}
 		obj.endEdit();

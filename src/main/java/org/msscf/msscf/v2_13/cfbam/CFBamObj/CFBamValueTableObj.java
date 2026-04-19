@@ -186,322 +186,322 @@ public class CFBamValueTableObj
 
 	public ICFBamValueObj constructByClassCode( String argClassCode ) {
 		ICFBamValueObj obj = null;
-		if( argClassCode.equals( "a809" ) ) {
+		if( argClassCode.equals( "a80c" ) ) {
 			obj = ((ICFBamSchemaObj)schema).getValueTableObj().newInstance();
 		}
-		else if( argClassCode.equals( "a80a" ) ) {
+		else if( argClassCode.equals( "a80d" ) ) {
 			obj = ((ICFBamSchemaObj)schema).getAtomTableObj().newInstance();
 		}
-		else if( argClassCode.equals( "a80b" ) ) {
+		else if( argClassCode.equals( "a80e" ) ) {
 			obj = ((ICFBamSchemaObj)schema).getBlobDefTableObj().newInstance();
 		}
-		else if( argClassCode.equals( "a80c" ) ) {
+		else if( argClassCode.equals( "a80f" ) ) {
 			obj = ((ICFBamSchemaObj)schema).getBlobTypeTableObj().newInstance();
 		}
-		else if( argClassCode.equals( "a86b" ) ) {
+		else if( argClassCode.equals( "a86e" ) ) {
 			obj = ((ICFBamSchemaObj)schema).getBlobColTableObj().newInstance();
 		}
-		else if( argClassCode.equals( "a80d" ) ) {
+		else if( argClassCode.equals( "a810" ) ) {
 			obj = ((ICFBamSchemaObj)schema).getBoolDefTableObj().newInstance();
 		}
-		else if( argClassCode.equals( "a80e" ) ) {
+		else if( argClassCode.equals( "a811" ) ) {
 			obj = ((ICFBamSchemaObj)schema).getBoolTypeTableObj().newInstance();
 		}
-		else if( argClassCode.equals( "a86c" ) ) {
+		else if( argClassCode.equals( "a86f" ) ) {
 			obj = ((ICFBamSchemaObj)schema).getBoolColTableObj().newInstance();
 		}
-		else if( argClassCode.equals( "a815" ) ) {
+		else if( argClassCode.equals( "a818" ) ) {
 			obj = ((ICFBamSchemaObj)schema).getDateDefTableObj().newInstance();
 		}
-		else if( argClassCode.equals( "a816" ) ) {
+		else if( argClassCode.equals( "a819" ) ) {
 			obj = ((ICFBamSchemaObj)schema).getDateTypeTableObj().newInstance();
 		}
-		else if( argClassCode.equals( "a86d" ) ) {
+		else if( argClassCode.equals( "a870" ) ) {
 			obj = ((ICFBamSchemaObj)schema).getDateColTableObj().newInstance();
 		}
-		else if( argClassCode.equals( "a81c" ) ) {
+		else if( argClassCode.equals( "a81f" ) ) {
 			obj = ((ICFBamSchemaObj)schema).getDoubleDefTableObj().newInstance();
 		}
-		else if( argClassCode.equals( "a81d" ) ) {
+		else if( argClassCode.equals( "a820" ) ) {
 			obj = ((ICFBamSchemaObj)schema).getDoubleTypeTableObj().newInstance();
 		}
-		else if( argClassCode.equals( "a86e" ) ) {
+		else if( argClassCode.equals( "a871" ) ) {
 			obj = ((ICFBamSchemaObj)schema).getDoubleColTableObj().newInstance();
 		}
-		else if( argClassCode.equals( "a81f" ) ) {
+		else if( argClassCode.equals( "a822" ) ) {
 			obj = ((ICFBamSchemaObj)schema).getFloatDefTableObj().newInstance();
 		}
-		else if( argClassCode.equals( "a820" ) ) {
+		else if( argClassCode.equals( "a823" ) ) {
 			obj = ((ICFBamSchemaObj)schema).getFloatTypeTableObj().newInstance();
 		}
-		else if( argClassCode.equals( "a871" ) ) {
+		else if( argClassCode.equals( "a874" ) ) {
 			obj = ((ICFBamSchemaObj)schema).getFloatColTableObj().newInstance();
 		}
-		else if( argClassCode.equals( "a823" ) ) {
+		else if( argClassCode.equals( "a826" ) ) {
 			obj = ((ICFBamSchemaObj)schema).getInt16DefTableObj().newInstance();
 		}
-		else if( argClassCode.equals( "a824" ) ) {
+		else if( argClassCode.equals( "a827" ) ) {
 			obj = ((ICFBamSchemaObj)schema).getInt16TypeTableObj().newInstance();
 		}
-		else if( argClassCode.equals( "a872" ) ) {
+		else if( argClassCode.equals( "a875" ) ) {
 			obj = ((ICFBamSchemaObj)schema).getId16GenTableObj().newInstance();
 		}
-		else if( argClassCode.equals( "a86f" ) ) {
+		else if( argClassCode.equals( "a872" ) ) {
 			obj = ((ICFBamSchemaObj)schema).getEnumDefTableObj().newInstance();
 		}
-		else if( argClassCode.equals( "a870" ) ) {
+		else if( argClassCode.equals( "a873" ) ) {
 			obj = ((ICFBamSchemaObj)schema).getEnumTypeTableObj().newInstance();
 		}
-		else if( argClassCode.equals( "a875" ) ) {
+		else if( argClassCode.equals( "a878" ) ) {
 			obj = ((ICFBamSchemaObj)schema).getInt16ColTableObj().newInstance();
 		}
-		else if( argClassCode.equals( "a825" ) ) {
+		else if( argClassCode.equals( "a828" ) ) {
 			obj = ((ICFBamSchemaObj)schema).getInt32DefTableObj().newInstance();
 		}
-		else if( argClassCode.equals( "a826" ) ) {
+		else if( argClassCode.equals( "a829" ) ) {
 			obj = ((ICFBamSchemaObj)schema).getInt32TypeTableObj().newInstance();
 		}
-		else if( argClassCode.equals( "a873" ) ) {
+		else if( argClassCode.equals( "a876" ) ) {
 			obj = ((ICFBamSchemaObj)schema).getId32GenTableObj().newInstance();
 		}
-		else if( argClassCode.equals( "a876" ) ) {
+		else if( argClassCode.equals( "a879" ) ) {
 			obj = ((ICFBamSchemaObj)schema).getInt32ColTableObj().newInstance();
 		}
-		else if( argClassCode.equals( "a827" ) ) {
+		else if( argClassCode.equals( "a82a" ) ) {
 			obj = ((ICFBamSchemaObj)schema).getInt64DefTableObj().newInstance();
 		}
-		else if( argClassCode.equals( "a828" ) ) {
+		else if( argClassCode.equals( "a82b" ) ) {
 			obj = ((ICFBamSchemaObj)schema).getInt64TypeTableObj().newInstance();
 		}
-		else if( argClassCode.equals( "a874" ) ) {
+		else if( argClassCode.equals( "a877" ) ) {
 			obj = ((ICFBamSchemaObj)schema).getId64GenTableObj().newInstance();
 		}
-		else if( argClassCode.equals( "a877" ) ) {
+		else if( argClassCode.equals( "a87a" ) ) {
 			obj = ((ICFBamSchemaObj)schema).getInt64ColTableObj().newInstance();
 		}
-		else if( argClassCode.equals( "a829" ) ) {
+		else if( argClassCode.equals( "a82c" ) ) {
 			obj = ((ICFBamSchemaObj)schema).getNmTokenDefTableObj().newInstance();
 		}
-		else if( argClassCode.equals( "a82a" ) ) {
+		else if( argClassCode.equals( "a82d" ) ) {
 			obj = ((ICFBamSchemaObj)schema).getNmTokenTypeTableObj().newInstance();
 		}
-		else if( argClassCode.equals( "a878" ) ) {
+		else if( argClassCode.equals( "a87b" ) ) {
 			obj = ((ICFBamSchemaObj)schema).getNmTokenColTableObj().newInstance();
 		}
-		else if( argClassCode.equals( "a82b" ) ) {
+		else if( argClassCode.equals( "a82e" ) ) {
 			obj = ((ICFBamSchemaObj)schema).getNmTokensDefTableObj().newInstance();
 		}
-		else if( argClassCode.equals( "a82c" ) ) {
+		else if( argClassCode.equals( "a82f" ) ) {
 			obj = ((ICFBamSchemaObj)schema).getNmTokensTypeTableObj().newInstance();
 		}
-		else if( argClassCode.equals( "a879" ) ) {
+		else if( argClassCode.equals( "a87c" ) ) {
 			obj = ((ICFBamSchemaObj)schema).getNmTokensColTableObj().newInstance();
 		}
-		else if( argClassCode.equals( "a82d" ) ) {
+		else if( argClassCode.equals( "a830" ) ) {
 			obj = ((ICFBamSchemaObj)schema).getNumberDefTableObj().newInstance();
 		}
-		else if( argClassCode.equals( "a82e" ) ) {
+		else if( argClassCode.equals( "a831" ) ) {
 			obj = ((ICFBamSchemaObj)schema).getNumberTypeTableObj().newInstance();
 		}
-		else if( argClassCode.equals( "a87a" ) ) {
+		else if( argClassCode.equals( "a87d" ) ) {
 			obj = ((ICFBamSchemaObj)schema).getNumberColTableObj().newInstance();
 		}
-		else if( argClassCode.equals( "a839" ) ) {
+		else if( argClassCode.equals( "a83b" ) ) {
 			obj = ((ICFBamSchemaObj)schema).getDbKeyHash128DefTableObj().newInstance();
 		}
-		else if( argClassCode.equals( "a838" ) ) {
+		else if( argClassCode.equals( "a83c" ) ) {
 			obj = ((ICFBamSchemaObj)schema).getDbKeyHash128ColTableObj().newInstance();
 		}
-		else if( argClassCode.equals( "a83a" ) ) {
+		else if( argClassCode.equals( "a83d" ) ) {
 			obj = ((ICFBamSchemaObj)schema).getDbKeyHash128TypeTableObj().newInstance();
 		}
-		else if( argClassCode.equals( "a83b" ) ) {
+		else if( argClassCode.equals( "a83e" ) ) {
 			obj = ((ICFBamSchemaObj)schema).getDbKeyHash128GenTableObj().newInstance();
 		}
-		else if( argClassCode.equals( "a83d" ) ) {
+		else if( argClassCode.equals( "a83f" ) ) {
 			obj = ((ICFBamSchemaObj)schema).getDbKeyHash160DefTableObj().newInstance();
 		}
-		else if( argClassCode.equals( "a83c" ) ) {
+		else if( argClassCode.equals( "a840" ) ) {
 			obj = ((ICFBamSchemaObj)schema).getDbKeyHash160ColTableObj().newInstance();
 		}
-		else if( argClassCode.equals( "a83e" ) ) {
+		else if( argClassCode.equals( "a841" ) ) {
 			obj = ((ICFBamSchemaObj)schema).getDbKeyHash160TypeTableObj().newInstance();
 		}
-		else if( argClassCode.equals( "a83f" ) ) {
+		else if( argClassCode.equals( "a842" ) ) {
 			obj = ((ICFBamSchemaObj)schema).getDbKeyHash160GenTableObj().newInstance();
 		}
-		else if( argClassCode.equals( "a841" ) ) {
+		else if( argClassCode.equals( "a843" ) ) {
 			obj = ((ICFBamSchemaObj)schema).getDbKeyHash224DefTableObj().newInstance();
 		}
-		else if( argClassCode.equals( "a840" ) ) {
+		else if( argClassCode.equals( "a844" ) ) {
 			obj = ((ICFBamSchemaObj)schema).getDbKeyHash224ColTableObj().newInstance();
 		}
-		else if( argClassCode.equals( "a842" ) ) {
+		else if( argClassCode.equals( "a845" ) ) {
 			obj = ((ICFBamSchemaObj)schema).getDbKeyHash224TypeTableObj().newInstance();
 		}
-		else if( argClassCode.equals( "a843" ) ) {
+		else if( argClassCode.equals( "a846" ) ) {
 			obj = ((ICFBamSchemaObj)schema).getDbKeyHash224GenTableObj().newInstance();
 		}
-		else if( argClassCode.equals( "a845" ) ) {
+		else if( argClassCode.equals( "a847" ) ) {
 			obj = ((ICFBamSchemaObj)schema).getDbKeyHash256DefTableObj().newInstance();
 		}
-		else if( argClassCode.equals( "a844" ) ) {
+		else if( argClassCode.equals( "a848" ) ) {
 			obj = ((ICFBamSchemaObj)schema).getDbKeyHash256ColTableObj().newInstance();
 		}
-		else if( argClassCode.equals( "a846" ) ) {
+		else if( argClassCode.equals( "a849" ) ) {
 			obj = ((ICFBamSchemaObj)schema).getDbKeyHash256TypeTableObj().newInstance();
 		}
-		else if( argClassCode.equals( "a847" ) ) {
+		else if( argClassCode.equals( "a84a" ) ) {
 			obj = ((ICFBamSchemaObj)schema).getDbKeyHash256GenTableObj().newInstance();
 		}
-		else if( argClassCode.equals( "a849" ) ) {
+		else if( argClassCode.equals( "a84b" ) ) {
 			obj = ((ICFBamSchemaObj)schema).getDbKeyHash384DefTableObj().newInstance();
 		}
-		else if( argClassCode.equals( "a848" ) ) {
+		else if( argClassCode.equals( "a84c" ) ) {
 			obj = ((ICFBamSchemaObj)schema).getDbKeyHash384ColTableObj().newInstance();
 		}
-		else if( argClassCode.equals( "a84a" ) ) {
+		else if( argClassCode.equals( "a84d" ) ) {
 			obj = ((ICFBamSchemaObj)schema).getDbKeyHash384TypeTableObj().newInstance();
 		}
-		else if( argClassCode.equals( "a84b" ) ) {
+		else if( argClassCode.equals( "a84e" ) ) {
 			obj = ((ICFBamSchemaObj)schema).getDbKeyHash384GenTableObj().newInstance();
 		}
-		else if( argClassCode.equals( "a84d" ) ) {
+		else if( argClassCode.equals( "a84f" ) ) {
 			obj = ((ICFBamSchemaObj)schema).getDbKeyHash512DefTableObj().newInstance();
 		}
-		else if( argClassCode.equals( "a84c" ) ) {
+		else if( argClassCode.equals( "a850" ) ) {
 			obj = ((ICFBamSchemaObj)schema).getDbKeyHash512ColTableObj().newInstance();
 		}
-		else if( argClassCode.equals( "a84e" ) ) {
+		else if( argClassCode.equals( "a851" ) ) {
 			obj = ((ICFBamSchemaObj)schema).getDbKeyHash512TypeTableObj().newInstance();
 		}
-		else if( argClassCode.equals( "a84f" ) ) {
+		else if( argClassCode.equals( "a852" ) ) {
 			obj = ((ICFBamSchemaObj)schema).getDbKeyHash512GenTableObj().newInstance();
 		}
-		else if( argClassCode.equals( "a850" ) ) {
+		else if( argClassCode.equals( "a853" ) ) {
 			obj = ((ICFBamSchemaObj)schema).getStringDefTableObj().newInstance();
 		}
-		else if( argClassCode.equals( "a851" ) ) {
+		else if( argClassCode.equals( "a854" ) ) {
 			obj = ((ICFBamSchemaObj)schema).getStringTypeTableObj().newInstance();
 		}
-		else if( argClassCode.equals( "a87b" ) ) {
+		else if( argClassCode.equals( "a87e" ) ) {
 			obj = ((ICFBamSchemaObj)schema).getStringColTableObj().newInstance();
 		}
-		else if( argClassCode.equals( "a852" ) ) {
+		else if( argClassCode.equals( "a855" ) ) {
 			obj = ((ICFBamSchemaObj)schema).getTZDateDefTableObj().newInstance();
 		}
-		else if( argClassCode.equals( "a853" ) ) {
+		else if( argClassCode.equals( "a856" ) ) {
 			obj = ((ICFBamSchemaObj)schema).getTZDateTypeTableObj().newInstance();
 		}
-		else if( argClassCode.equals( "a87c" ) ) {
+		else if( argClassCode.equals( "a87f" ) ) {
 			obj = ((ICFBamSchemaObj)schema).getTZDateColTableObj().newInstance();
 		}
-		else if( argClassCode.equals( "a854" ) ) {
+		else if( argClassCode.equals( "a857" ) ) {
 			obj = ((ICFBamSchemaObj)schema).getTZTimeDefTableObj().newInstance();
 		}
-		else if( argClassCode.equals( "a855" ) ) {
+		else if( argClassCode.equals( "a858" ) ) {
 			obj = ((ICFBamSchemaObj)schema).getTZTimeTypeTableObj().newInstance();
 		}
-		else if( argClassCode.equals( "a87d" ) ) {
+		else if( argClassCode.equals( "a880" ) ) {
 			obj = ((ICFBamSchemaObj)schema).getTZTimeColTableObj().newInstance();
 		}
-		else if( argClassCode.equals( "a856" ) ) {
+		else if( argClassCode.equals( "a859" ) ) {
 			obj = ((ICFBamSchemaObj)schema).getTZTimestampDefTableObj().newInstance();
 		}
-		else if( argClassCode.equals( "a857" ) ) {
+		else if( argClassCode.equals( "a85a" ) ) {
 			obj = ((ICFBamSchemaObj)schema).getTZTimestampTypeTableObj().newInstance();
 		}
-		else if( argClassCode.equals( "a87e" ) ) {
+		else if( argClassCode.equals( "a881" ) ) {
 			obj = ((ICFBamSchemaObj)schema).getTZTimestampColTableObj().newInstance();
 		}
-		else if( argClassCode.equals( "a859" ) ) {
+		else if( argClassCode.equals( "a85c" ) ) {
 			obj = ((ICFBamSchemaObj)schema).getTextDefTableObj().newInstance();
 		}
-		else if( argClassCode.equals( "a85a" ) ) {
+		else if( argClassCode.equals( "a85d" ) ) {
 			obj = ((ICFBamSchemaObj)schema).getTextTypeTableObj().newInstance();
 		}
-		else if( argClassCode.equals( "a87f" ) ) {
+		else if( argClassCode.equals( "a882" ) ) {
 			obj = ((ICFBamSchemaObj)schema).getTextColTableObj().newInstance();
 		}
-		else if( argClassCode.equals( "a85b" ) ) {
+		else if( argClassCode.equals( "a85e" ) ) {
 			obj = ((ICFBamSchemaObj)schema).getTimeDefTableObj().newInstance();
 		}
-		else if( argClassCode.equals( "a85c" ) ) {
+		else if( argClassCode.equals( "a85f" ) ) {
 			obj = ((ICFBamSchemaObj)schema).getTimeTypeTableObj().newInstance();
 		}
-		else if( argClassCode.equals( "a880" ) ) {
+		else if( argClassCode.equals( "a883" ) ) {
 			obj = ((ICFBamSchemaObj)schema).getTimeColTableObj().newInstance();
 		}
-		else if( argClassCode.equals( "a85d" ) ) {
+		else if( argClassCode.equals( "a860" ) ) {
 			obj = ((ICFBamSchemaObj)schema).getTimestampDefTableObj().newInstance();
 		}
-		else if( argClassCode.equals( "a85e" ) ) {
+		else if( argClassCode.equals( "a861" ) ) {
 			obj = ((ICFBamSchemaObj)schema).getTimestampTypeTableObj().newInstance();
 		}
-		else if( argClassCode.equals( "a881" ) ) {
+		else if( argClassCode.equals( "a884" ) ) {
 			obj = ((ICFBamSchemaObj)schema).getTimestampColTableObj().newInstance();
 		}
-		else if( argClassCode.equals( "a85f" ) ) {
+		else if( argClassCode.equals( "a862" ) ) {
 			obj = ((ICFBamSchemaObj)schema).getTokenDefTableObj().newInstance();
 		}
-		else if( argClassCode.equals( "a860" ) ) {
+		else if( argClassCode.equals( "a863" ) ) {
 			obj = ((ICFBamSchemaObj)schema).getTokenTypeTableObj().newInstance();
 		}
-		else if( argClassCode.equals( "a882" ) ) {
+		else if( argClassCode.equals( "a885" ) ) {
 			obj = ((ICFBamSchemaObj)schema).getTokenColTableObj().newInstance();
 		}
-		else if( argClassCode.equals( "a861" ) ) {
+		else if( argClassCode.equals( "a864" ) ) {
 			obj = ((ICFBamSchemaObj)schema).getUInt16DefTableObj().newInstance();
 		}
-		else if( argClassCode.equals( "a862" ) ) {
+		else if( argClassCode.equals( "a865" ) ) {
 			obj = ((ICFBamSchemaObj)schema).getUInt16TypeTableObj().newInstance();
 		}
-		else if( argClassCode.equals( "a883" ) ) {
+		else if( argClassCode.equals( "a886" ) ) {
 			obj = ((ICFBamSchemaObj)schema).getUInt16ColTableObj().newInstance();
 		}
-		else if( argClassCode.equals( "a863" ) ) {
+		else if( argClassCode.equals( "a866" ) ) {
 			obj = ((ICFBamSchemaObj)schema).getUInt32DefTableObj().newInstance();
 		}
-		else if( argClassCode.equals( "a864" ) ) {
+		else if( argClassCode.equals( "a867" ) ) {
 			obj = ((ICFBamSchemaObj)schema).getUInt32TypeTableObj().newInstance();
 		}
-		else if( argClassCode.equals( "a884" ) ) {
+		else if( argClassCode.equals( "a887" ) ) {
 			obj = ((ICFBamSchemaObj)schema).getUInt32ColTableObj().newInstance();
 		}
-		else if( argClassCode.equals( "a865" ) ) {
+		else if( argClassCode.equals( "a868" ) ) {
 			obj = ((ICFBamSchemaObj)schema).getUInt64DefTableObj().newInstance();
 		}
-		else if( argClassCode.equals( "a866" ) ) {
+		else if( argClassCode.equals( "a869" ) ) {
 			obj = ((ICFBamSchemaObj)schema).getUInt64TypeTableObj().newInstance();
 		}
-		else if( argClassCode.equals( "a885" ) ) {
+		else if( argClassCode.equals( "a888" ) ) {
 			obj = ((ICFBamSchemaObj)schema).getUInt64ColTableObj().newInstance();
 		}
-		else if( argClassCode.equals( "a867" ) ) {
+		else if( argClassCode.equals( "a86a" ) ) {
 			obj = ((ICFBamSchemaObj)schema).getUuidDefTableObj().newInstance();
 		}
-		else if( argClassCode.equals( "a869" ) ) {
+		else if( argClassCode.equals( "a86c" ) ) {
 			obj = ((ICFBamSchemaObj)schema).getUuidTypeTableObj().newInstance();
 		}
-		else if( argClassCode.equals( "a888" ) ) {
+		else if( argClassCode.equals( "a88b" ) ) {
 			obj = ((ICFBamSchemaObj)schema).getUuidGenTableObj().newInstance();
 		}
-		else if( argClassCode.equals( "a886" ) ) {
+		else if( argClassCode.equals( "a889" ) ) {
 			obj = ((ICFBamSchemaObj)schema).getUuidColTableObj().newInstance();
 		}
-		else if( argClassCode.equals( "a868" ) ) {
+		else if( argClassCode.equals( "a86b" ) ) {
 			obj = ((ICFBamSchemaObj)schema).getUuid6DefTableObj().newInstance();
 		}
-		else if( argClassCode.equals( "a86a" ) ) {
+		else if( argClassCode.equals( "a86d" ) ) {
 			obj = ((ICFBamSchemaObj)schema).getUuid6TypeTableObj().newInstance();
 		}
-		else if( argClassCode.equals( "a889" ) ) {
+		else if( argClassCode.equals( "a88c" ) ) {
 			obj = ((ICFBamSchemaObj)schema).getUuid6GenTableObj().newInstance();
 		}
-		else if( argClassCode.equals( "a887" ) ) {
+		else if( argClassCode.equals( "a88a" ) ) {
 			obj = ((ICFBamSchemaObj)schema).getUuid6ColTableObj().newInstance();
 		}
-		else if( argClassCode.equals( "a858" ) ) {
+		else if( argClassCode.equals( "a85b" ) ) {
 			obj = ((ICFBamSchemaObj)schema).getTableColTableObj().newInstance();
 		}
 		return( obj );
@@ -832,7 +832,7 @@ public class CFBamValueTableObj
 			schema.getAuthorization(),
 			buff );
 		obj.copyBuffToPKey();
-		if( obj.getPKey().getClassCode().equals( "a809" ) ) {
+		if( obj.getPKey().getClassCode().equals( "a80c" ) ) {
 			obj = (ICFBamValueObj)(obj.realise());
 		}
 		ICFBamValueObj prev = obj.getOptionalLookupPrev();
@@ -2622,7 +2622,7 @@ public class CFBamValueTableObj
 		ICFBamValueObj obj = Obj;
 		((ICFBamSchema)schema.getBackingStore()).getTableValue().updateValue( schema.getAuthorization(),
 			Obj.getValueBuff() );
-		if( Obj.getClassCode().equals( "a809" ) ) {
+		if( Obj.getClassCode().equals( "a80c" ) ) {
 			obj = (ICFBamValueObj)Obj.realise();
 		}
 		obj.endEdit();

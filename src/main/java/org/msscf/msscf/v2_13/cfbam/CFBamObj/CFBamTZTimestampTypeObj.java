@@ -63,7 +63,7 @@ public class CFBamTZTimestampTypeObj
 	extends CFBamTZTimestampDefObj
 	implements ICFBamTZTimestampTypeObj
 {
-	public final static String CLASS_CODE = "a857";
+	public final static String CLASS_CODE = "a85a";
 	protected ICFBamSchemaDefObj requiredContainerSchemaDef;
 
 	public CFBamTZTimestampTypeObj() {

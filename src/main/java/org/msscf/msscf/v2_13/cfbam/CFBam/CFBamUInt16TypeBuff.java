@@ -65,7 +65,7 @@ public class CFBamUInt16TypeBuff
 	implements Comparable<Object>,
 		Serializable
 {
-	public final static String CLASS_CODE = "a862";
+	public final static String CLASS_CODE = "a865";
 	public static final long TENANTID_INIT_VALUE = 0L;
 	public static final long ID_INIT_VALUE = 0L;
 	public static final long SCHEMADEFID_INIT_VALUE = 0L;

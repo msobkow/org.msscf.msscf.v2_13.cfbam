@@ -65,7 +65,7 @@ public class CFBamSchemaRefBuff
 	implements Comparable<Object>,
 		Serializable
 {
-	public final static String CLASS_CODE = "a804";
+	public final static String CLASS_CODE = "a803";
 	public static final long TENANTID_INIT_VALUE = 0L;
 	public static final long ID_INIT_VALUE = 0L;
 	public static final long SCHEMAID_INIT_VALUE = 0L;

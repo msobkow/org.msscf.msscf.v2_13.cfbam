@@ -62,7 +62,7 @@ import org.msscf.msscf.v2_13.cfint.CFInt.*;
 
 public class CFBamEnumTagBuff
 {
-	public final static String CLASS_CODE = "a81e";
+	public final static String CLASS_CODE = "a821";
 	public final static String S_INIT_CREATEDBY = "654dbba0-eda7-11e1-aff1-0800200c9a66";
 	public final static UUID INIT_CREATEDBY = UUID.fromString( S_INIT_CREATEDBY );
 	public final static String S_INIT_UPDATEDBY = "654dbba0-eda7-11e1-aff1-0800200c9a66";

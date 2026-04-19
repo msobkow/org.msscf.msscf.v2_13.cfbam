@@ -62,7 +62,7 @@ import org.msscf.msscf.v2_13.cfbam.CFBam.*;
 public class CFBamValueObj
 	implements ICFBamValueObj
 {
-	public final static String CLASS_CODE = "a809";
+	public final static String CLASS_CODE = "a80c";
 	protected ICFSecSecUserObj createdBy = null;
 	protected ICFSecSecUserObj updatedBy = null;
 	protected boolean isNew;

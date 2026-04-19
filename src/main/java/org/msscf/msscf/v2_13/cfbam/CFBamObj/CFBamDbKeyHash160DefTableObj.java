@@ -491,7 +491,7 @@ public class CFBamDbKeyHash160DefTableObj
 			schema.getAuthorization(),
 			buff );
 		obj.copyBuffToPKey();
-		if( obj.getPKey().getClassCode().equals( "a83d" ) ) {
+		if( obj.getPKey().getClassCode().equals( "a83f" ) ) {
 			obj = (ICFBamDbKeyHash160DefObj)(obj.realise());
 		}
 		ICFBamValueObj prev = obj.getOptionalLookupPrev();
@@ -2181,7 +2181,7 @@ public class CFBamDbKeyHash160DefTableObj
 		ICFBamDbKeyHash160DefObj obj = Obj;
 		((ICFBamSchema)schema.getBackingStore()).getTableDbKeyHash160Def().updateDbKeyHash160Def( schema.getAuthorization(),
 			Obj.getDbKeyHash160DefBuff() );
-		if( Obj.getClassCode().equals( "a83d" ) ) {
+		if( Obj.getClassCode().equals( "a83f" ) ) {
 			obj = (ICFBamDbKeyHash160DefObj)Obj.realise();
 		}
 		obj.endEdit();

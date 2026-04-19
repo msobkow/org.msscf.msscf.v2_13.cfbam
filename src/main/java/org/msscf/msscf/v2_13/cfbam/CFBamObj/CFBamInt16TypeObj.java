@@ -63,7 +63,7 @@ public class CFBamInt16TypeObj
 	extends CFBamInt16DefObj
 	implements ICFBamInt16TypeObj
 {
-	public final static String CLASS_CODE = "a824";
+	public final static String CLASS_CODE = "a827";
 	protected ICFBamSchemaDefObj requiredContainerSchemaDef;
 
 	public CFBamInt16TypeObj() {

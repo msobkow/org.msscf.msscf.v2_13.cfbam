@@ -63,7 +63,7 @@ public class CFBamAtomObj
 	extends CFBamValueObj
 	implements ICFBamAtomObj
 {
-	public final static String CLASS_CODE = "a80a";
+	public final static String CLASS_CODE = "a80d";
 
 	public CFBamAtomObj() {
 		super();

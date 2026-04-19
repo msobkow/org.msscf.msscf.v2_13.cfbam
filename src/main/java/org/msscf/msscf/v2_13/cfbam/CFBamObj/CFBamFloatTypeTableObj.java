@@ -532,7 +532,7 @@ public class CFBamFloatTypeTableObj
 			schema.getAuthorization(),
 			buff );
 		obj.copyBuffToPKey();
-		if( obj.getPKey().getClassCode().equals( "a820" ) ) {
+		if( obj.getPKey().getClassCode().equals( "a823" ) ) {
 			obj = (ICFBamFloatTypeObj)(obj.realise());
 		}
 		ICFBamValueObj prev = obj.getOptionalLookupPrev();
@@ -2425,7 +2425,7 @@ public class CFBamFloatTypeTableObj
 		ICFBamFloatTypeObj obj = Obj;
 		((ICFBamSchema)schema.getBackingStore()).getTableFloatType().updateFloatType( schema.getAuthorization(),
 			Obj.getFloatTypeBuff() );
-		if( Obj.getClassCode().equals( "a820" ) ) {
+		if( Obj.getClassCode().equals( "a823" ) ) {
 			obj = (ICFBamFloatTypeObj)Obj.realise();
 		}
 		obj.endEdit();

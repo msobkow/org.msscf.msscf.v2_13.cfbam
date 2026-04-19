@@ -532,7 +532,7 @@ public class CFBamTextTypeTableObj
 			schema.getAuthorization(),
 			buff );
 		obj.copyBuffToPKey();
-		if( obj.getPKey().getClassCode().equals( "a85a" ) ) {
+		if( obj.getPKey().getClassCode().equals( "a85d" ) ) {
 			obj = (ICFBamTextTypeObj)(obj.realise());
 		}
 		ICFBamValueObj prev = obj.getOptionalLookupPrev();
@@ -2425,7 +2425,7 @@ public class CFBamTextTypeTableObj
 		ICFBamTextTypeObj obj = Obj;
 		((ICFBamSchema)schema.getBackingStore()).getTableTextType().updateTextType( schema.getAuthorization(),
 			Obj.getTextTypeBuff() );
-		if( Obj.getClassCode().equals( "a85a" ) ) {
+		if( Obj.getClassCode().equals( "a85d" ) ) {
 			obj = (ICFBamTextTypeObj)Obj.realise();
 		}
 		obj.endEdit();

@@ -63,7 +63,7 @@ public class CFBamUuidTypeObj
 	extends CFBamUuidDefObj
 	implements ICFBamUuidTypeObj
 {
-	public final static String CLASS_CODE = "a869";
+	public final static String CLASS_CODE = "a86c";
 	protected ICFBamSchemaDefObj requiredContainerSchemaDef;
 
 	public CFBamUuidTypeObj() {

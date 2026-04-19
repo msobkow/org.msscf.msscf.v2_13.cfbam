@@ -63,7 +63,7 @@ public class CFBamClearDepObj
 	extends CFBamScopeObj
 	implements ICFBamClearDepObj
 {
-	public final static String CLASS_CODE = "a810";
+	public final static String CLASS_CODE = "a813";
 	protected ICFBamRelationObj requiredLookupRelation;
 	protected ICFBamSchemaDefObj optionalLookupDefSchema;
 

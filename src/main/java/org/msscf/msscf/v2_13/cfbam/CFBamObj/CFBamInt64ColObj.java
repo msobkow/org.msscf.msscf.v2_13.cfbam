@@ -63,7 +63,7 @@ public class CFBamInt64ColObj
 	extends CFBamInt64DefObj
 	implements ICFBamInt64ColObj
 {
-	public final static String CLASS_CODE = "a877";
+	public final static String CLASS_CODE = "a87a";
 	protected ICFBamTableObj requiredContainerTable;
 
 	public CFBamInt64ColObj() {

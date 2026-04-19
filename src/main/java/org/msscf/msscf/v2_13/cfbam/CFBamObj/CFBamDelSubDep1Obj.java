@@ -63,7 +63,7 @@ public class CFBamDelSubDep1Obj
 	extends CFBamDelDepObj
 	implements ICFBamDelSubDep1Obj
 {
-	public final static String CLASS_CODE = "a818";
+	public final static String CLASS_CODE = "a81b";
 	protected ICFBamDelTopDepObj requiredContainerDelTopDep;
 
 	public CFBamDelSubDep1Obj() {

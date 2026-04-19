@@ -65,7 +65,7 @@ public class CFBamTableBuff
 	implements Comparable<Object>,
 		Serializable
 {
-	public final static String CLASS_CODE = "a808";
+	public final static String CLASS_CODE = "a807";
 	public static final long TENANTID_INIT_VALUE = 0L;
 	public static final long SCHEMADEFID_INIT_VALUE = 0L;
 	public static final long DEFSCHEMATENANTID_INIT_VALUE = 0L;

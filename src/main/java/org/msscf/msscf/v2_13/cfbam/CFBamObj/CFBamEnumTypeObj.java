@@ -63,7 +63,7 @@ public class CFBamEnumTypeObj
 	extends CFBamEnumDefObj
 	implements ICFBamEnumTypeObj
 {
-	public final static String CLASS_CODE = "a870";
+	public final static String CLASS_CODE = "a873";
 	protected ICFBamSchemaDefObj requiredContainerSchemaDef;
 
 	public CFBamEnumTypeObj() {

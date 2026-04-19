@@ -63,7 +63,7 @@ public class CFBamTZTimeTypeObj
 	extends CFBamTZTimeDefObj
 	implements ICFBamTZTimeTypeObj
 {
-	public final static String CLASS_CODE = "a855";
+	public final static String CLASS_CODE = "a858";
 	protected ICFBamSchemaDefObj requiredContainerSchemaDef;
 
 	public CFBamTZTimeTypeObj() {

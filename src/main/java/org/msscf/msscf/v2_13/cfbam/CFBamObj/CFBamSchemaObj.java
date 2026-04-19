@@ -145,6 +145,7 @@ public class CFBamSchemaObj
 	protected ICFBamId64GenTableObj id64GenTableObj;
 	protected ICFBamIndexTableObj indexTableObj;
 	protected ICFBamIndexColTableObj indexColTableObj;
+	protected ICFBamIndexTweakTableObj indexTweakTableObj;
 	protected ICFBamInt16ColTableObj int16ColTableObj;
 	protected ICFBamInt16DefTableObj int16DefTableObj;
 	protected ICFBamInt16TypeTableObj int16TypeTableObj;
@@ -319,6 +320,7 @@ public class CFBamSchemaObj
 		id64GenTableObj = new CFBamId64GenTableObj( this );
 		indexTableObj = new CFBamIndexTableObj( this );
 		indexColTableObj = new CFBamIndexColTableObj( this );
+		indexTweakTableObj = new CFBamIndexTweakTableObj( this );
 		int16ColTableObj = new CFBamInt16ColTableObj( this );
 		int16DefTableObj = new CFBamInt16DefTableObj( this );
 		int16TypeTableObj = new CFBamInt16TypeTableObj( this );
@@ -1130,6 +1132,9 @@ public class CFBamSchemaObj
 		if( indexColTableObj != null ) {
 			indexColTableObj.minimizeMemory();
 		}
+		if( indexTweakTableObj != null ) {
+			indexTweakTableObj.minimizeMemory();
+		}
 		if( int16ColTableObj != null ) {
 			int16ColTableObj.minimizeMemory();
 		}
@@ -1730,6 +1735,10 @@ public class CFBamSchemaObj
 
 	public ICFBamIndexColTableObj getIndexColTableObj() {
 		return( indexColTableObj );
+	}
+
+	public ICFBamIndexTweakTableObj getIndexTweakTableObj() {
+		return( indexTweakTableObj );
 	}
 
 	public ICFBamInt16ColTableObj getInt16ColTableObj() {

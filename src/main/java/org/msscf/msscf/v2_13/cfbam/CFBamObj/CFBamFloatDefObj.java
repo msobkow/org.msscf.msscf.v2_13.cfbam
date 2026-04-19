@@ -63,7 +63,7 @@ public class CFBamFloatDefObj
 	extends CFBamAtomObj
 	implements ICFBamFloatDefObj
 {
-	public final static String CLASS_CODE = "a81f";
+	public final static String CLASS_CODE = "a822";
 
 	public CFBamFloatDefObj() {
 		super();

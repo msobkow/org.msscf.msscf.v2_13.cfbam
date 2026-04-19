@@ -65,7 +65,7 @@ public class CFBamInt64DefBuff
 	implements Comparable<Object>,
 		Serializable
 {
-	public final static String CLASS_CODE = "a827";
+	public final static String CLASS_CODE = "a82a";
 	public static final long TENANTID_INIT_VALUE = 0L;
 	public static final long ID_INIT_VALUE = 0L;
 	public static final long INITVALUE_INIT_VALUE = 0L;

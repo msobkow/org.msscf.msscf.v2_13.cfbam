@@ -440,6 +440,7 @@ public class CFBamSchema
 	protected ICFBamId64GenTable tableId64Gen;
 	protected ICFBamIndexTable tableIndex;
 	protected ICFBamIndexColTable tableIndexCol;
+	protected ICFBamIndexTweakTable tableIndexTweak;
 	protected ICFBamInt16ColTable tableInt16Col;
 	protected ICFBamInt16DefTable tableInt16Def;
 	protected ICFBamInt16TypeTable tableInt16Type;
@@ -613,6 +614,7 @@ public class CFBamSchema
 	protected ICFBamId64GenFactory factoryId64Gen;
 	protected ICFBamIndexFactory factoryIndex;
 	protected ICFBamIndexColFactory factoryIndexCol;
+	protected ICFBamIndexTweakFactory factoryIndexTweak;
 	protected ICFBamInt16ColFactory factoryInt16Col;
 	protected ICFBamInt16DefFactory factoryInt16Def;
 	protected ICFBamInt16TypeFactory factoryInt16Type;
@@ -791,6 +793,7 @@ public class CFBamSchema
 		tableId64Gen = null;
 		tableIndex = null;
 		tableIndexCol = null;
+		tableIndexTweak = null;
 		tableInt16Col = null;
 		tableInt16Def = null;
 		tableInt16Type = null;
@@ -964,6 +967,7 @@ public class CFBamSchema
 		factoryId64Gen = new CFBamId64GenDefaultFactory();
 		factoryIndex = new CFBamIndexDefaultFactory();
 		factoryIndexCol = new CFBamIndexColDefaultFactory();
+		factoryIndexTweak = new CFBamIndexTweakDefaultFactory();
 		factoryInt16Col = new CFBamInt16ColDefaultFactory();
 		factoryInt16Def = new CFBamInt16DefDefaultFactory();
 		factoryInt16Type = new CFBamInt16TypeDefaultFactory();
@@ -1147,6 +1151,7 @@ public class CFBamSchema
 		tableId64Gen = null;
 		tableIndex = null;
 		tableIndexCol = null;
+		tableIndexTweak = null;
 		tableInt16Col = null;
 		tableInt16Def = null;
 		tableInt16Type = null;
@@ -1320,6 +1325,7 @@ public class CFBamSchema
 		factoryId64Gen = new CFBamId64GenDefaultFactory();
 		factoryIndex = new CFBamIndexDefaultFactory();
 		factoryIndexCol = new CFBamIndexColDefaultFactory();
+		factoryIndexTweak = new CFBamIndexTweakDefaultFactory();
 		factoryInt16Col = new CFBamInt16ColDefaultFactory();
 		factoryInt16Def = new CFBamInt16DefDefaultFactory();
 		factoryInt16Type = new CFBamInt16TypeDefaultFactory();
@@ -1503,6 +1509,7 @@ public class CFBamSchema
 		tableId64Gen = null;
 		tableIndex = null;
 		tableIndexCol = null;
+		tableIndexTweak = null;
 		tableInt16Col = null;
 		tableInt16Def = null;
 		tableInt16Type = null;
@@ -1676,6 +1683,7 @@ public class CFBamSchema
 		factoryId64Gen = new CFBamId64GenDefaultFactory();
 		factoryIndex = new CFBamIndexDefaultFactory();
 		factoryIndexCol = new CFBamIndexColDefaultFactory();
+		factoryIndexTweak = new CFBamIndexTweakDefaultFactory();
 		factoryInt16Col = new CFBamInt16ColDefaultFactory();
 		factoryInt16Def = new CFBamInt16DefDefaultFactory();
 		factoryInt16Type = new CFBamInt16TypeDefaultFactory();
@@ -2991,6 +2999,22 @@ public class CFBamSchema
 
 	public void setFactoryIndexCol( ICFBamIndexColFactory value ) {
 		factoryIndexCol = value;
+	}
+
+	public ICFBamIndexTweakTable getTableIndexTweak() {
+		return( tableIndexTweak );
+	}
+
+	public void setTableIndexTweak( ICFBamIndexTweakTable value ) {
+		tableIndexTweak = value;
+	}
+
+	public ICFBamIndexTweakFactory getFactoryIndexTweak() {
+		return( factoryIndexTweak );
+	}
+
+	public void setFactoryIndexTweak( ICFBamIndexTweakFactory value ) {
+		factoryIndexTweak = value;
 	}
 
 	public ICFBamInt16ColTable getTableInt16Col() {

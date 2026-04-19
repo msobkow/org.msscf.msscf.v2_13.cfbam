@@ -532,7 +532,7 @@ public class CFBamBlobTypeTableObj
 			schema.getAuthorization(),
 			buff );
 		obj.copyBuffToPKey();
-		if( obj.getPKey().getClassCode().equals( "a80c" ) ) {
+		if( obj.getPKey().getClassCode().equals( "a80f" ) ) {
 			obj = (ICFBamBlobTypeObj)(obj.realise());
 		}
 		ICFBamValueObj prev = obj.getOptionalLookupPrev();
@@ -2425,7 +2425,7 @@ public class CFBamBlobTypeTableObj
 		ICFBamBlobTypeObj obj = Obj;
 		((ICFBamSchema)schema.getBackingStore()).getTableBlobType().updateBlobType( schema.getAuthorization(),
 			Obj.getBlobTypeBuff() );
-		if( Obj.getClassCode().equals( "a80c" ) ) {
+		if( Obj.getClassCode().equals( "a80f" ) ) {
 			obj = (ICFBamBlobTypeObj)Obj.realise();
 		}
 		obj.endEdit();

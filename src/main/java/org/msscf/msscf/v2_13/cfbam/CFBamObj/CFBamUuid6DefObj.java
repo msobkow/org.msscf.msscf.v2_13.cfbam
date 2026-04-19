@@ -63,7 +63,7 @@ public class CFBamUuid6DefObj
 	extends CFBamAtomObj
 	implements ICFBamUuid6DefObj
 {
-	public final static String CLASS_CODE = "a868";
+	public final static String CLASS_CODE = "a86b";
 
 	public CFBamUuid6DefObj() {
 		super();

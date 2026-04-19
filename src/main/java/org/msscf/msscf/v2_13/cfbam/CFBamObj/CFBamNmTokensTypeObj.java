@@ -63,7 +63,7 @@ public class CFBamNmTokensTypeObj
 	extends CFBamNmTokensDefObj
 	implements ICFBamNmTokensTypeObj
 {
-	public final static String CLASS_CODE = "a82c";
+	public final static String CLASS_CODE = "a82f";
 	protected ICFBamSchemaDefObj requiredContainerSchemaDef;
 
 	public CFBamNmTokensTypeObj() {

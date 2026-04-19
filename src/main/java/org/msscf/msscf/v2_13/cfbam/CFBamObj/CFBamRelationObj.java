@@ -63,7 +63,7 @@ public class CFBamRelationObj
 	extends CFBamScopeObj
 	implements ICFBamRelationObj
 {
-	public final static String CLASS_CODE = "a835";
+	public final static String CLASS_CODE = "a838";
 	protected ICFBamSchemaDefObj optionalLookupDefSchema;
 	protected ICFBamTableObj requiredContainerFromTable;
 	protected ICFSecTenantObj requiredOwnerRelTenant;

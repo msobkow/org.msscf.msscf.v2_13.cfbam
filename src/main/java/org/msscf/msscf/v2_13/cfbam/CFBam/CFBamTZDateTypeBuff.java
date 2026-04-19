@@ -65,7 +65,7 @@ public class CFBamTZDateTypeBuff
 	implements Comparable<Object>,
 		Serializable
 {
-	public final static String CLASS_CODE = "a853";
+	public final static String CLASS_CODE = "a856";
 	public static final long TENANTID_INIT_VALUE = 0L;
 	public static final long ID_INIT_VALUE = 0L;
 	public static final long SCHEMADEFID_INIT_VALUE = 0L;

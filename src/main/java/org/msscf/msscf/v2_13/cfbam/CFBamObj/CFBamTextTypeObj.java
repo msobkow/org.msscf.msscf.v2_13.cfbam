@@ -63,7 +63,7 @@ public class CFBamTextTypeObj
 	extends CFBamTextDefObj
 	implements ICFBamTextTypeObj
 {
-	public final static String CLASS_CODE = "a85a";
+	public final static String CLASS_CODE = "a85d";
 	protected ICFBamSchemaDefObj requiredContainerSchemaDef;
 
 	public CFBamTextTypeObj() {

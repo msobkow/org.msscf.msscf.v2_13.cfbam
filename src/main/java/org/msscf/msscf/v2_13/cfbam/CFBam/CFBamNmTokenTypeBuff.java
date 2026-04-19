@@ -65,7 +65,7 @@ public class CFBamNmTokenTypeBuff
 	implements Comparable<Object>,
 		Serializable
 {
-	public final static String CLASS_CODE = "a82a";
+	public final static String CLASS_CODE = "a82d";
 	public static final long TENANTID_INIT_VALUE = 0L;
 	public static final long ID_INIT_VALUE = 0L;
 	public static final long SCHEMADEFID_INIT_VALUE = 0L;

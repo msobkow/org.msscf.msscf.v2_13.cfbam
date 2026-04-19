@@ -65,7 +65,7 @@ public class CFBamBoolColBuff
 	implements Comparable<Object>,
 		Serializable
 {
-	public final static String CLASS_CODE = "a86c";
+	public final static String CLASS_CODE = "a86f";
 	public static final long TENANTID_INIT_VALUE = 0L;
 	public static final long ID_INIT_VALUE = 0L;
 	public static final long TABLEID_INIT_VALUE = 0L;

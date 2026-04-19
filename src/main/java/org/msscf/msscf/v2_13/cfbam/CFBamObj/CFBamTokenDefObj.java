@@ -63,7 +63,7 @@ public class CFBamTokenDefObj
 	extends CFBamAtomObj
 	implements ICFBamTokenDefObj
 {
-	public final static String CLASS_CODE = "a85f";
+	public final static String CLASS_CODE = "a862";
 
 	public CFBamTokenDefObj() {
 		super();

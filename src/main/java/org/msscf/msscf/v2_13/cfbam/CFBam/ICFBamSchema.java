@@ -1455,6 +1455,24 @@ extends ICFSecSchema,
 	ICFBamIndexColFactory getFactoryIndexCol();
 
 	/**
+	 *	Get the IndexTweak Table interface for the schema.
+	 *
+	 *	@return	The IndexTweak Table interface for the schema.
+	 *
+	 *	@throws CFLibNotSupportedException thrown by client-side implementations.
+	 */
+	ICFBamIndexTweakTable getTableIndexTweak();
+
+	/**
+	 *	Get the IndexTweak Factory interface for the schema.
+	 *
+	 *	@return	The IndexTweak Factory interface for the schema.
+	 *
+	 *	@throws CFLibNotSupportedException thrown by client-side implementations.
+	 */
+	ICFBamIndexTweakFactory getFactoryIndexTweak();
+
+	/**
 	 *	Get the Int16Col Table interface for the schema.
 	 *
 	 *	@return	The Int16Col Table interface for the schema.

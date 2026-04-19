@@ -65,7 +65,7 @@ public class CFBamEnumDefBuff
 	implements Comparable<Object>,
 		Serializable
 {
-	public final static String CLASS_CODE = "a86f";
+	public final static String CLASS_CODE = "a872";
 	public static final long TENANTID_INIT_VALUE = 0L;
 	public static final long ID_INIT_VALUE = 0L;
 	public static final long TENANTID_MIN_VALUE = 0L;

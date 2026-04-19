@@ -374,7 +374,7 @@ public class CFBamPopTopDepTableObj
 			schema.getAuthorization(),
 			buff );
 		obj.copyBuffToPKey();
-		if( obj.getPKey().getClassCode().equals( "a834" ) ) {
+		if( obj.getPKey().getClassCode().equals( "a837" ) ) {
 			obj = (ICFBamPopTopDepObj)(obj.realise());
 		}
 		obj.endEdit();
@@ -1492,7 +1492,7 @@ public class CFBamPopTopDepTableObj
 		ICFBamPopTopDepObj obj = Obj;
 		((ICFBamSchema)schema.getBackingStore()).getTablePopTopDep().updatePopTopDep( schema.getAuthorization(),
 			Obj.getPopTopDepBuff() );
-		if( Obj.getClassCode().equals( "a834" ) ) {
+		if( Obj.getClassCode().equals( "a837" ) ) {
 			obj = (ICFBamPopTopDepObj)Obj.realise();
 		}
 		obj.endEdit();

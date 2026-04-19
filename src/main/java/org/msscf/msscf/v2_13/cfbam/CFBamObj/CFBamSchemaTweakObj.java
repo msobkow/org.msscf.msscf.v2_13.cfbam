@@ -63,7 +63,7 @@ public class CFBamSchemaTweakObj
 	extends CFBamTweakObj
 	implements ICFBamSchemaTweakObj
 {
-	public final static String CLASS_CODE = "a88c";
+	public final static String CLASS_CODE = "a80a";
 	protected ICFBamSchemaDefObj requiredContainerSchemaDef;
 
 	public CFBamSchemaTweakObj() {

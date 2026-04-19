@@ -63,7 +63,7 @@ public class CFBamBoolColObj
 	extends CFBamBoolDefObj
 	implements ICFBamBoolColObj
 {
-	public final static String CLASS_CODE = "a86c";
+	public final static String CLASS_CODE = "a86f";
 	protected ICFBamTableObj requiredContainerTable;
 
 	public CFBamBoolColObj() {

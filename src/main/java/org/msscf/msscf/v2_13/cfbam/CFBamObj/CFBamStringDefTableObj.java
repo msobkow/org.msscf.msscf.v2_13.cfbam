@@ -491,7 +491,7 @@ public class CFBamStringDefTableObj
 			schema.getAuthorization(),
 			buff );
 		obj.copyBuffToPKey();
-		if( obj.getPKey().getClassCode().equals( "a850" ) ) {
+		if( obj.getPKey().getClassCode().equals( "a853" ) ) {
 			obj = (ICFBamStringDefObj)(obj.realise());
 		}
 		ICFBamValueObj prev = obj.getOptionalLookupPrev();
@@ -2181,7 +2181,7 @@ public class CFBamStringDefTableObj
 		ICFBamStringDefObj obj = Obj;
 		((ICFBamSchema)schema.getBackingStore()).getTableStringDef().updateStringDef( schema.getAuthorization(),
 			Obj.getStringDefBuff() );
-		if( Obj.getClassCode().equals( "a850" ) ) {
+		if( Obj.getClassCode().equals( "a853" ) ) {
 			obj = (ICFBamStringDefObj)Obj.realise();
 		}
 		obj.endEdit();

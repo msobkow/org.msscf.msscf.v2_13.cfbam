@@ -63,7 +63,7 @@ public class CFBamTokenColObj
 	extends CFBamTokenDefObj
 	implements ICFBamTokenColObj
 {
-	public final static String CLASS_CODE = "a882";
+	public final static String CLASS_CODE = "a885";
 	protected ICFBamTableObj requiredContainerTable;
 
 	public CFBamTokenColObj() {

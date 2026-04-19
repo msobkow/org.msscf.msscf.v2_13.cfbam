@@ -532,7 +532,7 @@ public class CFBamUInt32TypeTableObj
 			schema.getAuthorization(),
 			buff );
 		obj.copyBuffToPKey();
-		if( obj.getPKey().getClassCode().equals( "a864" ) ) {
+		if( obj.getPKey().getClassCode().equals( "a867" ) ) {
 			obj = (ICFBamUInt32TypeObj)(obj.realise());
 		}
 		ICFBamValueObj prev = obj.getOptionalLookupPrev();
@@ -2425,7 +2425,7 @@ public class CFBamUInt32TypeTableObj
 		ICFBamUInt32TypeObj obj = Obj;
 		((ICFBamSchema)schema.getBackingStore()).getTableUInt32Type().updateUInt32Type( schema.getAuthorization(),
 			Obj.getUInt32TypeBuff() );
-		if( Obj.getClassCode().equals( "a864" ) ) {
+		if( Obj.getClassCode().equals( "a867" ) ) {
 			obj = (ICFBamUInt32TypeObj)Obj.realise();
 		}
 		obj.endEdit();

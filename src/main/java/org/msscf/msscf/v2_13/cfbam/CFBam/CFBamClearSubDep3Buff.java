@@ -65,7 +65,7 @@ public class CFBamClearSubDep3Buff
 	implements Comparable<Object>,
 		Serializable
 {
-	public final static String CLASS_CODE = "a813";
+	public final static String CLASS_CODE = "a816";
 	public static final long TENANTID_INIT_VALUE = 0L;
 	public static final long ID_INIT_VALUE = 0L;
 	public static final long CLEARSUBDEP2TENANTID_INIT_VALUE = 0L;

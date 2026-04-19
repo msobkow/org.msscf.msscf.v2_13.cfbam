@@ -421,7 +421,7 @@ public class CFBamSchemaRefTableObj
 			schema.getAuthorization(),
 			buff );
 		obj.copyBuffToPKey();
-		if( obj.getPKey().getClassCode().equals( "a804" ) ) {
+		if( obj.getPKey().getClassCode().equals( "a803" ) ) {
 			obj = (ICFBamSchemaRefObj)(obj.realise());
 		}
 		ICFBamSchemaRefObj prev = obj.getOptionalLookupPrev();
@@ -1770,7 +1770,7 @@ public class CFBamSchemaRefTableObj
 		ICFBamSchemaRefObj obj = Obj;
 		((ICFBamSchema)schema.getBackingStore()).getTableSchemaRef().updateSchemaRef( schema.getAuthorization(),
 			Obj.getSchemaRefBuff() );
-		if( Obj.getClassCode().equals( "a804" ) ) {
+		if( Obj.getClassCode().equals( "a803" ) ) {
 			obj = (ICFBamSchemaRefObj)Obj.realise();
 		}
 		obj.endEdit();

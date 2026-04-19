@@ -63,7 +63,7 @@ public class CFBamNumberTypeObj
 	extends CFBamNumberDefObj
 	implements ICFBamNumberTypeObj
 {
-	public final static String CLASS_CODE = "a82e";
+	public final static String CLASS_CODE = "a831";
 	protected ICFBamSchemaDefObj requiredContainerSchemaDef;
 
 	public CFBamNumberTypeObj() {

@@ -63,7 +63,7 @@ public class CFBamTZTimeDefObj
 	extends CFBamAtomObj
 	implements ICFBamTZTimeDefObj
 {
-	public final static String CLASS_CODE = "a854";
+	public final static String CLASS_CODE = "a857";
 
 	public CFBamTZTimeDefObj() {
 		super();

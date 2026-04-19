@@ -65,7 +65,7 @@ public class CFBamDelSubDep2Buff
 	implements Comparable<Object>,
 		Serializable
 {
-	public final static String CLASS_CODE = "a819";
+	public final static String CLASS_CODE = "a81c";
 	public static final long TENANTID_INIT_VALUE = 0L;
 	public static final long ID_INIT_VALUE = 0L;
 	public static final long DELSUBDEP1TENANTID_INIT_VALUE = 0L;

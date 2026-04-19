@@ -171,14 +171,17 @@ public class CFBamTweakTableObj
 
 	public ICFBamTweakObj constructByClassCode( String argClassCode ) {
 		ICFBamTweakObj obj = null;
-		if( argClassCode.equals( "a88a" ) ) {
+		if( argClassCode.equals( "a808" ) ) {
 			obj = ((ICFBamSchemaObj)schema).getTweakTableObj().newInstance();
 		}
-		else if( argClassCode.equals( "a88b" ) ) {
+		else if( argClassCode.equals( "a809" ) ) {
 			obj = ((ICFBamSchemaObj)schema).getTableTweakTableObj().newInstance();
 		}
-		else if( argClassCode.equals( "a88c" ) ) {
+		else if( argClassCode.equals( "a80a" ) ) {
 			obj = ((ICFBamSchemaObj)schema).getSchemaTweakTableObj().newInstance();
+		}
+		else if( argClassCode.equals( "a80b" ) ) {
+			obj = ((ICFBamSchemaObj)schema).getIndexTweakTableObj().newInstance();
 		}
 		return( obj );
 	}
@@ -391,7 +394,7 @@ public class CFBamTweakTableObj
 			schema.getAuthorization(),
 			buff );
 		obj.copyBuffToPKey();
-		if( obj.getPKey().getClassCode().equals( "a88a" ) ) {
+		if( obj.getPKey().getClassCode().equals( "a808" ) ) {
 			obj = (ICFBamTweakObj)(obj.realise());
 		}
 		obj.endEdit();
@@ -1462,7 +1465,7 @@ public class CFBamTweakTableObj
 		ICFBamTweakObj obj = Obj;
 		((ICFBamSchema)schema.getBackingStore()).getTableTweak().updateTweak( schema.getAuthorization(),
 			Obj.getTweakBuff() );
-		if( Obj.getClassCode().equals( "a88a" ) ) {
+		if( Obj.getClassCode().equals( "a808" ) ) {
 			obj = (ICFBamTweakObj)Obj.realise();
 		}
 		obj.endEdit();

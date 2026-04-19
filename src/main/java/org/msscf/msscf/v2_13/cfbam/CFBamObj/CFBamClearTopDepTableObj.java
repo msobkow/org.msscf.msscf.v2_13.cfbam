@@ -456,7 +456,7 @@ public class CFBamClearTopDepTableObj
 			schema.getAuthorization(),
 			buff );
 		obj.copyBuffToPKey();
-		if( obj.getPKey().getClassCode().equals( "a814" ) ) {
+		if( obj.getPKey().getClassCode().equals( "a817" ) ) {
 			obj = (ICFBamClearTopDepObj)(obj.realise());
 		}
 		ICFBamClearTopDepObj prev = obj.getOptionalLookupPrev();
@@ -1984,7 +1984,7 @@ public class CFBamClearTopDepTableObj
 		ICFBamClearTopDepObj obj = Obj;
 		((ICFBamSchema)schema.getBackingStore()).getTableClearTopDep().updateClearTopDep( schema.getAuthorization(),
 			Obj.getClearTopDepBuff() );
-		if( Obj.getClassCode().equals( "a814" ) ) {
+		if( Obj.getClassCode().equals( "a817" ) ) {
 			obj = (ICFBamClearTopDepObj)Obj.realise();
 		}
 		obj.endEdit();

@@ -62,7 +62,7 @@ import org.msscf.msscf.v2_13.cfbam.CFBam.*;
 public class CFBamIndexColObj
 	implements ICFBamIndexColObj
 {
-	public final static String CLASS_CODE = "a822";
+	public final static String CLASS_CODE = "a825";
 	protected ICFSecSecUserObj createdBy = null;
 	protected ICFSecSecUserObj updatedBy = null;
 	protected boolean isNew;

@@ -491,7 +491,7 @@ public class CFBamInt16DefTableObj
 			schema.getAuthorization(),
 			buff );
 		obj.copyBuffToPKey();
-		if( obj.getPKey().getClassCode().equals( "a823" ) ) {
+		if( obj.getPKey().getClassCode().equals( "a826" ) ) {
 			obj = (ICFBamInt16DefObj)(obj.realise());
 		}
 		ICFBamValueObj prev = obj.getOptionalLookupPrev();
@@ -2181,7 +2181,7 @@ public class CFBamInt16DefTableObj
 		ICFBamInt16DefObj obj = Obj;
 		((ICFBamSchema)schema.getBackingStore()).getTableInt16Def().updateInt16Def( schema.getAuthorization(),
 			Obj.getInt16DefBuff() );
-		if( Obj.getClassCode().equals( "a823" ) ) {
+		if( Obj.getClassCode().equals( "a826" ) ) {
 			obj = (ICFBamInt16DefObj)Obj.realise();
 		}
 		obj.endEdit();

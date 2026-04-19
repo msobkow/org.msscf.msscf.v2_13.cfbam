@@ -63,7 +63,7 @@ public class CFBamBoolTypeObj
 	extends CFBamBoolDefObj
 	implements ICFBamBoolTypeObj
 {
-	public final static String CLASS_CODE = "a80e";
+	public final static String CLASS_CODE = "a811";
 	protected ICFBamSchemaDefObj requiredContainerSchemaDef;
 
 	public CFBamBoolTypeObj() {

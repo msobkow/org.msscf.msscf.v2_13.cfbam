@@ -339,7 +339,7 @@ public class CFBamServerMethodTableObj
 			schema.getAuthorization(),
 			buff );
 		obj.copyBuffToPKey();
-		if( obj.getPKey().getClassCode().equals( "a805" ) ) {
+		if( obj.getPKey().getClassCode().equals( "a804" ) ) {
 			obj = (ICFBamServerMethodObj)(obj.realise());
 		}
 		obj.endEdit();
@@ -1280,7 +1280,7 @@ public class CFBamServerMethodTableObj
 		ICFBamServerMethodObj obj = Obj;
 		((ICFBamSchema)schema.getBackingStore()).getTableServerMethod().updateServerMethod( schema.getAuthorization(),
 			Obj.getServerMethodBuff() );
-		if( Obj.getClassCode().equals( "a805" ) ) {
+		if( Obj.getClassCode().equals( "a804" ) ) {
 			obj = (ICFBamServerMethodObj)Obj.realise();
 		}
 		obj.endEdit();

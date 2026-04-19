@@ -374,7 +374,7 @@ public class CFBamClearSubDep1TableObj
 			schema.getAuthorization(),
 			buff );
 		obj.copyBuffToPKey();
-		if( obj.getPKey().getClassCode().equals( "a811" ) ) {
+		if( obj.getPKey().getClassCode().equals( "a814" ) ) {
 			obj = (ICFBamClearSubDep1Obj)(obj.realise());
 		}
 		obj.endEdit();
@@ -1492,7 +1492,7 @@ public class CFBamClearSubDep1TableObj
 		ICFBamClearSubDep1Obj obj = Obj;
 		((ICFBamSchema)schema.getBackingStore()).getTableClearSubDep1().updateClearSubDep1( schema.getAuthorization(),
 			Obj.getClearSubDep1Buff() );
-		if( Obj.getClassCode().equals( "a811" ) ) {
+		if( Obj.getClassCode().equals( "a814" ) ) {
 			obj = (ICFBamClearSubDep1Obj)Obj.realise();
 		}
 		obj.endEdit();

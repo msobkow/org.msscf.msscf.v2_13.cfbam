@@ -374,7 +374,7 @@ public class CFBamDelSubDep2TableObj
 			schema.getAuthorization(),
 			buff );
 		obj.copyBuffToPKey();
-		if( obj.getPKey().getClassCode().equals( "a819" ) ) {
+		if( obj.getPKey().getClassCode().equals( "a81c" ) ) {
 			obj = (ICFBamDelSubDep2Obj)(obj.realise());
 		}
 		obj.endEdit();
@@ -1492,7 +1492,7 @@ public class CFBamDelSubDep2TableObj
 		ICFBamDelSubDep2Obj obj = Obj;
 		((ICFBamSchema)schema.getBackingStore()).getTableDelSubDep2().updateDelSubDep2( schema.getAuthorization(),
 			Obj.getDelSubDep2Buff() );
-		if( Obj.getClassCode().equals( "a819" ) ) {
+		if( Obj.getClassCode().equals( "a81c" ) ) {
 			obj = (ICFBamDelSubDep2Obj)Obj.realise();
 		}
 		obj.endEdit();

@@ -63,7 +63,7 @@ public class CFBamPopDepObj
 	extends CFBamScopeObj
 	implements ICFBamPopDepObj
 {
-	public final static String CLASS_CODE = "a830";
+	public final static String CLASS_CODE = "a833";
 	protected ICFBamRelationObj requiredLookupRelation;
 	protected ICFBamSchemaDefObj optionalLookupDefSchema;
 

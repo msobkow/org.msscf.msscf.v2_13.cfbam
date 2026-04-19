@@ -63,7 +63,7 @@ public class CFBamUuidGenObj
 	extends CFBamUuidTypeObj
 	implements ICFBamUuidGenObj
 {
-	public final static String CLASS_CODE = "a888";
+	public final static String CLASS_CODE = "a88b";
 	protected ICFBamTableObj optionalLookupDispenser;
 
 	public CFBamUuidGenObj() {

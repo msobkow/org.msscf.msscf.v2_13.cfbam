@@ -65,7 +65,7 @@ public class CFBamBlobDefBuff
 	implements Comparable<Object>,
 		Serializable
 {
-	public final static String CLASS_CODE = "a80b";
+	public final static String CLASS_CODE = "a80e";
 	public static final long TENANTID_INIT_VALUE = 0L;
 	public static final long ID_INIT_VALUE = 0L;
 	public static final int MAXLEN_INIT_VALUE = 100000000;

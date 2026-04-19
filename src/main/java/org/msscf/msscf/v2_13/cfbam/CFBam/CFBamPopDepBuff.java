@@ -65,7 +65,7 @@ public class CFBamPopDepBuff
 	implements Comparable<Object>,
 		Serializable
 {
-	public final static String CLASS_CODE = "a830";
+	public final static String CLASS_CODE = "a833";
 	public static final long TENANTID_INIT_VALUE = 0L;
 	public static final long ID_INIT_VALUE = 0L;
 	public static final long DEFSCHEMATENANTID_INIT_VALUE = 0L;

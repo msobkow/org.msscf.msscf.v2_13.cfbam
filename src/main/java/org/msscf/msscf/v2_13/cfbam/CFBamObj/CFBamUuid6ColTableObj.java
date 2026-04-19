@@ -532,7 +532,7 @@ public class CFBamUuid6ColTableObj
 			schema.getAuthorization(),
 			buff );
 		obj.copyBuffToPKey();
-		if( obj.getPKey().getClassCode().equals( "a887" ) ) {
+		if( obj.getPKey().getClassCode().equals( "a88a" ) ) {
 			obj = (ICFBamUuid6ColObj)(obj.realise());
 		}
 		ICFBamValueObj prev = obj.getOptionalLookupPrev();
@@ -2425,7 +2425,7 @@ public class CFBamUuid6ColTableObj
 		ICFBamUuid6ColObj obj = Obj;
 		((ICFBamSchema)schema.getBackingStore()).getTableUuid6Col().updateUuid6Col( schema.getAuthorization(),
 			Obj.getUuid6ColBuff() );
-		if( Obj.getClassCode().equals( "a887" ) ) {
+		if( Obj.getClassCode().equals( "a88a" ) ) {
 			obj = (ICFBamUuid6ColObj)Obj.realise();
 		}
 		obj.endEdit();

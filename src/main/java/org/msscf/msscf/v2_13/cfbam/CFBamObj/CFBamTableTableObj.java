@@ -535,7 +535,7 @@ public class CFBamTableTableObj
 			schema.getAuthorization(),
 			buff );
 		obj.copyBuffToPKey();
-		if( obj.getPKey().getClassCode().equals( "a808" ) ) {
+		if( obj.getPKey().getClassCode().equals( "a807" ) ) {
 			obj = (ICFBamTableObj)(obj.realise());
 		}
 		obj.endEdit();
@@ -2487,7 +2487,7 @@ public class CFBamTableTableObj
 		ICFBamTableObj obj = Obj;
 		((ICFBamSchema)schema.getBackingStore()).getTableTable().updateTable( schema.getAuthorization(),
 			Obj.getTableBuff() );
-		if( Obj.getClassCode().equals( "a808" ) ) {
+		if( Obj.getClassCode().equals( "a807" ) ) {
 			obj = (ICFBamTableObj)Obj.realise();
 		}
 		obj.endEdit();

@@ -63,7 +63,7 @@ public class CFBamId64GenObj
 	extends CFBamInt64TypeObj
 	implements ICFBamId64GenObj
 {
-	public final static String CLASS_CODE = "a874";
+	public final static String CLASS_CODE = "a877";
 	protected ICFBamTableObj optionalLookupDispenser;
 
 	public CFBamId64GenObj() {

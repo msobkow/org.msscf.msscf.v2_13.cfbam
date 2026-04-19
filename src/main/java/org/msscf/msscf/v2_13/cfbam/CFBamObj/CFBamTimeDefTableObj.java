@@ -491,7 +491,7 @@ public class CFBamTimeDefTableObj
 			schema.getAuthorization(),
 			buff );
 		obj.copyBuffToPKey();
-		if( obj.getPKey().getClassCode().equals( "a85b" ) ) {
+		if( obj.getPKey().getClassCode().equals( "a85e" ) ) {
 			obj = (ICFBamTimeDefObj)(obj.realise());
 		}
 		ICFBamValueObj prev = obj.getOptionalLookupPrev();
@@ -2181,7 +2181,7 @@ public class CFBamTimeDefTableObj
 		ICFBamTimeDefObj obj = Obj;
 		((ICFBamSchema)schema.getBackingStore()).getTableTimeDef().updateTimeDef( schema.getAuthorization(),
 			Obj.getTimeDefBuff() );
-		if( Obj.getClassCode().equals( "a85b" ) ) {
+		if( Obj.getClassCode().equals( "a85e" ) ) {
 			obj = (ICFBamTimeDefObj)Obj.realise();
 		}
 		obj.endEdit();

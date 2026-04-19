@@ -62,7 +62,7 @@ import org.msscf.msscf.v2_13.cfbam.CFBam.*;
 public class CFBamTweakObj
 	implements ICFBamTweakObj
 {
-	public final static String CLASS_CODE = "a88a";
+	public final static String CLASS_CODE = "a808";
 	protected ICFSecSecUserObj createdBy = null;
 	protected ICFSecSecUserObj updatedBy = null;
 	protected boolean isNew;

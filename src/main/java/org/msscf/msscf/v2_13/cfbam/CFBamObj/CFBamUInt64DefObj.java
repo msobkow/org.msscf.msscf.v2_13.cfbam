@@ -63,7 +63,7 @@ public class CFBamUInt64DefObj
 	extends CFBamAtomObj
 	implements ICFBamUInt64DefObj
 {
-	public final static String CLASS_CODE = "a865";
+	public final static String CLASS_CODE = "a868";
 
 	public CFBamUInt64DefObj() {
 		super();

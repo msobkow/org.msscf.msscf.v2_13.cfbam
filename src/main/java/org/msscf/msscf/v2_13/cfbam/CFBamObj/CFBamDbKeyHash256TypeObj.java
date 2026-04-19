@@ -63,7 +63,7 @@ public class CFBamDbKeyHash256TypeObj
 	extends CFBamDbKeyHash256DefObj
 	implements ICFBamDbKeyHash256TypeObj
 {
-	public final static String CLASS_CODE = "a846";
+	public final static String CLASS_CODE = "a849";
 	protected ICFBamSchemaDefObj requiredContainerSchemaDef;
 
 	public CFBamDbKeyHash256TypeObj() {

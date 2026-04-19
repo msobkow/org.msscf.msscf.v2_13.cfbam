@@ -541,7 +541,7 @@ public class CFBamRelationTableObj
 			schema.getAuthorization(),
 			buff );
 		obj.copyBuffToPKey();
-		if( obj.getPKey().getClassCode().equals( "a835" ) ) {
+		if( obj.getPKey().getClassCode().equals( "a838" ) ) {
 			obj = (ICFBamRelationObj)(obj.realise());
 		}
 		obj.endEdit();
@@ -2489,7 +2489,7 @@ public class CFBamRelationTableObj
 		ICFBamRelationObj obj = Obj;
 		((ICFBamSchema)schema.getBackingStore()).getTableRelation().updateRelation( schema.getAuthorization(),
 			Obj.getRelationBuff() );
-		if( Obj.getClassCode().equals( "a835" ) ) {
+		if( Obj.getClassCode().equals( "a838" ) ) {
 			obj = (ICFBamRelationObj)Obj.realise();
 		}
 		obj.endEdit();

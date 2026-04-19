@@ -63,7 +63,7 @@ public class CFBamFloatColObj
 	extends CFBamFloatDefObj
 	implements ICFBamFloatColObj
 {
-	public final static String CLASS_CODE = "a871";
+	public final static String CLASS_CODE = "a874";
 	protected ICFBamTableObj requiredContainerTable;
 
 	public CFBamFloatColObj() {

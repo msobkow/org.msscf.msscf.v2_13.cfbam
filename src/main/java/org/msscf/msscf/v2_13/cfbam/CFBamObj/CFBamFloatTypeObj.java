@@ -63,7 +63,7 @@ public class CFBamFloatTypeObj
 	extends CFBamFloatDefObj
 	implements ICFBamFloatTypeObj
 {
-	public final static String CLASS_CODE = "a820";
+	public final static String CLASS_CODE = "a823";
 	protected ICFBamSchemaDefObj requiredContainerSchemaDef;
 
 	public CFBamFloatTypeObj() {

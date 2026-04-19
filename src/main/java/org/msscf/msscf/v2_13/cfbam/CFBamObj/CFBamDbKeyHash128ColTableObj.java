@@ -532,7 +532,7 @@ public class CFBamDbKeyHash128ColTableObj
 			schema.getAuthorization(),
 			buff );
 		obj.copyBuffToPKey();
-		if( obj.getPKey().getClassCode().equals( "a838" ) ) {
+		if( obj.getPKey().getClassCode().equals( "a83c" ) ) {
 			obj = (ICFBamDbKeyHash128ColObj)(obj.realise());
 		}
 		ICFBamValueObj prev = obj.getOptionalLookupPrev();
@@ -2425,7 +2425,7 @@ public class CFBamDbKeyHash128ColTableObj
 		ICFBamDbKeyHash128ColObj obj = Obj;
 		((ICFBamSchema)schema.getBackingStore()).getTableDbKeyHash128Col().updateDbKeyHash128Col( schema.getAuthorization(),
 			Obj.getDbKeyHash128ColBuff() );
-		if( Obj.getClassCode().equals( "a838" ) ) {
+		if( Obj.getClassCode().equals( "a83c" ) ) {
 			obj = (ICFBamDbKeyHash128ColObj)Obj.realise();
 		}
 		obj.endEdit();

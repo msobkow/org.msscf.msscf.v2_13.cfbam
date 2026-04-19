@@ -532,7 +532,7 @@ public class CFBamUuidColTableObj
 			schema.getAuthorization(),
 			buff );
 		obj.copyBuffToPKey();
-		if( obj.getPKey().getClassCode().equals( "a886" ) ) {
+		if( obj.getPKey().getClassCode().equals( "a889" ) ) {
 			obj = (ICFBamUuidColObj)(obj.realise());
 		}
 		ICFBamValueObj prev = obj.getOptionalLookupPrev();
@@ -2425,7 +2425,7 @@ public class CFBamUuidColTableObj
 		ICFBamUuidColObj obj = Obj;
 		((ICFBamSchema)schema.getBackingStore()).getTableUuidCol().updateUuidCol( schema.getAuthorization(),
 			Obj.getUuidColBuff() );
-		if( Obj.getClassCode().equals( "a886" ) ) {
+		if( Obj.getClassCode().equals( "a889" ) ) {
 			obj = (ICFBamUuidColObj)Obj.realise();
 		}
 		obj.endEdit();

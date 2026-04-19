@@ -63,7 +63,7 @@ public class CFBamServerObjFuncObj
 	extends CFBamServerMethodObj
 	implements ICFBamServerObjFuncObj
 {
-	public final static String CLASS_CODE = "a806";
+	public final static String CLASS_CODE = "a805";
 	protected ICFBamTableObj optionalLookupRetTable;
 
 	public CFBamServerObjFuncObj() {

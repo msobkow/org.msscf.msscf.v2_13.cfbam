@@ -412,7 +412,7 @@ public class CFBamSchemaTweakTableObj
 			schema.getAuthorization(),
 			buff );
 		obj.copyBuffToPKey();
-		if( obj.getPKey().getClassCode().equals( "a88c" ) ) {
+		if( obj.getPKey().getClassCode().equals( "a80a" ) ) {
 			obj = (ICFBamSchemaTweakObj)(obj.realise());
 		}
 		obj.endEdit();
@@ -1629,7 +1629,7 @@ public class CFBamSchemaTweakTableObj
 		ICFBamSchemaTweakObj obj = Obj;
 		((ICFBamSchema)schema.getBackingStore()).getTableSchemaTweak().updateSchemaTweak( schema.getAuthorization(),
 			Obj.getSchemaTweakBuff() );
-		if( Obj.getClassCode().equals( "a88c" ) ) {
+		if( Obj.getClassCode().equals( "a80a" ) ) {
 			obj = (ICFBamSchemaTweakObj)Obj.realise();
 		}
 		obj.endEdit();

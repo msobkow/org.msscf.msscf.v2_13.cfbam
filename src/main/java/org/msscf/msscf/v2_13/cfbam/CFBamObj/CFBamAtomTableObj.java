@@ -491,7 +491,7 @@ public class CFBamAtomTableObj
 			schema.getAuthorization(),
 			buff );
 		obj.copyBuffToPKey();
-		if( obj.getPKey().getClassCode().equals( "a80a" ) ) {
+		if( obj.getPKey().getClassCode().equals( "a80d" ) ) {
 			obj = (ICFBamAtomObj)(obj.realise());
 		}
 		ICFBamValueObj prev = obj.getOptionalLookupPrev();
@@ -2181,7 +2181,7 @@ public class CFBamAtomTableObj
 		ICFBamAtomObj obj = Obj;
 		((ICFBamSchema)schema.getBackingStore()).getTableAtom().updateAtom( schema.getAuthorization(),
 			Obj.getAtomBuff() );
-		if( Obj.getClassCode().equals( "a80a" ) ) {
+		if( Obj.getClassCode().equals( "a80d" ) ) {
 			obj = (ICFBamAtomObj)Obj.realise();
 		}
 		obj.endEdit();

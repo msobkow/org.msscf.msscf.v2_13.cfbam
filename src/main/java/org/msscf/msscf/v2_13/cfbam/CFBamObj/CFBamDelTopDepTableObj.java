@@ -456,7 +456,7 @@ public class CFBamDelTopDepTableObj
 			schema.getAuthorization(),
 			buff );
 		obj.copyBuffToPKey();
-		if( obj.getPKey().getClassCode().equals( "a81b" ) ) {
+		if( obj.getPKey().getClassCode().equals( "a81e" ) ) {
 			obj = (ICFBamDelTopDepObj)(obj.realise());
 		}
 		ICFBamDelTopDepObj prev = obj.getOptionalLookupPrev();
@@ -1984,7 +1984,7 @@ public class CFBamDelTopDepTableObj
 		ICFBamDelTopDepObj obj = Obj;
 		((ICFBamSchema)schema.getBackingStore()).getTableDelTopDep().updateDelTopDep( schema.getAuthorization(),
 			Obj.getDelTopDepBuff() );
-		if( Obj.getClassCode().equals( "a81b" ) ) {
+		if( Obj.getClassCode().equals( "a81e" ) ) {
 			obj = (ICFBamDelTopDepObj)Obj.realise();
 		}
 		obj.endEdit();

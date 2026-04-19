@@ -63,7 +63,7 @@ public class CFBamBlobColObj
 	extends CFBamBlobDefObj
 	implements ICFBamBlobColObj
 {
-	public final static String CLASS_CODE = "a86b";
+	public final static String CLASS_CODE = "a86e";
 	protected ICFBamTableObj requiredContainerTable;
 
 	public CFBamBlobColObj() {

@@ -62,7 +62,7 @@ import org.msscf.msscf.v2_13.cfbam.CFBam.*;
 public class CFBamEnumTagObj
 	implements ICFBamEnumTagObj
 {
-	public final static String CLASS_CODE = "a81e";
+	public final static String CLASS_CODE = "a821";
 	protected ICFSecSecUserObj createdBy = null;
 	protected ICFSecSecUserObj updatedBy = null;
 	protected boolean isNew;

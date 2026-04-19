@@ -63,7 +63,7 @@ public class CFBamDoubleDefObj
 	extends CFBamAtomObj
 	implements ICFBamDoubleDefObj
 {
-	public final static String CLASS_CODE = "a81c";
+	public final static String CLASS_CODE = "a81f";
 
 	public CFBamDoubleDefObj() {
 		super();

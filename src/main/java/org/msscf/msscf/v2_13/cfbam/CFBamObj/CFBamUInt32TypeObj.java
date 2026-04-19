@@ -63,7 +63,7 @@ public class CFBamUInt32TypeObj
 	extends CFBamUInt32DefObj
 	implements ICFBamUInt32TypeObj
 {
-	public final static String CLASS_CODE = "a864";
+	public final static String CLASS_CODE = "a867";
 	protected ICFBamSchemaDefObj requiredContainerSchemaDef;
 
 	public CFBamUInt32TypeObj() {

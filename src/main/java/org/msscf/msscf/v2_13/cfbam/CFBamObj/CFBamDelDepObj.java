@@ -63,7 +63,7 @@ public class CFBamDelDepObj
 	extends CFBamScopeObj
 	implements ICFBamDelDepObj
 {
-	public final static String CLASS_CODE = "a817";
+	public final static String CLASS_CODE = "a81a";
 	protected ICFBamRelationObj requiredLookupRelation;
 	protected ICFBamSchemaDefObj optionalLookupDefSchema;
 

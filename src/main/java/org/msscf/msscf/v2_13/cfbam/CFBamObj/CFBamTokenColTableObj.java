@@ -532,7 +532,7 @@ public class CFBamTokenColTableObj
 			schema.getAuthorization(),
 			buff );
 		obj.copyBuffToPKey();
-		if( obj.getPKey().getClassCode().equals( "a882" ) ) {
+		if( obj.getPKey().getClassCode().equals( "a885" ) ) {
 			obj = (ICFBamTokenColObj)(obj.realise());
 		}
 		ICFBamValueObj prev = obj.getOptionalLookupPrev();
@@ -2425,7 +2425,7 @@ public class CFBamTokenColTableObj
 		ICFBamTokenColObj obj = Obj;
 		((ICFBamSchema)schema.getBackingStore()).getTableTokenCol().updateTokenCol( schema.getAuthorization(),
 			Obj.getTokenColBuff() );
-		if( Obj.getClassCode().equals( "a882" ) ) {
+		if( Obj.getClassCode().equals( "a885" ) ) {
 			obj = (ICFBamTokenColObj)Obj.realise();
 		}
 		obj.endEdit();

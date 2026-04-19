@@ -63,7 +63,7 @@ public class CFBamDoubleColObj
 	extends CFBamDoubleDefObj
 	implements ICFBamDoubleColObj
 {
-	public final static String CLASS_CODE = "a86e";
+	public final static String CLASS_CODE = "a871";
 	protected ICFBamTableObj requiredContainerTable;
 
 	public CFBamDoubleColObj() {

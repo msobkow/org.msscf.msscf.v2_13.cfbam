@@ -63,7 +63,7 @@ public class CFBamIndexObj
 	extends CFBamScopeObj
 	implements ICFBamIndexObj
 {
-	public final static String CLASS_CODE = "a821";
+	public final static String CLASS_CODE = "a824";
 	protected ICFBamTableObj requiredContainerTable;
 	protected ICFBamSchemaDefObj optionalLookupDefSchema;
 	protected ICFSecTenantObj requiredOwnerIdxTenant;
@@ -152,6 +152,11 @@ public class CFBamIndexObj
 		}
 		if( subObj == null ) {
 			subObj = ((ICFBamSchemaObj)getSchema()).getIndexColTableObj().readIndexColByUNameIdx( getRequiredTenantId(),
+				getRequiredId(),
+				nextName, false );
+		}
+		if( subObj == null ) {
+			subObj = ((ICFBamSchemaObj)getSchema()).getIndexTweakTableObj().readIndexTweakByUNameIdx( getRequiredTenantId(),
 				getRequiredId(),
 				nextName, false );
 		}
@@ -392,6 +397,22 @@ public class CFBamIndexObj
 	public List<ICFBamIndexColObj> getOptionalComponentsColumns( boolean forceRead ) {
 		List<ICFBamIndexColObj> retval;
 		retval = ((ICFBamSchemaObj)schema).getIndexColTableObj().readIndexColByIndexIdx( getPKey().getRequiredTenantId(),
+					getPKey().getRequiredId(),
+			forceRead );
+		return( retval );
+	}
+
+	public List<ICFBamIndexTweakObj> getOptionalComponentsTweaks() {
+		List<ICFBamIndexTweakObj> retval;
+		retval = ((ICFBamSchemaObj)schema).getIndexTweakTableObj().readIndexTweakByIndexIdx( getPKey().getRequiredTenantId(),
+					getPKey().getRequiredId(),
+			false );
+		return( retval );
+	}
+
+	public List<ICFBamIndexTweakObj> getOptionalComponentsTweaks( boolean forceRead ) {
+		List<ICFBamIndexTweakObj> retval;
+		retval = ((ICFBamSchemaObj)schema).getIndexTweakTableObj().readIndexTweakByIndexIdx( getPKey().getRequiredTenantId(),
 					getPKey().getRequiredId(),
 			forceRead );
 		return( retval );

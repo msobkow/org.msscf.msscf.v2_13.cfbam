@@ -491,7 +491,7 @@ public class CFBamTZDateDefTableObj
 			schema.getAuthorization(),
 			buff );
 		obj.copyBuffToPKey();
-		if( obj.getPKey().getClassCode().equals( "a852" ) ) {
+		if( obj.getPKey().getClassCode().equals( "a855" ) ) {
 			obj = (ICFBamTZDateDefObj)(obj.realise());
 		}
 		ICFBamValueObj prev = obj.getOptionalLookupPrev();
@@ -2181,7 +2181,7 @@ public class CFBamTZDateDefTableObj
 		ICFBamTZDateDefObj obj = Obj;
 		((ICFBamSchema)schema.getBackingStore()).getTableTZDateDef().updateTZDateDef( schema.getAuthorization(),
 			Obj.getTZDateDefBuff() );
-		if( Obj.getClassCode().equals( "a852" ) ) {
+		if( Obj.getClassCode().equals( "a855" ) ) {
 			obj = (ICFBamTZDateDefObj)Obj.realise();
 		}
 		obj.endEdit();

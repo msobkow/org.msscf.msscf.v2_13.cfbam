@@ -157,73 +157,73 @@ public class CFBamScopeTableObj
 		else if( argClassCode.equals( "a802" ) ) {
 			obj = ((ICFBamSchemaObj)schema).getSchemaDefTableObj().newInstance();
 		}
-		else if( argClassCode.equals( "a804" ) ) {
+		else if( argClassCode.equals( "a803" ) ) {
 			obj = ((ICFBamSchemaObj)schema).getSchemaRefTableObj().newInstance();
 		}
-		else if( argClassCode.equals( "a805" ) ) {
+		else if( argClassCode.equals( "a804" ) ) {
 			obj = ((ICFBamSchemaObj)schema).getServerMethodTableObj().newInstance();
 		}
-		else if( argClassCode.equals( "a806" ) ) {
+		else if( argClassCode.equals( "a805" ) ) {
 			obj = ((ICFBamSchemaObj)schema).getServerObjFuncTableObj().newInstance();
 		}
-		else if( argClassCode.equals( "a807" ) ) {
+		else if( argClassCode.equals( "a806" ) ) {
 			obj = ((ICFBamSchemaObj)schema).getServerProcTableObj().newInstance();
 		}
-		else if( argClassCode.equals( "a837" ) ) {
+		else if( argClassCode.equals( "a83a" ) ) {
 			obj = ((ICFBamSchemaObj)schema).getServerListFuncTableObj().newInstance();
 		}
-		else if( argClassCode.equals( "a808" ) ) {
+		else if( argClassCode.equals( "a807" ) ) {
 			obj = ((ICFBamSchemaObj)schema).getTableTableObj().newInstance();
 		}
-		else if( argClassCode.equals( "a810" ) ) {
+		else if( argClassCode.equals( "a813" ) ) {
 			obj = ((ICFBamSchemaObj)schema).getClearDepTableObj().newInstance();
 		}
-		else if( argClassCode.equals( "a811" ) ) {
+		else if( argClassCode.equals( "a814" ) ) {
 			obj = ((ICFBamSchemaObj)schema).getClearSubDep1TableObj().newInstance();
 		}
-		else if( argClassCode.equals( "a812" ) ) {
+		else if( argClassCode.equals( "a815" ) ) {
 			obj = ((ICFBamSchemaObj)schema).getClearSubDep2TableObj().newInstance();
 		}
-		else if( argClassCode.equals( "a813" ) ) {
+		else if( argClassCode.equals( "a816" ) ) {
 			obj = ((ICFBamSchemaObj)schema).getClearSubDep3TableObj().newInstance();
 		}
-		else if( argClassCode.equals( "a814" ) ) {
+		else if( argClassCode.equals( "a817" ) ) {
 			obj = ((ICFBamSchemaObj)schema).getClearTopDepTableObj().newInstance();
 		}
-		else if( argClassCode.equals( "a817" ) ) {
+		else if( argClassCode.equals( "a81a" ) ) {
 			obj = ((ICFBamSchemaObj)schema).getDelDepTableObj().newInstance();
 		}
-		else if( argClassCode.equals( "a818" ) ) {
+		else if( argClassCode.equals( "a81b" ) ) {
 			obj = ((ICFBamSchemaObj)schema).getDelSubDep1TableObj().newInstance();
 		}
-		else if( argClassCode.equals( "a819" ) ) {
+		else if( argClassCode.equals( "a81c" ) ) {
 			obj = ((ICFBamSchemaObj)schema).getDelSubDep2TableObj().newInstance();
 		}
-		else if( argClassCode.equals( "a81a" ) ) {
+		else if( argClassCode.equals( "a81d" ) ) {
 			obj = ((ICFBamSchemaObj)schema).getDelSubDep3TableObj().newInstance();
 		}
-		else if( argClassCode.equals( "a81b" ) ) {
+		else if( argClassCode.equals( "a81e" ) ) {
 			obj = ((ICFBamSchemaObj)schema).getDelTopDepTableObj().newInstance();
 		}
-		else if( argClassCode.equals( "a821" ) ) {
+		else if( argClassCode.equals( "a824" ) ) {
 			obj = ((ICFBamSchemaObj)schema).getIndexTableObj().newInstance();
 		}
-		else if( argClassCode.equals( "a830" ) ) {
+		else if( argClassCode.equals( "a833" ) ) {
 			obj = ((ICFBamSchemaObj)schema).getPopDepTableObj().newInstance();
 		}
-		else if( argClassCode.equals( "a831" ) ) {
+		else if( argClassCode.equals( "a834" ) ) {
 			obj = ((ICFBamSchemaObj)schema).getPopSubDep1TableObj().newInstance();
 		}
-		else if( argClassCode.equals( "a832" ) ) {
+		else if( argClassCode.equals( "a835" ) ) {
 			obj = ((ICFBamSchemaObj)schema).getPopSubDep2TableObj().newInstance();
 		}
-		else if( argClassCode.equals( "a833" ) ) {
+		else if( argClassCode.equals( "a836" ) ) {
 			obj = ((ICFBamSchemaObj)schema).getPopSubDep3TableObj().newInstance();
 		}
-		else if( argClassCode.equals( "a834" ) ) {
+		else if( argClassCode.equals( "a837" ) ) {
 			obj = ((ICFBamSchemaObj)schema).getPopTopDepTableObj().newInstance();
 		}
-		else if( argClassCode.equals( "a835" ) ) {
+		else if( argClassCode.equals( "a838" ) ) {
 			obj = ((ICFBamSchemaObj)schema).getRelationTableObj().newInstance();
 		}
 		return( obj );

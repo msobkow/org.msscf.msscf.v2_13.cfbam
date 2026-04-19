@@ -532,7 +532,7 @@ public class CFBamDoubleColTableObj
 			schema.getAuthorization(),
 			buff );
 		obj.copyBuffToPKey();
-		if( obj.getPKey().getClassCode().equals( "a86e" ) ) {
+		if( obj.getPKey().getClassCode().equals( "a871" ) ) {
 			obj = (ICFBamDoubleColObj)(obj.realise());
 		}
 		ICFBamValueObj prev = obj.getOptionalLookupPrev();
@@ -2425,7 +2425,7 @@ public class CFBamDoubleColTableObj
 		ICFBamDoubleColObj obj = Obj;
 		((ICFBamSchema)schema.getBackingStore()).getTableDoubleCol().updateDoubleCol( schema.getAuthorization(),
 			Obj.getDoubleColBuff() );
-		if( Obj.getClassCode().equals( "a86e" ) ) {
+		if( Obj.getClassCode().equals( "a871" ) ) {
 			obj = (ICFBamDoubleColObj)Obj.realise();
 		}
 		obj.endEdit();

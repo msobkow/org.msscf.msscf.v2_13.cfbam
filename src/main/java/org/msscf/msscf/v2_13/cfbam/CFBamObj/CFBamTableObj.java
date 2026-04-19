@@ -63,7 +63,7 @@ public class CFBamTableObj
 	extends CFBamScopeObj
 	implements ICFBamTableObj
 {
-	public final static String CLASS_CODE = "a808";
+	public final static String CLASS_CODE = "a807";
 	protected ICFBamSchemaDefObj requiredContainerSchemaDef;
 	protected ICFBamSchemaDefObj optionalLookupDefSchema;
 	protected ICFBamIndexObj optionalLookupLookupIndex;

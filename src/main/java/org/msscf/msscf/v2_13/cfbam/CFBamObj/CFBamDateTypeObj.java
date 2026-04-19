@@ -63,7 +63,7 @@ public class CFBamDateTypeObj
 	extends CFBamDateDefObj
 	implements ICFBamDateTypeObj
 {
-	public final static String CLASS_CODE = "a816";
+	public final static String CLASS_CODE = "a819";
 	protected ICFBamSchemaDefObj requiredContainerSchemaDef;
 
 	public CFBamDateTypeObj() {

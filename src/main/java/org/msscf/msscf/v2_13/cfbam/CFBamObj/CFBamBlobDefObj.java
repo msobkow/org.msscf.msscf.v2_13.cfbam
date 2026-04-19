@@ -63,7 +63,7 @@ public class CFBamBlobDefObj
 	extends CFBamAtomObj
 	implements ICFBamBlobDefObj
 {
-	public final static String CLASS_CODE = "a80b";
+	public final static String CLASS_CODE = "a80e";
 
 	public CFBamBlobDefObj() {
 		super();

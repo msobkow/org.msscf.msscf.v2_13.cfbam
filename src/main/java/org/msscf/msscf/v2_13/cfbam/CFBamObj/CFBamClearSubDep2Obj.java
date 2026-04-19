@@ -63,7 +63,7 @@ public class CFBamClearSubDep2Obj
 	extends CFBamClearDepObj
 	implements ICFBamClearSubDep2Obj
 {
-	public final static String CLASS_CODE = "a812";
+	public final static String CLASS_CODE = "a815";
 	protected ICFBamClearSubDep1Obj requiredContainerClearSubDep1;
 
 	public CFBamClearSubDep2Obj() {

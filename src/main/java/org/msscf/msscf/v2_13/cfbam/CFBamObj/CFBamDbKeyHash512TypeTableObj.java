@@ -532,7 +532,7 @@ public class CFBamDbKeyHash512TypeTableObj
 			schema.getAuthorization(),
 			buff );
 		obj.copyBuffToPKey();
-		if( obj.getPKey().getClassCode().equals( "a84e" ) ) {
+		if( obj.getPKey().getClassCode().equals( "a851" ) ) {
 			obj = (ICFBamDbKeyHash512TypeObj)(obj.realise());
 		}
 		ICFBamValueObj prev = obj.getOptionalLookupPrev();
@@ -2425,7 +2425,7 @@ public class CFBamDbKeyHash512TypeTableObj
 		ICFBamDbKeyHash512TypeObj obj = Obj;
 		((ICFBamSchema)schema.getBackingStore()).getTableDbKeyHash512Type().updateDbKeyHash512Type( schema.getAuthorization(),
 			Obj.getDbKeyHash512TypeBuff() );
-		if( Obj.getClassCode().equals( "a84e" ) ) {
+		if( Obj.getClassCode().equals( "a851" ) ) {
 			obj = (ICFBamDbKeyHash512TypeObj)Obj.realise();
 		}
 		obj.endEdit();

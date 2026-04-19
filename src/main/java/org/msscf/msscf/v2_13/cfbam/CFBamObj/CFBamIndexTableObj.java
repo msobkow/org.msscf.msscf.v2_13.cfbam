@@ -377,7 +377,7 @@ public class CFBamIndexTableObj
 			schema.getAuthorization(),
 			buff );
 		obj.copyBuffToPKey();
-		if( obj.getPKey().getClassCode().equals( "a821" ) ) {
+		if( obj.getPKey().getClassCode().equals( "a824" ) ) {
 			obj = (ICFBamIndexObj)(obj.realise());
 		}
 		obj.endEdit();
@@ -1533,7 +1533,7 @@ public class CFBamIndexTableObj
 		ICFBamIndexObj obj = Obj;
 		((ICFBamSchema)schema.getBackingStore()).getTableIndex().updateIndex( schema.getAuthorization(),
 			Obj.getIndexBuff() );
-		if( Obj.getClassCode().equals( "a821" ) ) {
+		if( Obj.getClassCode().equals( "a824" ) ) {
 			obj = (ICFBamIndexObj)Obj.realise();
 		}
 		obj.endEdit();

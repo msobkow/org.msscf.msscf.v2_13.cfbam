@@ -65,7 +65,7 @@ public class CFBamTZTimeDefBuff
 	implements Comparable<Object>,
 		Serializable
 {
-	public final static String CLASS_CODE = "a854";
+	public final static String CLASS_CODE = "a857";
 	public static final long TENANTID_INIT_VALUE = 0L;
 	public static final long ID_INIT_VALUE = 0L;
 	public static final long TENANTID_MIN_VALUE = 0L;

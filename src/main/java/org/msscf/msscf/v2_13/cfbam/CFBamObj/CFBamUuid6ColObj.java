@@ -63,7 +63,7 @@ public class CFBamUuid6ColObj
 	extends CFBamUuid6DefObj
 	implements ICFBamUuid6ColObj
 {
-	public final static String CLASS_CODE = "a887";
+	public final static String CLASS_CODE = "a88a";
 	protected ICFBamTableObj requiredContainerTable;
 
 	public CFBamUuid6ColObj() {

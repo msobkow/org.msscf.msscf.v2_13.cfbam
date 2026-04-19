@@ -63,7 +63,7 @@ public class CFBamPopTopDepObj
 	extends CFBamPopDepObj
 	implements ICFBamPopTopDepObj
 {
-	public final static String CLASS_CODE = "a834";
+	public final static String CLASS_CODE = "a837";
 	protected ICFBamRelationObj requiredContainerContRelation;
 
 	public CFBamPopTopDepObj() {

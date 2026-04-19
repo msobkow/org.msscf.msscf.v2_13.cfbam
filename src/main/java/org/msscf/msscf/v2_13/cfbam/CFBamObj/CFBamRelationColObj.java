@@ -62,7 +62,7 @@ import org.msscf.msscf.v2_13.cfbam.CFBam.*;
 public class CFBamRelationColObj
 	implements ICFBamRelationColObj
 {
-	public final static String CLASS_CODE = "a836";
+	public final static String CLASS_CODE = "a839";
 	protected ICFSecSecUserObj createdBy = null;
 	protected ICFSecSecUserObj updatedBy = null;
 	protected boolean isNew;

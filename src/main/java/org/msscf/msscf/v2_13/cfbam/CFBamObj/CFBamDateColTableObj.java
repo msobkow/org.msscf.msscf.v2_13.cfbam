@@ -532,7 +532,7 @@ public class CFBamDateColTableObj
 			schema.getAuthorization(),
 			buff );
 		obj.copyBuffToPKey();
-		if( obj.getPKey().getClassCode().equals( "a86d" ) ) {
+		if( obj.getPKey().getClassCode().equals( "a870" ) ) {
 			obj = (ICFBamDateColObj)(obj.realise());
 		}
 		ICFBamValueObj prev = obj.getOptionalLookupPrev();
@@ -2425,7 +2425,7 @@ public class CFBamDateColTableObj
 		ICFBamDateColObj obj = Obj;
 		((ICFBamSchema)schema.getBackingStore()).getTableDateCol().updateDateCol( schema.getAuthorization(),
 			Obj.getDateColBuff() );
-		if( Obj.getClassCode().equals( "a86d" ) ) {
+		if( Obj.getClassCode().equals( "a870" ) ) {
 			obj = (ICFBamDateColObj)Obj.realise();
 		}
 		obj.endEdit();

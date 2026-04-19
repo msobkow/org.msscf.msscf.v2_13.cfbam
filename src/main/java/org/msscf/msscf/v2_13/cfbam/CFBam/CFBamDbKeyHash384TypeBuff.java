@@ -65,7 +65,7 @@ public class CFBamDbKeyHash384TypeBuff
 	implements Comparable<Object>,
 		Serializable
 {
-	public final static String CLASS_CODE = "a84a";
+	public final static String CLASS_CODE = "a84d";
 	public static final long TENANTID_INIT_VALUE = 0L;
 	public static final long ID_INIT_VALUE = 0L;
 	public static final long SCHEMADEFID_INIT_VALUE = 0L;

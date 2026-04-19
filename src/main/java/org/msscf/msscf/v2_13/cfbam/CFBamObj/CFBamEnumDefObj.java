@@ -63,7 +63,7 @@ public class CFBamEnumDefObj
 	extends CFBamInt16DefObj
 	implements ICFBamEnumDefObj
 {
-	public final static String CLASS_CODE = "a86f";
+	public final static String CLASS_CODE = "a872";
 
 	public CFBamEnumDefObj() {
 		super();

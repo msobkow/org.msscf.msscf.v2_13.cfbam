@@ -63,7 +63,7 @@ public class CFBamDbKeyHash128DefObj
 	extends CFBamAtomObj
 	implements ICFBamDbKeyHash128DefObj
 {
-	public final static String CLASS_CODE = "a839";
+	public final static String CLASS_CODE = "a83b";
 
 	public CFBamDbKeyHash128DefObj() {
 		super();

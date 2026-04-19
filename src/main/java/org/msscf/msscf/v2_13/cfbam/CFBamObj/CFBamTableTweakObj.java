@@ -63,7 +63,7 @@ public class CFBamTableTweakObj
 	extends CFBamTweakObj
 	implements ICFBamTableTweakObj
 {
-	public final static String CLASS_CODE = "a88b";
+	public final static String CLASS_CODE = "a809";
 	protected ICFBamTableObj requiredContainerTableDef;
 
 	public CFBamTableTweakObj() {

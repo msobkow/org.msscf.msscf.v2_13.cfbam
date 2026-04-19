@@ -65,7 +65,7 @@ public class CFBamDbKeyHash128ColBuff
 	implements Comparable<Object>,
 		Serializable
 {
-	public final static String CLASS_CODE = "a838";
+	public final static String CLASS_CODE = "a83c";
 	public static final long TENANTID_INIT_VALUE = 0L;
 	public static final long ID_INIT_VALUE = 0L;
 	public static final long TABLEID_INIT_VALUE = 0L;

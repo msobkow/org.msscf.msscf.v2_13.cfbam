@@ -491,7 +491,7 @@ public class CFBamDbKeyHash224DefTableObj
 			schema.getAuthorization(),
 			buff );
 		obj.copyBuffToPKey();
-		if( obj.getPKey().getClassCode().equals( "a841" ) ) {
+		if( obj.getPKey().getClassCode().equals( "a843" ) ) {
 			obj = (ICFBamDbKeyHash224DefObj)(obj.realise());
 		}
 		ICFBamValueObj prev = obj.getOptionalLookupPrev();
@@ -2181,7 +2181,7 @@ public class CFBamDbKeyHash224DefTableObj
 		ICFBamDbKeyHash224DefObj obj = Obj;
 		((ICFBamSchema)schema.getBackingStore()).getTableDbKeyHash224Def().updateDbKeyHash224Def( schema.getAuthorization(),
 			Obj.getDbKeyHash224DefBuff() );
-		if( Obj.getClassCode().equals( "a841" ) ) {
+		if( Obj.getClassCode().equals( "a843" ) ) {
 			obj = (ICFBamDbKeyHash224DefObj)Obj.realise();
 		}
 		obj.endEdit();

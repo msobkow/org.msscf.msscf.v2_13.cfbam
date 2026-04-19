@@ -63,7 +63,7 @@ public class CFBamTZTimestampColObj
 	extends CFBamTZTimestampDefObj
 	implements ICFBamTZTimestampColObj
 {
-	public final static String CLASS_CODE = "a87e";
+	public final static String CLASS_CODE = "a881";
 	protected ICFBamTableObj requiredContainerTable;
 
 	public CFBamTZTimestampColObj() {

@@ -374,7 +374,7 @@ public class CFBamServerListFuncTableObj
 			schema.getAuthorization(),
 			buff );
 		obj.copyBuffToPKey();
-		if( obj.getPKey().getClassCode().equals( "a837" ) ) {
+		if( obj.getPKey().getClassCode().equals( "a83a" ) ) {
 			obj = (ICFBamServerListFuncObj)(obj.realise());
 		}
 		obj.endEdit();
@@ -1483,7 +1483,7 @@ public class CFBamServerListFuncTableObj
 		ICFBamServerListFuncObj obj = Obj;
 		((ICFBamSchema)schema.getBackingStore()).getTableServerListFunc().updateServerListFunc( schema.getAuthorization(),
 			Obj.getServerListFuncBuff() );
-		if( Obj.getClassCode().equals( "a837" ) ) {
+		if( Obj.getClassCode().equals( "a83a" ) ) {
 			obj = (ICFBamServerListFuncObj)Obj.realise();
 		}
 		obj.endEdit();

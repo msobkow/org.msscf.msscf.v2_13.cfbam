@@ -63,7 +63,7 @@ public class CFBamClearTopDepObj
 	extends CFBamClearDepObj
 	implements ICFBamClearTopDepObj
 {
-	public final static String CLASS_CODE = "a814";
+	public final static String CLASS_CODE = "a817";
 	protected ICFBamTableObj requiredContainerTable;
 	protected ICFBamClearTopDepObj optionalLookupPrev;
 	protected ICFBamClearTopDepObj optionalLookupNext;

@@ -63,7 +63,7 @@ public class CFBamDbKeyHash512ColObj
 	extends CFBamDbKeyHash512DefObj
 	implements ICFBamDbKeyHash512ColObj
 {
-	public final static String CLASS_CODE = "a84c";
+	public final static String CLASS_CODE = "a850";
 	protected ICFBamTableObj requiredContainerTable;
 
 	public CFBamDbKeyHash512ColObj() {

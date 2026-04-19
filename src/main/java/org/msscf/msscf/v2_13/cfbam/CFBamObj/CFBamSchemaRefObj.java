@@ -63,7 +63,7 @@ public class CFBamSchemaRefObj
 	extends CFBamScopeObj
 	implements ICFBamSchemaRefObj
 {
-	public final static String CLASS_CODE = "a804";
+	public final static String CLASS_CODE = "a803";
 	protected ICFBamSchemaDefObj requiredContainerSchema;
 	protected ICFBamSchemaDefObj optionalLookupRefSchema;
 	protected ICFBamSchemaRefObj optionalLookupPrev;

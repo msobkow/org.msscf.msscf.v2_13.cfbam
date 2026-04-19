@@ -63,7 +63,7 @@ public class CFBamTimeColObj
 	extends CFBamTimeDefObj
 	implements ICFBamTimeColObj
 {
-	public final static String CLASS_CODE = "a880";
+	public final static String CLASS_CODE = "a883";
 	protected ICFBamTableObj requiredContainerTable;
 
 	public CFBamTimeColObj() {

@@ -62,7 +62,7 @@ import org.msscf.msscf.v2_13.cfbam.CFBam.*;
 public class CFBamChainObj
 	implements ICFBamChainObj
 {
-	public final static String CLASS_CODE = "a80f";
+	public final static String CLASS_CODE = "a812";
 	protected ICFSecSecUserObj createdBy = null;
 	protected ICFSecSecUserObj updatedBy = null;
 	protected boolean isNew;

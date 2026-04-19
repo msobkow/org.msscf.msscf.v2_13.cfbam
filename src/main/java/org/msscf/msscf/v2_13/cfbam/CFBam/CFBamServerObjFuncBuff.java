@@ -65,7 +65,7 @@ public class CFBamServerObjFuncBuff
 	implements Comparable<Object>,
 		Serializable
 {
-	public final static String CLASS_CODE = "a806";
+	public final static String CLASS_CODE = "a805";
 	public static final long TENANTID_INIT_VALUE = 0L;
 	public static final long ID_INIT_VALUE = 0L;
 	public static final long RETTENANTID_INIT_VALUE = 0L;

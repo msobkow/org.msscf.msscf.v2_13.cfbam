@@ -532,7 +532,7 @@ public class CFBamTextColTableObj
 			schema.getAuthorization(),
 			buff );
 		obj.copyBuffToPKey();
-		if( obj.getPKey().getClassCode().equals( "a87f" ) ) {
+		if( obj.getPKey().getClassCode().equals( "a882" ) ) {
 			obj = (ICFBamTextColObj)(obj.realise());
 		}
 		ICFBamValueObj prev = obj.getOptionalLookupPrev();
@@ -2425,7 +2425,7 @@ public class CFBamTextColTableObj
 		ICFBamTextColObj obj = Obj;
 		((ICFBamSchema)schema.getBackingStore()).getTableTextCol().updateTextCol( schema.getAuthorization(),
 			Obj.getTextColBuff() );
-		if( Obj.getClassCode().equals( "a87f" ) ) {
+		if( Obj.getClassCode().equals( "a882" ) ) {
 			obj = (ICFBamTextColObj)Obj.realise();
 		}
 		obj.endEdit();

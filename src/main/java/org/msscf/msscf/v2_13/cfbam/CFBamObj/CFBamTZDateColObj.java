@@ -63,7 +63,7 @@ public class CFBamTZDateColObj
 	extends CFBamTZDateDefObj
 	implements ICFBamTZDateColObj
 {
-	public final static String CLASS_CODE = "a87c";
+	public final static String CLASS_CODE = "a87f";
 	protected ICFBamTableObj requiredContainerTable;
 
 	public CFBamTZDateColObj() {

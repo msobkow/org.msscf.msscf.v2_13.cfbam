@@ -65,7 +65,7 @@ public class CFBamUInt64DefBuff
 	implements Comparable<Object>,
 		Serializable
 {
-	public final static String CLASS_CODE = "a865";
+	public final static String CLASS_CODE = "a868";
 	public static final long TENANTID_INIT_VALUE = 0L;
 	public static final long ID_INIT_VALUE = 0L;
 	public static final BigDecimal INITVALUE_INIT_VALUE = CFLibBigDecimalUtil.parse( "CFBam.UInt64Def.InitValue", 19, 0, "0" );
