@@ -176,8 +176,10 @@ public class CFBamSchemaObj
 	protected ICFBamPopTopDepTableObj popTopDepTableObj;
 	protected ICFBamRelationTableObj relationTableObj;
 	protected ICFBamRelationColTableObj relationColTableObj;
+	protected ICFBamRoleDefTableObj roleDefTableObj;
 	protected ICFBamSchemaDefTableObj schemaDefTableObj;
 	protected ICFBamSchemaRefTableObj schemaRefTableObj;
+	protected ICFBamSchemaRoleTableObj schemaRoleTableObj;
 	protected ICFBamSchemaTweakTableObj schemaTweakTableObj;
 	protected ICFBamScopeTableObj scopeTableObj;
 	protected ICFBamSecAppTableObj secAppTableObj;
@@ -351,8 +353,10 @@ public class CFBamSchemaObj
 		popTopDepTableObj = new CFBamPopTopDepTableObj( this );
 		relationTableObj = new CFBamRelationTableObj( this );
 		relationColTableObj = new CFBamRelationColTableObj( this );
+		roleDefTableObj = new CFBamRoleDefTableObj( this );
 		schemaDefTableObj = new CFBamSchemaDefTableObj( this );
 		schemaRefTableObj = new CFBamSchemaRefTableObj( this );
+		schemaRoleTableObj = new CFBamSchemaRoleTableObj( this );
 		schemaTweakTableObj = new CFBamSchemaTweakTableObj( this );
 		scopeTableObj = new CFBamScopeTableObj( this );
 		secAppTableObj = new CFBamSecAppTableObj( this );
@@ -1225,11 +1229,17 @@ public class CFBamSchemaObj
 		if( relationColTableObj != null ) {
 			relationColTableObj.minimizeMemory();
 		}
+		if( roleDefTableObj != null ) {
+			roleDefTableObj.minimizeMemory();
+		}
 		if( schemaDefTableObj != null ) {
 			schemaDefTableObj.minimizeMemory();
 		}
 		if( schemaRefTableObj != null ) {
 			schemaRefTableObj.minimizeMemory();
+		}
+		if( schemaRoleTableObj != null ) {
+			schemaRoleTableObj.minimizeMemory();
 		}
 		if( schemaTweakTableObj != null ) {
 			schemaTweakTableObj.minimizeMemory();
@@ -1861,12 +1871,20 @@ public class CFBamSchemaObj
 		return( relationColTableObj );
 	}
 
+	public ICFBamRoleDefTableObj getRoleDefTableObj() {
+		return( roleDefTableObj );
+	}
+
 	public ICFBamSchemaDefTableObj getSchemaDefTableObj() {
 		return( schemaDefTableObj );
 	}
 
 	public ICFBamSchemaRefTableObj getSchemaRefTableObj() {
 		return( schemaRefTableObj );
+	}
+
+	public ICFBamSchemaRoleTableObj getSchemaRoleTableObj() {
+		return( schemaRoleTableObj );
 	}
 
 	public ICFBamSchemaTweakTableObj getSchemaTweakTableObj() {

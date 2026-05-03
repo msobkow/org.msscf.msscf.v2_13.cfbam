@@ -162,6 +162,11 @@ public class CFBamSchemaDefObj
 				getRequiredId(),
 				nextName, false );
 		}
+		if( subObj == null ) {
+			subObj = ((ICFBamSchemaObj)getSchema()).getSchemaRoleTableObj().readSchemaRoleByUNameIdx( getRequiredTenantId(),
+				getRequiredId(),
+				nextName, false );
+		}
 		if( remainingName == null ) {
 			retObj = subObj;
 		}
@@ -1061,6 +1066,22 @@ public class CFBamSchemaDefObj
 	public List<ICFBamTweakObj> getOptionalComponentsTweaks( boolean forceRead ) {
 		List<ICFBamTweakObj> retval;
 		retval = ((ICFBamSchemaObj)schema).getTweakTableObj().readTweakByScopeIdx( getPKey().getRequiredTenantId(),
+					getPKey().getRequiredId(),
+			forceRead );
+		return( retval );
+	}
+
+	public List<ICFBamSchemaRoleObj> getOptionalComponentsRoles() {
+		List<ICFBamSchemaRoleObj> retval;
+		retval = ((ICFBamSchemaObj)schema).getSchemaRoleTableObj().readSchemaRoleBySchemaIdx( getPKey().getRequiredTenantId(),
+					getPKey().getRequiredId(),
+			false );
+		return( retval );
+	}
+
+	public List<ICFBamSchemaRoleObj> getOptionalComponentsRoles( boolean forceRead ) {
+		List<ICFBamSchemaRoleObj> retval;
+		retval = ((ICFBamSchemaObj)schema).getSchemaRoleTableObj().readSchemaRoleBySchemaIdx( getPKey().getRequiredTenantId(),
 					getPKey().getRequiredId(),
 			forceRead );
 		return( retval );

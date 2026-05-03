@@ -666,6 +666,13 @@ public interface ICFBamSchemaObj
 	ICFBamRelationColTableObj getRelationColTableObj();
 
 	/**
+	 *	Get the RoleDef interface for the schema.
+	 *
+	 *	@return	The ICFBamRoleDefTableObj interface implementation for the schema.
+	 */
+	ICFBamRoleDefTableObj getRoleDefTableObj();
+
+	/**
 	 *	Get the SchemaDef interface for the schema.
 	 *
 	 *	@return	The ICFBamSchemaDefTableObj interface implementation for the schema.
@@ -678,6 +685,13 @@ public interface ICFBamSchemaObj
 	 *	@return	The ICFBamSchemaRefTableObj interface implementation for the schema.
 	 */
 	ICFBamSchemaRefTableObj getSchemaRefTableObj();
+
+	/**
+	 *	Get the SchemaRole interface for the schema.
+	 *
+	 *	@return	The ICFBamSchemaRoleTableObj interface implementation for the schema.
+	 */
+	ICFBamSchemaRoleTableObj getSchemaRoleTableObj();
 
 	/**
 	 *	Get the SchemaTweak interface for the schema.

@@ -471,8 +471,10 @@ public class CFBamSchema
 	protected ICFBamPopTopDepTable tablePopTopDep;
 	protected ICFBamRelationTable tableRelation;
 	protected ICFBamRelationColTable tableRelationCol;
+	protected ICFBamRoleDefTable tableRoleDef;
 	protected ICFBamSchemaDefTable tableSchemaDef;
 	protected ICFBamSchemaRefTable tableSchemaRef;
+	protected ICFBamSchemaRoleTable tableSchemaRole;
 	protected ICFBamSchemaTweakTable tableSchemaTweak;
 	protected ICFBamScopeTable tableScope;
 	protected ICFSecSecAppTable tableSecApp;
@@ -645,8 +647,10 @@ public class CFBamSchema
 	protected ICFBamPopTopDepFactory factoryPopTopDep;
 	protected ICFBamRelationFactory factoryRelation;
 	protected ICFBamRelationColFactory factoryRelationCol;
+	protected ICFBamRoleDefFactory factoryRoleDef;
 	protected ICFBamSchemaDefFactory factorySchemaDef;
 	protected ICFBamSchemaRefFactory factorySchemaRef;
+	protected ICFBamSchemaRoleFactory factorySchemaRole;
 	protected ICFBamSchemaTweakFactory factorySchemaTweak;
 	protected ICFBamScopeFactory factoryScope;
 	protected ICFSecSecAppFactory factorySecApp;
@@ -824,8 +828,10 @@ public class CFBamSchema
 		tablePopTopDep = null;
 		tableRelation = null;
 		tableRelationCol = null;
+		tableRoleDef = null;
 		tableSchemaDef = null;
 		tableSchemaRef = null;
+		tableSchemaRole = null;
 		tableSchemaTweak = null;
 		tableScope = null;
 		tableSecApp = null;
@@ -998,8 +1004,10 @@ public class CFBamSchema
 		factoryPopTopDep = new CFBamPopTopDepDefaultFactory();
 		factoryRelation = new CFBamRelationDefaultFactory();
 		factoryRelationCol = new CFBamRelationColDefaultFactory();
+		factoryRoleDef = new CFBamRoleDefDefaultFactory();
 		factorySchemaDef = new CFBamSchemaDefDefaultFactory();
 		factorySchemaRef = new CFBamSchemaRefDefaultFactory();
+		factorySchemaRole = new CFBamSchemaRoleDefaultFactory();
 		factorySchemaTweak = new CFBamSchemaTweakDefaultFactory();
 		factoryScope = new CFBamScopeDefaultFactory();
 		factorySecApp = new CFBamSecAppDefaultFactory();
@@ -1182,8 +1190,10 @@ public class CFBamSchema
 		tablePopTopDep = null;
 		tableRelation = null;
 		tableRelationCol = null;
+		tableRoleDef = null;
 		tableSchemaDef = null;
 		tableSchemaRef = null;
+		tableSchemaRole = null;
 		tableSchemaTweak = null;
 		tableScope = null;
 		tableSecApp = null;
@@ -1356,8 +1366,10 @@ public class CFBamSchema
 		factoryPopTopDep = new CFBamPopTopDepDefaultFactory();
 		factoryRelation = new CFBamRelationDefaultFactory();
 		factoryRelationCol = new CFBamRelationColDefaultFactory();
+		factoryRoleDef = new CFBamRoleDefDefaultFactory();
 		factorySchemaDef = new CFBamSchemaDefDefaultFactory();
 		factorySchemaRef = new CFBamSchemaRefDefaultFactory();
+		factorySchemaRole = new CFBamSchemaRoleDefaultFactory();
 		factorySchemaTweak = new CFBamSchemaTweakDefaultFactory();
 		factoryScope = new CFBamScopeDefaultFactory();
 		factorySecApp = new CFBamSecAppDefaultFactory();
@@ -1540,8 +1552,10 @@ public class CFBamSchema
 		tablePopTopDep = null;
 		tableRelation = null;
 		tableRelationCol = null;
+		tableRoleDef = null;
 		tableSchemaDef = null;
 		tableSchemaRef = null;
+		tableSchemaRole = null;
 		tableSchemaTweak = null;
 		tableScope = null;
 		tableSecApp = null;
@@ -1714,8 +1728,10 @@ public class CFBamSchema
 		factoryPopTopDep = new CFBamPopTopDepDefaultFactory();
 		factoryRelation = new CFBamRelationDefaultFactory();
 		factoryRelationCol = new CFBamRelationColDefaultFactory();
+		factoryRoleDef = new CFBamRoleDefDefaultFactory();
 		factorySchemaDef = new CFBamSchemaDefDefaultFactory();
 		factorySchemaRef = new CFBamSchemaRefDefaultFactory();
+		factorySchemaRole = new CFBamSchemaRoleDefaultFactory();
 		factorySchemaTweak = new CFBamSchemaTweakDefaultFactory();
 		factoryScope = new CFBamScopeDefaultFactory();
 		factorySecApp = new CFBamSecAppDefaultFactory();
@@ -3497,6 +3513,22 @@ public class CFBamSchema
 		factoryRelationCol = value;
 	}
 
+	public ICFBamRoleDefTable getTableRoleDef() {
+		return( tableRoleDef );
+	}
+
+	public void setTableRoleDef( ICFBamRoleDefTable value ) {
+		tableRoleDef = value;
+	}
+
+	public ICFBamRoleDefFactory getFactoryRoleDef() {
+		return( factoryRoleDef );
+	}
+
+	public void setFactoryRoleDef( ICFBamRoleDefFactory value ) {
+		factoryRoleDef = value;
+	}
+
 	public ICFBamSchemaDefTable getTableSchemaDef() {
 		return( tableSchemaDef );
 	}
@@ -3527,6 +3559,22 @@ public class CFBamSchema
 
 	public void setFactorySchemaRef( ICFBamSchemaRefFactory value ) {
 		factorySchemaRef = value;
+	}
+
+	public ICFBamSchemaRoleTable getTableSchemaRole() {
+		return( tableSchemaRole );
+	}
+
+	public void setTableSchemaRole( ICFBamSchemaRoleTable value ) {
+		tableSchemaRole = value;
+	}
+
+	public ICFBamSchemaRoleFactory getFactorySchemaRole() {
+		return( factorySchemaRole );
+	}
+
+	public void setFactorySchemaRole( ICFBamSchemaRoleFactory value ) {
+		factorySchemaRole = value;
 	}
 
 	public ICFBamSchemaTweakTable getTableSchemaTweak() {

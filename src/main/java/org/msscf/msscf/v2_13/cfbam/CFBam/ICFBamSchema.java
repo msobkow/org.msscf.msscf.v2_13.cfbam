@@ -2013,6 +2013,24 @@ extends ICFSecSchema,
 	ICFBamRelationColFactory getFactoryRelationCol();
 
 	/**
+	 *	Get the RoleDef Table interface for the schema.
+	 *
+	 *	@return	The RoleDef Table interface for the schema.
+	 *
+	 *	@throws CFLibNotSupportedException thrown by client-side implementations.
+	 */
+	ICFBamRoleDefTable getTableRoleDef();
+
+	/**
+	 *	Get the RoleDef Factory interface for the schema.
+	 *
+	 *	@return	The RoleDef Factory interface for the schema.
+	 *
+	 *	@throws CFLibNotSupportedException thrown by client-side implementations.
+	 */
+	ICFBamRoleDefFactory getFactoryRoleDef();
+
+	/**
 	 *	Get the SchemaDef Table interface for the schema.
 	 *
 	 *	@return	The SchemaDef Table interface for the schema.
@@ -2047,6 +2065,24 @@ extends ICFSecSchema,
 	 *	@throws CFLibNotSupportedException thrown by client-side implementations.
 	 */
 	ICFBamSchemaRefFactory getFactorySchemaRef();
+
+	/**
+	 *	Get the SchemaRole Table interface for the schema.
+	 *
+	 *	@return	The SchemaRole Table interface for the schema.
+	 *
+	 *	@throws CFLibNotSupportedException thrown by client-side implementations.
+	 */
+	ICFBamSchemaRoleTable getTableSchemaRole();
+
+	/**
+	 *	Get the SchemaRole Factory interface for the schema.
+	 *
+	 *	@return	The SchemaRole Factory interface for the schema.
+	 *
+	 *	@throws CFLibNotSupportedException thrown by client-side implementations.
+	 */
+	ICFBamSchemaRoleFactory getFactorySchemaRole();
 
 	/**
 	 *	Get the SchemaTweak Table interface for the schema.
