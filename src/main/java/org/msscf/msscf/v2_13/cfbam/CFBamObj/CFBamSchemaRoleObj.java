@@ -290,6 +290,10 @@ public class CFBamSchemaRoleObj
 		return( getSchemaRoleBuff().getRequiredSchemaDefId() );
 	}
 
+	public ICFBamSchema.RoleScopeEnum getRequiredRoleScope() {
+		return( getSchemaRoleBuff().getRequiredRoleScope() );
+	}
+
 	public ICFBamSchemaDefObj getRequiredContainerSchemaDef() {
 		return( getRequiredContainerSchemaDef( false ) );
 	}

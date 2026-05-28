@@ -95,6 +95,13 @@ public interface ICFBamSchemaRoleObj
 	long getRequiredSchemaDefId();
 
 	/**
+	 *	Get the required ICFBamSchema.RoleScopeEnum attribute RoleScope.
+	 *
+	 *	@return	The required ICFBamSchema.RoleScopeEnum attribute RoleScope.
+	 */
+	ICFBamSchema.RoleScopeEnum getRequiredRoleScope();
+
+	/**
 	 *	Get the required ICFBamSchemaDefObj instance referenced by the SchemaDef key.
 	 *
 	 *	@return	The required ICFBamSchemaDefObj instance referenced by the SchemaDef key.

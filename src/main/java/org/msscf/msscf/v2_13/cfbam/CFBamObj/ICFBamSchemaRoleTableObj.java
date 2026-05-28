@@ -352,6 +352,60 @@ public interface ICFBamSchemaRoleTableObj
 		long SchemaDefId,
 		boolean forceRead );
 
+	/**
+	 *	Get the map of CFBamSchemaRoleObj instances sorted by their primary keys for the duplicate RoleScopeIdx key.
+	 *
+	 *	@param	argRoleScope	The SchemaRole key attribute of the instance generating the id.
+	 *
+	 *	@return	List of CFBamSchemaRoleObj cached instances sorted by their primary keys for the duplicate RoleScopeIdx key,
+	 *		which may be an empty set.
+	 */
+	List<ICFBamSchemaRoleObj> readSchemaRoleByRoleScopeIdx( ICFBamSchema.RoleScopeEnum RoleScope );
+
+	/**
+	 *	Get the map of CFBamSchemaRoleObj instances sorted by their primary keys for the duplicate RoleScopeIdx key.
+	 *
+	 *	@param	argRoleScope	The SchemaRole key attribute of the instance generating the id.
+	 *
+	 *	@return	List of CFBamSchemaRoleObj cached instances sorted by their primary keys for the duplicate RoleScopeIdx key,
+	 *		which may be an empty set.
+	 */
+	List<ICFBamSchemaRoleObj> readSchemaRoleByRoleScopeIdx( ICFBamSchema.RoleScopeEnum RoleScope,
+		boolean forceRead );
+
+	/**
+	 *	Get the map of CFBamSchemaRoleObj instances sorted by their primary keys for the duplicate SchRoleScpIdx key.
+	 *
+	 *	@param	argTenantId	The SchemaRole key attribute of the instance generating the id.
+	 *
+	 *	@param	argSchemaDefId	The SchemaRole key attribute of the instance generating the id.
+	 *
+	 *	@param	argRoleScope	The SchemaRole key attribute of the instance generating the id.
+	 *
+	 *	@return	List of CFBamSchemaRoleObj cached instances sorted by their primary keys for the duplicate SchRoleScpIdx key,
+	 *		which may be an empty set.
+	 */
+	List<ICFBamSchemaRoleObj> readSchemaRoleBySchRoleScpIdx( long TenantId,
+		long SchemaDefId,
+		ICFBamSchema.RoleScopeEnum RoleScope );
+
+	/**
+	 *	Get the map of CFBamSchemaRoleObj instances sorted by their primary keys for the duplicate SchRoleScpIdx key.
+	 *
+	 *	@param	argTenantId	The SchemaRole key attribute of the instance generating the id.
+	 *
+	 *	@param	argSchemaDefId	The SchemaRole key attribute of the instance generating the id.
+	 *
+	 *	@param	argRoleScope	The SchemaRole key attribute of the instance generating the id.
+	 *
+	 *	@return	List of CFBamSchemaRoleObj cached instances sorted by their primary keys for the duplicate SchRoleScpIdx key,
+	 *		which may be an empty set.
+	 */
+	List<ICFBamSchemaRoleObj> readSchemaRoleBySchRoleScpIdx( long TenantId,
+		long SchemaDefId,
+		ICFBamSchema.RoleScopeEnum RoleScope,
+		boolean forceRead );
+
 	ICFBamSchemaRoleObj readCachedSchemaRoleByIdIdx( long TenantId,
 		long Id );
 
@@ -376,6 +430,12 @@ public interface ICFBamSchemaRoleTableObj
 	List<ICFBamSchemaRoleObj> readCachedSchemaRoleBySchemaIdx( long TenantId,
 		long SchemaDefId );
 
+	List<ICFBamSchemaRoleObj> readCachedSchemaRoleByRoleScopeIdx( ICFBamSchema.RoleScopeEnum RoleScope );
+
+	List<ICFBamSchemaRoleObj> readCachedSchemaRoleBySchRoleScpIdx( long TenantId,
+		long SchemaDefId,
+		ICFBamSchema.RoleScopeEnum RoleScope );
+
 	void deepDisposeSchemaRoleByIdIdx( long TenantId,
 		long Id );
 
@@ -399,6 +459,12 @@ public interface ICFBamSchemaRoleTableObj
 
 	void deepDisposeSchemaRoleBySchemaIdx( long TenantId,
 		long SchemaDefId );
+
+	void deepDisposeSchemaRoleByRoleScopeIdx( ICFBamSchema.RoleScopeEnum RoleScope );
+
+	void deepDisposeSchemaRoleBySchRoleScpIdx( long TenantId,
+		long SchemaDefId,
+		ICFBamSchema.RoleScopeEnum RoleScope );
 
 	/**
 	 *	Internal use only.
@@ -488,4 +554,24 @@ public interface ICFBamSchemaRoleTableObj
 	 */
 	void deleteSchemaRoleBySchemaIdx( long TenantId,
 		long SchemaDefId );
+
+	/**
+	 *	Internal use only.
+	 *
+	 *	@param	argRoleScope	The SchemaRole key attribute of the instance generating the id.
+	 */
+	void deleteSchemaRoleByRoleScopeIdx( ICFBamSchema.RoleScopeEnum RoleScope );
+
+	/**
+	 *	Internal use only.
+	 *
+	 *	@param	argTenantId	The SchemaRole key attribute of the instance generating the id.
+	 *
+	 *	@param	argSchemaDefId	The SchemaRole key attribute of the instance generating the id.
+	 *
+	 *	@param	argRoleScope	The SchemaRole key attribute of the instance generating the id.
+	 */
+	void deleteSchemaRoleBySchRoleScpIdx( long TenantId,
+		long SchemaDefId,
+		ICFBamSchema.RoleScopeEnum RoleScope );
 }

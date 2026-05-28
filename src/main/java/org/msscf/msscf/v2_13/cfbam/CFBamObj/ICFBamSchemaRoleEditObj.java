@@ -71,6 +71,20 @@ public interface ICFBamSchemaRoleEditObj
 	ICFBamSchemaRoleObj getOrigAsSchemaRole();
 
 	/**
+	 *	Get the required ICFBamSchema.RoleScopeEnum attribute RoleScope.
+	 *
+	 *	@return	The ICFBamSchema.RoleScopeEnum value of the attribute RoleScope.
+	 */
+	ICFBamSchema.RoleScopeEnum getRequiredRoleScope();
+
+	/**
+	 *	Set the required ICFBamSchema.RoleScopeEnum attribute RoleScope.
+	 *
+	 *	@param	value	the ICFBamSchema.RoleScopeEnum value of the attribute RoleScope.
+	 */
+	void setRequiredRoleScope( ICFBamSchema.RoleScopeEnum value );
+
+	/**
 	 *	Get the ICFBamSchemaDefObj instance referenced by the SchemaDef key.
 	 *
 	 *	@return	The ICFBamSchemaDefObj instance referenced by the SchemaDef key.

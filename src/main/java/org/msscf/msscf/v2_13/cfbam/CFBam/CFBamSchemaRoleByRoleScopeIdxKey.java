@@ -1,5 +1,4 @@
-
-// Description: Java 11 Factory interface for SchemaRole.
+// Description: Java 11 implementation of a SchemaRole by RoleScopeIdx index key object.
 
 /*
  *	org.msscf.msscf.CFBam
@@ -49,6 +48,8 @@
 package org.msscf.msscf.v2_13.cfbam.CFBam;
 
 import java.lang.reflect.*;
+import java.io.*;
+import java.math.*;
 import java.net.*;
 import java.rmi.*;
 import java.sql.*;
@@ -59,45 +60,95 @@ import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
 import org.msscf.msscf.v2_13.cfsec.CFSec.*;
 import org.msscf.msscf.v2_13.cfint.CFInt.*;
 
-/*
- *	CFBamSchemaRoleFactory interface for SchemaRole
- */
-public interface ICFBamSchemaRoleFactory
+public class CFBamSchemaRoleByRoleScopeIdxKey
+	implements Comparable<Object>,
+		Serializable
 {
+	protected ICFBamSchema.RoleScopeEnum requiredRoleScope;
+	public CFBamSchemaRoleByRoleScopeIdxKey() {
+		requiredRoleScope = CFBamSchemaRoleBuff.ROLESCOPE_INIT_VALUE;
+	}
 
-	/**
-	 *	Allocate a SchemaIdx key over SchemaRole instances.
-	 *
-	 *	@return	The new instance.
-	 */
-	CFBamSchemaRoleBySchemaIdxKey newSchemaIdxKey();
+	public ICFBamSchema.RoleScopeEnum getRequiredRoleScope() {
+		return( requiredRoleScope );
+	}
 
-	/**
-	 *	Allocate a RoleScopeIdx key over SchemaRole instances.
-	 *
-	 *	@return	The new instance.
-	 */
-	CFBamSchemaRoleByRoleScopeIdxKey newRoleScopeIdxKey();
+	public void setRequiredRoleScope( ICFBamSchema.RoleScopeEnum value ) {
+		if( value == null ) {
+			throw new CFLibNullArgumentException( getClass(),
+				"setRequiredRoleScope",
+				1,
+				"value" );
+		}
+		requiredRoleScope = value;
+	}
 
-	/**
-	 *	Allocate a SchRoleScpIdx key over SchemaRole instances.
-	 *
-	 *	@return	The new instance.
-	 */
-	CFBamSchemaRoleBySchRoleScpIdxKey newSchRoleScpIdxKey();
+	public boolean equals( Object obj ) {
+		if( obj == null ) {
+			return( false );
+		}
+		else if( obj instanceof CFBamSchemaRoleByRoleScopeIdxKey ) {
+			CFBamSchemaRoleByRoleScopeIdxKey rhs = (CFBamSchemaRoleByRoleScopeIdxKey)obj;
+			if( ! getRequiredRoleScope().equals( rhs.getRequiredRoleScope() ) ) {
+				return( false );
+			}
+			return( true );
+		}
+		else if( obj instanceof CFBamSchemaRoleBuff ) {
+			CFBamSchemaRoleBuff rhs = (CFBamSchemaRoleBuff)obj;
+			if( ! getRequiredRoleScope().equals( rhs.getRequiredRoleScope() ) ) {
+				return( false );
+			}
+			return( true );
+		}
+		else {
+			return( false );
+		}
+	}
 
-	/**
-	 *	Allocate a SchemaRole instance buffer.
-	 *
-	 *	@return	The new instance.
-	 */
-	CFBamSchemaRoleBuff newBuff();
+	public int hashCode() {
+		int hashCode = 0;
+		hashCode = ( hashCode * 0x10000 ) + getRequiredRoleScope().ordinal();
+		return( hashCode & 0x7fffffff );
+	}
 
-	/**
-	 *	Allocate a SchemaRole history instance buffer.
-	 *
-	 *	@return	The new instance.
-	 */
-	CFBamSchemaRoleHBuff newHBuff();
+	public int compareTo( Object obj ) {
+		if( obj == null ) {
+			return( 1 );
+		}
+		else if( obj instanceof CFBamSchemaRoleByRoleScopeIdxKey ) {
+			CFBamSchemaRoleByRoleScopeIdxKey rhs = (CFBamSchemaRoleByRoleScopeIdxKey)obj;
+			{
+				int cmp = getRequiredRoleScope().compareTo( rhs.getRequiredRoleScope() );
+				if( cmp != 0 ) {
+					return( cmp );
+				}
+			}
+			return( 0 );
+		}
+		else if( obj instanceof CFBamSchemaRoleBuff ) {
+			CFBamSchemaRoleBuff rhs = (CFBamSchemaRoleBuff)obj;
+			{
+				int cmp = getRequiredRoleScope().compareTo( rhs.getRequiredRoleScope() );
+				if( cmp != 0 ) {
+					return( cmp );
+				}
+			}
+			return( 0 );
+		}
+		else {
+			throw new CFLibUnsupportedClassException( getClass(),
+				"compareTo",
+				"obj",
+				obj,
+				null );
+		}
+	}
 
+	public String toString() {
+		String ret = "<CFBamSchemaRoleByRoleScopeIdx"
+			+ " RequiredRoleScope=" + "\"" + getRequiredRoleScope().toString() + "\""
+			+ "/>";
+		return( ret );
+	}
 }

@@ -373,6 +373,100 @@ public class CFBamSchema
 		return( retval );
 	}
 
+	static HashMap<String,RoleScopeEnum> lookupRoleScopeEnum = null;
+
+	public static RoleScopeEnum parseRoleScopeEnum( String value ) {
+		RoleScopeEnum retval = parseRoleScopeEnum( CFBamSchema.class.getName(), value );
+		return( retval );
+	}
+
+	public static RoleScopeEnum parseRoleScopeEnum( String fieldOrClassName, String value ) {
+		final String S_ProcName = "parseRoleScopeEnum";
+		if( lookupRoleScopeEnum == null ) {
+			HashMap<String,RoleScopeEnum> newMap = new HashMap<String,RoleScopeEnum>();
+			newMap.put( "SysRole", RoleScopeEnum.SysRole );
+			newMap.put( "ClusRole", RoleScopeEnum.ClusRole );
+			newMap.put( "TentRole", RoleScopeEnum.TentRole );
+			lookupRoleScopeEnum = newMap;
+		}
+		RoleScopeEnum retval;
+		if( ( value == null ) || ( value.length() <= 0 ) ) {
+			retval = null;
+		}
+		else {
+			retval = lookupRoleScopeEnum.get( value );
+			if( retval == null ) {
+				throw new CFLibInvalidArgumentException( fieldOrClassName,
+					S_ProcName,
+					1,
+					"value",
+					"Invalid enum limb argument " + value );
+			}
+		}
+		return( retval );
+	}
+
+	static HashMap<Integer,RoleScopeEnum> lookupOrdinalRoleScopeEnum = null;
+
+	public static RoleScopeEnum ordinalToRoleScopeEnum( String fieldOrClassName, Short value ) {
+		RoleScopeEnum retval;
+		if( value == null ) {
+			retval = null;
+		}
+		else {
+			retval = ordinalToRoleScopeEnum( fieldOrClassName, Integer.valueOf( value.shortValue() ) );
+		}
+		return( retval );
+	}
+
+	public static RoleScopeEnum ordinalToRoleScopeEnum( Short value ) {
+		RoleScopeEnum retval;
+		if( value == null ) {
+			retval = null;
+		}
+		else {
+			retval = ordinalToRoleScopeEnum( Integer.valueOf( value.shortValue() ) );
+		}
+		return( retval );
+	}
+
+	public static RoleScopeEnum ordinalToRoleScopeEnum( Integer value ) {
+		RoleScopeEnum retval;
+		if( value == null ) {
+			retval = null;
+		}
+		else {
+			retval = ordinalToRoleScopeEnum( CFBamSchema.class.getName(), Integer.valueOf( value.shortValue() ) );
+		}
+		return( retval );
+	}
+
+	public static RoleScopeEnum ordinalToRoleScopeEnum( String fieldOrClassName, Integer value ) {
+		final String S_ProcName = "ordinalToRoleScopeEnum";
+		if( lookupOrdinalRoleScopeEnum == null ) {
+			HashMap<Integer,RoleScopeEnum> newMap = new HashMap<Integer,RoleScopeEnum>();
+			newMap.put( Integer.valueOf( RoleScopeEnum.SysRole.ordinal() ), RoleScopeEnum.SysRole );
+			newMap.put( Integer.valueOf( RoleScopeEnum.ClusRole.ordinal() ), RoleScopeEnum.ClusRole );
+			newMap.put( Integer.valueOf( RoleScopeEnum.TentRole.ordinal() ), RoleScopeEnum.TentRole );
+			lookupOrdinalRoleScopeEnum = newMap;
+		}
+		RoleScopeEnum retval;
+		if( value == null ) {
+			retval = null;
+		}
+		else {
+			retval = lookupOrdinalRoleScopeEnum.get( value );
+			if( retval == null ) {
+				throw new CFLibInvalidArgumentException( fieldOrClassName,
+					S_ProcName,
+					1,
+					"value",
+					"Invalid enum ordinal argument " + value.toString() );
+			}
+		}
+		return( retval );
+	}
+
 	protected ICFBamAtomTable tableAtom;
 	protected ICFBamBlobColTable tableBlobCol;
 	protected ICFBamBlobDefTable tableBlobDef;

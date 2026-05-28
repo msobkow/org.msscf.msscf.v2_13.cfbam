@@ -91,6 +91,12 @@ extends ICFSecSchema,
 		TenantGroup
 	};
 
+	public enum RoleScopeEnum {
+		SysRole,
+		ClusRole,
+		TentRole
+	};
+
 	CFSecConfigurationFile getConfigurationFile();
 	void setConfigurationFile( CFSecConfigurationFile value );
 

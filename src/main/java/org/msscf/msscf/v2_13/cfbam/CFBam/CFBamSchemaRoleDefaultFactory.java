@@ -74,6 +74,18 @@ public class CFBamSchemaRoleDefaultFactory
 		return( key );
 	}
 
+	public CFBamSchemaRoleByRoleScopeIdxKey newRoleScopeIdxKey() {
+		CFBamSchemaRoleByRoleScopeIdxKey key =
+			new CFBamSchemaRoleByRoleScopeIdxKey();
+		return( key );
+	}
+
+	public CFBamSchemaRoleBySchRoleScpIdxKey newSchRoleScpIdxKey() {
+		CFBamSchemaRoleBySchRoleScpIdxKey key =
+			new CFBamSchemaRoleBySchRoleScpIdxKey();
+		return( key );
+	}
+
 	public CFBamSchemaRoleBuff newBuff() {
 		CFBamSchemaRoleBuff buff =
 			new CFBamSchemaRoleBuff();

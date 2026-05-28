@@ -68,14 +68,19 @@ public class CFBamSchemaRoleHBuff
 	public static final long TENANTID_INIT_VALUE = 0L;
 	public static final long ID_INIT_VALUE = 0L;
 	public static final long SCHEMADEFID_INIT_VALUE = 0L;
+	public static final ICFBamSchema.RoleScopeEnum ROLESCOPE_INIT_VALUE = CFBamSchema.ordinalToRoleScopeEnum( 0 );
 	public static final long TENANTID_MIN_VALUE = 0L;
 	public static final long ID_MIN_VALUE = 0L;
 	public static final long SCHEMADEFID_MIN_VALUE = 0L;
+	public static final ICFBamSchema.RoleScopeEnum ROLESCOPE_MIN_VALUE = ICFBamSchema.RoleScopeEnum.SysRole;
+	public static final ICFBamSchema.RoleScopeEnum ROLESCOPE_MAX_VALUE = ICFBamSchema.RoleScopeEnum.TentRole;
 
 	protected long requiredSchemaDefId;
+	protected ICFBamSchema.RoleScopeEnum requiredRoleScope;
 	public CFBamSchemaRoleHBuff() {
 		super();
 		requiredSchemaDefId = CFBamSchemaRoleBuff.SCHEMADEFID_INIT_VALUE;
+		requiredRoleScope = CFBamSchemaRoleBuff.ROLESCOPE_INIT_VALUE;
 	}
 
 	public String getClassCode() {
@@ -98,6 +103,20 @@ public class CFBamSchemaRoleHBuff
 		requiredSchemaDefId = value;
 	}
 
+	public ICFBamSchema.RoleScopeEnum getRequiredRoleScope() {
+		return( requiredRoleScope );
+	}
+
+	public void setRequiredRoleScope( ICFBamSchema.RoleScopeEnum value ) {
+		if( value == null ) {
+			throw new CFLibNullArgumentException( getClass(),
+				"setRequiredRoleScope",
+				1,
+				"value" );
+		}
+		requiredRoleScope = value;
+	}
+
 	public boolean equals( Object obj ) {
 		if( obj == null ) {
 			return( false );
@@ -116,6 +135,9 @@ public class CFBamSchemaRoleHBuff
 			if( getRequiredSchemaDefId() != rhs.getRequiredSchemaDefId() ) {
 				return( false );
 			}
+			if( ! getRequiredRoleScope().equals( rhs.getRequiredRoleScope() ) ) {
+				return( false );
+			}
 			return( true );
 		}
 		else if( obj instanceof CFBamSchemaRoleBuff ) {
@@ -132,6 +154,9 @@ public class CFBamSchemaRoleHBuff
 			if( getRequiredSchemaDefId() != rhs.getRequiredSchemaDefId() ) {
 				return( false );
 			}
+			if( ! getRequiredRoleScope().equals( rhs.getRequiredRoleScope() ) ) {
+				return( false );
+			}
 			return( true );
 		}
 		else if( obj instanceof CFBamSchemaRoleBySchemaIdxKey ) {
@@ -144,6 +169,26 @@ public class CFBamSchemaRoleHBuff
 			}
 			return( true );
 		}
+		else if( obj instanceof CFBamSchemaRoleByRoleScopeIdxKey ) {
+			CFBamSchemaRoleByRoleScopeIdxKey rhs = (CFBamSchemaRoleByRoleScopeIdxKey)obj;
+			if( ! getRequiredRoleScope().equals( rhs.getRequiredRoleScope() ) ) {
+				return( false );
+			}
+			return( true );
+		}
+		else if( obj instanceof CFBamSchemaRoleBySchRoleScpIdxKey ) {
+			CFBamSchemaRoleBySchRoleScpIdxKey rhs = (CFBamSchemaRoleBySchRoleScpIdxKey)obj;
+			if( getRequiredTenantId() != rhs.getRequiredTenantId() ) {
+				return( false );
+			}
+			if( getRequiredSchemaDefId() != rhs.getRequiredSchemaDefId() ) {
+				return( false );
+			}
+			if( ! getRequiredRoleScope().equals( rhs.getRequiredRoleScope() ) ) {
+				return( false );
+			}
+			return( true );
+		}
 		else {
 			return( super.equals( obj ) );
 		}
@@ -152,6 +197,7 @@ public class CFBamSchemaRoleHBuff
 	public int hashCode() {
 		int hashCode = super.hashCode();
 		hashCode = hashCode + (int)( getRequiredSchemaDefId() );
+		hashCode = ( hashCode * 0x10000 ) + getRequiredRoleScope().ordinal();
 		return( hashCode & 0x7fffffff );
 	}
 
@@ -181,6 +227,38 @@ public class CFBamSchemaRoleHBuff
 			}
 			else if( getRequiredSchemaDefId() > rhs.getRequiredSchemaDefId() ) {
 				return( 1 );
+			}			return( 0 );
+		}
+		else if( obj instanceof CFBamSchemaRoleByRoleScopeIdxKey ) {
+			CFBamSchemaRoleByRoleScopeIdxKey rhs = (CFBamSchemaRoleByRoleScopeIdxKey)obj;
+
+			{
+				int cmp = getRequiredRoleScope().compareTo( rhs.getRequiredRoleScope() );
+				if( cmp != 0 ) {
+					return( cmp );
+				}
+			}			return( 0 );
+		}
+		else if( obj instanceof CFBamSchemaRoleBySchRoleScpIdxKey ) {
+			CFBamSchemaRoleBySchRoleScpIdxKey rhs = (CFBamSchemaRoleBySchRoleScpIdxKey)obj;
+
+			if( getRequiredTenantId() < rhs.getRequiredTenantId() ) {
+				return( -1 );
+			}
+			else if( getRequiredTenantId() > rhs.getRequiredTenantId() ) {
+				return( 1 );
+			}
+			if( getRequiredSchemaDefId() < rhs.getRequiredSchemaDefId() ) {
+				return( -1 );
+			}
+			else if( getRequiredSchemaDefId() > rhs.getRequiredSchemaDefId() ) {
+				return( 1 );
+			}
+			{
+				int cmp = getRequiredRoleScope().compareTo( rhs.getRequiredRoleScope() );
+				if( cmp != 0 ) {
+					return( cmp );
+				}
 			}			return( 0 );
 		}
 		else if( obj instanceof CFBamSchemaRoleHBuff ) {
@@ -328,6 +406,12 @@ public class CFBamSchemaRoleHBuff
 			else if( getRequiredSchemaDefId() > rhs.getRequiredSchemaDefId() ) {
 				return( 1 );
 			}
+			{
+				int cmp = getRequiredRoleScope().compareTo( rhs.getRequiredRoleScope() );
+				if( cmp != 0 ) {
+					return( cmp );
+				}
+			}
 			return( 0 );
 		}
 		else {
@@ -351,6 +435,7 @@ public class CFBamSchemaRoleHBuff
 	public void setSchemaRoleBuff( CFBamSchemaRoleBuff src ) {
 		super.setRoleDefBuff( src );
 		setRequiredSchemaDefId( src.getRequiredSchemaDefId() );
+		setRequiredRoleScope( src.getRequiredRoleScope() );
 	}
 
 	public void set( CFBamRoleDefHBuff src ) {
@@ -369,5 +454,6 @@ public class CFBamSchemaRoleHBuff
 	public void setSchemaRoleBuff( CFBamSchemaRoleHBuff src ) {
 		super.setRoleDefBuff( src );
 		setRequiredSchemaDefId( src.getRequiredSchemaDefId() );
+		setRequiredRoleScope( src.getRequiredRoleScope() );
 	}
 }

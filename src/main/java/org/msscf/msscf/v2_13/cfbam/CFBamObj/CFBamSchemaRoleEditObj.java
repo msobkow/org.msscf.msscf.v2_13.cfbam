@@ -241,6 +241,16 @@ public class CFBamSchemaRoleEditObj
 		return( getSchemaRoleBuff().getRequiredSchemaDefId() );
 	}
 
+	public ICFBamSchema.RoleScopeEnum getRequiredRoleScope() {
+		return( getSchemaRoleBuff().getRequiredRoleScope() );
+	}
+
+	public void setRequiredRoleScope( ICFBamSchema.RoleScopeEnum value ) {
+		if( getSchemaRoleBuff().getRequiredRoleScope() != value ) {
+			getSchemaRoleBuff().setRequiredRoleScope( value );
+		}
+	}
+
 	public void setRequiredContainerScopeDef( ICFBamScopeObj value ) {
 		final String S_ProcName = "CFBamSchemaRoleEditObj.setRequiredContainerScopeDef() ";
 		if( value == null ) {

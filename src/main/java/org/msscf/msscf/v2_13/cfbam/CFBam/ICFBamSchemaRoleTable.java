@@ -124,6 +124,50 @@ public interface ICFBamSchemaRoleTable
 	void deleteSchemaRoleBySchemaIdx( CFSecAuthorization Authorization,
 		CFBamSchemaRoleBySchemaIdxKey argKey );
 	/**
+	 *	Delete the SchemaRole instances identified by the key RoleScopeIdx.
+	 *
+	 *	@param	Authorization	The session authorization information.
+	 *
+	 *	@param	argRoleScope	The SchemaRole key attribute of the instance generating the id.
+	 */
+	void deleteSchemaRoleByRoleScopeIdx( CFSecAuthorization Authorization,
+		ICFBamSchema.RoleScopeEnum argRoleScope );
+
+	/**
+	 *	Delete the SchemaRole instances identified by the key RoleScopeIdx.
+	 *
+	 *	@param	Authorization	The session authorization information.
+	 *
+	 *	@param	argKey	The key identifying the instances to be deleted.
+	 */
+	void deleteSchemaRoleByRoleScopeIdx( CFSecAuthorization Authorization,
+		CFBamSchemaRoleByRoleScopeIdxKey argKey );
+	/**
+	 *	Delete the SchemaRole instances identified by the key SchRoleScpIdx.
+	 *
+	 *	@param	Authorization	The session authorization information.
+	 *
+	 *	@param	argTenantId	The SchemaRole key attribute of the instance generating the id.
+	 *
+	 *	@param	argSchemaDefId	The SchemaRole key attribute of the instance generating the id.
+	 *
+	 *	@param	argRoleScope	The SchemaRole key attribute of the instance generating the id.
+	 */
+	void deleteSchemaRoleBySchRoleScpIdx( CFSecAuthorization Authorization,
+		long argTenantId,
+		long argSchemaDefId,
+		ICFBamSchema.RoleScopeEnum argRoleScope );
+
+	/**
+	 *	Delete the SchemaRole instances identified by the key SchRoleScpIdx.
+	 *
+	 *	@param	Authorization	The session authorization information.
+	 *
+	 *	@param	argKey	The key identifying the instances to be deleted.
+	 */
+	void deleteSchemaRoleBySchRoleScpIdx( CFSecAuthorization Authorization,
+		CFBamSchemaRoleBySchRoleScpIdxKey argKey );
+	/**
 	 *	Delete the SchemaRole instance identified by the primary key attributes.
 	 *
 	 *	@param	Authorization	The session authorization information.
@@ -419,6 +463,36 @@ public interface ICFBamSchemaRoleTable
 		long SchemaDefId );
 
 	/**
+	 *	Read an array of the derived SchemaRole buffer instances identified by the duplicate key RoleScopeIdx.
+	 *
+	 *	@param	Authorization	The session authorization information.
+	 *
+	 *	@param	argRoleScope	The SchemaRole key attribute of the instance generating the id.
+	 *
+	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
+	 */
+	CFBamSchemaRoleBuff[] readDerivedByRoleScopeIdx( CFSecAuthorization Authorization,
+		ICFBamSchema.RoleScopeEnum RoleScope );
+
+	/**
+	 *	Read an array of the derived SchemaRole buffer instances identified by the duplicate key SchRoleScpIdx.
+	 *
+	 *	@param	Authorization	The session authorization information.
+	 *
+	 *	@param	argTenantId	The SchemaRole key attribute of the instance generating the id.
+	 *
+	 *	@param	argSchemaDefId	The SchemaRole key attribute of the instance generating the id.
+	 *
+	 *	@param	argRoleScope	The SchemaRole key attribute of the instance generating the id.
+	 *
+	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
+	 */
+	CFBamSchemaRoleBuff[] readDerivedBySchRoleScpIdx( CFSecAuthorization Authorization,
+		long TenantId,
+		long SchemaDefId,
+		ICFBamSchema.RoleScopeEnum RoleScope );
+
+	/**
 	 *	Read the specific SchemaRole buffer instance identified by the primary key.
 	 *
 	 *	@param	Authorization	The session authorization information.
@@ -587,6 +661,40 @@ public interface ICFBamSchemaRoleTable
 	CFBamSchemaRoleBuff[] readBuffBySchemaIdx( CFSecAuthorization Authorization,
 		long TenantId,
 		long SchemaDefId );
+
+	/**
+	 *	Read an array of the specific SchemaRole buffer instances identified by the duplicate key RoleScopeIdx.
+	 *
+	 *	@param	Authorization	The session authorization information.
+	 *
+	 *	@param	argRoleScope	The SchemaRole key attribute of the instance generating the id.
+	 *
+	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
+	 *
+	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 */
+	CFBamSchemaRoleBuff[] readBuffByRoleScopeIdx( CFSecAuthorization Authorization,
+		ICFBamSchema.RoleScopeEnum RoleScope );
+
+	/**
+	 *	Read an array of the specific SchemaRole buffer instances identified by the duplicate key SchRoleScpIdx.
+	 *
+	 *	@param	Authorization	The session authorization information.
+	 *
+	 *	@param	argTenantId	The SchemaRole key attribute of the instance generating the id.
+	 *
+	 *	@param	argSchemaDefId	The SchemaRole key attribute of the instance generating the id.
+	 *
+	 *	@param	argRoleScope	The SchemaRole key attribute of the instance generating the id.
+	 *
+	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
+	 *
+	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 */
+	CFBamSchemaRoleBuff[] readBuffBySchRoleScpIdx( CFSecAuthorization Authorization,
+		long TenantId,
+		long SchemaDefId,
+		ICFBamSchema.RoleScopeEnum RoleScope );
 
 	/**
 	 *	Release any prepared statements allocated by this instance.
