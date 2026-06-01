@@ -392,8 +392,12 @@ public class CFBamRoleDefObj
 		return( getRoleDefBuff().getRequiredName() );
 	}
 
-	public String getRequiredMembershipString() {
-		return( getRoleDefBuff().getRequiredMembershipString() );
+	public String getRequiredEnables() {
+		return( getRoleDefBuff().getRequiredEnables() );
+	}
+
+	public String getRequiredIncludes() {
+		return( getRoleDefBuff().getRequiredIncludes() );
 	}
 
 	public ICFSecTenantObj getRequiredOwnerTenant() {

@@ -112,18 +112,32 @@ public interface ICFBamRoleDefEditObj
 	void setRequiredName( String value );
 
 	/**
-	 *	Get the required String attribute MembershipString.
+	 *	Get the required String attribute Enables.
 	 *
-	 *	@return	The String value of the attribute MembershipString.
+	 *	@return	The String value of the attribute Enables.
 	 */
-	String getRequiredMembershipString();
+	String getRequiredEnables();
 
 	/**
-	 *	Set the required String attribute MembershipString.
+	 *	Set the required String attribute Enables.
 	 *
-	 *	@param	value	the String value of the attribute MembershipString.
+	 *	@param	value	the String value of the attribute Enables.
 	 */
-	void setRequiredMembershipString( String value );
+	void setRequiredEnables( String value );
+
+	/**
+	 *	Get the required String attribute Includes.
+	 *
+	 *	@return	The String value of the attribute Includes.
+	 */
+	String getRequiredIncludes();
+
+	/**
+	 *	Set the required String attribute Includes.
+	 *
+	 *	@param	value	the String value of the attribute Includes.
+	 */
+	void setRequiredIncludes( String value );
 
 	/**
 	 *	Get the ICFSecTenantObj instance referenced by the Tenant key.

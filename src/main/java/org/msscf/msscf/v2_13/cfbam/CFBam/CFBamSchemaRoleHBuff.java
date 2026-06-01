@@ -395,7 +395,13 @@ public class CFBamSchemaRoleHBuff
 				}
 			}
 			{
-				int cmp = getRequiredMembershipString().compareTo( rhs.getRequiredMembershipString() );
+				int cmp = getRequiredEnables().compareTo( rhs.getRequiredEnables() );
+				if( cmp != 0 ) {
+					return( cmp );
+				}
+			}
+			{
+				int cmp = getRequiredIncludes().compareTo( rhs.getRequiredIncludes() );
 				if( cmp != 0 ) {
 					return( cmp );
 				}

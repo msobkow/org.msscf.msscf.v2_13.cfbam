@@ -71,7 +71,8 @@ public class CFBamRoleDefHBuff
 	public static final long DEFSCHEMATENANTID_INIT_VALUE = 0L;
 	public static final long DEFSCHEMAID_INIT_VALUE = 0L;
 	public static final String NAME_INIT_VALUE = new String( "" );
-	public static final String MEMBERSHIPSTRING_INIT_VALUE = new String( "" );
+	public static final String ENABLES_INIT_VALUE = new String( "" );
+	public static final String INCLUDES_INIT_VALUE = new String( "" );
 	public static final long TENANTID_MIN_VALUE = 0L;
 	public static final long SCOPEID_MIN_VALUE = 0L;
 	public static final long ID_MIN_VALUE = 0L;
@@ -84,7 +85,8 @@ public class CFBamRoleDefHBuff
 	protected Long optionalDefSchemaTenantId;
 	protected Long optionalDefSchemaId;
 	protected String requiredName;
-	protected String requiredMembershipString;
+	protected String requiredEnables;
+	protected String requiredIncludes;
 	public CFBamRoleDefHBuff() {
 		super();
 		requiredTenantId = CFBamRoleDefBuff.TENANTID_INIT_VALUE;
@@ -93,7 +95,8 @@ public class CFBamRoleDefHBuff
 		optionalDefSchemaTenantId = null;
 		optionalDefSchemaId = null;
 		requiredName = new String( CFBamRoleDefBuff.NAME_INIT_VALUE );
-		requiredMembershipString = new String( CFBamRoleDefBuff.MEMBERSHIPSTRING_INIT_VALUE );
+		requiredEnables = new String( CFBamRoleDefBuff.ENABLES_INIT_VALUE );
+		requiredIncludes = new String( CFBamRoleDefBuff.INCLUDES_INIT_VALUE );
 	}
 
 	public String getClassCode() {
@@ -212,26 +215,48 @@ public class CFBamRoleDefHBuff
 		requiredName = value;
 	}
 
-	public String getRequiredMembershipString() {
-		return( requiredMembershipString );
+	public String getRequiredEnables() {
+		return( requiredEnables );
 	}
 
-	public void setRequiredMembershipString( String value ) {
+	public void setRequiredEnables( String value ) {
 		if( value == null ) {
 			throw new CFLibNullArgumentException( getClass(),
-				"setRequiredMembershipString",
+				"setRequiredEnables",
 				1,
 				"value" );
 		}
 		if( value.length() > 2000000 ) {
 			throw new CFLibArgumentOverflowException( getClass(),
-				"setRequiredMembershipString",
+				"setRequiredEnables",
 				1,
 				"value.length()",
 				value.length(),
 				2000000 );
 		}
-		requiredMembershipString = value;
+		requiredEnables = value;
+	}
+
+	public String getRequiredIncludes() {
+		return( requiredIncludes );
+	}
+
+	public void setRequiredIncludes( String value ) {
+		if( value == null ) {
+			throw new CFLibNullArgumentException( getClass(),
+				"setRequiredIncludes",
+				1,
+				"value" );
+		}
+		if( value.length() > 2000000 ) {
+			throw new CFLibArgumentOverflowException( getClass(),
+				"setRequiredIncludes",
+				1,
+				"value.length()",
+				value.length(),
+				2000000 );
+		}
+		requiredIncludes = value;
 	}
 
 	public boolean equals( Object obj ) {
@@ -279,7 +304,10 @@ public class CFBamRoleDefHBuff
 			if( ! getRequiredName().equals( rhs.getRequiredName() ) ) {
 				return( false );
 			}
-			if( ! getRequiredMembershipString().equals( rhs.getRequiredMembershipString() ) ) {
+			if( ! getRequiredEnables().equals( rhs.getRequiredEnables() ) ) {
+				return( false );
+			}
+			if( ! getRequiredIncludes().equals( rhs.getRequiredIncludes() ) ) {
 				return( false );
 			}
 			return( true );
@@ -325,7 +353,10 @@ public class CFBamRoleDefHBuff
 			if( ! getRequiredName().equals( rhs.getRequiredName() ) ) {
 				return( false );
 			}
-			if( ! getRequiredMembershipString().equals( rhs.getRequiredMembershipString() ) ) {
+			if( ! getRequiredEnables().equals( rhs.getRequiredEnables() ) ) {
+				return( false );
+			}
+			if( ! getRequiredIncludes().equals( rhs.getRequiredIncludes() ) ) {
 				return( false );
 			}
 			return( true );
@@ -578,8 +609,11 @@ public class CFBamRoleDefHBuff
 		if( getRequiredName() != null ) {
 			hashCode = hashCode + getRequiredName().hashCode();
 		}
-		if( getRequiredMembershipString() != null ) {
-			hashCode = hashCode + getRequiredMembershipString().hashCode();
+		if( getRequiredEnables() != null ) {
+			hashCode = hashCode + getRequiredEnables().hashCode();
+		}
+		if( getRequiredIncludes() != null ) {
+			hashCode = hashCode + getRequiredIncludes().hashCode();
 		}
 		return( hashCode & 0x7fffffff );
 	}
@@ -939,7 +973,13 @@ public class CFBamRoleDefHBuff
 				}
 			}
 			{
-				int cmp = getRequiredMembershipString().compareTo( rhs.getRequiredMembershipString() );
+				int cmp = getRequiredEnables().compareTo( rhs.getRequiredEnables() );
+				if( cmp != 0 ) {
+					return( cmp );
+				}
+			}
+			{
+				int cmp = getRequiredIncludes().compareTo( rhs.getRequiredIncludes() );
 				if( cmp != 0 ) {
 					return( cmp );
 				}
@@ -1074,7 +1114,8 @@ public class CFBamRoleDefHBuff
 		setOptionalDefSchemaTenantId( src.getOptionalDefSchemaTenantId() );
 		setOptionalDefSchemaId( src.getOptionalDefSchemaId() );
 		setRequiredName( src.getRequiredName() );
-		setRequiredMembershipString( src.getRequiredMembershipString() );
+		setRequiredEnables( src.getRequiredEnables() );
+		setRequiredIncludes( src.getRequiredIncludes() );
 		setRequiredRevision( src.getRequiredRevision() );
 	}
 
@@ -1089,7 +1130,8 @@ public class CFBamRoleDefHBuff
 		setOptionalDefSchemaTenantId( src.getOptionalDefSchemaTenantId() );
 		setOptionalDefSchemaId( src.getOptionalDefSchemaId() );
 		setRequiredName( src.getRequiredName() );
-		setRequiredMembershipString( src.getRequiredMembershipString() );
+		setRequiredEnables( src.getRequiredEnables() );
+		setRequiredIncludes( src.getRequiredIncludes() );
 		setRequiredRevision( src.getRequiredRevision() );
 	}
 }

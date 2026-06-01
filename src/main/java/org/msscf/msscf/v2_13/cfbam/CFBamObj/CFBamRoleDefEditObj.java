@@ -412,13 +412,23 @@ public class CFBamRoleDefEditObj
 		}
 	}
 
-	public String getRequiredMembershipString() {
-		return( getRoleDefBuff().getRequiredMembershipString() );
+	public String getRequiredEnables() {
+		return( getRoleDefBuff().getRequiredEnables() );
 	}
 
-	public void setRequiredMembershipString( String value ) {
-		if( getRoleDefBuff().getRequiredMembershipString() != value ) {
-			getRoleDefBuff().setRequiredMembershipString( value );
+	public void setRequiredEnables( String value ) {
+		if( getRoleDefBuff().getRequiredEnables() != value ) {
+			getRoleDefBuff().setRequiredEnables( value );
+		}
+	}
+
+	public String getRequiredIncludes() {
+		return( getRoleDefBuff().getRequiredIncludes() );
+	}
+
+	public void setRequiredIncludes( String value ) {
+		if( getRoleDefBuff().getRequiredIncludes() != value ) {
+			getRoleDefBuff().setRequiredIncludes( value );
 		}
 	}
 
