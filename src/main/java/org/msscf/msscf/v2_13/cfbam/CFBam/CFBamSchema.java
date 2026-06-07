@@ -269,6 +269,100 @@ public class CFBamSchema
 		return( retval );
 	}
 
+	static HashMap<String,CodeVisibilityEnum> lookupCodeVisibilityEnum = null;
+
+	public static CodeVisibilityEnum parseCodeVisibilityEnum( String value ) {
+		CodeVisibilityEnum retval = parseCodeVisibilityEnum( CFBamSchema.class.getName(), value );
+		return( retval );
+	}
+
+	public static CodeVisibilityEnum parseCodeVisibilityEnum( String fieldOrClassName, String value ) {
+		final String S_ProcName = "parseCodeVisibilityEnum";
+		if( lookupCodeVisibilityEnum == null ) {
+			HashMap<String,CodeVisibilityEnum> newMap = new HashMap<String,CodeVisibilityEnum>();
+			newMap.put( "Public", CodeVisibilityEnum.Public );
+			newMap.put( "Protected", CodeVisibilityEnum.Protected );
+			newMap.put( "Private", CodeVisibilityEnum.Private );
+			lookupCodeVisibilityEnum = newMap;
+		}
+		CodeVisibilityEnum retval;
+		if( ( value == null ) || ( value.length() <= 0 ) ) {
+			retval = null;
+		}
+		else {
+			retval = lookupCodeVisibilityEnum.get( value );
+			if( retval == null ) {
+				throw new CFLibInvalidArgumentException( fieldOrClassName,
+					S_ProcName,
+					1,
+					"value",
+					"Invalid enum limb argument " + value );
+			}
+		}
+		return( retval );
+	}
+
+	static HashMap<Integer,CodeVisibilityEnum> lookupOrdinalCodeVisibilityEnum = null;
+
+	public static CodeVisibilityEnum ordinalToCodeVisibilityEnum( String fieldOrClassName, Short value ) {
+		CodeVisibilityEnum retval;
+		if( value == null ) {
+			retval = null;
+		}
+		else {
+			retval = ordinalToCodeVisibilityEnum( fieldOrClassName, Integer.valueOf( value.shortValue() ) );
+		}
+		return( retval );
+	}
+
+	public static CodeVisibilityEnum ordinalToCodeVisibilityEnum( Short value ) {
+		CodeVisibilityEnum retval;
+		if( value == null ) {
+			retval = null;
+		}
+		else {
+			retval = ordinalToCodeVisibilityEnum( Integer.valueOf( value.shortValue() ) );
+		}
+		return( retval );
+	}
+
+	public static CodeVisibilityEnum ordinalToCodeVisibilityEnum( Integer value ) {
+		CodeVisibilityEnum retval;
+		if( value == null ) {
+			retval = null;
+		}
+		else {
+			retval = ordinalToCodeVisibilityEnum( CFBamSchema.class.getName(), Integer.valueOf( value.shortValue() ) );
+		}
+		return( retval );
+	}
+
+	public static CodeVisibilityEnum ordinalToCodeVisibilityEnum( String fieldOrClassName, Integer value ) {
+		final String S_ProcName = "ordinalToCodeVisibilityEnum";
+		if( lookupOrdinalCodeVisibilityEnum == null ) {
+			HashMap<Integer,CodeVisibilityEnum> newMap = new HashMap<Integer,CodeVisibilityEnum>();
+			newMap.put( Integer.valueOf( CodeVisibilityEnum.Public.ordinal() ), CodeVisibilityEnum.Public );
+			newMap.put( Integer.valueOf( CodeVisibilityEnum.Protected.ordinal() ), CodeVisibilityEnum.Protected );
+			newMap.put( Integer.valueOf( CodeVisibilityEnum.Private.ordinal() ), CodeVisibilityEnum.Private );
+			lookupOrdinalCodeVisibilityEnum = newMap;
+		}
+		CodeVisibilityEnum retval;
+		if( value == null ) {
+			retval = null;
+		}
+		else {
+			retval = lookupOrdinalCodeVisibilityEnum.get( value );
+			if( retval == null ) {
+				throw new CFLibInvalidArgumentException( fieldOrClassName,
+					S_ProcName,
+					1,
+					"value",
+					"Invalid enum ordinal argument " + value.toString() );
+			}
+		}
+		return( retval );
+	}
+
 	static HashMap<String,SecScopeEnum> lookupSecScopeEnum = null;
 
 	public static SecScopeEnum parseSecScopeEnum( String value ) {

@@ -80,6 +80,18 @@ public class CFBamServerMethodDefaultFactory
 		return( key );
 	}
 
+	public CFBamServerMethodByMethTableVisIdxKey newMethTableVisIdxKey() {
+		CFBamServerMethodByMethTableVisIdxKey key =
+			new CFBamServerMethodByMethTableVisIdxKey();
+		return( key );
+	}
+
+	public CFBamServerMethodByMethCodeVisIdxKey newMethCodeVisIdxKey() {
+		CFBamServerMethodByMethCodeVisIdxKey key =
+			new CFBamServerMethodByMethCodeVisIdxKey();
+		return( key );
+	}
+
 	public CFBamServerMethodByDefSchemaIdxKey newDefSchemaIdxKey() {
 		CFBamServerMethodByDefSchemaIdxKey key =
 			new CFBamServerMethodByDefSchemaIdxKey();

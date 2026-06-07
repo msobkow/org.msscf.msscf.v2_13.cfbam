@@ -536,6 +536,12 @@ public class CFBamServerListFuncHBuff
 				}
 			}
 			{
+				int cmp = getRequiredCodeVis().compareTo( rhs.getRequiredCodeVis() );
+				if( cmp != 0 ) {
+					return( cmp );
+				}
+			}
+			{
 				int cmp = getRequiredJMethodBody().compareTo( rhs.getRequiredJMethodBody() );
 				if( cmp != 0 ) {
 					return( cmp );

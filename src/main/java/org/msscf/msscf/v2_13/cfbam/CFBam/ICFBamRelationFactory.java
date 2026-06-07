@@ -87,6 +87,20 @@ public interface ICFBamRelationFactory
 	CFBamRelationByRelTableIdxKey newRelTableIdxKey();
 
 	/**
+	 *	Allocate a CodeVisIdx key over Relation instances.
+	 *
+	 *	@return	The new instance.
+	 */
+	CFBamRelationByCodeVisIdxKey newCodeVisIdxKey();
+
+	/**
+	 *	Allocate a TableCodeVisIdx key over Relation instances.
+	 *
+	 *	@return	The new instance.
+	 */
+	CFBamRelationByTableCodeVisIdxKey newTableCodeVisIdxKey();
+
+	/**
 	 *	Allocate a DefSchemaIdx key over Relation instances.
 	 *
 	 *	@return	The new instance.

@@ -1,5 +1,4 @@
-
-// Description: Java 11 Factory interface for ServerMethod.
+// Description: Java 11 implementation of a Table by CodeVisIdx index key object.
 
 /*
  *	org.msscf.msscf.CFBam
@@ -49,6 +48,8 @@
 package org.msscf.msscf.v2_13.cfbam.CFBam;
 
 import java.lang.reflect.*;
+import java.io.*;
+import java.math.*;
 import java.net.*;
 import java.rmi.*;
 import java.sql.*;
@@ -59,59 +60,95 @@ import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
 import org.msscf.msscf.v2_13.cfsec.CFSec.*;
 import org.msscf.msscf.v2_13.cfint.CFInt.*;
 
-/*
- *	CFBamServerMethodFactory interface for ServerMethod
- */
-public interface ICFBamServerMethodFactory
+public class CFBamTableByCodeVisIdxKey
+	implements Comparable<Object>,
+		Serializable
 {
+	protected ICFBamSchema.CodeVisibilityEnum requiredCodeVis;
+	public CFBamTableByCodeVisIdxKey() {
+		requiredCodeVis = CFBamTableBuff.CODEVIS_INIT_VALUE;
+	}
 
-	/**
-	 *	Allocate a UNameIdx key over ServerMethod instances.
-	 *
-	 *	@return	The new instance.
-	 */
-	CFBamServerMethodByUNameIdxKey newUNameIdxKey();
+	public ICFBamSchema.CodeVisibilityEnum getRequiredCodeVis() {
+		return( requiredCodeVis );
+	}
 
-	/**
-	 *	Allocate a MethTableIdx key over ServerMethod instances.
-	 *
-	 *	@return	The new instance.
-	 */
-	CFBamServerMethodByMethTableIdxKey newMethTableIdxKey();
+	public void setRequiredCodeVis( ICFBamSchema.CodeVisibilityEnum value ) {
+		if( value == null ) {
+			throw new CFLibNullArgumentException( getClass(),
+				"setRequiredCodeVis",
+				1,
+				"value" );
+		}
+		requiredCodeVis = value;
+	}
 
-	/**
-	 *	Allocate a MethTableVisIdx key over ServerMethod instances.
-	 *
-	 *	@return	The new instance.
-	 */
-	CFBamServerMethodByMethTableVisIdxKey newMethTableVisIdxKey();
+	public boolean equals( Object obj ) {
+		if( obj == null ) {
+			return( false );
+		}
+		else if( obj instanceof CFBamTableByCodeVisIdxKey ) {
+			CFBamTableByCodeVisIdxKey rhs = (CFBamTableByCodeVisIdxKey)obj;
+			if( ! getRequiredCodeVis().equals( rhs.getRequiredCodeVis() ) ) {
+				return( false );
+			}
+			return( true );
+		}
+		else if( obj instanceof CFBamTableBuff ) {
+			CFBamTableBuff rhs = (CFBamTableBuff)obj;
+			if( ! getRequiredCodeVis().equals( rhs.getRequiredCodeVis() ) ) {
+				return( false );
+			}
+			return( true );
+		}
+		else {
+			return( false );
+		}
+	}
 
-	/**
-	 *	Allocate a MethCodeVisIdx key over ServerMethod instances.
-	 *
-	 *	@return	The new instance.
-	 */
-	CFBamServerMethodByMethCodeVisIdxKey newMethCodeVisIdxKey();
+	public int hashCode() {
+		int hashCode = 0;
+		hashCode = ( hashCode * 0x10000 ) + getRequiredCodeVis().ordinal();
+		return( hashCode & 0x7fffffff );
+	}
 
-	/**
-	 *	Allocate a DefSchemaIdx key over ServerMethod instances.
-	 *
-	 *	@return	The new instance.
-	 */
-	CFBamServerMethodByDefSchemaIdxKey newDefSchemaIdxKey();
+	public int compareTo( Object obj ) {
+		if( obj == null ) {
+			return( 1 );
+		}
+		else if( obj instanceof CFBamTableByCodeVisIdxKey ) {
+			CFBamTableByCodeVisIdxKey rhs = (CFBamTableByCodeVisIdxKey)obj;
+			{
+				int cmp = getRequiredCodeVis().compareTo( rhs.getRequiredCodeVis() );
+				if( cmp != 0 ) {
+					return( cmp );
+				}
+			}
+			return( 0 );
+		}
+		else if( obj instanceof CFBamTableBuff ) {
+			CFBamTableBuff rhs = (CFBamTableBuff)obj;
+			{
+				int cmp = getRequiredCodeVis().compareTo( rhs.getRequiredCodeVis() );
+				if( cmp != 0 ) {
+					return( cmp );
+				}
+			}
+			return( 0 );
+		}
+		else {
+			throw new CFLibUnsupportedClassException( getClass(),
+				"compareTo",
+				"obj",
+				obj,
+				null );
+		}
+	}
 
-	/**
-	 *	Allocate a ServerMethod instance buffer.
-	 *
-	 *	@return	The new instance.
-	 */
-	CFBamServerMethodBuff newBuff();
-
-	/**
-	 *	Allocate a ServerMethod history instance buffer.
-	 *
-	 *	@return	The new instance.
-	 */
-	CFBamServerMethodHBuff newHBuff();
-
+	public String toString() {
+		String ret = "<CFBamTableByCodeVisIdx"
+			+ " RequiredCodeVis=" + "\"" + getRequiredCodeVis().toString() + "\""
+			+ "/>";
+		return( ret );
+	}
 }

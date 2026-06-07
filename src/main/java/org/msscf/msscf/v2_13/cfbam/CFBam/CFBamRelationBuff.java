@@ -82,6 +82,7 @@ public class CFBamRelationBuff
 	public final static boolean ALLOWADDENDUM_INIT_VALUE = false;
 	public static final long NARROWEDTENANTID_INIT_VALUE = 0L;
 	public static final long NARROWEDID_INIT_VALUE = 0L;
+	public static final ICFBamSchema.CodeVisibilityEnum CODEVIS_INIT_VALUE = CFBamSchema.ordinalToCodeVisibilityEnum( 0 );
 	public static final long TENANTID_MIN_VALUE = 0L;
 	public static final long TABLEID_MIN_VALUE = 0L;
 	public static final long ID_MIN_VALUE = 0L;
@@ -93,7 +94,9 @@ public class CFBamRelationBuff
 	public static final long TOINDEXID_MIN_VALUE = 0L;
 	public static final long NARROWEDTENANTID_MIN_VALUE = 0L;
 	public static final long NARROWEDID_MIN_VALUE = 0L;
+	public static final ICFBamSchema.CodeVisibilityEnum CODEVIS_MIN_VALUE = ICFBamSchema.CodeVisibilityEnum.Public;
 	public static final ICFBamSchema.RelationTypeEnum RELATIONTYPE_MAX_VALUE = ICFBamSchema.RelationTypeEnum.Children;
+	public static final ICFBamSchema.CodeVisibilityEnum CODEVIS_MAX_VALUE = ICFBamSchema.CodeVisibilityEnum.Private;
 	protected long requiredTableId;
 	protected Long optionalDefSchemaTenantId;
 	protected Long optionalDefSchemaId;
@@ -114,6 +117,7 @@ public class CFBamRelationBuff
 	protected boolean requiredAllowAddendum;
 	protected Long optionalNarrowedTenantId;
 	protected Long optionalNarrowedId;
+	protected ICFBamSchema.CodeVisibilityEnum requiredCodeVis;
 	public CFBamRelationBuff() {
 		super();
 		requiredTableId = CFBamRelationBuff.TABLEID_INIT_VALUE;
@@ -136,6 +140,7 @@ public class CFBamRelationBuff
 		requiredAllowAddendum = CFBamRelationBuff.ALLOWADDENDUM_INIT_VALUE;
 		optionalNarrowedTenantId = null;
 		optionalNarrowedId = null;
+		requiredCodeVis = CFBamRelationBuff.CODEVIS_INIT_VALUE;
 	}
 
 	public String getClassCode() {
@@ -484,6 +489,20 @@ public class CFBamRelationBuff
 		}
 	}
 
+	public ICFBamSchema.CodeVisibilityEnum getRequiredCodeVis() {
+		return( requiredCodeVis );
+	}
+
+	public void setRequiredCodeVis( ICFBamSchema.CodeVisibilityEnum value ) {
+		if( value == null ) {
+			throw new CFLibNullArgumentException( getClass(),
+				"setRequiredCodeVis",
+				1,
+				"value" );
+		}
+		requiredCodeVis = value;
+	}
+
 	public boolean equals( Object obj ) {
 		if( obj == null ) {
 			return( false );
@@ -645,6 +664,9 @@ public class CFBamRelationBuff
 				if( rhs.getOptionalNarrowedId() != null ) {
 					return( false );
 				}
+			}
+			if( ! getRequiredCodeVis().equals( rhs.getRequiredCodeVis() ) ) {
+				return( false );
 			}
 			return( true );
 		}
@@ -816,6 +838,9 @@ public class CFBamRelationBuff
 					return( false );
 				}
 			}
+			if( ! getRequiredCodeVis().equals( rhs.getRequiredCodeVis() ) ) {
+				return( false );
+			}
 			return( true );
 		}
 		else if( obj instanceof CFBamScopeHPKey ) {
@@ -854,6 +879,26 @@ public class CFBamRelationBuff
 				return( false );
 			}
 			if( getRequiredTableId() != rhs.getRequiredTableId() ) {
+				return( false );
+			}
+			return( true );
+		}
+		else if( obj instanceof CFBamRelationByCodeVisIdxKey ) {
+			CFBamRelationByCodeVisIdxKey rhs = (CFBamRelationByCodeVisIdxKey)obj;
+			if( ! getRequiredCodeVis().equals( rhs.getRequiredCodeVis() ) ) {
+				return( false );
+			}
+			return( true );
+		}
+		else if( obj instanceof CFBamRelationByTableCodeVisIdxKey ) {
+			CFBamRelationByTableCodeVisIdxKey rhs = (CFBamRelationByTableCodeVisIdxKey)obj;
+			if( getRequiredTenantId() != rhs.getRequiredTenantId() ) {
+				return( false );
+			}
+			if( getRequiredTableId() != rhs.getRequiredTableId() ) {
+				return( false );
+			}
+			if( ! getRequiredCodeVis().equals( rhs.getRequiredCodeVis() ) ) {
 				return( false );
 			}
 			return( true );
@@ -1014,6 +1059,7 @@ public class CFBamRelationBuff
 		if( getOptionalNarrowedId() != null ) {
 			hashCode = hashCode + getOptionalNarrowedId().hashCode();
 		}
+		hashCode = ( hashCode * 0x10000 ) + getRequiredCodeVis().ordinal();
 		return( hashCode & 0x7fffffff );
 	}
 
@@ -1269,6 +1315,12 @@ public class CFBamRelationBuff
 			else {
 				if( rhs.getOptionalNarrowedId() != null ) {
 					return( -1 );
+				}
+			}
+			{
+				int cmp = getRequiredCodeVis().compareTo( rhs.getRequiredCodeVis() );
+				if( cmp != 0 ) {
+					return( cmp );
 				}
 			}
 			return( 0 );
@@ -1565,6 +1617,12 @@ public class CFBamRelationBuff
 					return( -1 );
 				}
 			}
+			{
+				int cmp = getRequiredCodeVis().compareTo( rhs.getRequiredCodeVis() );
+				if( cmp != 0 ) {
+					return( cmp );
+				}
+			}
 			return( 0 );
 		}
 		else if( obj instanceof CFBamRelationByUNameIdxKey ) {
@@ -1613,6 +1671,38 @@ public class CFBamRelationBuff
 			}
 			else if( getRequiredTableId() > rhs.getRequiredTableId() ) {
 				return( 1 );
+			}			return( 0 );
+		}
+		else if( obj instanceof CFBamRelationByCodeVisIdxKey ) {
+			CFBamRelationByCodeVisIdxKey rhs = (CFBamRelationByCodeVisIdxKey)obj;
+
+			{
+				int cmp = getRequiredCodeVis().compareTo( rhs.getRequiredCodeVis() );
+				if( cmp != 0 ) {
+					return( cmp );
+				}
+			}			return( 0 );
+		}
+		else if( obj instanceof CFBamRelationByTableCodeVisIdxKey ) {
+			CFBamRelationByTableCodeVisIdxKey rhs = (CFBamRelationByTableCodeVisIdxKey)obj;
+
+			if( getRequiredTenantId() < rhs.getRequiredTenantId() ) {
+				return( -1 );
+			}
+			else if( getRequiredTenantId() > rhs.getRequiredTenantId() ) {
+				return( 1 );
+			}
+			if( getRequiredTableId() < rhs.getRequiredTableId() ) {
+				return( -1 );
+			}
+			else if( getRequiredTableId() > rhs.getRequiredTableId() ) {
+				return( 1 );
+			}
+			{
+				int cmp = getRequiredCodeVis().compareTo( rhs.getRequiredCodeVis() );
+				if( cmp != 0 ) {
+					return( cmp );
+				}
 			}			return( 0 );
 		}
 		else if( obj instanceof CFBamRelationByDefSchemaIdxKey ) {
@@ -1784,6 +1874,7 @@ public class CFBamRelationBuff
 		setRequiredAllowAddendum( src.getRequiredAllowAddendum() );
 		setOptionalNarrowedTenantId( src.getOptionalNarrowedTenantId() );
 		setOptionalNarrowedId( src.getOptionalNarrowedId() );
+		setRequiredCodeVis( src.getRequiredCodeVis() );
 	}
 
 	public void set( CFBamScopeHBuff src ) {
@@ -1821,5 +1912,6 @@ public class CFBamRelationBuff
 		setRequiredAllowAddendum( src.getRequiredAllowAddendum() );
 		setOptionalNarrowedTenantId( src.getOptionalNarrowedTenantId() );
 		setOptionalNarrowedId( src.getOptionalNarrowedId() );
+		setRequiredCodeVis( src.getRequiredCodeVis() );
 	}
 }

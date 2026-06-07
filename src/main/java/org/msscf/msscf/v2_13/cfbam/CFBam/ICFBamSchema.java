@@ -80,6 +80,12 @@ extends ICFSecSchema,
 		Children
 	};
 
+	public enum CodeVisibilityEnum {
+		Public,
+		Protected,
+		Private
+	};
+
 	public enum SecScopeEnum {
 		None,
 		System,

@@ -149,6 +149,50 @@ public interface ICFBamServerProcTable
 	void deleteServerProcByMethTableIdx( CFSecAuthorization Authorization,
 		CFBamServerMethodByMethTableIdxKey argKey );
 	/**
+	 *	Delete the ServerProc instances identified by the key MethTableVisIdx.
+	 *
+	 *	@param	Authorization	The session authorization information.
+	 *
+	 *	@param	argTenantId	The ServerProc key attribute of the instance generating the id.
+	 *
+	 *	@param	argTableId	The ServerProc key attribute of the instance generating the id.
+	 *
+	 *	@param	argCodeVis	The ServerProc key attribute of the instance generating the id.
+	 */
+	void deleteServerProcByMethTableVisIdx( CFSecAuthorization Authorization,
+		long argTenantId,
+		long argTableId,
+		ICFBamSchema.CodeVisibilityEnum argCodeVis );
+
+	/**
+	 *	Delete the ServerProc instances identified by the key MethTableVisIdx.
+	 *
+	 *	@param	Authorization	The session authorization information.
+	 *
+	 *	@param	argKey	The key identifying the instances to be deleted.
+	 */
+	void deleteServerProcByMethTableVisIdx( CFSecAuthorization Authorization,
+		CFBamServerMethodByMethTableVisIdxKey argKey );
+	/**
+	 *	Delete the ServerProc instances identified by the key MethCodeVisIdx.
+	 *
+	 *	@param	Authorization	The session authorization information.
+	 *
+	 *	@param	argCodeVis	The ServerProc key attribute of the instance generating the id.
+	 */
+	void deleteServerProcByMethCodeVisIdx( CFSecAuthorization Authorization,
+		ICFBamSchema.CodeVisibilityEnum argCodeVis );
+
+	/**
+	 *	Delete the ServerProc instances identified by the key MethCodeVisIdx.
+	 *
+	 *	@param	Authorization	The session authorization information.
+	 *
+	 *	@param	argKey	The key identifying the instances to be deleted.
+	 */
+	void deleteServerProcByMethCodeVisIdx( CFSecAuthorization Authorization,
+		CFBamServerMethodByMethCodeVisIdxKey argKey );
+	/**
 	 *	Delete the ServerProc instances identified by the key DefSchemaIdx.
 	 *
 	 *	@param	Authorization	The session authorization information.
@@ -311,6 +355,36 @@ public interface ICFBamServerProcTable
 		long TableId );
 
 	/**
+	 *	Read an array of the derived ServerProc buffer instances identified by the duplicate key MethTableVisIdx.
+	 *
+	 *	@param	Authorization	The session authorization information.
+	 *
+	 *	@param	argTenantId	The ServerProc key attribute of the instance generating the id.
+	 *
+	 *	@param	argTableId	The ServerProc key attribute of the instance generating the id.
+	 *
+	 *	@param	argCodeVis	The ServerProc key attribute of the instance generating the id.
+	 *
+	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
+	 */
+	CFBamServerProcBuff[] readDerivedByMethTableVisIdx( CFSecAuthorization Authorization,
+		long TenantId,
+		long TableId,
+		ICFBamSchema.CodeVisibilityEnum CodeVis );
+
+	/**
+	 *	Read an array of the derived ServerProc buffer instances identified by the duplicate key MethCodeVisIdx.
+	 *
+	 *	@param	Authorization	The session authorization information.
+	 *
+	 *	@param	argCodeVis	The ServerProc key attribute of the instance generating the id.
+	 *
+	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
+	 */
+	CFBamServerProcBuff[] readDerivedByMethCodeVisIdx( CFSecAuthorization Authorization,
+		ICFBamSchema.CodeVisibilityEnum CodeVis );
+
+	/**
 	 *	Read an array of the derived ServerProc buffer instances identified by the duplicate key DefSchemaIdx.
 	 *
 	 *	@param	Authorization	The session authorization information.
@@ -433,6 +507,40 @@ public interface ICFBamServerProcTable
 	CFBamServerProcBuff[] readBuffByMethTableIdx( CFSecAuthorization Authorization,
 		long TenantId,
 		long TableId );
+
+	/**
+	 *	Read an array of the specific ServerProc buffer instances identified by the duplicate key MethTableVisIdx.
+	 *
+	 *	@param	Authorization	The session authorization information.
+	 *
+	 *	@param	argTenantId	The ServerProc key attribute of the instance generating the id.
+	 *
+	 *	@param	argTableId	The ServerProc key attribute of the instance generating the id.
+	 *
+	 *	@param	argCodeVis	The ServerProc key attribute of the instance generating the id.
+	 *
+	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
+	 *
+	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 */
+	CFBamServerProcBuff[] readBuffByMethTableVisIdx( CFSecAuthorization Authorization,
+		long TenantId,
+		long TableId,
+		ICFBamSchema.CodeVisibilityEnum CodeVis );
+
+	/**
+	 *	Read an array of the specific ServerProc buffer instances identified by the duplicate key MethCodeVisIdx.
+	 *
+	 *	@param	Authorization	The session authorization information.
+	 *
+	 *	@param	argCodeVis	The ServerProc key attribute of the instance generating the id.
+	 *
+	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
+	 *
+	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 */
+	CFBamServerProcBuff[] readBuffByMethCodeVisIdx( CFSecAuthorization Authorization,
+		ICFBamSchema.CodeVisibilityEnum CodeVis );
 
 	/**
 	 *	Read an array of the specific ServerProc buffer instances identified by the duplicate key DefSchemaIdx.

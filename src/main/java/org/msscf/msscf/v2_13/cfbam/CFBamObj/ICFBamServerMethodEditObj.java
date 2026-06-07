@@ -183,6 +183,20 @@ public interface ICFBamServerMethodEditObj
 	void setRequiredIsServerOnly( boolean value );
 
 	/**
+	 *	Get the required ICFBamSchema.CodeVisibilityEnum attribute CodeVis.
+	 *
+	 *	@return	The ICFBamSchema.CodeVisibilityEnum value of the attribute CodeVis.
+	 */
+	ICFBamSchema.CodeVisibilityEnum getRequiredCodeVis();
+
+	/**
+	 *	Set the required ICFBamSchema.CodeVisibilityEnum attribute CodeVis.
+	 *
+	 *	@param	value	the ICFBamSchema.CodeVisibilityEnum value of the attribute CodeVis.
+	 */
+	void setRequiredCodeVis( ICFBamSchema.CodeVisibilityEnum value );
+
+	/**
 	 *	Get the required String attribute JMethodBody.
 	 *
 	 *	@return	The String value of the attribute JMethodBody.

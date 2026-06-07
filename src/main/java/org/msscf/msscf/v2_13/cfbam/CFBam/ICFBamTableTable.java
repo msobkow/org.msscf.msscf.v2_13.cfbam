@@ -124,6 +124,50 @@ public interface ICFBamTableTable
 	void deleteTableBySchemaDefIdx( CFSecAuthorization Authorization,
 		CFBamTableBySchemaDefIdxKey argKey );
 	/**
+	 *	Delete the Table instances identified by the key CodeVisIdx.
+	 *
+	 *	@param	Authorization	The session authorization information.
+	 *
+	 *	@param	argCodeVis	The Table key attribute of the instance generating the id.
+	 */
+	void deleteTableByCodeVisIdx( CFSecAuthorization Authorization,
+		ICFBamSchema.CodeVisibilityEnum argCodeVis );
+
+	/**
+	 *	Delete the Table instances identified by the key CodeVisIdx.
+	 *
+	 *	@param	Authorization	The session authorization information.
+	 *
+	 *	@param	argKey	The key identifying the instances to be deleted.
+	 */
+	void deleteTableByCodeVisIdx( CFSecAuthorization Authorization,
+		CFBamTableByCodeVisIdxKey argKey );
+	/**
+	 *	Delete the Table instances identified by the key SchemaCodeVisIdx.
+	 *
+	 *	@param	Authorization	The session authorization information.
+	 *
+	 *	@param	argTenantId	The Table key attribute of the instance generating the id.
+	 *
+	 *	@param	argSchemaDefId	The Table key attribute of the instance generating the id.
+	 *
+	 *	@param	argCodeVis	The Table key attribute of the instance generating the id.
+	 */
+	void deleteTableBySchemaCodeVisIdx( CFSecAuthorization Authorization,
+		long argTenantId,
+		long argSchemaDefId,
+		ICFBamSchema.CodeVisibilityEnum argCodeVis );
+
+	/**
+	 *	Delete the Table instances identified by the key SchemaCodeVisIdx.
+	 *
+	 *	@param	Authorization	The session authorization information.
+	 *
+	 *	@param	argKey	The key identifying the instances to be deleted.
+	 */
+	void deleteTableBySchemaCodeVisIdx( CFSecAuthorization Authorization,
+		CFBamTableBySchemaCodeVisIdxKey argKey );
+	/**
 	 *	Delete the Table instances identified by the key DefSchemaIdx.
 	 *
 	 *	@param	Authorization	The session authorization information.
@@ -405,6 +449,36 @@ public interface ICFBamTableTable
 		long SchemaDefId );
 
 	/**
+	 *	Read an array of the derived Table buffer instances identified by the duplicate key CodeVisIdx.
+	 *
+	 *	@param	Authorization	The session authorization information.
+	 *
+	 *	@param	argCodeVis	The Table key attribute of the instance generating the id.
+	 *
+	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
+	 */
+	CFBamTableBuff[] readDerivedByCodeVisIdx( CFSecAuthorization Authorization,
+		ICFBamSchema.CodeVisibilityEnum CodeVis );
+
+	/**
+	 *	Read an array of the derived Table buffer instances identified by the duplicate key SchemaCodeVisIdx.
+	 *
+	 *	@param	Authorization	The session authorization information.
+	 *
+	 *	@param	argTenantId	The Table key attribute of the instance generating the id.
+	 *
+	 *	@param	argSchemaDefId	The Table key attribute of the instance generating the id.
+	 *
+	 *	@param	argCodeVis	The Table key attribute of the instance generating the id.
+	 *
+	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
+	 */
+	CFBamTableBuff[] readDerivedBySchemaCodeVisIdx( CFSecAuthorization Authorization,
+		long TenantId,
+		long SchemaDefId,
+		ICFBamSchema.CodeVisibilityEnum CodeVis );
+
+	/**
 	 *	Read an array of the derived Table buffer instances identified by the duplicate key DefSchemaIdx.
 	 *
 	 *	@param	Authorization	The session authorization information.
@@ -604,6 +678,40 @@ public interface ICFBamTableTable
 	CFBamTableBuff[] readBuffBySchemaDefIdx( CFSecAuthorization Authorization,
 		long TenantId,
 		long SchemaDefId );
+
+	/**
+	 *	Read an array of the specific Table buffer instances identified by the duplicate key CodeVisIdx.
+	 *
+	 *	@param	Authorization	The session authorization information.
+	 *
+	 *	@param	argCodeVis	The Table key attribute of the instance generating the id.
+	 *
+	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
+	 *
+	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 */
+	CFBamTableBuff[] readBuffByCodeVisIdx( CFSecAuthorization Authorization,
+		ICFBamSchema.CodeVisibilityEnum CodeVis );
+
+	/**
+	 *	Read an array of the specific Table buffer instances identified by the duplicate key SchemaCodeVisIdx.
+	 *
+	 *	@param	Authorization	The session authorization information.
+	 *
+	 *	@param	argTenantId	The Table key attribute of the instance generating the id.
+	 *
+	 *	@param	argSchemaDefId	The Table key attribute of the instance generating the id.
+	 *
+	 *	@param	argCodeVis	The Table key attribute of the instance generating the id.
+	 *
+	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
+	 *
+	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 */
+	CFBamTableBuff[] readBuffBySchemaCodeVisIdx( CFSecAuthorization Authorization,
+		long TenantId,
+		long SchemaDefId,
+		ICFBamSchema.CodeVisibilityEnum CodeVis );
 
 	/**
 	 *	Read an array of the specific Table buffer instances identified by the duplicate key DefSchemaIdx.

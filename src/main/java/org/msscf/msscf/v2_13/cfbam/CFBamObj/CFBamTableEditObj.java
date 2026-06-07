@@ -476,6 +476,16 @@ public class CFBamTableEditObj
 		}
 	}
 
+	public ICFBamSchema.CodeVisibilityEnum getRequiredCodeVis() {
+		return( getTableBuff().getRequiredCodeVis() );
+	}
+
+	public void setRequiredCodeVis( ICFBamSchema.CodeVisibilityEnum value ) {
+		if( getTableBuff().getRequiredCodeVis() != value ) {
+			getTableBuff().setRequiredCodeVis( value );
+		}
+	}
+
 	public String getOptionalJObjMembers() {
 		return( getTableBuff().getOptionalJObjMembers() );
 	}

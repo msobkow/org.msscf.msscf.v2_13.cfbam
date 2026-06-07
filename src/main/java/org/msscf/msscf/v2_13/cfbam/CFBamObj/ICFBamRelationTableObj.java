@@ -275,6 +275,60 @@ public interface ICFBamRelationTableObj
 		boolean forceRead );
 
 	/**
+	 *	Get the map of CFBamRelationObj instances sorted by their primary keys for the duplicate CodeVisIdx key.
+	 *
+	 *	@param	argCodeVis	The Relation key attribute of the instance generating the id.
+	 *
+	 *	@return	List of CFBamRelationObj cached instances sorted by their primary keys for the duplicate CodeVisIdx key,
+	 *		which may be an empty set.
+	 */
+	List<ICFBamRelationObj> readRelationByCodeVisIdx( ICFBamSchema.CodeVisibilityEnum CodeVis );
+
+	/**
+	 *	Get the map of CFBamRelationObj instances sorted by their primary keys for the duplicate CodeVisIdx key.
+	 *
+	 *	@param	argCodeVis	The Relation key attribute of the instance generating the id.
+	 *
+	 *	@return	List of CFBamRelationObj cached instances sorted by their primary keys for the duplicate CodeVisIdx key,
+	 *		which may be an empty set.
+	 */
+	List<ICFBamRelationObj> readRelationByCodeVisIdx( ICFBamSchema.CodeVisibilityEnum CodeVis,
+		boolean forceRead );
+
+	/**
+	 *	Get the map of CFBamRelationObj instances sorted by their primary keys for the duplicate TableCodeVisIdx key.
+	 *
+	 *	@param	argTenantId	The Relation key attribute of the instance generating the id.
+	 *
+	 *	@param	argTableId	The Relation key attribute of the instance generating the id.
+	 *
+	 *	@param	argCodeVis	The Relation key attribute of the instance generating the id.
+	 *
+	 *	@return	List of CFBamRelationObj cached instances sorted by their primary keys for the duplicate TableCodeVisIdx key,
+	 *		which may be an empty set.
+	 */
+	List<ICFBamRelationObj> readRelationByTableCodeVisIdx( long TenantId,
+		long TableId,
+		ICFBamSchema.CodeVisibilityEnum CodeVis );
+
+	/**
+	 *	Get the map of CFBamRelationObj instances sorted by their primary keys for the duplicate TableCodeVisIdx key.
+	 *
+	 *	@param	argTenantId	The Relation key attribute of the instance generating the id.
+	 *
+	 *	@param	argTableId	The Relation key attribute of the instance generating the id.
+	 *
+	 *	@param	argCodeVis	The Relation key attribute of the instance generating the id.
+	 *
+	 *	@return	List of CFBamRelationObj cached instances sorted by their primary keys for the duplicate TableCodeVisIdx key,
+	 *		which may be an empty set.
+	 */
+	List<ICFBamRelationObj> readRelationByTableCodeVisIdx( long TenantId,
+		long TableId,
+		ICFBamSchema.CodeVisibilityEnum CodeVis,
+		boolean forceRead );
+
+	/**
 	 *	Get the map of CFBamRelationObj instances sorted by their primary keys for the duplicate DefSchemaIdx key.
 	 *
 	 *	@param	argDefSchemaTenantId	The Relation key attribute of the instance generating the id.
@@ -423,6 +477,12 @@ public interface ICFBamRelationTableObj
 	List<ICFBamRelationObj> readCachedRelationByRelTableIdx( long TenantId,
 		long TableId );
 
+	List<ICFBamRelationObj> readCachedRelationByCodeVisIdx( ICFBamSchema.CodeVisibilityEnum CodeVis );
+
+	List<ICFBamRelationObj> readCachedRelationByTableCodeVisIdx( long TenantId,
+		long TableId,
+		ICFBamSchema.CodeVisibilityEnum CodeVis );
+
 	List<ICFBamRelationObj> readCachedRelationByDefSchemaIdx( Long DefSchemaTenantId,
 		Long DefSchemaId );
 
@@ -451,6 +511,12 @@ public interface ICFBamRelationTableObj
 
 	void deepDisposeRelationByRelTableIdx( long TenantId,
 		long TableId );
+
+	void deepDisposeRelationByCodeVisIdx( ICFBamSchema.CodeVisibilityEnum CodeVis );
+
+	void deepDisposeRelationByTableCodeVisIdx( long TenantId,
+		long TableId,
+		ICFBamSchema.CodeVisibilityEnum CodeVis );
 
 	void deepDisposeRelationByDefSchemaIdx( Long DefSchemaTenantId,
 		Long DefSchemaId );
@@ -523,6 +589,26 @@ public interface ICFBamRelationTableObj
 	 */
 	void deleteRelationByRelTableIdx( long TenantId,
 		long TableId );
+
+	/**
+	 *	Internal use only.
+	 *
+	 *	@param	argCodeVis	The Relation key attribute of the instance generating the id.
+	 */
+	void deleteRelationByCodeVisIdx( ICFBamSchema.CodeVisibilityEnum CodeVis );
+
+	/**
+	 *	Internal use only.
+	 *
+	 *	@param	argTenantId	The Relation key attribute of the instance generating the id.
+	 *
+	 *	@param	argTableId	The Relation key attribute of the instance generating the id.
+	 *
+	 *	@param	argCodeVis	The Relation key attribute of the instance generating the id.
+	 */
+	void deleteRelationByTableCodeVisIdx( long TenantId,
+		long TableId,
+		ICFBamSchema.CodeVisibilityEnum CodeVis );
 
 	/**
 	 *	Internal use only.

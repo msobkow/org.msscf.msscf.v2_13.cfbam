@@ -332,6 +332,10 @@ public class CFBamServerMethodObj
 		return( getServerMethodBuff().getRequiredIsServerOnly() );
 	}
 
+	public ICFBamSchema.CodeVisibilityEnum getRequiredCodeVis() {
+		return( getServerMethodBuff().getRequiredCodeVis() );
+	}
+
 	public String getRequiredJMethodBody() {
 		return( getServerMethodBuff().getRequiredJMethodBody() );
 	}

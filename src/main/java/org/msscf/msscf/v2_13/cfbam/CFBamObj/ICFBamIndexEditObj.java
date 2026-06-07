@@ -197,6 +197,20 @@ public interface ICFBamIndexEditObj
 	void setRequiredIsDbMapped( boolean value );
 
 	/**
+	 *	Get the required ICFBamSchema.CodeVisibilityEnum attribute CodeVis.
+	 *
+	 *	@return	The ICFBamSchema.CodeVisibilityEnum value of the attribute CodeVis.
+	 */
+	ICFBamSchema.CodeVisibilityEnum getRequiredCodeVis();
+
+	/**
+	 *	Set the required ICFBamSchema.CodeVisibilityEnum attribute CodeVis.
+	 *
+	 *	@param	value	the ICFBamSchema.CodeVisibilityEnum value of the attribute CodeVis.
+	 */
+	void setRequiredCodeVis( ICFBamSchema.CodeVisibilityEnum value );
+
+	/**
 	 *	Get the ICFBamTableObj instance referenced by the Table key.
 	 *
 	 *	@return	The ICFBamTableObj instance referenced by the Table key.

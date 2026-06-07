@@ -270,6 +270,13 @@ public interface ICFBamTableObj
 	ICFBamSchema.SecScopeEnum getRequiredSecScope();
 
 	/**
+	 *	Get the required ICFBamSchema.CodeVisibilityEnum attribute CodeVis.
+	 *
+	 *	@return	The required ICFBamSchema.CodeVisibilityEnum attribute CodeVis.
+	 */
+	ICFBamSchema.CodeVisibilityEnum getRequiredCodeVis();
+
+	/**
 	 *	Get the optional String attribute JObjMembers.
 	 *
 	 *	@return	The optional String attribute JObjMembers.

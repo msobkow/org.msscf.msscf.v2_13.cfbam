@@ -172,6 +172,13 @@ public interface ICFBamIndexObj
 	boolean getRequiredIsDbMapped();
 
 	/**
+	 *	Get the required ICFBamSchema.CodeVisibilityEnum attribute CodeVis.
+	 *
+	 *	@return	The required ICFBamSchema.CodeVisibilityEnum attribute CodeVis.
+	 */
+	ICFBamSchema.CodeVisibilityEnum getRequiredCodeVis();
+
+	/**
 	 *	Get the required ICFBamTableObj instance referenced by the Table key.
 	 *
 	 *	@return	The required ICFBamTableObj instance referenced by the Table key.

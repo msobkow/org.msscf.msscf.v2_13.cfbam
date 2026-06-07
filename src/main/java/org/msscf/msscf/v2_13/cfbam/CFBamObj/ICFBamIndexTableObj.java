@@ -275,6 +275,60 @@ public interface ICFBamIndexTableObj
 		boolean forceRead );
 
 	/**
+	 *	Get the map of CFBamIndexObj instances sorted by their primary keys for the duplicate CodeVisIdx key.
+	 *
+	 *	@param	argCodeVis	The Index key attribute of the instance generating the id.
+	 *
+	 *	@return	List of CFBamIndexObj cached instances sorted by their primary keys for the duplicate CodeVisIdx key,
+	 *		which may be an empty set.
+	 */
+	List<ICFBamIndexObj> readIndexByCodeVisIdx( ICFBamSchema.CodeVisibilityEnum CodeVis );
+
+	/**
+	 *	Get the map of CFBamIndexObj instances sorted by their primary keys for the duplicate CodeVisIdx key.
+	 *
+	 *	@param	argCodeVis	The Index key attribute of the instance generating the id.
+	 *
+	 *	@return	List of CFBamIndexObj cached instances sorted by their primary keys for the duplicate CodeVisIdx key,
+	 *		which may be an empty set.
+	 */
+	List<ICFBamIndexObj> readIndexByCodeVisIdx( ICFBamSchema.CodeVisibilityEnum CodeVis,
+		boolean forceRead );
+
+	/**
+	 *	Get the map of CFBamIndexObj instances sorted by their primary keys for the duplicate TableCodeVisIdx key.
+	 *
+	 *	@param	argTenantId	The Index key attribute of the instance generating the id.
+	 *
+	 *	@param	argTableId	The Index key attribute of the instance generating the id.
+	 *
+	 *	@param	argCodeVis	The Index key attribute of the instance generating the id.
+	 *
+	 *	@return	List of CFBamIndexObj cached instances sorted by their primary keys for the duplicate TableCodeVisIdx key,
+	 *		which may be an empty set.
+	 */
+	List<ICFBamIndexObj> readIndexByTableCodeVisIdx( long TenantId,
+		long TableId,
+		ICFBamSchema.CodeVisibilityEnum CodeVis );
+
+	/**
+	 *	Get the map of CFBamIndexObj instances sorted by their primary keys for the duplicate TableCodeVisIdx key.
+	 *
+	 *	@param	argTenantId	The Index key attribute of the instance generating the id.
+	 *
+	 *	@param	argTableId	The Index key attribute of the instance generating the id.
+	 *
+	 *	@param	argCodeVis	The Index key attribute of the instance generating the id.
+	 *
+	 *	@return	List of CFBamIndexObj cached instances sorted by their primary keys for the duplicate TableCodeVisIdx key,
+	 *		which may be an empty set.
+	 */
+	List<ICFBamIndexObj> readIndexByTableCodeVisIdx( long TenantId,
+		long TableId,
+		ICFBamSchema.CodeVisibilityEnum CodeVis,
+		boolean forceRead );
+
+	/**
 	 *	Get the map of CFBamIndexObj instances sorted by their primary keys for the duplicate DefSchemaIdx key.
 	 *
 	 *	@param	argDefSchemaTenantId	The Index key attribute of the instance generating the id.
@@ -315,6 +369,12 @@ public interface ICFBamIndexTableObj
 	List<ICFBamIndexObj> readCachedIndexByIdxTableIdx( long TenantId,
 		long TableId );
 
+	List<ICFBamIndexObj> readCachedIndexByCodeVisIdx( ICFBamSchema.CodeVisibilityEnum CodeVis );
+
+	List<ICFBamIndexObj> readCachedIndexByTableCodeVisIdx( long TenantId,
+		long TableId,
+		ICFBamSchema.CodeVisibilityEnum CodeVis );
+
 	List<ICFBamIndexObj> readCachedIndexByDefSchemaIdx( Long DefSchemaTenantId,
 		Long DefSchemaId );
 
@@ -331,6 +391,12 @@ public interface ICFBamIndexTableObj
 
 	void deepDisposeIndexByIdxTableIdx( long TenantId,
 		long TableId );
+
+	void deepDisposeIndexByCodeVisIdx( ICFBamSchema.CodeVisibilityEnum CodeVis );
+
+	void deepDisposeIndexByTableCodeVisIdx( long TenantId,
+		long TableId,
+		ICFBamSchema.CodeVisibilityEnum CodeVis );
 
 	void deepDisposeIndexByDefSchemaIdx( Long DefSchemaTenantId,
 		Long DefSchemaId );
@@ -391,6 +457,26 @@ public interface ICFBamIndexTableObj
 	 */
 	void deleteIndexByIdxTableIdx( long TenantId,
 		long TableId );
+
+	/**
+	 *	Internal use only.
+	 *
+	 *	@param	argCodeVis	The Index key attribute of the instance generating the id.
+	 */
+	void deleteIndexByCodeVisIdx( ICFBamSchema.CodeVisibilityEnum CodeVis );
+
+	/**
+	 *	Internal use only.
+	 *
+	 *	@param	argTenantId	The Index key attribute of the instance generating the id.
+	 *
+	 *	@param	argTableId	The Index key attribute of the instance generating the id.
+	 *
+	 *	@param	argCodeVis	The Index key attribute of the instance generating the id.
+	 */
+	void deleteIndexByTableCodeVisIdx( long TenantId,
+		long TableId,
+		ICFBamSchema.CodeVisibilityEnum CodeVis );
 
 	/**
 	 *	Internal use only.

@@ -393,6 +393,10 @@ public class CFBamRelationObj
 		return( getRelationBuff().getOptionalNarrowedId() );
 	}
 
+	public ICFBamSchema.CodeVisibilityEnum getRequiredCodeVis() {
+		return( getRelationBuff().getRequiredCodeVis() );
+	}
+
 	public ICFBamSchemaDefObj getOptionalLookupDefSchema() {
 		return( getOptionalLookupDefSchema( false ) );
 	}

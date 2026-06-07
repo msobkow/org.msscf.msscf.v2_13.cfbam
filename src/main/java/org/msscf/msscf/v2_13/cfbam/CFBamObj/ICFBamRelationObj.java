@@ -228,6 +228,13 @@ public interface ICFBamRelationObj
 	Long getOptionalNarrowedId();
 
 	/**
+	 *	Get the required ICFBamSchema.CodeVisibilityEnum attribute CodeVis.
+	 *
+	 *	@return	The required ICFBamSchema.CodeVisibilityEnum attribute CodeVis.
+	 */
+	ICFBamSchema.CodeVisibilityEnum getRequiredCodeVis();
+
+	/**
 	 *	Get the optional ICFBamSchemaDefObj instance referenced by the DefSchema key.
 	 *
 	 *	@return	The optional ICFBamSchemaDefObj instance referenced by the DefSchema key.

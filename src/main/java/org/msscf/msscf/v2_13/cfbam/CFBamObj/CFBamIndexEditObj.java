@@ -355,6 +355,16 @@ public class CFBamIndexEditObj
 		}
 	}
 
+	public ICFBamSchema.CodeVisibilityEnum getRequiredCodeVis() {
+		return( getIndexBuff().getRequiredCodeVis() );
+	}
+
+	public void setRequiredCodeVis( ICFBamSchema.CodeVisibilityEnum value ) {
+		if( getIndexBuff().getRequiredCodeVis() != value ) {
+			getIndexBuff().setRequiredCodeVis( value );
+		}
+	}
+
 	public ICFBamTableObj getRequiredContainerTable() {
 		return( getRequiredContainerTable( false ) );
 	}

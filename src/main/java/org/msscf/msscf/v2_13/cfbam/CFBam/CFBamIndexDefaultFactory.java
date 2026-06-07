@@ -86,6 +86,18 @@ public class CFBamIndexDefaultFactory
 		return( key );
 	}
 
+	public CFBamIndexByCodeVisIdxKey newCodeVisIdxKey() {
+		CFBamIndexByCodeVisIdxKey key =
+			new CFBamIndexByCodeVisIdxKey();
+		return( key );
+	}
+
+	public CFBamIndexByTableCodeVisIdxKey newTableCodeVisIdxKey() {
+		CFBamIndexByTableCodeVisIdxKey key =
+			new CFBamIndexByTableCodeVisIdxKey();
+		return( key );
+	}
+
 	public CFBamIndexByDefSchemaIdxKey newDefSchemaIdxKey() {
 		CFBamIndexByDefSchemaIdxKey key =
 			new CFBamIndexByDefSchemaIdxKey();

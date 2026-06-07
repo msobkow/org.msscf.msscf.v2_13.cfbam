@@ -88,6 +88,7 @@ public class CFBamTableHBuff
 	public final static boolean ISSERVERONLY_INIT_VALUE = false;
 	public static final ICFBamSchema.LoaderBehaviourEnum LOADERBEHAVIOUR_INIT_VALUE = CFBamSchema.ordinalToLoaderBehaviourEnum( 0 );
 	public static final ICFBamSchema.SecScopeEnum SECSCOPE_INIT_VALUE = CFBamSchema.ordinalToSecScopeEnum( 0 );
+	public static final ICFBamSchema.CodeVisibilityEnum CODEVIS_INIT_VALUE = CFBamSchema.ordinalToCodeVisibilityEnum( 0 );
 	public static final String JOBJMEMBERS_INIT_VALUE = new String( "" );
 	public static final String JOBJINTERFACE_INIT_VALUE = new String( "" );
 	public static final String JOBJIMPORT_INIT_VALUE = new String( "" );
@@ -283,8 +284,10 @@ public class CFBamTableHBuff
 	public static final long QUALIFYINGTABLEID_MIN_VALUE = 0L;
 	public static final ICFBamSchema.LoaderBehaviourEnum LOADERBEHAVIOUR_MIN_VALUE = ICFBamSchema.LoaderBehaviourEnum.Insert;
 	public static final ICFBamSchema.SecScopeEnum SECSCOPE_MIN_VALUE = ICFBamSchema.SecScopeEnum.None;
+	public static final ICFBamSchema.CodeVisibilityEnum CODEVIS_MIN_VALUE = ICFBamSchema.CodeVisibilityEnum.Public;
 	public static final ICFBamSchema.LoaderBehaviourEnum LOADERBEHAVIOUR_MAX_VALUE = ICFBamSchema.LoaderBehaviourEnum.Replace;
 	public static final ICFBamSchema.SecScopeEnum SECSCOPE_MAX_VALUE = ICFBamSchema.SecScopeEnum.TenantGroup;
+	public static final ICFBamSchema.CodeVisibilityEnum CODEVIS_MAX_VALUE = ICFBamSchema.CodeVisibilityEnum.Private;
 
 	protected long requiredSchemaDefId;
 	protected Long optionalDefSchemaTenantId;
@@ -312,6 +315,7 @@ public class CFBamTableHBuff
 	protected boolean requiredIsServerOnly;
 	protected ICFBamSchema.LoaderBehaviourEnum requiredLoaderBehaviour;
 	protected ICFBamSchema.SecScopeEnum requiredSecScope;
+	protected ICFBamSchema.CodeVisibilityEnum requiredCodeVis;
 	protected String optionalJObjMembers;
 	protected String optionalJObjInterface;
 	protected String optionalJObjImport;
@@ -520,6 +524,7 @@ public class CFBamTableHBuff
 		requiredIsServerOnly = CFBamTableBuff.ISSERVERONLY_INIT_VALUE;
 		requiredLoaderBehaviour = CFBamTableBuff.LOADERBEHAVIOUR_INIT_VALUE;
 		requiredSecScope = CFBamTableBuff.SECSCOPE_INIT_VALUE;
+		requiredCodeVis = CFBamTableBuff.CODEVIS_INIT_VALUE;
 		optionalJObjMembers = null;
 		optionalJObjInterface = null;
 		optionalJObjImport = null;
@@ -1155,6 +1160,20 @@ public class CFBamTableHBuff
 				"value" );
 		}
 		requiredSecScope = value;
+	}
+
+	public ICFBamSchema.CodeVisibilityEnum getRequiredCodeVis() {
+		return( requiredCodeVis );
+	}
+
+	public void setRequiredCodeVis( ICFBamSchema.CodeVisibilityEnum value ) {
+		if( value == null ) {
+			throw new CFLibNullArgumentException( getClass(),
+				"setRequiredCodeVis",
+				1,
+				"value" );
+		}
+		requiredCodeVis = value;
 	}
 
 	public String getOptionalJObjMembers() {
@@ -5165,6 +5184,9 @@ public class CFBamTableHBuff
 			if( ! getRequiredSecScope().equals( rhs.getRequiredSecScope() ) ) {
 				return( false );
 			}
+			if( ! getRequiredCodeVis().equals( rhs.getRequiredCodeVis() ) ) {
+				return( false );
+			}
 			if( getOptionalJObjMembers() != null ) {
 				if( rhs.getOptionalJObjMembers() != null ) {
 					if( ! getOptionalJObjMembers().equals( rhs.getOptionalJObjMembers() ) ) {
@@ -7551,6 +7573,9 @@ public class CFBamTableHBuff
 			if( ! getRequiredSecScope().equals( rhs.getRequiredSecScope() ) ) {
 				return( false );
 			}
+			if( ! getRequiredCodeVis().equals( rhs.getRequiredCodeVis() ) ) {
+				return( false );
+			}
 			if( getOptionalJObjMembers() != null ) {
 				if( rhs.getOptionalJObjMembers() != null ) {
 					if( ! getOptionalJObjMembers().equals( rhs.getOptionalJObjMembers() ) ) {
@@ -9723,6 +9748,26 @@ public class CFBamTableHBuff
 			}
 			return( true );
 		}
+		else if( obj instanceof CFBamTableByCodeVisIdxKey ) {
+			CFBamTableByCodeVisIdxKey rhs = (CFBamTableByCodeVisIdxKey)obj;
+			if( ! getRequiredCodeVis().equals( rhs.getRequiredCodeVis() ) ) {
+				return( false );
+			}
+			return( true );
+		}
+		else if( obj instanceof CFBamTableBySchemaCodeVisIdxKey ) {
+			CFBamTableBySchemaCodeVisIdxKey rhs = (CFBamTableBySchemaCodeVisIdxKey)obj;
+			if( getRequiredTenantId() != rhs.getRequiredTenantId() ) {
+				return( false );
+			}
+			if( getRequiredSchemaDefId() != rhs.getRequiredSchemaDefId() ) {
+				return( false );
+			}
+			if( ! getRequiredCodeVis().equals( rhs.getRequiredCodeVis() ) ) {
+				return( false );
+			}
+			return( true );
+		}
 		else if( obj instanceof CFBamTableByDefSchemaIdxKey ) {
 			CFBamTableByDefSchemaIdxKey rhs = (CFBamTableByDefSchemaIdxKey)obj;
 			if( getOptionalDefSchemaTenantId() != null ) {
@@ -9986,6 +10031,7 @@ public class CFBamTableHBuff
 		}
 		hashCode = ( hashCode * 0x10000 ) + getRequiredLoaderBehaviour().ordinal();
 		hashCode = ( hashCode * 0x10000 ) + getRequiredSecScope().ordinal();
+		hashCode = ( hashCode * 0x10000 ) + getRequiredCodeVis().ordinal();
 		if( getOptionalJObjMembers() != null ) {
 			hashCode = hashCode + getOptionalJObjMembers().hashCode();
 		}
@@ -10555,6 +10601,38 @@ public class CFBamTableHBuff
 			}
 			else if( getRequiredSchemaDefId() > rhs.getRequiredSchemaDefId() ) {
 				return( 1 );
+			}			return( 0 );
+		}
+		else if( obj instanceof CFBamTableByCodeVisIdxKey ) {
+			CFBamTableByCodeVisIdxKey rhs = (CFBamTableByCodeVisIdxKey)obj;
+
+			{
+				int cmp = getRequiredCodeVis().compareTo( rhs.getRequiredCodeVis() );
+				if( cmp != 0 ) {
+					return( cmp );
+				}
+			}			return( 0 );
+		}
+		else if( obj instanceof CFBamTableBySchemaCodeVisIdxKey ) {
+			CFBamTableBySchemaCodeVisIdxKey rhs = (CFBamTableBySchemaCodeVisIdxKey)obj;
+
+			if( getRequiredTenantId() < rhs.getRequiredTenantId() ) {
+				return( -1 );
+			}
+			else if( getRequiredTenantId() > rhs.getRequiredTenantId() ) {
+				return( 1 );
+			}
+			if( getRequiredSchemaDefId() < rhs.getRequiredSchemaDefId() ) {
+				return( -1 );
+			}
+			else if( getRequiredSchemaDefId() > rhs.getRequiredSchemaDefId() ) {
+				return( 1 );
+			}
+			{
+				int cmp = getRequiredCodeVis().compareTo( rhs.getRequiredCodeVis() );
+				if( cmp != 0 ) {
+					return( cmp );
+				}
 			}			return( 0 );
 		}
 		else if( obj instanceof CFBamTableByDefSchemaIdxKey ) {
@@ -11232,6 +11310,12 @@ public class CFBamTableHBuff
 			}
 			{
 				int cmp = getRequiredSecScope().compareTo( rhs.getRequiredSecScope() );
+				if( cmp != 0 ) {
+					return( cmp );
+				}
+			}
+			{
+				int cmp = getRequiredCodeVis().compareTo( rhs.getRequiredCodeVis() );
 				if( cmp != 0 ) {
 					return( cmp );
 				}
@@ -14164,6 +14248,7 @@ public class CFBamTableHBuff
 		setRequiredIsServerOnly( src.getRequiredIsServerOnly() );
 		setRequiredLoaderBehaviour( src.getRequiredLoaderBehaviour() );
 		setRequiredSecScope( src.getRequiredSecScope() );
+		setRequiredCodeVis( src.getRequiredCodeVis() );
 		setOptionalJObjMembers( src.getOptionalJObjMembers() );
 		setOptionalJObjInterface( src.getOptionalJObjInterface() );
 		setOptionalJObjImport( src.getOptionalJObjImport() );
@@ -14387,6 +14472,7 @@ public class CFBamTableHBuff
 		setRequiredIsServerOnly( src.getRequiredIsServerOnly() );
 		setRequiredLoaderBehaviour( src.getRequiredLoaderBehaviour() );
 		setRequiredSecScope( src.getRequiredSecScope() );
+		setRequiredCodeVis( src.getRequiredCodeVis() );
 		setOptionalJObjMembers( src.getOptionalJObjMembers() );
 		setOptionalJObjInterface( src.getOptionalJObjInterface() );
 		setOptionalJObjImport( src.getOptionalJObjImport() );

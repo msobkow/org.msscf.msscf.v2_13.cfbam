@@ -332,6 +332,16 @@ public class CFBamServerMethodEditObj
 		}
 	}
 
+	public ICFBamSchema.CodeVisibilityEnum getRequiredCodeVis() {
+		return( getServerMethodBuff().getRequiredCodeVis() );
+	}
+
+	public void setRequiredCodeVis( ICFBamSchema.CodeVisibilityEnum value ) {
+		if( getServerMethodBuff().getRequiredCodeVis() != value ) {
+			getServerMethodBuff().setRequiredCodeVis( value );
+		}
+	}
+
 	public String getRequiredJMethodBody() {
 		return( getServerMethodBuff().getRequiredJMethodBody() );
 	}

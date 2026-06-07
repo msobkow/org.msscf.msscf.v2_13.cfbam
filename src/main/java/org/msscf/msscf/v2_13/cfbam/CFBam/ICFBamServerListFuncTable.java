@@ -171,6 +171,50 @@ public interface ICFBamServerListFuncTable
 	void deleteServerListFuncByMethTableIdx( CFSecAuthorization Authorization,
 		CFBamServerMethodByMethTableIdxKey argKey );
 	/**
+	 *	Delete the ServerListFunc instances identified by the key MethTableVisIdx.
+	 *
+	 *	@param	Authorization	The session authorization information.
+	 *
+	 *	@param	argTenantId	The ServerListFunc key attribute of the instance generating the id.
+	 *
+	 *	@param	argTableId	The ServerListFunc key attribute of the instance generating the id.
+	 *
+	 *	@param	argCodeVis	The ServerListFunc key attribute of the instance generating the id.
+	 */
+	void deleteServerListFuncByMethTableVisIdx( CFSecAuthorization Authorization,
+		long argTenantId,
+		long argTableId,
+		ICFBamSchema.CodeVisibilityEnum argCodeVis );
+
+	/**
+	 *	Delete the ServerListFunc instances identified by the key MethTableVisIdx.
+	 *
+	 *	@param	Authorization	The session authorization information.
+	 *
+	 *	@param	argKey	The key identifying the instances to be deleted.
+	 */
+	void deleteServerListFuncByMethTableVisIdx( CFSecAuthorization Authorization,
+		CFBamServerMethodByMethTableVisIdxKey argKey );
+	/**
+	 *	Delete the ServerListFunc instances identified by the key MethCodeVisIdx.
+	 *
+	 *	@param	Authorization	The session authorization information.
+	 *
+	 *	@param	argCodeVis	The ServerListFunc key attribute of the instance generating the id.
+	 */
+	void deleteServerListFuncByMethCodeVisIdx( CFSecAuthorization Authorization,
+		ICFBamSchema.CodeVisibilityEnum argCodeVis );
+
+	/**
+	 *	Delete the ServerListFunc instances identified by the key MethCodeVisIdx.
+	 *
+	 *	@param	Authorization	The session authorization information.
+	 *
+	 *	@param	argKey	The key identifying the instances to be deleted.
+	 */
+	void deleteServerListFuncByMethCodeVisIdx( CFSecAuthorization Authorization,
+		CFBamServerMethodByMethCodeVisIdxKey argKey );
+	/**
 	 *	Delete the ServerListFunc instances identified by the key DefSchemaIdx.
 	 *
 	 *	@param	Authorization	The session authorization information.
@@ -333,6 +377,36 @@ public interface ICFBamServerListFuncTable
 		long TableId );
 
 	/**
+	 *	Read an array of the derived ServerListFunc buffer instances identified by the duplicate key MethTableVisIdx.
+	 *
+	 *	@param	Authorization	The session authorization information.
+	 *
+	 *	@param	argTenantId	The ServerListFunc key attribute of the instance generating the id.
+	 *
+	 *	@param	argTableId	The ServerListFunc key attribute of the instance generating the id.
+	 *
+	 *	@param	argCodeVis	The ServerListFunc key attribute of the instance generating the id.
+	 *
+	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
+	 */
+	CFBamServerListFuncBuff[] readDerivedByMethTableVisIdx( CFSecAuthorization Authorization,
+		long TenantId,
+		long TableId,
+		ICFBamSchema.CodeVisibilityEnum CodeVis );
+
+	/**
+	 *	Read an array of the derived ServerListFunc buffer instances identified by the duplicate key MethCodeVisIdx.
+	 *
+	 *	@param	Authorization	The session authorization information.
+	 *
+	 *	@param	argCodeVis	The ServerListFunc key attribute of the instance generating the id.
+	 *
+	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
+	 */
+	CFBamServerListFuncBuff[] readDerivedByMethCodeVisIdx( CFSecAuthorization Authorization,
+		ICFBamSchema.CodeVisibilityEnum CodeVis );
+
+	/**
 	 *	Read an array of the derived ServerListFunc buffer instances identified by the duplicate key DefSchemaIdx.
 	 *
 	 *	@param	Authorization	The session authorization information.
@@ -470,6 +544,40 @@ public interface ICFBamServerListFuncTable
 	CFBamServerListFuncBuff[] readBuffByMethTableIdx( CFSecAuthorization Authorization,
 		long TenantId,
 		long TableId );
+
+	/**
+	 *	Read an array of the specific ServerListFunc buffer instances identified by the duplicate key MethTableVisIdx.
+	 *
+	 *	@param	Authorization	The session authorization information.
+	 *
+	 *	@param	argTenantId	The ServerListFunc key attribute of the instance generating the id.
+	 *
+	 *	@param	argTableId	The ServerListFunc key attribute of the instance generating the id.
+	 *
+	 *	@param	argCodeVis	The ServerListFunc key attribute of the instance generating the id.
+	 *
+	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
+	 *
+	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 */
+	CFBamServerListFuncBuff[] readBuffByMethTableVisIdx( CFSecAuthorization Authorization,
+		long TenantId,
+		long TableId,
+		ICFBamSchema.CodeVisibilityEnum CodeVis );
+
+	/**
+	 *	Read an array of the specific ServerListFunc buffer instances identified by the duplicate key MethCodeVisIdx.
+	 *
+	 *	@param	Authorization	The session authorization information.
+	 *
+	 *	@param	argCodeVis	The ServerListFunc key attribute of the instance generating the id.
+	 *
+	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
+	 *
+	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 */
+	CFBamServerListFuncBuff[] readBuffByMethCodeVisIdx( CFSecAuthorization Authorization,
+		ICFBamSchema.CodeVisibilityEnum CodeVis );
 
 	/**
 	 *	Read an array of the specific ServerListFunc buffer instances identified by the duplicate key DefSchemaIdx.

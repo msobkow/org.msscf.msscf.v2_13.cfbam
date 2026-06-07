@@ -412,6 +412,16 @@ public class CFBamRelationEditObj
 		return( getRelationBuff().getOptionalNarrowedId() );
 	}
 
+	public ICFBamSchema.CodeVisibilityEnum getRequiredCodeVis() {
+		return( getRelationBuff().getRequiredCodeVis() );
+	}
+
+	public void setRequiredCodeVis( ICFBamSchema.CodeVisibilityEnum value ) {
+		if( getRelationBuff().getRequiredCodeVis() != value ) {
+			getRelationBuff().setRequiredCodeVis( value );
+		}
+	}
+
 	public ICFBamSchemaDefObj getOptionalLookupDefSchema() {
 		return( getOptionalLookupDefSchema( false ) );
 	}

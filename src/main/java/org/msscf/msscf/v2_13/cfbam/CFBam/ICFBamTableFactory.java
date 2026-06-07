@@ -73,6 +73,20 @@ public interface ICFBamTableFactory
 	CFBamTableBySchemaDefIdxKey newSchemaDefIdxKey();
 
 	/**
+	 *	Allocate a CodeVisIdx key over Table instances.
+	 *
+	 *	@return	The new instance.
+	 */
+	CFBamTableByCodeVisIdxKey newCodeVisIdxKey();
+
+	/**
+	 *	Allocate a SchemaCodeVisIdx key over Table instances.
+	 *
+	 *	@return	The new instance.
+	 */
+	CFBamTableBySchemaCodeVisIdxKey newSchemaCodeVisIdxKey();
+
+	/**
 	 *	Allocate a DefSchemaIdx key over Table instances.
 	 *
 	 *	@return	The new instance.

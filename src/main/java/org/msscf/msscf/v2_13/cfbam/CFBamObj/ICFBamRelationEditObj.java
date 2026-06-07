@@ -239,6 +239,20 @@ public interface ICFBamRelationEditObj
 	void setRequiredAllowAddendum( boolean value );
 
 	/**
+	 *	Get the required ICFBamSchema.CodeVisibilityEnum attribute CodeVis.
+	 *
+	 *	@return	The ICFBamSchema.CodeVisibilityEnum value of the attribute CodeVis.
+	 */
+	ICFBamSchema.CodeVisibilityEnum getRequiredCodeVis();
+
+	/**
+	 *	Set the required ICFBamSchema.CodeVisibilityEnum attribute CodeVis.
+	 *
+	 *	@param	value	the ICFBamSchema.CodeVisibilityEnum value of the attribute CodeVis.
+	 */
+	void setRequiredCodeVis( ICFBamSchema.CodeVisibilityEnum value );
+
+	/**
 	 *	Get the ICFBamSchemaDefObj instance referenced by the DefSchema key.
 	 *
 	 *	@return	The ICFBamSchemaDefObj instance referenced by the DefSchema key.

@@ -438,6 +438,10 @@ public class CFBamTableObj
 		return( getTableBuff().getRequiredSecScope() );
 	}
 
+	public ICFBamSchema.CodeVisibilityEnum getRequiredCodeVis() {
+		return( getTableBuff().getRequiredCodeVis() );
+	}
+
 	public String getOptionalJObjMembers() {
 		return( getTableBuff().getOptionalJObjMembers() );
 	}

@@ -73,6 +73,10 @@ public class CFBamRelationTableObj
 		Map<CFBamScopePKey, ICFBamRelationObj > > indexByRelnTenantIdx;
 	private Map< CFBamRelationByRelTableIdxKey,
 		Map<CFBamScopePKey, ICFBamRelationObj > > indexByRelTableIdx;
+	private Map< CFBamRelationByCodeVisIdxKey,
+		Map<CFBamScopePKey, ICFBamRelationObj > > indexByCodeVisIdx;
+	private Map< CFBamRelationByTableCodeVisIdxKey,
+		Map<CFBamScopePKey, ICFBamRelationObj > > indexByTableCodeVisIdx;
 	private Map< CFBamRelationByDefSchemaIdxKey,
 		Map<CFBamScopePKey, ICFBamRelationObj > > indexByDefSchemaIdx;
 	private Map< CFBamRelationByFromKeyIdxKey,
@@ -94,6 +98,8 @@ public class CFBamRelationTableObj
 		indexByUNameIdx = null;
 		indexByRelnTenantIdx = null;
 		indexByRelTableIdx = null;
+		indexByCodeVisIdx = null;
+		indexByTableCodeVisIdx = null;
 		indexByDefSchemaIdx = null;
 		indexByFromKeyIdx = null;
 		indexByToTblIdx = null;
@@ -109,6 +115,8 @@ public class CFBamRelationTableObj
 		indexByUNameIdx = null;
 		indexByRelnTenantIdx = null;
 		indexByRelTableIdx = null;
+		indexByCodeVisIdx = null;
+		indexByTableCodeVisIdx = null;
 		indexByDefSchemaIdx = null;
 		indexByFromKeyIdx = null;
 		indexByToTblIdx = null;
@@ -143,6 +151,8 @@ public class CFBamRelationTableObj
 		indexByUNameIdx = null;
 		indexByRelnTenantIdx = null;
 		indexByRelTableIdx = null;
+		indexByCodeVisIdx = null;
+		indexByTableCodeVisIdx = null;
 		indexByDefSchemaIdx = null;
 		indexByFromKeyIdx = null;
 		indexByToTblIdx = null;
@@ -246,6 +256,34 @@ public class CFBamRelationTableObj
 					mapRelTableIdx.remove( keepObj.getPKey() );
 					if( mapRelTableIdx.size() <= 0 ) {
 						indexByRelTableIdx.remove( keyRelTableIdx );
+					}
+				}
+			}
+
+			if( indexByCodeVisIdx != null ) {
+				CFBamRelationByCodeVisIdxKey keyCodeVisIdx =
+					((ICFBamSchema)schema.getBackingStore()).getFactoryRelation().newCodeVisIdxKey();
+				keyCodeVisIdx.setRequiredCodeVis( keepObj.getRequiredCodeVis() );
+				Map<CFBamScopePKey, ICFBamRelationObj > mapCodeVisIdx = indexByCodeVisIdx.get( keyCodeVisIdx );
+				if( mapCodeVisIdx != null ) {
+					mapCodeVisIdx.remove( keepObj.getPKey() );
+					if( mapCodeVisIdx.size() <= 0 ) {
+						indexByCodeVisIdx.remove( keyCodeVisIdx );
+					}
+				}
+			}
+
+			if( indexByTableCodeVisIdx != null ) {
+				CFBamRelationByTableCodeVisIdxKey keyTableCodeVisIdx =
+					((ICFBamSchema)schema.getBackingStore()).getFactoryRelation().newTableCodeVisIdxKey();
+				keyTableCodeVisIdx.setRequiredTenantId( keepObj.getRequiredTenantId() );
+				keyTableCodeVisIdx.setRequiredTableId( keepObj.getRequiredTableId() );
+				keyTableCodeVisIdx.setRequiredCodeVis( keepObj.getRequiredCodeVis() );
+				Map<CFBamScopePKey, ICFBamRelationObj > mapTableCodeVisIdx = indexByTableCodeVisIdx.get( keyTableCodeVisIdx );
+				if( mapTableCodeVisIdx != null ) {
+					mapTableCodeVisIdx.remove( keepObj.getPKey() );
+					if( mapTableCodeVisIdx.size() <= 0 ) {
+						indexByTableCodeVisIdx.remove( keyTableCodeVisIdx );
 					}
 				}
 			}
@@ -366,6 +404,28 @@ public class CFBamRelationTableObj
 				}
 			}
 
+			if( indexByCodeVisIdx != null ) {
+				CFBamRelationByCodeVisIdxKey keyCodeVisIdx =
+					((ICFBamSchema)schema.getBackingStore()).getFactoryRelation().newCodeVisIdxKey();
+				keyCodeVisIdx.setRequiredCodeVis( keepObj.getRequiredCodeVis() );
+				Map<CFBamScopePKey, ICFBamRelationObj > mapCodeVisIdx = indexByCodeVisIdx.get( keyCodeVisIdx );
+				if( mapCodeVisIdx != null ) {
+					mapCodeVisIdx.put( keepObj.getPKey(), keepObj );
+				}
+			}
+
+			if( indexByTableCodeVisIdx != null ) {
+				CFBamRelationByTableCodeVisIdxKey keyTableCodeVisIdx =
+					((ICFBamSchema)schema.getBackingStore()).getFactoryRelation().newTableCodeVisIdxKey();
+				keyTableCodeVisIdx.setRequiredTenantId( keepObj.getRequiredTenantId() );
+				keyTableCodeVisIdx.setRequiredTableId( keepObj.getRequiredTableId() );
+				keyTableCodeVisIdx.setRequiredCodeVis( keepObj.getRequiredCodeVis() );
+				Map<CFBamScopePKey, ICFBamRelationObj > mapTableCodeVisIdx = indexByTableCodeVisIdx.get( keyTableCodeVisIdx );
+				if( mapTableCodeVisIdx != null ) {
+					mapTableCodeVisIdx.put( keepObj.getPKey(), keepObj );
+				}
+			}
+
 			if( indexByDefSchemaIdx != null ) {
 				CFBamRelationByDefSchemaIdxKey keyDefSchemaIdx =
 					((ICFBamSchema)schema.getBackingStore()).getFactoryRelation().newDefSchemaIdxKey();
@@ -472,6 +532,28 @@ public class CFBamRelationTableObj
 				Map<CFBamScopePKey, ICFBamRelationObj > mapRelTableIdx = indexByRelTableIdx.get( keyRelTableIdx );
 				if( mapRelTableIdx != null ) {
 					mapRelTableIdx.put( keepObj.getPKey(), keepObj );
+				}
+			}
+
+			if( indexByCodeVisIdx != null ) {
+				CFBamRelationByCodeVisIdxKey keyCodeVisIdx =
+					((ICFBamSchema)schema.getBackingStore()).getFactoryRelation().newCodeVisIdxKey();
+				keyCodeVisIdx.setRequiredCodeVis( keepObj.getRequiredCodeVis() );
+				Map<CFBamScopePKey, ICFBamRelationObj > mapCodeVisIdx = indexByCodeVisIdx.get( keyCodeVisIdx );
+				if( mapCodeVisIdx != null ) {
+					mapCodeVisIdx.put( keepObj.getPKey(), keepObj );
+				}
+			}
+
+			if( indexByTableCodeVisIdx != null ) {
+				CFBamRelationByTableCodeVisIdxKey keyTableCodeVisIdx =
+					((ICFBamSchema)schema.getBackingStore()).getFactoryRelation().newTableCodeVisIdxKey();
+				keyTableCodeVisIdx.setRequiredTenantId( keepObj.getRequiredTenantId() );
+				keyTableCodeVisIdx.setRequiredTableId( keepObj.getRequiredTableId() );
+				keyTableCodeVisIdx.setRequiredCodeVis( keepObj.getRequiredCodeVis() );
+				Map<CFBamScopePKey, ICFBamRelationObj > mapTableCodeVisIdx = indexByTableCodeVisIdx.get( keyTableCodeVisIdx );
+				if( mapTableCodeVisIdx != null ) {
+					mapTableCodeVisIdx.put( keepObj.getPKey(), keepObj );
 				}
 			}
 
@@ -604,6 +686,14 @@ public class CFBamRelationTableObj
 		keyRelTableIdx.setRequiredTenantId( existing.getRequiredTenantId() );
 		keyRelTableIdx.setRequiredTableId( existing.getRequiredTableId() );
 
+		CFBamRelationByCodeVisIdxKey keyCodeVisIdx = ((ICFBamSchema)schema.getBackingStore()).getFactoryRelation().newCodeVisIdxKey();
+		keyCodeVisIdx.setRequiredCodeVis( existing.getRequiredCodeVis() );
+
+		CFBamRelationByTableCodeVisIdxKey keyTableCodeVisIdx = ((ICFBamSchema)schema.getBackingStore()).getFactoryRelation().newTableCodeVisIdxKey();
+		keyTableCodeVisIdx.setRequiredTenantId( existing.getRequiredTenantId() );
+		keyTableCodeVisIdx.setRequiredTableId( existing.getRequiredTableId() );
+		keyTableCodeVisIdx.setRequiredCodeVis( existing.getRequiredCodeVis() );
+
 		CFBamRelationByDefSchemaIdxKey keyDefSchemaIdx = ((ICFBamSchema)schema.getBackingStore()).getFactoryRelation().newDefSchemaIdxKey();
 		keyDefSchemaIdx.setOptionalDefSchemaTenantId( existing.getOptionalDefSchemaTenantId() );
 		keyDefSchemaIdx.setOptionalDefSchemaId( existing.getOptionalDefSchemaId() );
@@ -648,6 +738,24 @@ public class CFBamRelationTableObj
 				indexByRelTableIdx.get( keyRelTableIdx ).remove( pkey );
 				if( indexByRelTableIdx.get( keyRelTableIdx ).size() <= 0 ) {
 					indexByRelTableIdx.remove( keyRelTableIdx );
+				}
+			}
+		}
+
+		if( indexByCodeVisIdx != null ) {
+			if( indexByCodeVisIdx.containsKey( keyCodeVisIdx ) ) {
+				indexByCodeVisIdx.get( keyCodeVisIdx ).remove( pkey );
+				if( indexByCodeVisIdx.get( keyCodeVisIdx ).size() <= 0 ) {
+					indexByCodeVisIdx.remove( keyCodeVisIdx );
+				}
+			}
+		}
+
+		if( indexByTableCodeVisIdx != null ) {
+			if( indexByTableCodeVisIdx.containsKey( keyTableCodeVisIdx ) ) {
+				indexByTableCodeVisIdx.get( keyTableCodeVisIdx ).remove( pkey );
+				if( indexByTableCodeVisIdx.get( keyTableCodeVisIdx ).size() <= 0 ) {
+					indexByTableCodeVisIdx.remove( keyTableCodeVisIdx );
 				}
 			}
 		}
@@ -1131,6 +1239,196 @@ public class CFBamRelationTableObj
 				dict.put( realised.getPKey(), realised );
 			}
 			indexByRelTableIdx.put( key, dict );
+		}
+		int len = dict.size();
+		ICFBamRelationObj arr[] = new ICFBamRelationObj[len];
+		Iterator<ICFBamRelationObj> valIter = dict.values().iterator();
+		int idx = 0;
+		while( ( idx < len ) && valIter.hasNext() ) {
+			arr[idx++] = valIter.next();
+		}
+		if( idx < len ) {
+			throw new CFLibArgumentUnderflowException( getClass(),
+				S_ProcName,
+				0,
+				"idx",
+				idx,
+				len );
+		}
+		else if( valIter.hasNext() ) {
+			throw new CFLibArgumentOverflowException( getClass(),
+					S_ProcName,
+					0,
+					"idx",
+					idx,
+					len );
+		}
+		ArrayList<ICFBamRelationObj> arrayList = new ArrayList<ICFBamRelationObj>(len);
+		for( idx = 0; idx < len; idx ++ ) {
+			arrayList.add( arr[idx] );
+		}
+
+		Comparator<ICFBamRelationObj> cmp = new Comparator<ICFBamRelationObj>() {
+			public int compare( ICFBamRelationObj lhs, ICFBamRelationObj rhs ) {
+				if( lhs == null ) {
+					if( rhs == null ) {
+						return( 0 );
+					}
+					else {
+						return( -1 );
+					}
+				}
+				else if( rhs == null ) {
+					return( 1 );
+				}
+				else {
+					CFBamScopePKey lhsPKey = lhs.getPKey();
+					CFBamScopePKey rhsPKey = rhs.getPKey();
+					int ret = lhsPKey.compareTo( rhsPKey );
+					return( ret );
+				}
+			}
+		};
+		Collections.sort( arrayList, cmp );
+		List<ICFBamRelationObj> sortedList = arrayList;
+		return( sortedList );
+	}
+
+	public List<ICFBamRelationObj> readRelationByCodeVisIdx( ICFBamSchema.CodeVisibilityEnum CodeVis )
+	{
+		return( readRelationByCodeVisIdx( CodeVis,
+			false ) );
+	}
+
+	public List<ICFBamRelationObj> readRelationByCodeVisIdx( ICFBamSchema.CodeVisibilityEnum CodeVis,
+		boolean forceRead )
+	{
+		final String S_ProcName = "readRelationByCodeVisIdx";
+		CFBamRelationByCodeVisIdxKey key = ((ICFBamSchema)schema.getBackingStore()).getFactoryRelation().newCodeVisIdxKey();
+		key.setRequiredCodeVis( CodeVis );
+		Map<CFBamScopePKey, ICFBamRelationObj> dict;
+		if( indexByCodeVisIdx == null ) {
+			indexByCodeVisIdx = new HashMap< CFBamRelationByCodeVisIdxKey,
+				Map< CFBamScopePKey, ICFBamRelationObj > >();
+		}
+		if( ( ! forceRead ) && indexByCodeVisIdx.containsKey( key ) ) {
+			dict = indexByCodeVisIdx.get( key );
+		}
+		else {
+			dict = new HashMap<CFBamScopePKey, ICFBamRelationObj>();
+			ICFBamRelationObj obj;
+			CFBamRelationBuff[] buffList = ((ICFBamSchema)schema.getBackingStore()).getTableRelation().readDerivedByCodeVisIdx( schema.getAuthorization(),
+				CodeVis );
+			CFBamRelationBuff buff;
+			for( int idx = 0; idx < buffList.length; idx ++ ) {
+				buff = buffList[ idx ];
+				obj = (ICFBamRelationObj)schema.getScopeTableObj().constructByClassCode( buff.getClassCode() );
+				obj.setPKey( ((ICFBamSchema)schema.getBackingStore()).getFactoryScope().newPKey() );
+				obj.setBuff( buff );
+				ICFBamRelationObj realised = (ICFBamRelationObj)obj.realise();
+				dict.put( realised.getPKey(), realised );
+			}
+			indexByCodeVisIdx.put( key, dict );
+		}
+		int len = dict.size();
+		ICFBamRelationObj arr[] = new ICFBamRelationObj[len];
+		Iterator<ICFBamRelationObj> valIter = dict.values().iterator();
+		int idx = 0;
+		while( ( idx < len ) && valIter.hasNext() ) {
+			arr[idx++] = valIter.next();
+		}
+		if( idx < len ) {
+			throw new CFLibArgumentUnderflowException( getClass(),
+				S_ProcName,
+				0,
+				"idx",
+				idx,
+				len );
+		}
+		else if( valIter.hasNext() ) {
+			throw new CFLibArgumentOverflowException( getClass(),
+					S_ProcName,
+					0,
+					"idx",
+					idx,
+					len );
+		}
+		ArrayList<ICFBamRelationObj> arrayList = new ArrayList<ICFBamRelationObj>(len);
+		for( idx = 0; idx < len; idx ++ ) {
+			arrayList.add( arr[idx] );
+		}
+
+		Comparator<ICFBamRelationObj> cmp = new Comparator<ICFBamRelationObj>() {
+			public int compare( ICFBamRelationObj lhs, ICFBamRelationObj rhs ) {
+				if( lhs == null ) {
+					if( rhs == null ) {
+						return( 0 );
+					}
+					else {
+						return( -1 );
+					}
+				}
+				else if( rhs == null ) {
+					return( 1 );
+				}
+				else {
+					CFBamScopePKey lhsPKey = lhs.getPKey();
+					CFBamScopePKey rhsPKey = rhs.getPKey();
+					int ret = lhsPKey.compareTo( rhsPKey );
+					return( ret );
+				}
+			}
+		};
+		Collections.sort( arrayList, cmp );
+		List<ICFBamRelationObj> sortedList = arrayList;
+		return( sortedList );
+	}
+
+	public List<ICFBamRelationObj> readRelationByTableCodeVisIdx( long TenantId,
+		long TableId,
+		ICFBamSchema.CodeVisibilityEnum CodeVis )
+	{
+		return( readRelationByTableCodeVisIdx( TenantId,
+			TableId,
+			CodeVis,
+			false ) );
+	}
+
+	public List<ICFBamRelationObj> readRelationByTableCodeVisIdx( long TenantId,
+		long TableId,
+		ICFBamSchema.CodeVisibilityEnum CodeVis,
+		boolean forceRead )
+	{
+		final String S_ProcName = "readRelationByTableCodeVisIdx";
+		CFBamRelationByTableCodeVisIdxKey key = ((ICFBamSchema)schema.getBackingStore()).getFactoryRelation().newTableCodeVisIdxKey();
+		key.setRequiredTenantId( TenantId );
+		key.setRequiredTableId( TableId );
+		key.setRequiredCodeVis( CodeVis );
+		Map<CFBamScopePKey, ICFBamRelationObj> dict;
+		if( indexByTableCodeVisIdx == null ) {
+			indexByTableCodeVisIdx = new HashMap< CFBamRelationByTableCodeVisIdxKey,
+				Map< CFBamScopePKey, ICFBamRelationObj > >();
+		}
+		if( ( ! forceRead ) && indexByTableCodeVisIdx.containsKey( key ) ) {
+			dict = indexByTableCodeVisIdx.get( key );
+		}
+		else {
+			dict = new HashMap<CFBamScopePKey, ICFBamRelationObj>();
+			ICFBamRelationObj obj;
+			CFBamRelationBuff[] buffList = ((ICFBamSchema)schema.getBackingStore()).getTableRelation().readDerivedByTableCodeVisIdx( schema.getAuthorization(),
+				TenantId,
+				TableId,
+				CodeVis );
+			CFBamRelationBuff buff;
+			for( int idx = 0; idx < buffList.length; idx ++ ) {
+				buff = buffList[ idx ];
+				obj = (ICFBamRelationObj)schema.getScopeTableObj().constructByClassCode( buff.getClassCode() );
+				obj.setPKey( ((ICFBamSchema)schema.getBackingStore()).getFactoryScope().newPKey() );
+				obj.setBuff( buff );
+				ICFBamRelationObj realised = (ICFBamRelationObj)obj.realise();
+				dict.put( realised.getPKey(), realised );
+			}
+			indexByTableCodeVisIdx.put( key, dict );
 		}
 		int len = dict.size();
 		ICFBamRelationObj arr[] = new ICFBamRelationObj[len];
@@ -1938,6 +2236,160 @@ public class CFBamRelationTableObj
 		return( arrayList );
 	}
 
+	public List<ICFBamRelationObj> readCachedRelationByCodeVisIdx( ICFBamSchema.CodeVisibilityEnum CodeVis )
+	{
+		final String S_ProcName = "readCachedRelationByCodeVisIdx";
+		CFBamRelationByCodeVisIdxKey key = ((ICFBamSchema)schema.getBackingStore()).getFactoryRelation().newCodeVisIdxKey();
+		key.setRequiredCodeVis( CodeVis );
+		ArrayList<ICFBamRelationObj> arrayList = new ArrayList<ICFBamRelationObj>();
+		if( indexByCodeVisIdx != null ) {
+			Map<CFBamScopePKey, ICFBamRelationObj> dict;
+			if( indexByCodeVisIdx.containsKey( key ) ) {
+				dict = indexByCodeVisIdx.get( key );
+				int len = dict.size();
+				ICFBamRelationObj arr[] = new ICFBamRelationObj[len];
+				Iterator<ICFBamRelationObj> valIter = dict.values().iterator();
+				int idx = 0;
+				while( ( idx < len ) && valIter.hasNext() ) {
+					arr[idx++] = valIter.next();
+				}
+				if( idx < len ) {
+					throw new CFLibArgumentUnderflowException( getClass(),
+						S_ProcName,
+						0,
+						"idx",
+						idx,
+						len );
+				}
+				else if( valIter.hasNext() ) {
+					throw new CFLibArgumentOverflowException( getClass(),
+							S_ProcName,
+							0,
+							"idx",
+							idx,
+							len );
+				}
+				for( idx = 0; idx < len; idx ++ ) {
+					arrayList.add( arr[idx] );
+				}
+			}
+		}
+		else {
+			ICFBamRelationObj obj;
+			Iterator<ICFBamRelationObj> valIter = members.values().iterator();
+			while( valIter.hasNext() ) {
+				obj = valIter.next();
+				if( obj != null ) {
+					if( obj.getBuff().compareTo( key ) == 0 ) {
+						arrayList.add( obj );
+					}
+				}
+			}
+		}
+		Comparator<ICFBamRelationObj> cmp = new Comparator<ICFBamRelationObj>() {
+			public int compare( ICFBamRelationObj lhs, ICFBamRelationObj rhs ) {
+				if( lhs == null ) {
+					if( rhs == null ) {
+						return( 0 );
+					}
+					else {
+						return( -1 );
+					}
+				}
+				else if( rhs == null ) {
+					return( 1 );
+				}
+				else {
+					CFBamScopePKey lhsPKey = lhs.getPKey();
+					CFBamScopePKey rhsPKey = rhs.getPKey();
+					int ret = lhsPKey.compareTo( rhsPKey );
+					return( ret );
+				}
+			}
+		};
+		Collections.sort( arrayList, cmp );
+		return( arrayList );
+	}
+
+	public List<ICFBamRelationObj> readCachedRelationByTableCodeVisIdx( long TenantId,
+		long TableId,
+		ICFBamSchema.CodeVisibilityEnum CodeVis )
+	{
+		final String S_ProcName = "readCachedRelationByTableCodeVisIdx";
+		CFBamRelationByTableCodeVisIdxKey key = ((ICFBamSchema)schema.getBackingStore()).getFactoryRelation().newTableCodeVisIdxKey();
+		key.setRequiredTenantId( TenantId );
+		key.setRequiredTableId( TableId );
+		key.setRequiredCodeVis( CodeVis );
+		ArrayList<ICFBamRelationObj> arrayList = new ArrayList<ICFBamRelationObj>();
+		if( indexByTableCodeVisIdx != null ) {
+			Map<CFBamScopePKey, ICFBamRelationObj> dict;
+			if( indexByTableCodeVisIdx.containsKey( key ) ) {
+				dict = indexByTableCodeVisIdx.get( key );
+				int len = dict.size();
+				ICFBamRelationObj arr[] = new ICFBamRelationObj[len];
+				Iterator<ICFBamRelationObj> valIter = dict.values().iterator();
+				int idx = 0;
+				while( ( idx < len ) && valIter.hasNext() ) {
+					arr[idx++] = valIter.next();
+				}
+				if( idx < len ) {
+					throw new CFLibArgumentUnderflowException( getClass(),
+						S_ProcName,
+						0,
+						"idx",
+						idx,
+						len );
+				}
+				else if( valIter.hasNext() ) {
+					throw new CFLibArgumentOverflowException( getClass(),
+							S_ProcName,
+							0,
+							"idx",
+							idx,
+							len );
+				}
+				for( idx = 0; idx < len; idx ++ ) {
+					arrayList.add( arr[idx] );
+				}
+			}
+		}
+		else {
+			ICFBamRelationObj obj;
+			Iterator<ICFBamRelationObj> valIter = members.values().iterator();
+			while( valIter.hasNext() ) {
+				obj = valIter.next();
+				if( obj != null ) {
+					if( obj.getBuff().compareTo( key ) == 0 ) {
+						arrayList.add( obj );
+					}
+				}
+			}
+		}
+		Comparator<ICFBamRelationObj> cmp = new Comparator<ICFBamRelationObj>() {
+			public int compare( ICFBamRelationObj lhs, ICFBamRelationObj rhs ) {
+				if( lhs == null ) {
+					if( rhs == null ) {
+						return( 0 );
+					}
+					else {
+						return( -1 );
+					}
+				}
+				else if( rhs == null ) {
+					return( 1 );
+				}
+				else {
+					CFBamScopePKey lhsPKey = lhs.getPKey();
+					CFBamScopePKey rhsPKey = rhs.getPKey();
+					int ret = lhsPKey.compareTo( rhsPKey );
+					return( ret );
+				}
+			}
+		};
+		Collections.sort( arrayList, cmp );
+		return( arrayList );
+	}
+
 	public List<ICFBamRelationObj> readCachedRelationByDefSchemaIdx( Long DefSchemaTenantId,
 		Long DefSchemaId )
 	{
@@ -2395,6 +2847,42 @@ public class CFBamRelationTableObj
 		}
 	}
 
+	public void deepDisposeRelationByCodeVisIdx( ICFBamSchema.CodeVisibilityEnum CodeVis )
+	{
+		final String S_ProcName = "deepDisposeRelationByCodeVisIdx";
+		ICFBamRelationObj obj;
+		List<ICFBamRelationObj> arrayList = readCachedRelationByCodeVisIdx( CodeVis );
+		if( arrayList != null )  {
+			Iterator<ICFBamRelationObj> arrayIter = arrayList.iterator();
+			while( arrayIter.hasNext() ) {
+				obj = arrayIter.next();
+				if( obj != null ) {
+					obj.forget();
+				}
+			}
+		}
+	}
+
+	public void deepDisposeRelationByTableCodeVisIdx( long TenantId,
+		long TableId,
+		ICFBamSchema.CodeVisibilityEnum CodeVis )
+	{
+		final String S_ProcName = "deepDisposeRelationByTableCodeVisIdx";
+		ICFBamRelationObj obj;
+		List<ICFBamRelationObj> arrayList = readCachedRelationByTableCodeVisIdx( TenantId,
+				TableId,
+				CodeVis );
+		if( arrayList != null )  {
+			Iterator<ICFBamRelationObj> arrayIter = arrayList.iterator();
+			while( arrayIter.hasNext() ) {
+				obj = arrayIter.next();
+				if( obj != null ) {
+					obj.forget();
+				}
+			}
+		}
+	}
+
 	public void deepDisposeRelationByDefSchemaIdx( Long DefSchemaTenantId,
 		Long DefSchemaId )
 	{
@@ -2671,6 +3159,82 @@ public class CFBamRelationTableObj
 		}
 		deepDisposeRelationByRelTableIdx( TenantId,
 				TableId );
+	}
+
+	public void deleteRelationByCodeVisIdx( ICFBamSchema.CodeVisibilityEnum CodeVis )
+	{
+		CFBamRelationByCodeVisIdxKey key = ((ICFBamSchema)schema.getBackingStore()).getFactoryRelation().newCodeVisIdxKey();
+		key.setRequiredCodeVis( CodeVis );
+		if( indexByCodeVisIdx == null ) {
+			indexByCodeVisIdx = new HashMap< CFBamRelationByCodeVisIdxKey,
+				Map< CFBamScopePKey, ICFBamRelationObj > >();
+		}
+		if( indexByCodeVisIdx.containsKey( key ) ) {
+			Map<CFBamScopePKey, ICFBamRelationObj> dict = indexByCodeVisIdx.get( key );
+			((ICFBamSchema)schema.getBackingStore()).getTableRelation().deleteRelationByCodeVisIdx( schema.getAuthorization(),
+				CodeVis );
+			Iterator<ICFBamRelationObj> iter = dict.values().iterator();
+			ICFBamRelationObj obj;
+			List<ICFBamRelationObj> toForget = new LinkedList<ICFBamRelationObj>();
+			while( iter.hasNext() ) {
+				obj = iter.next();
+				toForget.add( obj );
+			}
+			iter = toForget.iterator();
+			while( iter.hasNext() ) {
+				obj = iter.next();
+				obj.forget();
+			}
+			indexByCodeVisIdx.remove( key );
+		}
+		else {
+			((ICFBamSchema)schema.getBackingStore()).getTableRelation().deleteRelationByCodeVisIdx( schema.getAuthorization(),
+				CodeVis );
+		}
+		deepDisposeRelationByCodeVisIdx( CodeVis );
+	}
+
+	public void deleteRelationByTableCodeVisIdx( long TenantId,
+		long TableId,
+		ICFBamSchema.CodeVisibilityEnum CodeVis )
+	{
+		CFBamRelationByTableCodeVisIdxKey key = ((ICFBamSchema)schema.getBackingStore()).getFactoryRelation().newTableCodeVisIdxKey();
+		key.setRequiredTenantId( TenantId );
+		key.setRequiredTableId( TableId );
+		key.setRequiredCodeVis( CodeVis );
+		if( indexByTableCodeVisIdx == null ) {
+			indexByTableCodeVisIdx = new HashMap< CFBamRelationByTableCodeVisIdxKey,
+				Map< CFBamScopePKey, ICFBamRelationObj > >();
+		}
+		if( indexByTableCodeVisIdx.containsKey( key ) ) {
+			Map<CFBamScopePKey, ICFBamRelationObj> dict = indexByTableCodeVisIdx.get( key );
+			((ICFBamSchema)schema.getBackingStore()).getTableRelation().deleteRelationByTableCodeVisIdx( schema.getAuthorization(),
+				TenantId,
+				TableId,
+				CodeVis );
+			Iterator<ICFBamRelationObj> iter = dict.values().iterator();
+			ICFBamRelationObj obj;
+			List<ICFBamRelationObj> toForget = new LinkedList<ICFBamRelationObj>();
+			while( iter.hasNext() ) {
+				obj = iter.next();
+				toForget.add( obj );
+			}
+			iter = toForget.iterator();
+			while( iter.hasNext() ) {
+				obj = iter.next();
+				obj.forget();
+			}
+			indexByTableCodeVisIdx.remove( key );
+		}
+		else {
+			((ICFBamSchema)schema.getBackingStore()).getTableRelation().deleteRelationByTableCodeVisIdx( schema.getAuthorization(),
+				TenantId,
+				TableId,
+				CodeVis );
+		}
+		deepDisposeRelationByTableCodeVisIdx( TenantId,
+				TableId,
+				CodeVis );
 	}
 
 	public void deleteRelationByDefSchemaIdx( Long DefSchemaTenantId,

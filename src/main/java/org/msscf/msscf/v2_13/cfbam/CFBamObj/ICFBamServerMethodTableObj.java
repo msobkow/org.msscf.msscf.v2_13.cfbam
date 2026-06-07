@@ -254,6 +254,60 @@ public interface ICFBamServerMethodTableObj
 		boolean forceRead );
 
 	/**
+	 *	Get the map of CFBamServerMethodObj instances sorted by their primary keys for the duplicate MethTableVisIdx key.
+	 *
+	 *	@param	argTenantId	The ServerMethod key attribute of the instance generating the id.
+	 *
+	 *	@param	argTableId	The ServerMethod key attribute of the instance generating the id.
+	 *
+	 *	@param	argCodeVis	The ServerMethod key attribute of the instance generating the id.
+	 *
+	 *	@return	List of CFBamServerMethodObj cached instances sorted by their primary keys for the duplicate MethTableVisIdx key,
+	 *		which may be an empty set.
+	 */
+	List<ICFBamServerMethodObj> readServerMethodByMethTableVisIdx( long TenantId,
+		long TableId,
+		ICFBamSchema.CodeVisibilityEnum CodeVis );
+
+	/**
+	 *	Get the map of CFBamServerMethodObj instances sorted by their primary keys for the duplicate MethTableVisIdx key.
+	 *
+	 *	@param	argTenantId	The ServerMethod key attribute of the instance generating the id.
+	 *
+	 *	@param	argTableId	The ServerMethod key attribute of the instance generating the id.
+	 *
+	 *	@param	argCodeVis	The ServerMethod key attribute of the instance generating the id.
+	 *
+	 *	@return	List of CFBamServerMethodObj cached instances sorted by their primary keys for the duplicate MethTableVisIdx key,
+	 *		which may be an empty set.
+	 */
+	List<ICFBamServerMethodObj> readServerMethodByMethTableVisIdx( long TenantId,
+		long TableId,
+		ICFBamSchema.CodeVisibilityEnum CodeVis,
+		boolean forceRead );
+
+	/**
+	 *	Get the map of CFBamServerMethodObj instances sorted by their primary keys for the duplicate MethCodeVisIdx key.
+	 *
+	 *	@param	argCodeVis	The ServerMethod key attribute of the instance generating the id.
+	 *
+	 *	@return	List of CFBamServerMethodObj cached instances sorted by their primary keys for the duplicate MethCodeVisIdx key,
+	 *		which may be an empty set.
+	 */
+	List<ICFBamServerMethodObj> readServerMethodByMethCodeVisIdx( ICFBamSchema.CodeVisibilityEnum CodeVis );
+
+	/**
+	 *	Get the map of CFBamServerMethodObj instances sorted by their primary keys for the duplicate MethCodeVisIdx key.
+	 *
+	 *	@param	argCodeVis	The ServerMethod key attribute of the instance generating the id.
+	 *
+	 *	@return	List of CFBamServerMethodObj cached instances sorted by their primary keys for the duplicate MethCodeVisIdx key,
+	 *		which may be an empty set.
+	 */
+	List<ICFBamServerMethodObj> readServerMethodByMethCodeVisIdx( ICFBamSchema.CodeVisibilityEnum CodeVis,
+		boolean forceRead );
+
+	/**
 	 *	Get the map of CFBamServerMethodObj instances sorted by their primary keys for the duplicate DefSchemaIdx key.
 	 *
 	 *	@param	argDefSchemaTenantId	The ServerMethod key attribute of the instance generating the id.
@@ -292,6 +346,12 @@ public interface ICFBamServerMethodTableObj
 	List<ICFBamServerMethodObj> readCachedServerMethodByMethTableIdx( long TenantId,
 		long TableId );
 
+	List<ICFBamServerMethodObj> readCachedServerMethodByMethTableVisIdx( long TenantId,
+		long TableId,
+		ICFBamSchema.CodeVisibilityEnum CodeVis );
+
+	List<ICFBamServerMethodObj> readCachedServerMethodByMethCodeVisIdx( ICFBamSchema.CodeVisibilityEnum CodeVis );
+
 	List<ICFBamServerMethodObj> readCachedServerMethodByDefSchemaIdx( Long DefSchemaTenantId,
 		Long DefSchemaId );
 
@@ -306,6 +366,12 @@ public interface ICFBamServerMethodTableObj
 
 	void deepDisposeServerMethodByMethTableIdx( long TenantId,
 		long TableId );
+
+	void deepDisposeServerMethodByMethTableVisIdx( long TenantId,
+		long TableId,
+		ICFBamSchema.CodeVisibilityEnum CodeVis );
+
+	void deepDisposeServerMethodByMethCodeVisIdx( ICFBamSchema.CodeVisibilityEnum CodeVis );
 
 	void deepDisposeServerMethodByDefSchemaIdx( Long DefSchemaTenantId,
 		Long DefSchemaId );
@@ -359,6 +425,26 @@ public interface ICFBamServerMethodTableObj
 	 */
 	void deleteServerMethodByMethTableIdx( long TenantId,
 		long TableId );
+
+	/**
+	 *	Internal use only.
+	 *
+	 *	@param	argTenantId	The ServerMethod key attribute of the instance generating the id.
+	 *
+	 *	@param	argTableId	The ServerMethod key attribute of the instance generating the id.
+	 *
+	 *	@param	argCodeVis	The ServerMethod key attribute of the instance generating the id.
+	 */
+	void deleteServerMethodByMethTableVisIdx( long TenantId,
+		long TableId,
+		ICFBamSchema.CodeVisibilityEnum CodeVis );
+
+	/**
+	 *	Internal use only.
+	 *
+	 *	@param	argCodeVis	The ServerMethod key attribute of the instance generating the id.
+	 */
+	void deleteServerMethodByMethCodeVisIdx( ICFBamSchema.CodeVisibilityEnum CodeVis );
 
 	/**
 	 *	Internal use only.

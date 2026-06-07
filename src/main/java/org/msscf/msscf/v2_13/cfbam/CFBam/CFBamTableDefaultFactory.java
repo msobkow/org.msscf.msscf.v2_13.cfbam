@@ -74,6 +74,18 @@ public class CFBamTableDefaultFactory
 		return( key );
 	}
 
+	public CFBamTableByCodeVisIdxKey newCodeVisIdxKey() {
+		CFBamTableByCodeVisIdxKey key =
+			new CFBamTableByCodeVisIdxKey();
+		return( key );
+	}
+
+	public CFBamTableBySchemaCodeVisIdxKey newSchemaCodeVisIdxKey() {
+		CFBamTableBySchemaCodeVisIdxKey key =
+			new CFBamTableBySchemaCodeVisIdxKey();
+		return( key );
+	}
+
 	public CFBamTableByDefSchemaIdxKey newDefSchemaIdxKey() {
 		CFBamTableByDefSchemaIdxKey key =
 			new CFBamTableByDefSchemaIdxKey();

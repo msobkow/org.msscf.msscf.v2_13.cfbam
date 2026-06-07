@@ -87,6 +87,20 @@ public interface ICFBamIndexFactory
 	CFBamIndexByIdxTableIdxKey newIdxTableIdxKey();
 
 	/**
+	 *	Allocate a CodeVisIdx key over Index instances.
+	 *
+	 *	@return	The new instance.
+	 */
+	CFBamIndexByCodeVisIdxKey newCodeVisIdxKey();
+
+	/**
+	 *	Allocate a TableCodeVisIdx key over Index instances.
+	 *
+	 *	@return	The new instance.
+	 */
+	CFBamIndexByTableCodeVisIdxKey newTableCodeVisIdxKey();
+
+	/**
 	 *	Allocate a DefSchemaIdx key over Index instances.
 	 *
 	 *	@return	The new instance.

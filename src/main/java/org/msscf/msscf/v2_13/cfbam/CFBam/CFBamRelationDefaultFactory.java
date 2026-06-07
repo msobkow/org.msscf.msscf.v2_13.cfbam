@@ -86,6 +86,18 @@ public class CFBamRelationDefaultFactory
 		return( key );
 	}
 
+	public CFBamRelationByCodeVisIdxKey newCodeVisIdxKey() {
+		CFBamRelationByCodeVisIdxKey key =
+			new CFBamRelationByCodeVisIdxKey();
+		return( key );
+	}
+
+	public CFBamRelationByTableCodeVisIdxKey newTableCodeVisIdxKey() {
+		CFBamRelationByTableCodeVisIdxKey key =
+			new CFBamRelationByTableCodeVisIdxKey();
+		return( key );
+	}
+
 	public CFBamRelationByDefSchemaIdxKey newDefSchemaIdxKey() {
 		CFBamRelationByDefSchemaIdxKey key =
 			new CFBamRelationByDefSchemaIdxKey();

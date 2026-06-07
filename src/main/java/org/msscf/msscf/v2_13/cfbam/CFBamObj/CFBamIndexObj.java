@@ -350,6 +350,10 @@ public class CFBamIndexObj
 		return( getIndexBuff().getRequiredIsDbMapped() );
 	}
 
+	public ICFBamSchema.CodeVisibilityEnum getRequiredCodeVis() {
+		return( getIndexBuff().getRequiredCodeVis() );
+	}
+
 	public ICFBamTableObj getRequiredContainerTable() {
 		return( getRequiredContainerTable( false ) );
 	}
