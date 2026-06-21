@@ -305,6 +305,50 @@ public interface ICFBamNmTokenDefTable
 	 */
 	void deleteNmTokenDefByContNextIdx( CFSecAuthorization Authorization,
 		CFBamValueByContNextIdxKey argKey );
+	/**
+	 *	Delete the NmTokenDef instances identified by the key CodeVisIdx.
+	 *
+	 *	@param	Authorization	The session authorization information.
+	 *
+	 *	@param	argCodeVis	The NmTokenDef key attribute of the instance generating the id.
+	 */
+	void deleteNmTokenDefByCodeVisIdx( CFSecAuthorization Authorization,
+		ICFBamSchema.CodeVisibilityEnum argCodeVis );
+
+	/**
+	 *	Delete the NmTokenDef instances identified by the key CodeVisIdx.
+	 *
+	 *	@param	Authorization	The session authorization information.
+	 *
+	 *	@param	argKey	The key identifying the instances to be deleted.
+	 */
+	void deleteNmTokenDefByCodeVisIdx( CFSecAuthorization Authorization,
+		CFBamValueByCodeVisIdxKey argKey );
+	/**
+	 *	Delete the NmTokenDef instances identified by the key ScopeCodeVisIdx.
+	 *
+	 *	@param	Authorization	The session authorization information.
+	 *
+	 *	@param	argTenantId	The NmTokenDef key attribute of the instance generating the id.
+	 *
+	 *	@param	argScopeId	The NmTokenDef key attribute of the instance generating the id.
+	 *
+	 *	@param	argCodeVis	The NmTokenDef key attribute of the instance generating the id.
+	 */
+	void deleteNmTokenDefByScopeCodeVisIdx( CFSecAuthorization Authorization,
+		long argTenantId,
+		long argScopeId,
+		ICFBamSchema.CodeVisibilityEnum argCodeVis );
+
+	/**
+	 *	Delete the NmTokenDef instances identified by the key ScopeCodeVisIdx.
+	 *
+	 *	@param	Authorization	The session authorization information.
+	 *
+	 *	@param	argKey	The key identifying the instances to be deleted.
+	 */
+	void deleteNmTokenDefByScopeCodeVisIdx( CFSecAuthorization Authorization,
+		CFBamValueByScopeCodeVisIdxKey argKey );
 
 
 	/**
@@ -484,6 +528,36 @@ public interface ICFBamNmTokenDefTable
 		long TenantId,
 		long ScopeId,
 		Long NextId );
+
+	/**
+	 *	Read an array of the derived NmTokenDef buffer instances identified by the duplicate key CodeVisIdx.
+	 *
+	 *	@param	Authorization	The session authorization information.
+	 *
+	 *	@param	argCodeVis	The NmTokenDef key attribute of the instance generating the id.
+	 *
+	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
+	 */
+	CFBamNmTokenDefBuff[] readDerivedByCodeVisIdx( CFSecAuthorization Authorization,
+		ICFBamSchema.CodeVisibilityEnum CodeVis );
+
+	/**
+	 *	Read an array of the derived NmTokenDef buffer instances identified by the duplicate key ScopeCodeVisIdx.
+	 *
+	 *	@param	Authorization	The session authorization information.
+	 *
+	 *	@param	argTenantId	The NmTokenDef key attribute of the instance generating the id.
+	 *
+	 *	@param	argScopeId	The NmTokenDef key attribute of the instance generating the id.
+	 *
+	 *	@param	argCodeVis	The NmTokenDef key attribute of the instance generating the id.
+	 *
+	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
+	 */
+	CFBamNmTokenDefBuff[] readDerivedByScopeCodeVisIdx( CFSecAuthorization Authorization,
+		long TenantId,
+		long ScopeId,
+		ICFBamSchema.CodeVisibilityEnum CodeVis );
 
 	/**
 	 *	Read the specific NmTokenDef buffer instance identified by the primary key.
@@ -684,6 +758,40 @@ public interface ICFBamNmTokenDefTable
 		long TenantId,
 		long ScopeId,
 		Long NextId );
+
+	/**
+	 *	Read an array of the specific NmTokenDef buffer instances identified by the duplicate key CodeVisIdx.
+	 *
+	 *	@param	Authorization	The session authorization information.
+	 *
+	 *	@param	argCodeVis	The NmTokenDef key attribute of the instance generating the id.
+	 *
+	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
+	 *
+	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 */
+	CFBamNmTokenDefBuff[] readBuffByCodeVisIdx( CFSecAuthorization Authorization,
+		ICFBamSchema.CodeVisibilityEnum CodeVis );
+
+	/**
+	 *	Read an array of the specific NmTokenDef buffer instances identified by the duplicate key ScopeCodeVisIdx.
+	 *
+	 *	@param	Authorization	The session authorization information.
+	 *
+	 *	@param	argTenantId	The NmTokenDef key attribute of the instance generating the id.
+	 *
+	 *	@param	argScopeId	The NmTokenDef key attribute of the instance generating the id.
+	 *
+	 *	@param	argCodeVis	The NmTokenDef key attribute of the instance generating the id.
+	 *
+	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
+	 *
+	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 */
+	CFBamNmTokenDefBuff[] readBuffByScopeCodeVisIdx( CFSecAuthorization Authorization,
+		long TenantId,
+		long ScopeId,
+		ICFBamSchema.CodeVisibilityEnum CodeVis );
 
 	/**
 	 *	Move the specified buffer up in the chain (i.e. to the previous position.)

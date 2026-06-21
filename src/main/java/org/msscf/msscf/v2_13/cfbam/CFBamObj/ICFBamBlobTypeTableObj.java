@@ -401,6 +401,60 @@ public interface ICFBamBlobTypeTableObj
 		boolean forceRead );
 
 	/**
+	 *	Get the map of CFBamValueObj instances sorted by their primary keys for the duplicate CodeVisIdx key.
+	 *
+	 *	@param	argCodeVis	The BlobType key attribute of the instance generating the id.
+	 *
+	 *	@return	List of CFBamBlobTypeObj cached instances sorted by their primary keys for the duplicate CodeVisIdx key,
+	 *		which may be an empty set.
+	 */
+	List<ICFBamBlobTypeObj> readBlobTypeByCodeVisIdx( ICFBamSchema.CodeVisibilityEnum CodeVis );
+
+	/**
+	 *	Get the map of CFBamBlobTypeObj instances sorted by their primary keys for the duplicate CodeVisIdx key.
+	 *
+	 *	@param	argCodeVis	The BlobType key attribute of the instance generating the id.
+	 *
+	 *	@return	List of CFBamBlobTypeObj cached instances sorted by their primary keys for the duplicate CodeVisIdx key,
+	 *		which may be an empty set.
+	 */
+	List<ICFBamBlobTypeObj> readBlobTypeByCodeVisIdx( ICFBamSchema.CodeVisibilityEnum CodeVis,
+		boolean forceRead );
+
+	/**
+	 *	Get the map of CFBamValueObj instances sorted by their primary keys for the duplicate ScopeCodeVisIdx key.
+	 *
+	 *	@param	argTenantId	The BlobType key attribute of the instance generating the id.
+	 *
+	 *	@param	argScopeId	The BlobType key attribute of the instance generating the id.
+	 *
+	 *	@param	argCodeVis	The BlobType key attribute of the instance generating the id.
+	 *
+	 *	@return	List of CFBamBlobTypeObj cached instances sorted by their primary keys for the duplicate ScopeCodeVisIdx key,
+	 *		which may be an empty set.
+	 */
+	List<ICFBamBlobTypeObj> readBlobTypeByScopeCodeVisIdx( long TenantId,
+		long ScopeId,
+		ICFBamSchema.CodeVisibilityEnum CodeVis );
+
+	/**
+	 *	Get the map of CFBamBlobTypeObj instances sorted by their primary keys for the duplicate ScopeCodeVisIdx key.
+	 *
+	 *	@param	argTenantId	The BlobType key attribute of the instance generating the id.
+	 *
+	 *	@param	argScopeId	The BlobType key attribute of the instance generating the id.
+	 *
+	 *	@param	argCodeVis	The BlobType key attribute of the instance generating the id.
+	 *
+	 *	@return	List of CFBamBlobTypeObj cached instances sorted by their primary keys for the duplicate ScopeCodeVisIdx key,
+	 *		which may be an empty set.
+	 */
+	List<ICFBamBlobTypeObj> readBlobTypeByScopeCodeVisIdx( long TenantId,
+		long ScopeId,
+		ICFBamSchema.CodeVisibilityEnum CodeVis,
+		boolean forceRead );
+
+	/**
 	 *	Get the map of CFBamBlobTypeObj instances sorted by their primary keys for the duplicate SchemaIdx key.
 	 *
 	 *	@param	argTenantId	The BlobType key attribute of the instance generating the id.
@@ -456,6 +510,12 @@ public interface ICFBamBlobTypeTableObj
 		long ScopeId,
 		Long NextId );
 
+	List<ICFBamBlobTypeObj> readCachedBlobTypeByCodeVisIdx( ICFBamSchema.CodeVisibilityEnum CodeVis );
+
+	List<ICFBamBlobTypeObj> readCachedBlobTypeByScopeCodeVisIdx( long TenantId,
+		long ScopeId,
+		ICFBamSchema.CodeVisibilityEnum CodeVis );
+
 	List<ICFBamBlobTypeObj> readCachedBlobTypeBySchemaIdx( long TenantId,
 		long SchemaDefId );
 
@@ -487,6 +547,12 @@ public interface ICFBamBlobTypeTableObj
 	void deepDisposeBlobTypeByContNextIdx( long TenantId,
 		long ScopeId,
 		Long NextId );
+
+	void deepDisposeBlobTypeByCodeVisIdx( ICFBamSchema.CodeVisibilityEnum CodeVis );
+
+	void deepDisposeBlobTypeByScopeCodeVisIdx( long TenantId,
+		long ScopeId,
+		ICFBamSchema.CodeVisibilityEnum CodeVis );
 
 	void deepDisposeBlobTypeBySchemaIdx( long TenantId,
 		long SchemaDefId );
@@ -596,6 +662,26 @@ public interface ICFBamBlobTypeTableObj
 	void deleteBlobTypeByContNextIdx( long TenantId,
 		long ScopeId,
 		Long NextId );
+
+	/**
+	 *	Internal use only.
+	 *
+	 *	@param	argCodeVis	The BlobType key attribute of the instance generating the id.
+	 */
+	void deleteBlobTypeByCodeVisIdx( ICFBamSchema.CodeVisibilityEnum CodeVis );
+
+	/**
+	 *	Internal use only.
+	 *
+	 *	@param	argTenantId	The BlobType key attribute of the instance generating the id.
+	 *
+	 *	@param	argScopeId	The BlobType key attribute of the instance generating the id.
+	 *
+	 *	@param	argCodeVis	The BlobType key attribute of the instance generating the id.
+	 */
+	void deleteBlobTypeByScopeCodeVisIdx( long TenantId,
+		long ScopeId,
+		ICFBamSchema.CodeVisibilityEnum CodeVis );
 
 	/**
 	 *	Internal use only.

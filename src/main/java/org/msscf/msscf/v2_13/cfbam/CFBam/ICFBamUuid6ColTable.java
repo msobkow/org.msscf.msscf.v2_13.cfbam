@@ -327,6 +327,50 @@ public interface ICFBamUuid6ColTable
 	 */
 	void deleteUuid6ColByContNextIdx( CFSecAuthorization Authorization,
 		CFBamValueByContNextIdxKey argKey );
+	/**
+	 *	Delete the Uuid6Col instances identified by the key CodeVisIdx.
+	 *
+	 *	@param	Authorization	The session authorization information.
+	 *
+	 *	@param	argCodeVis	The Uuid6Col key attribute of the instance generating the id.
+	 */
+	void deleteUuid6ColByCodeVisIdx( CFSecAuthorization Authorization,
+		ICFBamSchema.CodeVisibilityEnum argCodeVis );
+
+	/**
+	 *	Delete the Uuid6Col instances identified by the key CodeVisIdx.
+	 *
+	 *	@param	Authorization	The session authorization information.
+	 *
+	 *	@param	argKey	The key identifying the instances to be deleted.
+	 */
+	void deleteUuid6ColByCodeVisIdx( CFSecAuthorization Authorization,
+		CFBamValueByCodeVisIdxKey argKey );
+	/**
+	 *	Delete the Uuid6Col instances identified by the key ScopeCodeVisIdx.
+	 *
+	 *	@param	Authorization	The session authorization information.
+	 *
+	 *	@param	argTenantId	The Uuid6Col key attribute of the instance generating the id.
+	 *
+	 *	@param	argScopeId	The Uuid6Col key attribute of the instance generating the id.
+	 *
+	 *	@param	argCodeVis	The Uuid6Col key attribute of the instance generating the id.
+	 */
+	void deleteUuid6ColByScopeCodeVisIdx( CFSecAuthorization Authorization,
+		long argTenantId,
+		long argScopeId,
+		ICFBamSchema.CodeVisibilityEnum argCodeVis );
+
+	/**
+	 *	Delete the Uuid6Col instances identified by the key ScopeCodeVisIdx.
+	 *
+	 *	@param	Authorization	The session authorization information.
+	 *
+	 *	@param	argKey	The key identifying the instances to be deleted.
+	 */
+	void deleteUuid6ColByScopeCodeVisIdx( CFSecAuthorization Authorization,
+		CFBamValueByScopeCodeVisIdxKey argKey );
 
 
 	/**
@@ -506,6 +550,36 @@ public interface ICFBamUuid6ColTable
 		long TenantId,
 		long ScopeId,
 		Long NextId );
+
+	/**
+	 *	Read an array of the derived Uuid6Col buffer instances identified by the duplicate key CodeVisIdx.
+	 *
+	 *	@param	Authorization	The session authorization information.
+	 *
+	 *	@param	argCodeVis	The Uuid6Col key attribute of the instance generating the id.
+	 *
+	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
+	 */
+	CFBamUuid6ColBuff[] readDerivedByCodeVisIdx( CFSecAuthorization Authorization,
+		ICFBamSchema.CodeVisibilityEnum CodeVis );
+
+	/**
+	 *	Read an array of the derived Uuid6Col buffer instances identified by the duplicate key ScopeCodeVisIdx.
+	 *
+	 *	@param	Authorization	The session authorization information.
+	 *
+	 *	@param	argTenantId	The Uuid6Col key attribute of the instance generating the id.
+	 *
+	 *	@param	argScopeId	The Uuid6Col key attribute of the instance generating the id.
+	 *
+	 *	@param	argCodeVis	The Uuid6Col key attribute of the instance generating the id.
+	 *
+	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
+	 */
+	CFBamUuid6ColBuff[] readDerivedByScopeCodeVisIdx( CFSecAuthorization Authorization,
+		long TenantId,
+		long ScopeId,
+		ICFBamSchema.CodeVisibilityEnum CodeVis );
 
 	/**
 	 *	Read an array of the derived Uuid6Col buffer instances identified by the duplicate key TableIdx.
@@ -721,6 +795,40 @@ public interface ICFBamUuid6ColTable
 		long TenantId,
 		long ScopeId,
 		Long NextId );
+
+	/**
+	 *	Read an array of the specific Uuid6Col buffer instances identified by the duplicate key CodeVisIdx.
+	 *
+	 *	@param	Authorization	The session authorization information.
+	 *
+	 *	@param	argCodeVis	The Uuid6Col key attribute of the instance generating the id.
+	 *
+	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
+	 *
+	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 */
+	CFBamUuid6ColBuff[] readBuffByCodeVisIdx( CFSecAuthorization Authorization,
+		ICFBamSchema.CodeVisibilityEnum CodeVis );
+
+	/**
+	 *	Read an array of the specific Uuid6Col buffer instances identified by the duplicate key ScopeCodeVisIdx.
+	 *
+	 *	@param	Authorization	The session authorization information.
+	 *
+	 *	@param	argTenantId	The Uuid6Col key attribute of the instance generating the id.
+	 *
+	 *	@param	argScopeId	The Uuid6Col key attribute of the instance generating the id.
+	 *
+	 *	@param	argCodeVis	The Uuid6Col key attribute of the instance generating the id.
+	 *
+	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
+	 *
+	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 */
+	CFBamUuid6ColBuff[] readBuffByScopeCodeVisIdx( CFSecAuthorization Authorization,
+		long TenantId,
+		long ScopeId,
+		ICFBamSchema.CodeVisibilityEnum CodeVis );
 
 	/**
 	 *	Read an array of the specific Uuid6Col buffer instances identified by the duplicate key TableIdx.

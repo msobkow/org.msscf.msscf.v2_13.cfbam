@@ -327,6 +327,50 @@ public interface ICFBamBoolColTable
 	 */
 	void deleteBoolColByContNextIdx( CFSecAuthorization Authorization,
 		CFBamValueByContNextIdxKey argKey );
+	/**
+	 *	Delete the BoolCol instances identified by the key CodeVisIdx.
+	 *
+	 *	@param	Authorization	The session authorization information.
+	 *
+	 *	@param	argCodeVis	The BoolCol key attribute of the instance generating the id.
+	 */
+	void deleteBoolColByCodeVisIdx( CFSecAuthorization Authorization,
+		ICFBamSchema.CodeVisibilityEnum argCodeVis );
+
+	/**
+	 *	Delete the BoolCol instances identified by the key CodeVisIdx.
+	 *
+	 *	@param	Authorization	The session authorization information.
+	 *
+	 *	@param	argKey	The key identifying the instances to be deleted.
+	 */
+	void deleteBoolColByCodeVisIdx( CFSecAuthorization Authorization,
+		CFBamValueByCodeVisIdxKey argKey );
+	/**
+	 *	Delete the BoolCol instances identified by the key ScopeCodeVisIdx.
+	 *
+	 *	@param	Authorization	The session authorization information.
+	 *
+	 *	@param	argTenantId	The BoolCol key attribute of the instance generating the id.
+	 *
+	 *	@param	argScopeId	The BoolCol key attribute of the instance generating the id.
+	 *
+	 *	@param	argCodeVis	The BoolCol key attribute of the instance generating the id.
+	 */
+	void deleteBoolColByScopeCodeVisIdx( CFSecAuthorization Authorization,
+		long argTenantId,
+		long argScopeId,
+		ICFBamSchema.CodeVisibilityEnum argCodeVis );
+
+	/**
+	 *	Delete the BoolCol instances identified by the key ScopeCodeVisIdx.
+	 *
+	 *	@param	Authorization	The session authorization information.
+	 *
+	 *	@param	argKey	The key identifying the instances to be deleted.
+	 */
+	void deleteBoolColByScopeCodeVisIdx( CFSecAuthorization Authorization,
+		CFBamValueByScopeCodeVisIdxKey argKey );
 
 
 	/**
@@ -506,6 +550,36 @@ public interface ICFBamBoolColTable
 		long TenantId,
 		long ScopeId,
 		Long NextId );
+
+	/**
+	 *	Read an array of the derived BoolCol buffer instances identified by the duplicate key CodeVisIdx.
+	 *
+	 *	@param	Authorization	The session authorization information.
+	 *
+	 *	@param	argCodeVis	The BoolCol key attribute of the instance generating the id.
+	 *
+	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
+	 */
+	CFBamBoolColBuff[] readDerivedByCodeVisIdx( CFSecAuthorization Authorization,
+		ICFBamSchema.CodeVisibilityEnum CodeVis );
+
+	/**
+	 *	Read an array of the derived BoolCol buffer instances identified by the duplicate key ScopeCodeVisIdx.
+	 *
+	 *	@param	Authorization	The session authorization information.
+	 *
+	 *	@param	argTenantId	The BoolCol key attribute of the instance generating the id.
+	 *
+	 *	@param	argScopeId	The BoolCol key attribute of the instance generating the id.
+	 *
+	 *	@param	argCodeVis	The BoolCol key attribute of the instance generating the id.
+	 *
+	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
+	 */
+	CFBamBoolColBuff[] readDerivedByScopeCodeVisIdx( CFSecAuthorization Authorization,
+		long TenantId,
+		long ScopeId,
+		ICFBamSchema.CodeVisibilityEnum CodeVis );
 
 	/**
 	 *	Read an array of the derived BoolCol buffer instances identified by the duplicate key TableIdx.
@@ -721,6 +795,40 @@ public interface ICFBamBoolColTable
 		long TenantId,
 		long ScopeId,
 		Long NextId );
+
+	/**
+	 *	Read an array of the specific BoolCol buffer instances identified by the duplicate key CodeVisIdx.
+	 *
+	 *	@param	Authorization	The session authorization information.
+	 *
+	 *	@param	argCodeVis	The BoolCol key attribute of the instance generating the id.
+	 *
+	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
+	 *
+	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 */
+	CFBamBoolColBuff[] readBuffByCodeVisIdx( CFSecAuthorization Authorization,
+		ICFBamSchema.CodeVisibilityEnum CodeVis );
+
+	/**
+	 *	Read an array of the specific BoolCol buffer instances identified by the duplicate key ScopeCodeVisIdx.
+	 *
+	 *	@param	Authorization	The session authorization information.
+	 *
+	 *	@param	argTenantId	The BoolCol key attribute of the instance generating the id.
+	 *
+	 *	@param	argScopeId	The BoolCol key attribute of the instance generating the id.
+	 *
+	 *	@param	argCodeVis	The BoolCol key attribute of the instance generating the id.
+	 *
+	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
+	 *
+	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 */
+	CFBamBoolColBuff[] readBuffByScopeCodeVisIdx( CFSecAuthorization Authorization,
+		long TenantId,
+		long ScopeId,
+		ICFBamSchema.CodeVisibilityEnum CodeVis );
 
 	/**
 	 *	Read an array of the specific BoolCol buffer instances identified by the duplicate key TableIdx.

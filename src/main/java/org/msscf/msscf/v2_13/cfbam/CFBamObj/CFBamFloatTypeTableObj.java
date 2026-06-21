@@ -81,6 +81,10 @@ public class CFBamFloatTypeTableObj
 		Map<CFBamValuePKey, ICFBamFloatTypeObj > > indexByContPrevIdx;
 	private Map< CFBamValueByContNextIdxKey,
 		Map<CFBamValuePKey, ICFBamFloatTypeObj > > indexByContNextIdx;
+	private Map< CFBamValueByCodeVisIdxKey,
+		Map<CFBamValuePKey, ICFBamFloatTypeObj > > indexByCodeVisIdx;
+	private Map< CFBamValueByScopeCodeVisIdxKey,
+		Map<CFBamValuePKey, ICFBamFloatTypeObj > > indexByScopeCodeVisIdx;
 	private Map< CFBamFloatTypeBySchemaIdxKey,
 		Map<CFBamValuePKey, ICFBamFloatTypeObj > > indexBySchemaIdx;
 	public static String TABLE_NAME = "FloatType";
@@ -98,6 +102,8 @@ public class CFBamFloatTypeTableObj
 		indexByNextIdx = null;
 		indexByContPrevIdx = null;
 		indexByContNextIdx = null;
+		indexByCodeVisIdx = null;
+		indexByScopeCodeVisIdx = null;
 		indexBySchemaIdx = null;
 	}
 
@@ -113,6 +119,8 @@ public class CFBamFloatTypeTableObj
 		indexByNextIdx = null;
 		indexByContPrevIdx = null;
 		indexByContNextIdx = null;
+		indexByCodeVisIdx = null;
+		indexByScopeCodeVisIdx = null;
 		indexBySchemaIdx = null;
 	}
 
@@ -147,6 +155,8 @@ public class CFBamFloatTypeTableObj
 		indexByNextIdx = null;
 		indexByContPrevIdx = null;
 		indexByContNextIdx = null;
+		indexByCodeVisIdx = null;
+		indexByScopeCodeVisIdx = null;
 		indexBySchemaIdx = null;
 		List<ICFBamFloatTypeObj> toForget = new LinkedList<ICFBamFloatTypeObj>();
 		ICFBamFloatTypeObj cur = null;
@@ -291,6 +301,28 @@ public class CFBamFloatTypeTableObj
 				}
 			}
 
+			if( indexByCodeVisIdx != null ) {
+				CFBamValueByCodeVisIdxKey keyCodeVisIdx =
+					((ICFBamSchema)schema.getBackingStore()).getFactoryValue().newCodeVisIdxKey();
+				keyCodeVisIdx.setRequiredCodeVis( keepObj.getRequiredCodeVis() );
+				Map<CFBamValuePKey, ICFBamFloatTypeObj > mapCodeVisIdx = indexByCodeVisIdx.get( keyCodeVisIdx );
+				if( mapCodeVisIdx != null ) {
+					indexByCodeVisIdx.remove( keyCodeVisIdx );
+				}
+			}
+
+			if( indexByScopeCodeVisIdx != null ) {
+				CFBamValueByScopeCodeVisIdxKey keyScopeCodeVisIdx =
+					((ICFBamSchema)schema.getBackingStore()).getFactoryValue().newScopeCodeVisIdxKey();
+				keyScopeCodeVisIdx.setRequiredTenantId( keepObj.getRequiredTenantId() );
+				keyScopeCodeVisIdx.setRequiredScopeId( keepObj.getRequiredScopeId() );
+				keyScopeCodeVisIdx.setRequiredCodeVis( keepObj.getRequiredCodeVis() );
+				Map<CFBamValuePKey, ICFBamFloatTypeObj > mapScopeCodeVisIdx = indexByScopeCodeVisIdx.get( keyScopeCodeVisIdx );
+				if( mapScopeCodeVisIdx != null ) {
+					indexByScopeCodeVisIdx.remove( keyScopeCodeVisIdx );
+				}
+			}
+
 			if( indexBySchemaIdx != null ) {
 				CFBamFloatTypeBySchemaIdxKey keySchemaIdx =
 					((ICFBamSchema)schema.getBackingStore()).getFactoryFloatType().newSchemaIdxKey();
@@ -395,6 +427,28 @@ public class CFBamFloatTypeTableObj
 				Map<CFBamValuePKey, ICFBamFloatTypeObj > mapContNextIdx = indexByContNextIdx.get( keyContNextIdx );
 				if( mapContNextIdx != null ) {
 					mapContNextIdx.put( keepObj.getPKey(), keepObj );
+				}
+			}
+
+			if( indexByCodeVisIdx != null ) {
+				CFBamValueByCodeVisIdxKey keyCodeVisIdx =
+					((ICFBamSchema)schema.getBackingStore()).getFactoryValue().newCodeVisIdxKey();
+				keyCodeVisIdx.setRequiredCodeVis( keepObj.getRequiredCodeVis() );
+				Map<CFBamValuePKey, ICFBamFloatTypeObj > mapCodeVisIdx = indexByCodeVisIdx.get( keyCodeVisIdx );
+				if( mapCodeVisIdx != null ) {
+					mapCodeVisIdx.put( keepObj.getPKey(), keepObj );
+				}
+			}
+
+			if( indexByScopeCodeVisIdx != null ) {
+				CFBamValueByScopeCodeVisIdxKey keyScopeCodeVisIdx =
+					((ICFBamSchema)schema.getBackingStore()).getFactoryValue().newScopeCodeVisIdxKey();
+				keyScopeCodeVisIdx.setRequiredTenantId( keepObj.getRequiredTenantId() );
+				keyScopeCodeVisIdx.setRequiredScopeId( keepObj.getRequiredScopeId() );
+				keyScopeCodeVisIdx.setRequiredCodeVis( keepObj.getRequiredCodeVis() );
+				Map<CFBamValuePKey, ICFBamFloatTypeObj > mapScopeCodeVisIdx = indexByScopeCodeVisIdx.get( keyScopeCodeVisIdx );
+				if( mapScopeCodeVisIdx != null ) {
+					mapScopeCodeVisIdx.put( keepObj.getPKey(), keepObj );
 				}
 			}
 
@@ -507,6 +561,28 @@ public class CFBamFloatTypeTableObj
 				Map<CFBamValuePKey, ICFBamFloatTypeObj > mapContNextIdx = indexByContNextIdx.get( keyContNextIdx );
 				if( mapContNextIdx != null ) {
 					mapContNextIdx.put( keepObj.getPKey(), keepObj );
+				}
+			}
+
+			if( indexByCodeVisIdx != null ) {
+				CFBamValueByCodeVisIdxKey keyCodeVisIdx =
+					((ICFBamSchema)schema.getBackingStore()).getFactoryValue().newCodeVisIdxKey();
+				keyCodeVisIdx.setRequiredCodeVis( keepObj.getRequiredCodeVis() );
+				Map<CFBamValuePKey, ICFBamFloatTypeObj > mapCodeVisIdx = indexByCodeVisIdx.get( keyCodeVisIdx );
+				if( mapCodeVisIdx != null ) {
+					mapCodeVisIdx.put( keepObj.getPKey(), keepObj );
+				}
+			}
+
+			if( indexByScopeCodeVisIdx != null ) {
+				CFBamValueByScopeCodeVisIdxKey keyScopeCodeVisIdx =
+					((ICFBamSchema)schema.getBackingStore()).getFactoryValue().newScopeCodeVisIdxKey();
+				keyScopeCodeVisIdx.setRequiredTenantId( keepObj.getRequiredTenantId() );
+				keyScopeCodeVisIdx.setRequiredScopeId( keepObj.getRequiredScopeId() );
+				keyScopeCodeVisIdx.setRequiredCodeVis( keepObj.getRequiredCodeVis() );
+				Map<CFBamValuePKey, ICFBamFloatTypeObj > mapScopeCodeVisIdx = indexByScopeCodeVisIdx.get( keyScopeCodeVisIdx );
+				if( mapScopeCodeVisIdx != null ) {
+					mapScopeCodeVisIdx.put( keepObj.getPKey(), keepObj );
 				}
 			}
 
@@ -1490,6 +1566,196 @@ public class CFBamFloatTypeTableObj
 		return( sortedList );
 	}
 
+	public List<ICFBamFloatTypeObj> readFloatTypeByCodeVisIdx( ICFBamSchema.CodeVisibilityEnum CodeVis )
+	{
+		return( readFloatTypeByCodeVisIdx( CodeVis,
+			false ) );
+	}
+
+	public List<ICFBamFloatTypeObj> readFloatTypeByCodeVisIdx( ICFBamSchema.CodeVisibilityEnum CodeVis,
+		boolean forceRead )
+	{
+		final String S_ProcName = "readFloatTypeByCodeVisIdx";
+		CFBamValueByCodeVisIdxKey key = ((ICFBamSchema)schema.getBackingStore()).getFactoryValue().newCodeVisIdxKey();
+		key.setRequiredCodeVis( CodeVis );
+		Map<CFBamValuePKey, ICFBamFloatTypeObj> dict;
+		if( indexByCodeVisIdx == null ) {
+			indexByCodeVisIdx = new HashMap< CFBamValueByCodeVisIdxKey,
+				Map< CFBamValuePKey, ICFBamFloatTypeObj > >();
+		}
+		if( ( ! forceRead ) && indexByCodeVisIdx.containsKey( key ) ) {
+			dict = indexByCodeVisIdx.get( key );
+		}
+		else {
+			dict = new HashMap<CFBamValuePKey, ICFBamFloatTypeObj>();
+			ICFBamValueObj obj;
+			CFBamValueBuff[] buffList = ((ICFBamSchema)schema.getBackingStore()).getTableValue().readDerivedByCodeVisIdx( schema.getAuthorization(),
+				CodeVis );
+			CFBamValueBuff buff;
+			for( int idx = 0; idx < buffList.length; idx ++ ) {
+				buff = buffList[ idx ];
+				obj = (ICFBamFloatTypeObj)schema.getValueTableObj().constructByClassCode( buff.getClassCode() );
+				obj.setPKey( ((ICFBamSchema)schema.getBackingStore()).getFactoryValue().newPKey() );
+				obj.setBuff( buff );
+				ICFBamFloatTypeObj realised = (ICFBamFloatTypeObj)obj.realise();
+				dict.put( realised.getPKey(), realised );
+			}
+			indexByCodeVisIdx.put( key, dict );
+		}
+		int len = dict.size();
+		ICFBamFloatTypeObj arr[] = new ICFBamFloatTypeObj[len];
+		Iterator<ICFBamFloatTypeObj> valIter = dict.values().iterator();
+		int idx = 0;
+		while( ( idx < len ) && valIter.hasNext() ) {
+			arr[idx++] = valIter.next();
+		}
+		if( idx < len ) {
+			throw new CFLibArgumentUnderflowException( getClass(),
+				S_ProcName,
+				0,
+				"idx",
+				idx,
+				len );
+		}
+		else if( valIter.hasNext() ) {
+			throw new CFLibArgumentOverflowException( getClass(),
+					S_ProcName,
+					0,
+					"idx",
+					idx,
+					len );
+		}
+		ArrayList<ICFBamFloatTypeObj> arrayList = new ArrayList<ICFBamFloatTypeObj>(len);
+		for( idx = 0; idx < len; idx ++ ) {
+			arrayList.add( arr[idx] );
+		}
+
+		Comparator<ICFBamFloatTypeObj> cmp = new Comparator<ICFBamFloatTypeObj>() {
+			public int compare( ICFBamFloatTypeObj lhs, ICFBamFloatTypeObj rhs ) {
+				if( lhs == null ) {
+					if( rhs == null ) {
+						return( 0 );
+					}
+					else {
+						return( -1 );
+					}
+				}
+				else if( rhs == null ) {
+					return( 1 );
+				}
+				else {
+					CFBamValuePKey lhsPKey = lhs.getPKey();
+					CFBamValuePKey rhsPKey = rhs.getPKey();
+					int ret = lhsPKey.compareTo( rhsPKey );
+					return( ret );
+				}
+			}
+		};
+		Collections.sort( arrayList, cmp );
+		List<ICFBamFloatTypeObj> sortedList = arrayList;
+		return( sortedList );
+	}
+
+	public List<ICFBamFloatTypeObj> readFloatTypeByScopeCodeVisIdx( long TenantId,
+		long ScopeId,
+		ICFBamSchema.CodeVisibilityEnum CodeVis )
+	{
+		return( readFloatTypeByScopeCodeVisIdx( TenantId,
+			ScopeId,
+			CodeVis,
+			false ) );
+	}
+
+	public List<ICFBamFloatTypeObj> readFloatTypeByScopeCodeVisIdx( long TenantId,
+		long ScopeId,
+		ICFBamSchema.CodeVisibilityEnum CodeVis,
+		boolean forceRead )
+	{
+		final String S_ProcName = "readFloatTypeByScopeCodeVisIdx";
+		CFBamValueByScopeCodeVisIdxKey key = ((ICFBamSchema)schema.getBackingStore()).getFactoryValue().newScopeCodeVisIdxKey();
+		key.setRequiredTenantId( TenantId );
+		key.setRequiredScopeId( ScopeId );
+		key.setRequiredCodeVis( CodeVis );
+		Map<CFBamValuePKey, ICFBamFloatTypeObj> dict;
+		if( indexByScopeCodeVisIdx == null ) {
+			indexByScopeCodeVisIdx = new HashMap< CFBamValueByScopeCodeVisIdxKey,
+				Map< CFBamValuePKey, ICFBamFloatTypeObj > >();
+		}
+		if( ( ! forceRead ) && indexByScopeCodeVisIdx.containsKey( key ) ) {
+			dict = indexByScopeCodeVisIdx.get( key );
+		}
+		else {
+			dict = new HashMap<CFBamValuePKey, ICFBamFloatTypeObj>();
+			ICFBamValueObj obj;
+			CFBamValueBuff[] buffList = ((ICFBamSchema)schema.getBackingStore()).getTableValue().readDerivedByScopeCodeVisIdx( schema.getAuthorization(),
+				TenantId,
+				ScopeId,
+				CodeVis );
+			CFBamValueBuff buff;
+			for( int idx = 0; idx < buffList.length; idx ++ ) {
+				buff = buffList[ idx ];
+				obj = (ICFBamFloatTypeObj)schema.getValueTableObj().constructByClassCode( buff.getClassCode() );
+				obj.setPKey( ((ICFBamSchema)schema.getBackingStore()).getFactoryValue().newPKey() );
+				obj.setBuff( buff );
+				ICFBamFloatTypeObj realised = (ICFBamFloatTypeObj)obj.realise();
+				dict.put( realised.getPKey(), realised );
+			}
+			indexByScopeCodeVisIdx.put( key, dict );
+		}
+		int len = dict.size();
+		ICFBamFloatTypeObj arr[] = new ICFBamFloatTypeObj[len];
+		Iterator<ICFBamFloatTypeObj> valIter = dict.values().iterator();
+		int idx = 0;
+		while( ( idx < len ) && valIter.hasNext() ) {
+			arr[idx++] = valIter.next();
+		}
+		if( idx < len ) {
+			throw new CFLibArgumentUnderflowException( getClass(),
+				S_ProcName,
+				0,
+				"idx",
+				idx,
+				len );
+		}
+		else if( valIter.hasNext() ) {
+			throw new CFLibArgumentOverflowException( getClass(),
+					S_ProcName,
+					0,
+					"idx",
+					idx,
+					len );
+		}
+		ArrayList<ICFBamFloatTypeObj> arrayList = new ArrayList<ICFBamFloatTypeObj>(len);
+		for( idx = 0; idx < len; idx ++ ) {
+			arrayList.add( arr[idx] );
+		}
+
+		Comparator<ICFBamFloatTypeObj> cmp = new Comparator<ICFBamFloatTypeObj>() {
+			public int compare( ICFBamFloatTypeObj lhs, ICFBamFloatTypeObj rhs ) {
+				if( lhs == null ) {
+					if( rhs == null ) {
+						return( 0 );
+					}
+					else {
+						return( -1 );
+					}
+				}
+				else if( rhs == null ) {
+					return( 1 );
+				}
+				else {
+					CFBamValuePKey lhsPKey = lhs.getPKey();
+					CFBamValuePKey rhsPKey = rhs.getPKey();
+					int ret = lhsPKey.compareTo( rhsPKey );
+					return( ret );
+				}
+			}
+		};
+		Collections.sort( arrayList, cmp );
+		List<ICFBamFloatTypeObj> sortedList = arrayList;
+		return( sortedList );
+	}
+
 	public List<ICFBamFloatTypeObj> readFloatTypeBySchemaIdx( long TenantId,
 		long SchemaDefId )
 	{
@@ -2176,6 +2442,160 @@ public class CFBamFloatTypeTableObj
 		return( arrayList );
 	}
 
+	public List<ICFBamFloatTypeObj> readCachedFloatTypeByCodeVisIdx( ICFBamSchema.CodeVisibilityEnum CodeVis )
+	{
+		final String S_ProcName = "readCachedFloatTypeByCodeVisIdx";
+		CFBamValueByCodeVisIdxKey key = ((ICFBamSchema)schema.getBackingStore()).getFactoryValue().newCodeVisIdxKey();
+		key.setRequiredCodeVis( CodeVis );
+		ArrayList<ICFBamFloatTypeObj> arrayList = new ArrayList<ICFBamFloatTypeObj>();
+		if( indexByCodeVisIdx != null ) {
+			Map<CFBamValuePKey, ICFBamFloatTypeObj> dict;
+			if( indexByCodeVisIdx.containsKey( key ) ) {
+				dict = indexByCodeVisIdx.get( key );
+				int len = dict.size();
+				ICFBamFloatTypeObj arr[] = new ICFBamFloatTypeObj[len];
+				Iterator<ICFBamFloatTypeObj> valIter = dict.values().iterator();
+				int idx = 0;
+				while( ( idx < len ) && valIter.hasNext() ) {
+					arr[idx++] = valIter.next();
+				}
+				if( idx < len ) {
+					throw new CFLibArgumentUnderflowException( getClass(),
+						S_ProcName,
+						0,
+						"idx",
+						idx,
+						len );
+				}
+				else if( valIter.hasNext() ) {
+					throw new CFLibArgumentOverflowException( getClass(),
+							S_ProcName,
+							0,
+							"idx",
+							idx,
+							len );
+				}
+				for( idx = 0; idx < len; idx ++ ) {
+					arrayList.add( arr[idx] );
+				}
+			}
+		}
+		else {
+			ICFBamFloatTypeObj obj;
+			Iterator<ICFBamFloatTypeObj> valIter = members.values().iterator();
+			while( valIter.hasNext() ) {
+				obj = valIter.next();
+				if( obj != null ) {
+					if( obj.getBuff().compareTo( key ) == 0 ) {
+						arrayList.add( obj );
+					}
+				}
+			}
+		}
+		Comparator<ICFBamFloatTypeObj> cmp = new Comparator<ICFBamFloatTypeObj>() {
+			public int compare( ICFBamFloatTypeObj lhs, ICFBamFloatTypeObj rhs ) {
+				if( lhs == null ) {
+					if( rhs == null ) {
+						return( 0 );
+					}
+					else {
+						return( -1 );
+					}
+				}
+				else if( rhs == null ) {
+					return( 1 );
+				}
+				else {
+					CFBamValuePKey lhsPKey = lhs.getPKey();
+					CFBamValuePKey rhsPKey = rhs.getPKey();
+					int ret = lhsPKey.compareTo( rhsPKey );
+					return( ret );
+				}
+			}
+		};
+		Collections.sort( arrayList, cmp );
+		return( arrayList );
+	}
+
+	public List<ICFBamFloatTypeObj> readCachedFloatTypeByScopeCodeVisIdx( long TenantId,
+		long ScopeId,
+		ICFBamSchema.CodeVisibilityEnum CodeVis )
+	{
+		final String S_ProcName = "readCachedFloatTypeByScopeCodeVisIdx";
+		CFBamValueByScopeCodeVisIdxKey key = ((ICFBamSchema)schema.getBackingStore()).getFactoryValue().newScopeCodeVisIdxKey();
+		key.setRequiredTenantId( TenantId );
+		key.setRequiredScopeId( ScopeId );
+		key.setRequiredCodeVis( CodeVis );
+		ArrayList<ICFBamFloatTypeObj> arrayList = new ArrayList<ICFBamFloatTypeObj>();
+		if( indexByScopeCodeVisIdx != null ) {
+			Map<CFBamValuePKey, ICFBamFloatTypeObj> dict;
+			if( indexByScopeCodeVisIdx.containsKey( key ) ) {
+				dict = indexByScopeCodeVisIdx.get( key );
+				int len = dict.size();
+				ICFBamFloatTypeObj arr[] = new ICFBamFloatTypeObj[len];
+				Iterator<ICFBamFloatTypeObj> valIter = dict.values().iterator();
+				int idx = 0;
+				while( ( idx < len ) && valIter.hasNext() ) {
+					arr[idx++] = valIter.next();
+				}
+				if( idx < len ) {
+					throw new CFLibArgumentUnderflowException( getClass(),
+						S_ProcName,
+						0,
+						"idx",
+						idx,
+						len );
+				}
+				else if( valIter.hasNext() ) {
+					throw new CFLibArgumentOverflowException( getClass(),
+							S_ProcName,
+							0,
+							"idx",
+							idx,
+							len );
+				}
+				for( idx = 0; idx < len; idx ++ ) {
+					arrayList.add( arr[idx] );
+				}
+			}
+		}
+		else {
+			ICFBamFloatTypeObj obj;
+			Iterator<ICFBamFloatTypeObj> valIter = members.values().iterator();
+			while( valIter.hasNext() ) {
+				obj = valIter.next();
+				if( obj != null ) {
+					if( obj.getBuff().compareTo( key ) == 0 ) {
+						arrayList.add( obj );
+					}
+				}
+			}
+		}
+		Comparator<ICFBamFloatTypeObj> cmp = new Comparator<ICFBamFloatTypeObj>() {
+			public int compare( ICFBamFloatTypeObj lhs, ICFBamFloatTypeObj rhs ) {
+				if( lhs == null ) {
+					if( rhs == null ) {
+						return( 0 );
+					}
+					else {
+						return( -1 );
+					}
+				}
+				else if( rhs == null ) {
+					return( 1 );
+				}
+				else {
+					CFBamValuePKey lhsPKey = lhs.getPKey();
+					CFBamValuePKey rhsPKey = rhs.getPKey();
+					int ret = lhsPKey.compareTo( rhsPKey );
+					return( ret );
+				}
+			}
+		};
+		Collections.sort( arrayList, cmp );
+		return( arrayList );
+	}
+
 	public List<ICFBamFloatTypeObj> readCachedFloatTypeBySchemaIdx( long TenantId,
 		long SchemaDefId )
 	{
@@ -2392,6 +2812,42 @@ public class CFBamFloatTypeTableObj
 		List<ICFBamFloatTypeObj> arrayList = readCachedFloatTypeByContNextIdx( TenantId,
 				ScopeId,
 				NextId );
+		if( arrayList != null )  {
+			Iterator<ICFBamFloatTypeObj> arrayIter = arrayList.iterator();
+			while( arrayIter.hasNext() ) {
+				obj = arrayIter.next();
+				if( obj != null ) {
+					obj.forget();
+				}
+			}
+		}
+	}
+
+	public void deepDisposeFloatTypeByCodeVisIdx( ICFBamSchema.CodeVisibilityEnum CodeVis )
+	{
+		final String S_ProcName = "deepDisposeFloatTypeByCodeVisIdx";
+		ICFBamFloatTypeObj obj;
+		List<ICFBamFloatTypeObj> arrayList = readCachedFloatTypeByCodeVisIdx( CodeVis );
+		if( arrayList != null )  {
+			Iterator<ICFBamFloatTypeObj> arrayIter = arrayList.iterator();
+			while( arrayIter.hasNext() ) {
+				obj = arrayIter.next();
+				if( obj != null ) {
+					obj.forget();
+				}
+			}
+		}
+	}
+
+	public void deepDisposeFloatTypeByScopeCodeVisIdx( long TenantId,
+		long ScopeId,
+		ICFBamSchema.CodeVisibilityEnum CodeVis )
+	{
+		final String S_ProcName = "deepDisposeFloatTypeByScopeCodeVisIdx";
+		ICFBamFloatTypeObj obj;
+		List<ICFBamFloatTypeObj> arrayList = readCachedFloatTypeByScopeCodeVisIdx( TenantId,
+				ScopeId,
+				CodeVis );
 		if( arrayList != null )  {
 			Iterator<ICFBamFloatTypeObj> arrayIter = arrayList.iterator();
 			while( arrayIter.hasNext() ) {
@@ -2782,6 +3238,82 @@ public class CFBamFloatTypeTableObj
 		deepDisposeFloatTypeByContNextIdx( TenantId,
 				ScopeId,
 				NextId );
+	}
+
+	public void deleteFloatTypeByCodeVisIdx( ICFBamSchema.CodeVisibilityEnum CodeVis )
+	{
+		CFBamValueByCodeVisIdxKey key = ((ICFBamSchema)schema.getBackingStore()).getFactoryValue().newCodeVisIdxKey();
+		key.setRequiredCodeVis( CodeVis );
+		if( indexByCodeVisIdx == null ) {
+			indexByCodeVisIdx = new HashMap< CFBamValueByCodeVisIdxKey,
+				Map< CFBamValuePKey, ICFBamFloatTypeObj > >();
+		}
+		if( indexByCodeVisIdx.containsKey( key ) ) {
+			Map<CFBamValuePKey, ICFBamFloatTypeObj> dict = indexByCodeVisIdx.get( key );
+			((ICFBamSchema)schema.getBackingStore()).getTableFloatType().deleteFloatTypeByCodeVisIdx( schema.getAuthorization(),
+				CodeVis );
+			Iterator<ICFBamFloatTypeObj> iter = dict.values().iterator();
+			ICFBamFloatTypeObj obj;
+			List<ICFBamFloatTypeObj> toForget = new LinkedList<ICFBamFloatTypeObj>();
+			while( iter.hasNext() ) {
+				obj = iter.next();
+				toForget.add( obj );
+			}
+			iter = toForget.iterator();
+			while( iter.hasNext() ) {
+				obj = iter.next();
+				obj.forget();
+			}
+			indexByCodeVisIdx.remove( key );
+		}
+		else {
+			((ICFBamSchema)schema.getBackingStore()).getTableFloatType().deleteFloatTypeByCodeVisIdx( schema.getAuthorization(),
+				CodeVis );
+		}
+		deepDisposeFloatTypeByCodeVisIdx( CodeVis );
+	}
+
+	public void deleteFloatTypeByScopeCodeVisIdx( long TenantId,
+		long ScopeId,
+		ICFBamSchema.CodeVisibilityEnum CodeVis )
+	{
+		CFBamValueByScopeCodeVisIdxKey key = ((ICFBamSchema)schema.getBackingStore()).getFactoryValue().newScopeCodeVisIdxKey();
+		key.setRequiredTenantId( TenantId );
+		key.setRequiredScopeId( ScopeId );
+		key.setRequiredCodeVis( CodeVis );
+		if( indexByScopeCodeVisIdx == null ) {
+			indexByScopeCodeVisIdx = new HashMap< CFBamValueByScopeCodeVisIdxKey,
+				Map< CFBamValuePKey, ICFBamFloatTypeObj > >();
+		}
+		if( indexByScopeCodeVisIdx.containsKey( key ) ) {
+			Map<CFBamValuePKey, ICFBamFloatTypeObj> dict = indexByScopeCodeVisIdx.get( key );
+			((ICFBamSchema)schema.getBackingStore()).getTableFloatType().deleteFloatTypeByScopeCodeVisIdx( schema.getAuthorization(),
+				TenantId,
+				ScopeId,
+				CodeVis );
+			Iterator<ICFBamFloatTypeObj> iter = dict.values().iterator();
+			ICFBamFloatTypeObj obj;
+			List<ICFBamFloatTypeObj> toForget = new LinkedList<ICFBamFloatTypeObj>();
+			while( iter.hasNext() ) {
+				obj = iter.next();
+				toForget.add( obj );
+			}
+			iter = toForget.iterator();
+			while( iter.hasNext() ) {
+				obj = iter.next();
+				obj.forget();
+			}
+			indexByScopeCodeVisIdx.remove( key );
+		}
+		else {
+			((ICFBamSchema)schema.getBackingStore()).getTableFloatType().deleteFloatTypeByScopeCodeVisIdx( schema.getAuthorization(),
+				TenantId,
+				ScopeId,
+				CodeVis );
+		}
+		deepDisposeFloatTypeByScopeCodeVisIdx( TenantId,
+				ScopeId,
+				CodeVis );
 	}
 
 	public void deleteFloatTypeBySchemaIdx( long TenantId,

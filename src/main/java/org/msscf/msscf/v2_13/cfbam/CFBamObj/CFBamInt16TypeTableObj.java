@@ -81,6 +81,10 @@ public class CFBamInt16TypeTableObj
 		Map<CFBamValuePKey, ICFBamInt16TypeObj > > indexByContPrevIdx;
 	private Map< CFBamValueByContNextIdxKey,
 		Map<CFBamValuePKey, ICFBamInt16TypeObj > > indexByContNextIdx;
+	private Map< CFBamValueByCodeVisIdxKey,
+		Map<CFBamValuePKey, ICFBamInt16TypeObj > > indexByCodeVisIdx;
+	private Map< CFBamValueByScopeCodeVisIdxKey,
+		Map<CFBamValuePKey, ICFBamInt16TypeObj > > indexByScopeCodeVisIdx;
 	private Map< CFBamInt16TypeBySchemaIdxKey,
 		Map<CFBamValuePKey, ICFBamInt16TypeObj > > indexBySchemaIdx;
 	public static String TABLE_NAME = "Int16Type";
@@ -98,6 +102,8 @@ public class CFBamInt16TypeTableObj
 		indexByNextIdx = null;
 		indexByContPrevIdx = null;
 		indexByContNextIdx = null;
+		indexByCodeVisIdx = null;
+		indexByScopeCodeVisIdx = null;
 		indexBySchemaIdx = null;
 	}
 
@@ -113,6 +119,8 @@ public class CFBamInt16TypeTableObj
 		indexByNextIdx = null;
 		indexByContPrevIdx = null;
 		indexByContNextIdx = null;
+		indexByCodeVisIdx = null;
+		indexByScopeCodeVisIdx = null;
 		indexBySchemaIdx = null;
 	}
 
@@ -147,6 +155,8 @@ public class CFBamInt16TypeTableObj
 		indexByNextIdx = null;
 		indexByContPrevIdx = null;
 		indexByContNextIdx = null;
+		indexByCodeVisIdx = null;
+		indexByScopeCodeVisIdx = null;
 		indexBySchemaIdx = null;
 		List<ICFBamInt16TypeObj> toForget = new LinkedList<ICFBamInt16TypeObj>();
 		ICFBamInt16TypeObj cur = null;
@@ -291,6 +301,28 @@ public class CFBamInt16TypeTableObj
 				}
 			}
 
+			if( indexByCodeVisIdx != null ) {
+				CFBamValueByCodeVisIdxKey keyCodeVisIdx =
+					((ICFBamSchema)schema.getBackingStore()).getFactoryValue().newCodeVisIdxKey();
+				keyCodeVisIdx.setRequiredCodeVis( keepObj.getRequiredCodeVis() );
+				Map<CFBamValuePKey, ICFBamInt16TypeObj > mapCodeVisIdx = indexByCodeVisIdx.get( keyCodeVisIdx );
+				if( mapCodeVisIdx != null ) {
+					indexByCodeVisIdx.remove( keyCodeVisIdx );
+				}
+			}
+
+			if( indexByScopeCodeVisIdx != null ) {
+				CFBamValueByScopeCodeVisIdxKey keyScopeCodeVisIdx =
+					((ICFBamSchema)schema.getBackingStore()).getFactoryValue().newScopeCodeVisIdxKey();
+				keyScopeCodeVisIdx.setRequiredTenantId( keepObj.getRequiredTenantId() );
+				keyScopeCodeVisIdx.setRequiredScopeId( keepObj.getRequiredScopeId() );
+				keyScopeCodeVisIdx.setRequiredCodeVis( keepObj.getRequiredCodeVis() );
+				Map<CFBamValuePKey, ICFBamInt16TypeObj > mapScopeCodeVisIdx = indexByScopeCodeVisIdx.get( keyScopeCodeVisIdx );
+				if( mapScopeCodeVisIdx != null ) {
+					indexByScopeCodeVisIdx.remove( keyScopeCodeVisIdx );
+				}
+			}
+
 			if( indexBySchemaIdx != null ) {
 				CFBamInt16TypeBySchemaIdxKey keySchemaIdx =
 					((ICFBamSchema)schema.getBackingStore()).getFactoryInt16Type().newSchemaIdxKey();
@@ -395,6 +427,28 @@ public class CFBamInt16TypeTableObj
 				Map<CFBamValuePKey, ICFBamInt16TypeObj > mapContNextIdx = indexByContNextIdx.get( keyContNextIdx );
 				if( mapContNextIdx != null ) {
 					mapContNextIdx.put( keepObj.getPKey(), keepObj );
+				}
+			}
+
+			if( indexByCodeVisIdx != null ) {
+				CFBamValueByCodeVisIdxKey keyCodeVisIdx =
+					((ICFBamSchema)schema.getBackingStore()).getFactoryValue().newCodeVisIdxKey();
+				keyCodeVisIdx.setRequiredCodeVis( keepObj.getRequiredCodeVis() );
+				Map<CFBamValuePKey, ICFBamInt16TypeObj > mapCodeVisIdx = indexByCodeVisIdx.get( keyCodeVisIdx );
+				if( mapCodeVisIdx != null ) {
+					mapCodeVisIdx.put( keepObj.getPKey(), keepObj );
+				}
+			}
+
+			if( indexByScopeCodeVisIdx != null ) {
+				CFBamValueByScopeCodeVisIdxKey keyScopeCodeVisIdx =
+					((ICFBamSchema)schema.getBackingStore()).getFactoryValue().newScopeCodeVisIdxKey();
+				keyScopeCodeVisIdx.setRequiredTenantId( keepObj.getRequiredTenantId() );
+				keyScopeCodeVisIdx.setRequiredScopeId( keepObj.getRequiredScopeId() );
+				keyScopeCodeVisIdx.setRequiredCodeVis( keepObj.getRequiredCodeVis() );
+				Map<CFBamValuePKey, ICFBamInt16TypeObj > mapScopeCodeVisIdx = indexByScopeCodeVisIdx.get( keyScopeCodeVisIdx );
+				if( mapScopeCodeVisIdx != null ) {
+					mapScopeCodeVisIdx.put( keepObj.getPKey(), keepObj );
 				}
 			}
 
@@ -507,6 +561,28 @@ public class CFBamInt16TypeTableObj
 				Map<CFBamValuePKey, ICFBamInt16TypeObj > mapContNextIdx = indexByContNextIdx.get( keyContNextIdx );
 				if( mapContNextIdx != null ) {
 					mapContNextIdx.put( keepObj.getPKey(), keepObj );
+				}
+			}
+
+			if( indexByCodeVisIdx != null ) {
+				CFBamValueByCodeVisIdxKey keyCodeVisIdx =
+					((ICFBamSchema)schema.getBackingStore()).getFactoryValue().newCodeVisIdxKey();
+				keyCodeVisIdx.setRequiredCodeVis( keepObj.getRequiredCodeVis() );
+				Map<CFBamValuePKey, ICFBamInt16TypeObj > mapCodeVisIdx = indexByCodeVisIdx.get( keyCodeVisIdx );
+				if( mapCodeVisIdx != null ) {
+					mapCodeVisIdx.put( keepObj.getPKey(), keepObj );
+				}
+			}
+
+			if( indexByScopeCodeVisIdx != null ) {
+				CFBamValueByScopeCodeVisIdxKey keyScopeCodeVisIdx =
+					((ICFBamSchema)schema.getBackingStore()).getFactoryValue().newScopeCodeVisIdxKey();
+				keyScopeCodeVisIdx.setRequiredTenantId( keepObj.getRequiredTenantId() );
+				keyScopeCodeVisIdx.setRequiredScopeId( keepObj.getRequiredScopeId() );
+				keyScopeCodeVisIdx.setRequiredCodeVis( keepObj.getRequiredCodeVis() );
+				Map<CFBamValuePKey, ICFBamInt16TypeObj > mapScopeCodeVisIdx = indexByScopeCodeVisIdx.get( keyScopeCodeVisIdx );
+				if( mapScopeCodeVisIdx != null ) {
+					mapScopeCodeVisIdx.put( keepObj.getPKey(), keepObj );
 				}
 			}
 
@@ -1490,6 +1566,196 @@ public class CFBamInt16TypeTableObj
 		return( sortedList );
 	}
 
+	public List<ICFBamInt16TypeObj> readInt16TypeByCodeVisIdx( ICFBamSchema.CodeVisibilityEnum CodeVis )
+	{
+		return( readInt16TypeByCodeVisIdx( CodeVis,
+			false ) );
+	}
+
+	public List<ICFBamInt16TypeObj> readInt16TypeByCodeVisIdx( ICFBamSchema.CodeVisibilityEnum CodeVis,
+		boolean forceRead )
+	{
+		final String S_ProcName = "readInt16TypeByCodeVisIdx";
+		CFBamValueByCodeVisIdxKey key = ((ICFBamSchema)schema.getBackingStore()).getFactoryValue().newCodeVisIdxKey();
+		key.setRequiredCodeVis( CodeVis );
+		Map<CFBamValuePKey, ICFBamInt16TypeObj> dict;
+		if( indexByCodeVisIdx == null ) {
+			indexByCodeVisIdx = new HashMap< CFBamValueByCodeVisIdxKey,
+				Map< CFBamValuePKey, ICFBamInt16TypeObj > >();
+		}
+		if( ( ! forceRead ) && indexByCodeVisIdx.containsKey( key ) ) {
+			dict = indexByCodeVisIdx.get( key );
+		}
+		else {
+			dict = new HashMap<CFBamValuePKey, ICFBamInt16TypeObj>();
+			ICFBamValueObj obj;
+			CFBamValueBuff[] buffList = ((ICFBamSchema)schema.getBackingStore()).getTableValue().readDerivedByCodeVisIdx( schema.getAuthorization(),
+				CodeVis );
+			CFBamValueBuff buff;
+			for( int idx = 0; idx < buffList.length; idx ++ ) {
+				buff = buffList[ idx ];
+				obj = (ICFBamInt16TypeObj)schema.getValueTableObj().constructByClassCode( buff.getClassCode() );
+				obj.setPKey( ((ICFBamSchema)schema.getBackingStore()).getFactoryValue().newPKey() );
+				obj.setBuff( buff );
+				ICFBamInt16TypeObj realised = (ICFBamInt16TypeObj)obj.realise();
+				dict.put( realised.getPKey(), realised );
+			}
+			indexByCodeVisIdx.put( key, dict );
+		}
+		int len = dict.size();
+		ICFBamInt16TypeObj arr[] = new ICFBamInt16TypeObj[len];
+		Iterator<ICFBamInt16TypeObj> valIter = dict.values().iterator();
+		int idx = 0;
+		while( ( idx < len ) && valIter.hasNext() ) {
+			arr[idx++] = valIter.next();
+		}
+		if( idx < len ) {
+			throw new CFLibArgumentUnderflowException( getClass(),
+				S_ProcName,
+				0,
+				"idx",
+				idx,
+				len );
+		}
+		else if( valIter.hasNext() ) {
+			throw new CFLibArgumentOverflowException( getClass(),
+					S_ProcName,
+					0,
+					"idx",
+					idx,
+					len );
+		}
+		ArrayList<ICFBamInt16TypeObj> arrayList = new ArrayList<ICFBamInt16TypeObj>(len);
+		for( idx = 0; idx < len; idx ++ ) {
+			arrayList.add( arr[idx] );
+		}
+
+		Comparator<ICFBamInt16TypeObj> cmp = new Comparator<ICFBamInt16TypeObj>() {
+			public int compare( ICFBamInt16TypeObj lhs, ICFBamInt16TypeObj rhs ) {
+				if( lhs == null ) {
+					if( rhs == null ) {
+						return( 0 );
+					}
+					else {
+						return( -1 );
+					}
+				}
+				else if( rhs == null ) {
+					return( 1 );
+				}
+				else {
+					CFBamValuePKey lhsPKey = lhs.getPKey();
+					CFBamValuePKey rhsPKey = rhs.getPKey();
+					int ret = lhsPKey.compareTo( rhsPKey );
+					return( ret );
+				}
+			}
+		};
+		Collections.sort( arrayList, cmp );
+		List<ICFBamInt16TypeObj> sortedList = arrayList;
+		return( sortedList );
+	}
+
+	public List<ICFBamInt16TypeObj> readInt16TypeByScopeCodeVisIdx( long TenantId,
+		long ScopeId,
+		ICFBamSchema.CodeVisibilityEnum CodeVis )
+	{
+		return( readInt16TypeByScopeCodeVisIdx( TenantId,
+			ScopeId,
+			CodeVis,
+			false ) );
+	}
+
+	public List<ICFBamInt16TypeObj> readInt16TypeByScopeCodeVisIdx( long TenantId,
+		long ScopeId,
+		ICFBamSchema.CodeVisibilityEnum CodeVis,
+		boolean forceRead )
+	{
+		final String S_ProcName = "readInt16TypeByScopeCodeVisIdx";
+		CFBamValueByScopeCodeVisIdxKey key = ((ICFBamSchema)schema.getBackingStore()).getFactoryValue().newScopeCodeVisIdxKey();
+		key.setRequiredTenantId( TenantId );
+		key.setRequiredScopeId( ScopeId );
+		key.setRequiredCodeVis( CodeVis );
+		Map<CFBamValuePKey, ICFBamInt16TypeObj> dict;
+		if( indexByScopeCodeVisIdx == null ) {
+			indexByScopeCodeVisIdx = new HashMap< CFBamValueByScopeCodeVisIdxKey,
+				Map< CFBamValuePKey, ICFBamInt16TypeObj > >();
+		}
+		if( ( ! forceRead ) && indexByScopeCodeVisIdx.containsKey( key ) ) {
+			dict = indexByScopeCodeVisIdx.get( key );
+		}
+		else {
+			dict = new HashMap<CFBamValuePKey, ICFBamInt16TypeObj>();
+			ICFBamValueObj obj;
+			CFBamValueBuff[] buffList = ((ICFBamSchema)schema.getBackingStore()).getTableValue().readDerivedByScopeCodeVisIdx( schema.getAuthorization(),
+				TenantId,
+				ScopeId,
+				CodeVis );
+			CFBamValueBuff buff;
+			for( int idx = 0; idx < buffList.length; idx ++ ) {
+				buff = buffList[ idx ];
+				obj = (ICFBamInt16TypeObj)schema.getValueTableObj().constructByClassCode( buff.getClassCode() );
+				obj.setPKey( ((ICFBamSchema)schema.getBackingStore()).getFactoryValue().newPKey() );
+				obj.setBuff( buff );
+				ICFBamInt16TypeObj realised = (ICFBamInt16TypeObj)obj.realise();
+				dict.put( realised.getPKey(), realised );
+			}
+			indexByScopeCodeVisIdx.put( key, dict );
+		}
+		int len = dict.size();
+		ICFBamInt16TypeObj arr[] = new ICFBamInt16TypeObj[len];
+		Iterator<ICFBamInt16TypeObj> valIter = dict.values().iterator();
+		int idx = 0;
+		while( ( idx < len ) && valIter.hasNext() ) {
+			arr[idx++] = valIter.next();
+		}
+		if( idx < len ) {
+			throw new CFLibArgumentUnderflowException( getClass(),
+				S_ProcName,
+				0,
+				"idx",
+				idx,
+				len );
+		}
+		else if( valIter.hasNext() ) {
+			throw new CFLibArgumentOverflowException( getClass(),
+					S_ProcName,
+					0,
+					"idx",
+					idx,
+					len );
+		}
+		ArrayList<ICFBamInt16TypeObj> arrayList = new ArrayList<ICFBamInt16TypeObj>(len);
+		for( idx = 0; idx < len; idx ++ ) {
+			arrayList.add( arr[idx] );
+		}
+
+		Comparator<ICFBamInt16TypeObj> cmp = new Comparator<ICFBamInt16TypeObj>() {
+			public int compare( ICFBamInt16TypeObj lhs, ICFBamInt16TypeObj rhs ) {
+				if( lhs == null ) {
+					if( rhs == null ) {
+						return( 0 );
+					}
+					else {
+						return( -1 );
+					}
+				}
+				else if( rhs == null ) {
+					return( 1 );
+				}
+				else {
+					CFBamValuePKey lhsPKey = lhs.getPKey();
+					CFBamValuePKey rhsPKey = rhs.getPKey();
+					int ret = lhsPKey.compareTo( rhsPKey );
+					return( ret );
+				}
+			}
+		};
+		Collections.sort( arrayList, cmp );
+		List<ICFBamInt16TypeObj> sortedList = arrayList;
+		return( sortedList );
+	}
+
 	public List<ICFBamInt16TypeObj> readInt16TypeBySchemaIdx( long TenantId,
 		long SchemaDefId )
 	{
@@ -2176,6 +2442,160 @@ public class CFBamInt16TypeTableObj
 		return( arrayList );
 	}
 
+	public List<ICFBamInt16TypeObj> readCachedInt16TypeByCodeVisIdx( ICFBamSchema.CodeVisibilityEnum CodeVis )
+	{
+		final String S_ProcName = "readCachedInt16TypeByCodeVisIdx";
+		CFBamValueByCodeVisIdxKey key = ((ICFBamSchema)schema.getBackingStore()).getFactoryValue().newCodeVisIdxKey();
+		key.setRequiredCodeVis( CodeVis );
+		ArrayList<ICFBamInt16TypeObj> arrayList = new ArrayList<ICFBamInt16TypeObj>();
+		if( indexByCodeVisIdx != null ) {
+			Map<CFBamValuePKey, ICFBamInt16TypeObj> dict;
+			if( indexByCodeVisIdx.containsKey( key ) ) {
+				dict = indexByCodeVisIdx.get( key );
+				int len = dict.size();
+				ICFBamInt16TypeObj arr[] = new ICFBamInt16TypeObj[len];
+				Iterator<ICFBamInt16TypeObj> valIter = dict.values().iterator();
+				int idx = 0;
+				while( ( idx < len ) && valIter.hasNext() ) {
+					arr[idx++] = valIter.next();
+				}
+				if( idx < len ) {
+					throw new CFLibArgumentUnderflowException( getClass(),
+						S_ProcName,
+						0,
+						"idx",
+						idx,
+						len );
+				}
+				else if( valIter.hasNext() ) {
+					throw new CFLibArgumentOverflowException( getClass(),
+							S_ProcName,
+							0,
+							"idx",
+							idx,
+							len );
+				}
+				for( idx = 0; idx < len; idx ++ ) {
+					arrayList.add( arr[idx] );
+				}
+			}
+		}
+		else {
+			ICFBamInt16TypeObj obj;
+			Iterator<ICFBamInt16TypeObj> valIter = members.values().iterator();
+			while( valIter.hasNext() ) {
+				obj = valIter.next();
+				if( obj != null ) {
+					if( obj.getBuff().compareTo( key ) == 0 ) {
+						arrayList.add( obj );
+					}
+				}
+			}
+		}
+		Comparator<ICFBamInt16TypeObj> cmp = new Comparator<ICFBamInt16TypeObj>() {
+			public int compare( ICFBamInt16TypeObj lhs, ICFBamInt16TypeObj rhs ) {
+				if( lhs == null ) {
+					if( rhs == null ) {
+						return( 0 );
+					}
+					else {
+						return( -1 );
+					}
+				}
+				else if( rhs == null ) {
+					return( 1 );
+				}
+				else {
+					CFBamValuePKey lhsPKey = lhs.getPKey();
+					CFBamValuePKey rhsPKey = rhs.getPKey();
+					int ret = lhsPKey.compareTo( rhsPKey );
+					return( ret );
+				}
+			}
+		};
+		Collections.sort( arrayList, cmp );
+		return( arrayList );
+	}
+
+	public List<ICFBamInt16TypeObj> readCachedInt16TypeByScopeCodeVisIdx( long TenantId,
+		long ScopeId,
+		ICFBamSchema.CodeVisibilityEnum CodeVis )
+	{
+		final String S_ProcName = "readCachedInt16TypeByScopeCodeVisIdx";
+		CFBamValueByScopeCodeVisIdxKey key = ((ICFBamSchema)schema.getBackingStore()).getFactoryValue().newScopeCodeVisIdxKey();
+		key.setRequiredTenantId( TenantId );
+		key.setRequiredScopeId( ScopeId );
+		key.setRequiredCodeVis( CodeVis );
+		ArrayList<ICFBamInt16TypeObj> arrayList = new ArrayList<ICFBamInt16TypeObj>();
+		if( indexByScopeCodeVisIdx != null ) {
+			Map<CFBamValuePKey, ICFBamInt16TypeObj> dict;
+			if( indexByScopeCodeVisIdx.containsKey( key ) ) {
+				dict = indexByScopeCodeVisIdx.get( key );
+				int len = dict.size();
+				ICFBamInt16TypeObj arr[] = new ICFBamInt16TypeObj[len];
+				Iterator<ICFBamInt16TypeObj> valIter = dict.values().iterator();
+				int idx = 0;
+				while( ( idx < len ) && valIter.hasNext() ) {
+					arr[idx++] = valIter.next();
+				}
+				if( idx < len ) {
+					throw new CFLibArgumentUnderflowException( getClass(),
+						S_ProcName,
+						0,
+						"idx",
+						idx,
+						len );
+				}
+				else if( valIter.hasNext() ) {
+					throw new CFLibArgumentOverflowException( getClass(),
+							S_ProcName,
+							0,
+							"idx",
+							idx,
+							len );
+				}
+				for( idx = 0; idx < len; idx ++ ) {
+					arrayList.add( arr[idx] );
+				}
+			}
+		}
+		else {
+			ICFBamInt16TypeObj obj;
+			Iterator<ICFBamInt16TypeObj> valIter = members.values().iterator();
+			while( valIter.hasNext() ) {
+				obj = valIter.next();
+				if( obj != null ) {
+					if( obj.getBuff().compareTo( key ) == 0 ) {
+						arrayList.add( obj );
+					}
+				}
+			}
+		}
+		Comparator<ICFBamInt16TypeObj> cmp = new Comparator<ICFBamInt16TypeObj>() {
+			public int compare( ICFBamInt16TypeObj lhs, ICFBamInt16TypeObj rhs ) {
+				if( lhs == null ) {
+					if( rhs == null ) {
+						return( 0 );
+					}
+					else {
+						return( -1 );
+					}
+				}
+				else if( rhs == null ) {
+					return( 1 );
+				}
+				else {
+					CFBamValuePKey lhsPKey = lhs.getPKey();
+					CFBamValuePKey rhsPKey = rhs.getPKey();
+					int ret = lhsPKey.compareTo( rhsPKey );
+					return( ret );
+				}
+			}
+		};
+		Collections.sort( arrayList, cmp );
+		return( arrayList );
+	}
+
 	public List<ICFBamInt16TypeObj> readCachedInt16TypeBySchemaIdx( long TenantId,
 		long SchemaDefId )
 	{
@@ -2392,6 +2812,42 @@ public class CFBamInt16TypeTableObj
 		List<ICFBamInt16TypeObj> arrayList = readCachedInt16TypeByContNextIdx( TenantId,
 				ScopeId,
 				NextId );
+		if( arrayList != null )  {
+			Iterator<ICFBamInt16TypeObj> arrayIter = arrayList.iterator();
+			while( arrayIter.hasNext() ) {
+				obj = arrayIter.next();
+				if( obj != null ) {
+					obj.forget();
+				}
+			}
+		}
+	}
+
+	public void deepDisposeInt16TypeByCodeVisIdx( ICFBamSchema.CodeVisibilityEnum CodeVis )
+	{
+		final String S_ProcName = "deepDisposeInt16TypeByCodeVisIdx";
+		ICFBamInt16TypeObj obj;
+		List<ICFBamInt16TypeObj> arrayList = readCachedInt16TypeByCodeVisIdx( CodeVis );
+		if( arrayList != null )  {
+			Iterator<ICFBamInt16TypeObj> arrayIter = arrayList.iterator();
+			while( arrayIter.hasNext() ) {
+				obj = arrayIter.next();
+				if( obj != null ) {
+					obj.forget();
+				}
+			}
+		}
+	}
+
+	public void deepDisposeInt16TypeByScopeCodeVisIdx( long TenantId,
+		long ScopeId,
+		ICFBamSchema.CodeVisibilityEnum CodeVis )
+	{
+		final String S_ProcName = "deepDisposeInt16TypeByScopeCodeVisIdx";
+		ICFBamInt16TypeObj obj;
+		List<ICFBamInt16TypeObj> arrayList = readCachedInt16TypeByScopeCodeVisIdx( TenantId,
+				ScopeId,
+				CodeVis );
 		if( arrayList != null )  {
 			Iterator<ICFBamInt16TypeObj> arrayIter = arrayList.iterator();
 			while( arrayIter.hasNext() ) {
@@ -2782,6 +3238,82 @@ public class CFBamInt16TypeTableObj
 		deepDisposeInt16TypeByContNextIdx( TenantId,
 				ScopeId,
 				NextId );
+	}
+
+	public void deleteInt16TypeByCodeVisIdx( ICFBamSchema.CodeVisibilityEnum CodeVis )
+	{
+		CFBamValueByCodeVisIdxKey key = ((ICFBamSchema)schema.getBackingStore()).getFactoryValue().newCodeVisIdxKey();
+		key.setRequiredCodeVis( CodeVis );
+		if( indexByCodeVisIdx == null ) {
+			indexByCodeVisIdx = new HashMap< CFBamValueByCodeVisIdxKey,
+				Map< CFBamValuePKey, ICFBamInt16TypeObj > >();
+		}
+		if( indexByCodeVisIdx.containsKey( key ) ) {
+			Map<CFBamValuePKey, ICFBamInt16TypeObj> dict = indexByCodeVisIdx.get( key );
+			((ICFBamSchema)schema.getBackingStore()).getTableInt16Type().deleteInt16TypeByCodeVisIdx( schema.getAuthorization(),
+				CodeVis );
+			Iterator<ICFBamInt16TypeObj> iter = dict.values().iterator();
+			ICFBamInt16TypeObj obj;
+			List<ICFBamInt16TypeObj> toForget = new LinkedList<ICFBamInt16TypeObj>();
+			while( iter.hasNext() ) {
+				obj = iter.next();
+				toForget.add( obj );
+			}
+			iter = toForget.iterator();
+			while( iter.hasNext() ) {
+				obj = iter.next();
+				obj.forget();
+			}
+			indexByCodeVisIdx.remove( key );
+		}
+		else {
+			((ICFBamSchema)schema.getBackingStore()).getTableInt16Type().deleteInt16TypeByCodeVisIdx( schema.getAuthorization(),
+				CodeVis );
+		}
+		deepDisposeInt16TypeByCodeVisIdx( CodeVis );
+	}
+
+	public void deleteInt16TypeByScopeCodeVisIdx( long TenantId,
+		long ScopeId,
+		ICFBamSchema.CodeVisibilityEnum CodeVis )
+	{
+		CFBamValueByScopeCodeVisIdxKey key = ((ICFBamSchema)schema.getBackingStore()).getFactoryValue().newScopeCodeVisIdxKey();
+		key.setRequiredTenantId( TenantId );
+		key.setRequiredScopeId( ScopeId );
+		key.setRequiredCodeVis( CodeVis );
+		if( indexByScopeCodeVisIdx == null ) {
+			indexByScopeCodeVisIdx = new HashMap< CFBamValueByScopeCodeVisIdxKey,
+				Map< CFBamValuePKey, ICFBamInt16TypeObj > >();
+		}
+		if( indexByScopeCodeVisIdx.containsKey( key ) ) {
+			Map<CFBamValuePKey, ICFBamInt16TypeObj> dict = indexByScopeCodeVisIdx.get( key );
+			((ICFBamSchema)schema.getBackingStore()).getTableInt16Type().deleteInt16TypeByScopeCodeVisIdx( schema.getAuthorization(),
+				TenantId,
+				ScopeId,
+				CodeVis );
+			Iterator<ICFBamInt16TypeObj> iter = dict.values().iterator();
+			ICFBamInt16TypeObj obj;
+			List<ICFBamInt16TypeObj> toForget = new LinkedList<ICFBamInt16TypeObj>();
+			while( iter.hasNext() ) {
+				obj = iter.next();
+				toForget.add( obj );
+			}
+			iter = toForget.iterator();
+			while( iter.hasNext() ) {
+				obj = iter.next();
+				obj.forget();
+			}
+			indexByScopeCodeVisIdx.remove( key );
+		}
+		else {
+			((ICFBamSchema)schema.getBackingStore()).getTableInt16Type().deleteInt16TypeByScopeCodeVisIdx( schema.getAuthorization(),
+				TenantId,
+				ScopeId,
+				CodeVis );
+		}
+		deepDisposeInt16TypeByScopeCodeVisIdx( TenantId,
+				ScopeId,
+				CodeVis );
 	}
 
 	public void deleteInt16TypeBySchemaIdx( long TenantId,

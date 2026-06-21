@@ -642,6 +642,12 @@ public class CFBamInt64DefHBuff
 					return( -1 );
 				}
 			}
+			{
+				int cmp = getRequiredCodeVis().compareTo( rhs.getRequiredCodeVis() );
+				if( cmp != 0 ) {
+					return( cmp );
+				}
+			}
 			if( getOptionalDbName() != null ) {
 				if( rhs.getOptionalDbName() != null ) {
 					int cmp = getOptionalDbName().compareTo( rhs.getOptionalDbName() );

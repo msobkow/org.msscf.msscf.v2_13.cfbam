@@ -400,6 +400,60 @@ public interface ICFBamDbKeyHash224DefTableObj
 		Long NextId,
 		boolean forceRead );
 
+	/**
+	 *	Get the map of CFBamValueObj instances sorted by their primary keys for the duplicate CodeVisIdx key.
+	 *
+	 *	@param	argCodeVis	The DbKeyHash224Def key attribute of the instance generating the id.
+	 *
+	 *	@return	List of CFBamDbKeyHash224DefObj cached instances sorted by their primary keys for the duplicate CodeVisIdx key,
+	 *		which may be an empty set.
+	 */
+	List<ICFBamDbKeyHash224DefObj> readDbKeyHash224DefByCodeVisIdx( ICFBamSchema.CodeVisibilityEnum CodeVis );
+
+	/**
+	 *	Get the map of CFBamDbKeyHash224DefObj instances sorted by their primary keys for the duplicate CodeVisIdx key.
+	 *
+	 *	@param	argCodeVis	The DbKeyHash224Def key attribute of the instance generating the id.
+	 *
+	 *	@return	List of CFBamDbKeyHash224DefObj cached instances sorted by their primary keys for the duplicate CodeVisIdx key,
+	 *		which may be an empty set.
+	 */
+	List<ICFBamDbKeyHash224DefObj> readDbKeyHash224DefByCodeVisIdx( ICFBamSchema.CodeVisibilityEnum CodeVis,
+		boolean forceRead );
+
+	/**
+	 *	Get the map of CFBamValueObj instances sorted by their primary keys for the duplicate ScopeCodeVisIdx key.
+	 *
+	 *	@param	argTenantId	The DbKeyHash224Def key attribute of the instance generating the id.
+	 *
+	 *	@param	argScopeId	The DbKeyHash224Def key attribute of the instance generating the id.
+	 *
+	 *	@param	argCodeVis	The DbKeyHash224Def key attribute of the instance generating the id.
+	 *
+	 *	@return	List of CFBamDbKeyHash224DefObj cached instances sorted by their primary keys for the duplicate ScopeCodeVisIdx key,
+	 *		which may be an empty set.
+	 */
+	List<ICFBamDbKeyHash224DefObj> readDbKeyHash224DefByScopeCodeVisIdx( long TenantId,
+		long ScopeId,
+		ICFBamSchema.CodeVisibilityEnum CodeVis );
+
+	/**
+	 *	Get the map of CFBamDbKeyHash224DefObj instances sorted by their primary keys for the duplicate ScopeCodeVisIdx key.
+	 *
+	 *	@param	argTenantId	The DbKeyHash224Def key attribute of the instance generating the id.
+	 *
+	 *	@param	argScopeId	The DbKeyHash224Def key attribute of the instance generating the id.
+	 *
+	 *	@param	argCodeVis	The DbKeyHash224Def key attribute of the instance generating the id.
+	 *
+	 *	@return	List of CFBamDbKeyHash224DefObj cached instances sorted by their primary keys for the duplicate ScopeCodeVisIdx key,
+	 *		which may be an empty set.
+	 */
+	List<ICFBamDbKeyHash224DefObj> readDbKeyHash224DefByScopeCodeVisIdx( long TenantId,
+		long ScopeId,
+		ICFBamSchema.CodeVisibilityEnum CodeVis,
+		boolean forceRead );
+
 	ICFBamDbKeyHash224DefObj readCachedDbKeyHash224DefByIdIdx( long TenantId,
 		long Id );
 
@@ -429,6 +483,12 @@ public interface ICFBamDbKeyHash224DefTableObj
 		long ScopeId,
 		Long NextId );
 
+	List<ICFBamDbKeyHash224DefObj> readCachedDbKeyHash224DefByCodeVisIdx( ICFBamSchema.CodeVisibilityEnum CodeVis );
+
+	List<ICFBamDbKeyHash224DefObj> readCachedDbKeyHash224DefByScopeCodeVisIdx( long TenantId,
+		long ScopeId,
+		ICFBamSchema.CodeVisibilityEnum CodeVis );
+
 	void deepDisposeDbKeyHash224DefByIdIdx( long TenantId,
 		long Id );
 
@@ -457,6 +517,12 @@ public interface ICFBamDbKeyHash224DefTableObj
 	void deepDisposeDbKeyHash224DefByContNextIdx( long TenantId,
 		long ScopeId,
 		Long NextId );
+
+	void deepDisposeDbKeyHash224DefByCodeVisIdx( ICFBamSchema.CodeVisibilityEnum CodeVis );
+
+	void deepDisposeDbKeyHash224DefByScopeCodeVisIdx( long TenantId,
+		long ScopeId,
+		ICFBamSchema.CodeVisibilityEnum CodeVis );
 
 	/**
 	 *	Internal use only.
@@ -563,6 +629,26 @@ public interface ICFBamDbKeyHash224DefTableObj
 	void deleteDbKeyHash224DefByContNextIdx( long TenantId,
 		long ScopeId,
 		Long NextId );
+
+	/**
+	 *	Internal use only.
+	 *
+	 *	@param	argCodeVis	The DbKeyHash224Def key attribute of the instance generating the id.
+	 */
+	void deleteDbKeyHash224DefByCodeVisIdx( ICFBamSchema.CodeVisibilityEnum CodeVis );
+
+	/**
+	 *	Internal use only.
+	 *
+	 *	@param	argTenantId	The DbKeyHash224Def key attribute of the instance generating the id.
+	 *
+	 *	@param	argScopeId	The DbKeyHash224Def key attribute of the instance generating the id.
+	 *
+	 *	@param	argCodeVis	The DbKeyHash224Def key attribute of the instance generating the id.
+	 */
+	void deleteDbKeyHash224DefByScopeCodeVisIdx( long TenantId,
+		long ScopeId,
+		ICFBamSchema.CodeVisibilityEnum CodeVis );
 
 	/**
 	 *	Move the CFBamDbKeyHash224DefObj instance up in the chain.  The instance is always refreshed.

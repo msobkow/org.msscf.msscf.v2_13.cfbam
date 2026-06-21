@@ -400,6 +400,60 @@ public interface ICFBamUInt64DefTableObj
 		Long NextId,
 		boolean forceRead );
 
+	/**
+	 *	Get the map of CFBamValueObj instances sorted by their primary keys for the duplicate CodeVisIdx key.
+	 *
+	 *	@param	argCodeVis	The UInt64Def key attribute of the instance generating the id.
+	 *
+	 *	@return	List of CFBamUInt64DefObj cached instances sorted by their primary keys for the duplicate CodeVisIdx key,
+	 *		which may be an empty set.
+	 */
+	List<ICFBamUInt64DefObj> readUInt64DefByCodeVisIdx( ICFBamSchema.CodeVisibilityEnum CodeVis );
+
+	/**
+	 *	Get the map of CFBamUInt64DefObj instances sorted by their primary keys for the duplicate CodeVisIdx key.
+	 *
+	 *	@param	argCodeVis	The UInt64Def key attribute of the instance generating the id.
+	 *
+	 *	@return	List of CFBamUInt64DefObj cached instances sorted by their primary keys for the duplicate CodeVisIdx key,
+	 *		which may be an empty set.
+	 */
+	List<ICFBamUInt64DefObj> readUInt64DefByCodeVisIdx( ICFBamSchema.CodeVisibilityEnum CodeVis,
+		boolean forceRead );
+
+	/**
+	 *	Get the map of CFBamValueObj instances sorted by their primary keys for the duplicate ScopeCodeVisIdx key.
+	 *
+	 *	@param	argTenantId	The UInt64Def key attribute of the instance generating the id.
+	 *
+	 *	@param	argScopeId	The UInt64Def key attribute of the instance generating the id.
+	 *
+	 *	@param	argCodeVis	The UInt64Def key attribute of the instance generating the id.
+	 *
+	 *	@return	List of CFBamUInt64DefObj cached instances sorted by their primary keys for the duplicate ScopeCodeVisIdx key,
+	 *		which may be an empty set.
+	 */
+	List<ICFBamUInt64DefObj> readUInt64DefByScopeCodeVisIdx( long TenantId,
+		long ScopeId,
+		ICFBamSchema.CodeVisibilityEnum CodeVis );
+
+	/**
+	 *	Get the map of CFBamUInt64DefObj instances sorted by their primary keys for the duplicate ScopeCodeVisIdx key.
+	 *
+	 *	@param	argTenantId	The UInt64Def key attribute of the instance generating the id.
+	 *
+	 *	@param	argScopeId	The UInt64Def key attribute of the instance generating the id.
+	 *
+	 *	@param	argCodeVis	The UInt64Def key attribute of the instance generating the id.
+	 *
+	 *	@return	List of CFBamUInt64DefObj cached instances sorted by their primary keys for the duplicate ScopeCodeVisIdx key,
+	 *		which may be an empty set.
+	 */
+	List<ICFBamUInt64DefObj> readUInt64DefByScopeCodeVisIdx( long TenantId,
+		long ScopeId,
+		ICFBamSchema.CodeVisibilityEnum CodeVis,
+		boolean forceRead );
+
 	ICFBamUInt64DefObj readCachedUInt64DefByIdIdx( long TenantId,
 		long Id );
 
@@ -429,6 +483,12 @@ public interface ICFBamUInt64DefTableObj
 		long ScopeId,
 		Long NextId );
 
+	List<ICFBamUInt64DefObj> readCachedUInt64DefByCodeVisIdx( ICFBamSchema.CodeVisibilityEnum CodeVis );
+
+	List<ICFBamUInt64DefObj> readCachedUInt64DefByScopeCodeVisIdx( long TenantId,
+		long ScopeId,
+		ICFBamSchema.CodeVisibilityEnum CodeVis );
+
 	void deepDisposeUInt64DefByIdIdx( long TenantId,
 		long Id );
 
@@ -457,6 +517,12 @@ public interface ICFBamUInt64DefTableObj
 	void deepDisposeUInt64DefByContNextIdx( long TenantId,
 		long ScopeId,
 		Long NextId );
+
+	void deepDisposeUInt64DefByCodeVisIdx( ICFBamSchema.CodeVisibilityEnum CodeVis );
+
+	void deepDisposeUInt64DefByScopeCodeVisIdx( long TenantId,
+		long ScopeId,
+		ICFBamSchema.CodeVisibilityEnum CodeVis );
 
 	/**
 	 *	Internal use only.
@@ -563,6 +629,26 @@ public interface ICFBamUInt64DefTableObj
 	void deleteUInt64DefByContNextIdx( long TenantId,
 		long ScopeId,
 		Long NextId );
+
+	/**
+	 *	Internal use only.
+	 *
+	 *	@param	argCodeVis	The UInt64Def key attribute of the instance generating the id.
+	 */
+	void deleteUInt64DefByCodeVisIdx( ICFBamSchema.CodeVisibilityEnum CodeVis );
+
+	/**
+	 *	Internal use only.
+	 *
+	 *	@param	argTenantId	The UInt64Def key attribute of the instance generating the id.
+	 *
+	 *	@param	argScopeId	The UInt64Def key attribute of the instance generating the id.
+	 *
+	 *	@param	argCodeVis	The UInt64Def key attribute of the instance generating the id.
+	 */
+	void deleteUInt64DefByScopeCodeVisIdx( long TenantId,
+		long ScopeId,
+		ICFBamSchema.CodeVisibilityEnum CodeVis );
 
 	/**
 	 *	Move the CFBamUInt64DefObj instance up in the chain.  The instance is always refreshed.

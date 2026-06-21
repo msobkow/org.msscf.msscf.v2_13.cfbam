@@ -401,6 +401,60 @@ public interface ICFBamStringTypeTableObj
 		boolean forceRead );
 
 	/**
+	 *	Get the map of CFBamValueObj instances sorted by their primary keys for the duplicate CodeVisIdx key.
+	 *
+	 *	@param	argCodeVis	The StringType key attribute of the instance generating the id.
+	 *
+	 *	@return	List of CFBamStringTypeObj cached instances sorted by their primary keys for the duplicate CodeVisIdx key,
+	 *		which may be an empty set.
+	 */
+	List<ICFBamStringTypeObj> readStringTypeByCodeVisIdx( ICFBamSchema.CodeVisibilityEnum CodeVis );
+
+	/**
+	 *	Get the map of CFBamStringTypeObj instances sorted by their primary keys for the duplicate CodeVisIdx key.
+	 *
+	 *	@param	argCodeVis	The StringType key attribute of the instance generating the id.
+	 *
+	 *	@return	List of CFBamStringTypeObj cached instances sorted by their primary keys for the duplicate CodeVisIdx key,
+	 *		which may be an empty set.
+	 */
+	List<ICFBamStringTypeObj> readStringTypeByCodeVisIdx( ICFBamSchema.CodeVisibilityEnum CodeVis,
+		boolean forceRead );
+
+	/**
+	 *	Get the map of CFBamValueObj instances sorted by their primary keys for the duplicate ScopeCodeVisIdx key.
+	 *
+	 *	@param	argTenantId	The StringType key attribute of the instance generating the id.
+	 *
+	 *	@param	argScopeId	The StringType key attribute of the instance generating the id.
+	 *
+	 *	@param	argCodeVis	The StringType key attribute of the instance generating the id.
+	 *
+	 *	@return	List of CFBamStringTypeObj cached instances sorted by their primary keys for the duplicate ScopeCodeVisIdx key,
+	 *		which may be an empty set.
+	 */
+	List<ICFBamStringTypeObj> readStringTypeByScopeCodeVisIdx( long TenantId,
+		long ScopeId,
+		ICFBamSchema.CodeVisibilityEnum CodeVis );
+
+	/**
+	 *	Get the map of CFBamStringTypeObj instances sorted by their primary keys for the duplicate ScopeCodeVisIdx key.
+	 *
+	 *	@param	argTenantId	The StringType key attribute of the instance generating the id.
+	 *
+	 *	@param	argScopeId	The StringType key attribute of the instance generating the id.
+	 *
+	 *	@param	argCodeVis	The StringType key attribute of the instance generating the id.
+	 *
+	 *	@return	List of CFBamStringTypeObj cached instances sorted by their primary keys for the duplicate ScopeCodeVisIdx key,
+	 *		which may be an empty set.
+	 */
+	List<ICFBamStringTypeObj> readStringTypeByScopeCodeVisIdx( long TenantId,
+		long ScopeId,
+		ICFBamSchema.CodeVisibilityEnum CodeVis,
+		boolean forceRead );
+
+	/**
 	 *	Get the map of CFBamStringTypeObj instances sorted by their primary keys for the duplicate SchemaIdx key.
 	 *
 	 *	@param	argTenantId	The StringType key attribute of the instance generating the id.
@@ -456,6 +510,12 @@ public interface ICFBamStringTypeTableObj
 		long ScopeId,
 		Long NextId );
 
+	List<ICFBamStringTypeObj> readCachedStringTypeByCodeVisIdx( ICFBamSchema.CodeVisibilityEnum CodeVis );
+
+	List<ICFBamStringTypeObj> readCachedStringTypeByScopeCodeVisIdx( long TenantId,
+		long ScopeId,
+		ICFBamSchema.CodeVisibilityEnum CodeVis );
+
 	List<ICFBamStringTypeObj> readCachedStringTypeBySchemaIdx( long TenantId,
 		long SchemaDefId );
 
@@ -487,6 +547,12 @@ public interface ICFBamStringTypeTableObj
 	void deepDisposeStringTypeByContNextIdx( long TenantId,
 		long ScopeId,
 		Long NextId );
+
+	void deepDisposeStringTypeByCodeVisIdx( ICFBamSchema.CodeVisibilityEnum CodeVis );
+
+	void deepDisposeStringTypeByScopeCodeVisIdx( long TenantId,
+		long ScopeId,
+		ICFBamSchema.CodeVisibilityEnum CodeVis );
 
 	void deepDisposeStringTypeBySchemaIdx( long TenantId,
 		long SchemaDefId );
@@ -596,6 +662,26 @@ public interface ICFBamStringTypeTableObj
 	void deleteStringTypeByContNextIdx( long TenantId,
 		long ScopeId,
 		Long NextId );
+
+	/**
+	 *	Internal use only.
+	 *
+	 *	@param	argCodeVis	The StringType key attribute of the instance generating the id.
+	 */
+	void deleteStringTypeByCodeVisIdx( ICFBamSchema.CodeVisibilityEnum CodeVis );
+
+	/**
+	 *	Internal use only.
+	 *
+	 *	@param	argTenantId	The StringType key attribute of the instance generating the id.
+	 *
+	 *	@param	argScopeId	The StringType key attribute of the instance generating the id.
+	 *
+	 *	@param	argCodeVis	The StringType key attribute of the instance generating the id.
+	 */
+	void deleteStringTypeByScopeCodeVisIdx( long TenantId,
+		long ScopeId,
+		ICFBamSchema.CodeVisibilityEnum CodeVis );
 
 	/**
 	 *	Internal use only.

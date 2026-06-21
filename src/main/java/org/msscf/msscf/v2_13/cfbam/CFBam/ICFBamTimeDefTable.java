@@ -305,6 +305,50 @@ public interface ICFBamTimeDefTable
 	 */
 	void deleteTimeDefByContNextIdx( CFSecAuthorization Authorization,
 		CFBamValueByContNextIdxKey argKey );
+	/**
+	 *	Delete the TimeDef instances identified by the key CodeVisIdx.
+	 *
+	 *	@param	Authorization	The session authorization information.
+	 *
+	 *	@param	argCodeVis	The TimeDef key attribute of the instance generating the id.
+	 */
+	void deleteTimeDefByCodeVisIdx( CFSecAuthorization Authorization,
+		ICFBamSchema.CodeVisibilityEnum argCodeVis );
+
+	/**
+	 *	Delete the TimeDef instances identified by the key CodeVisIdx.
+	 *
+	 *	@param	Authorization	The session authorization information.
+	 *
+	 *	@param	argKey	The key identifying the instances to be deleted.
+	 */
+	void deleteTimeDefByCodeVisIdx( CFSecAuthorization Authorization,
+		CFBamValueByCodeVisIdxKey argKey );
+	/**
+	 *	Delete the TimeDef instances identified by the key ScopeCodeVisIdx.
+	 *
+	 *	@param	Authorization	The session authorization information.
+	 *
+	 *	@param	argTenantId	The TimeDef key attribute of the instance generating the id.
+	 *
+	 *	@param	argScopeId	The TimeDef key attribute of the instance generating the id.
+	 *
+	 *	@param	argCodeVis	The TimeDef key attribute of the instance generating the id.
+	 */
+	void deleteTimeDefByScopeCodeVisIdx( CFSecAuthorization Authorization,
+		long argTenantId,
+		long argScopeId,
+		ICFBamSchema.CodeVisibilityEnum argCodeVis );
+
+	/**
+	 *	Delete the TimeDef instances identified by the key ScopeCodeVisIdx.
+	 *
+	 *	@param	Authorization	The session authorization information.
+	 *
+	 *	@param	argKey	The key identifying the instances to be deleted.
+	 */
+	void deleteTimeDefByScopeCodeVisIdx( CFSecAuthorization Authorization,
+		CFBamValueByScopeCodeVisIdxKey argKey );
 
 
 	/**
@@ -484,6 +528,36 @@ public interface ICFBamTimeDefTable
 		long TenantId,
 		long ScopeId,
 		Long NextId );
+
+	/**
+	 *	Read an array of the derived TimeDef buffer instances identified by the duplicate key CodeVisIdx.
+	 *
+	 *	@param	Authorization	The session authorization information.
+	 *
+	 *	@param	argCodeVis	The TimeDef key attribute of the instance generating the id.
+	 *
+	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
+	 */
+	CFBamTimeDefBuff[] readDerivedByCodeVisIdx( CFSecAuthorization Authorization,
+		ICFBamSchema.CodeVisibilityEnum CodeVis );
+
+	/**
+	 *	Read an array of the derived TimeDef buffer instances identified by the duplicate key ScopeCodeVisIdx.
+	 *
+	 *	@param	Authorization	The session authorization information.
+	 *
+	 *	@param	argTenantId	The TimeDef key attribute of the instance generating the id.
+	 *
+	 *	@param	argScopeId	The TimeDef key attribute of the instance generating the id.
+	 *
+	 *	@param	argCodeVis	The TimeDef key attribute of the instance generating the id.
+	 *
+	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
+	 */
+	CFBamTimeDefBuff[] readDerivedByScopeCodeVisIdx( CFSecAuthorization Authorization,
+		long TenantId,
+		long ScopeId,
+		ICFBamSchema.CodeVisibilityEnum CodeVis );
 
 	/**
 	 *	Read the specific TimeDef buffer instance identified by the primary key.
@@ -684,6 +758,40 @@ public interface ICFBamTimeDefTable
 		long TenantId,
 		long ScopeId,
 		Long NextId );
+
+	/**
+	 *	Read an array of the specific TimeDef buffer instances identified by the duplicate key CodeVisIdx.
+	 *
+	 *	@param	Authorization	The session authorization information.
+	 *
+	 *	@param	argCodeVis	The TimeDef key attribute of the instance generating the id.
+	 *
+	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
+	 *
+	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 */
+	CFBamTimeDefBuff[] readBuffByCodeVisIdx( CFSecAuthorization Authorization,
+		ICFBamSchema.CodeVisibilityEnum CodeVis );
+
+	/**
+	 *	Read an array of the specific TimeDef buffer instances identified by the duplicate key ScopeCodeVisIdx.
+	 *
+	 *	@param	Authorization	The session authorization information.
+	 *
+	 *	@param	argTenantId	The TimeDef key attribute of the instance generating the id.
+	 *
+	 *	@param	argScopeId	The TimeDef key attribute of the instance generating the id.
+	 *
+	 *	@param	argCodeVis	The TimeDef key attribute of the instance generating the id.
+	 *
+	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
+	 *
+	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 */
+	CFBamTimeDefBuff[] readBuffByScopeCodeVisIdx( CFSecAuthorization Authorization,
+		long TenantId,
+		long ScopeId,
+		ICFBamSchema.CodeVisibilityEnum CodeVis );
 
 	/**
 	 *	Move the specified buffer up in the chain (i.e. to the previous position.)

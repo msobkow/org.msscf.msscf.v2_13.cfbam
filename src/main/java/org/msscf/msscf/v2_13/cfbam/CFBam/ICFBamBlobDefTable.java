@@ -305,6 +305,50 @@ public interface ICFBamBlobDefTable
 	 */
 	void deleteBlobDefByContNextIdx( CFSecAuthorization Authorization,
 		CFBamValueByContNextIdxKey argKey );
+	/**
+	 *	Delete the BlobDef instances identified by the key CodeVisIdx.
+	 *
+	 *	@param	Authorization	The session authorization information.
+	 *
+	 *	@param	argCodeVis	The BlobDef key attribute of the instance generating the id.
+	 */
+	void deleteBlobDefByCodeVisIdx( CFSecAuthorization Authorization,
+		ICFBamSchema.CodeVisibilityEnum argCodeVis );
+
+	/**
+	 *	Delete the BlobDef instances identified by the key CodeVisIdx.
+	 *
+	 *	@param	Authorization	The session authorization information.
+	 *
+	 *	@param	argKey	The key identifying the instances to be deleted.
+	 */
+	void deleteBlobDefByCodeVisIdx( CFSecAuthorization Authorization,
+		CFBamValueByCodeVisIdxKey argKey );
+	/**
+	 *	Delete the BlobDef instances identified by the key ScopeCodeVisIdx.
+	 *
+	 *	@param	Authorization	The session authorization information.
+	 *
+	 *	@param	argTenantId	The BlobDef key attribute of the instance generating the id.
+	 *
+	 *	@param	argScopeId	The BlobDef key attribute of the instance generating the id.
+	 *
+	 *	@param	argCodeVis	The BlobDef key attribute of the instance generating the id.
+	 */
+	void deleteBlobDefByScopeCodeVisIdx( CFSecAuthorization Authorization,
+		long argTenantId,
+		long argScopeId,
+		ICFBamSchema.CodeVisibilityEnum argCodeVis );
+
+	/**
+	 *	Delete the BlobDef instances identified by the key ScopeCodeVisIdx.
+	 *
+	 *	@param	Authorization	The session authorization information.
+	 *
+	 *	@param	argKey	The key identifying the instances to be deleted.
+	 */
+	void deleteBlobDefByScopeCodeVisIdx( CFSecAuthorization Authorization,
+		CFBamValueByScopeCodeVisIdxKey argKey );
 
 
 	/**
@@ -484,6 +528,36 @@ public interface ICFBamBlobDefTable
 		long TenantId,
 		long ScopeId,
 		Long NextId );
+
+	/**
+	 *	Read an array of the derived BlobDef buffer instances identified by the duplicate key CodeVisIdx.
+	 *
+	 *	@param	Authorization	The session authorization information.
+	 *
+	 *	@param	argCodeVis	The BlobDef key attribute of the instance generating the id.
+	 *
+	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
+	 */
+	CFBamBlobDefBuff[] readDerivedByCodeVisIdx( CFSecAuthorization Authorization,
+		ICFBamSchema.CodeVisibilityEnum CodeVis );
+
+	/**
+	 *	Read an array of the derived BlobDef buffer instances identified by the duplicate key ScopeCodeVisIdx.
+	 *
+	 *	@param	Authorization	The session authorization information.
+	 *
+	 *	@param	argTenantId	The BlobDef key attribute of the instance generating the id.
+	 *
+	 *	@param	argScopeId	The BlobDef key attribute of the instance generating the id.
+	 *
+	 *	@param	argCodeVis	The BlobDef key attribute of the instance generating the id.
+	 *
+	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
+	 */
+	CFBamBlobDefBuff[] readDerivedByScopeCodeVisIdx( CFSecAuthorization Authorization,
+		long TenantId,
+		long ScopeId,
+		ICFBamSchema.CodeVisibilityEnum CodeVis );
 
 	/**
 	 *	Read the specific BlobDef buffer instance identified by the primary key.
@@ -684,6 +758,40 @@ public interface ICFBamBlobDefTable
 		long TenantId,
 		long ScopeId,
 		Long NextId );
+
+	/**
+	 *	Read an array of the specific BlobDef buffer instances identified by the duplicate key CodeVisIdx.
+	 *
+	 *	@param	Authorization	The session authorization information.
+	 *
+	 *	@param	argCodeVis	The BlobDef key attribute of the instance generating the id.
+	 *
+	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
+	 *
+	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 */
+	CFBamBlobDefBuff[] readBuffByCodeVisIdx( CFSecAuthorization Authorization,
+		ICFBamSchema.CodeVisibilityEnum CodeVis );
+
+	/**
+	 *	Read an array of the specific BlobDef buffer instances identified by the duplicate key ScopeCodeVisIdx.
+	 *
+	 *	@param	Authorization	The session authorization information.
+	 *
+	 *	@param	argTenantId	The BlobDef key attribute of the instance generating the id.
+	 *
+	 *	@param	argScopeId	The BlobDef key attribute of the instance generating the id.
+	 *
+	 *	@param	argCodeVis	The BlobDef key attribute of the instance generating the id.
+	 *
+	 *	@return An array of derived buffer instances for the specified key, potentially with 0 elements in the set.
+	 *
+	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 */
+	CFBamBlobDefBuff[] readBuffByScopeCodeVisIdx( CFSecAuthorization Authorization,
+		long TenantId,
+		long ScopeId,
+		ICFBamSchema.CodeVisibilityEnum CodeVis );
 
 	/**
 	 *	Move the specified buffer up in the chain (i.e. to the previous position.)

@@ -409,6 +409,60 @@ public interface ICFBamValueTableObj
 		Long NextId,
 		boolean forceRead );
 
+	/**
+	 *	Get the map of CFBamValueObj instances sorted by their primary keys for the duplicate CodeVisIdx key.
+	 *
+	 *	@param	argCodeVis	The Value key attribute of the instance generating the id.
+	 *
+	 *	@return	List of CFBamValueObj cached instances sorted by their primary keys for the duplicate CodeVisIdx key,
+	 *		which may be an empty set.
+	 */
+	List<ICFBamValueObj> readValueByCodeVisIdx( ICFBamSchema.CodeVisibilityEnum CodeVis );
+
+	/**
+	 *	Get the map of CFBamValueObj instances sorted by their primary keys for the duplicate CodeVisIdx key.
+	 *
+	 *	@param	argCodeVis	The Value key attribute of the instance generating the id.
+	 *
+	 *	@return	List of CFBamValueObj cached instances sorted by their primary keys for the duplicate CodeVisIdx key,
+	 *		which may be an empty set.
+	 */
+	List<ICFBamValueObj> readValueByCodeVisIdx( ICFBamSchema.CodeVisibilityEnum CodeVis,
+		boolean forceRead );
+
+	/**
+	 *	Get the map of CFBamValueObj instances sorted by their primary keys for the duplicate ScopeCodeVisIdx key.
+	 *
+	 *	@param	argTenantId	The Value key attribute of the instance generating the id.
+	 *
+	 *	@param	argScopeId	The Value key attribute of the instance generating the id.
+	 *
+	 *	@param	argCodeVis	The Value key attribute of the instance generating the id.
+	 *
+	 *	@return	List of CFBamValueObj cached instances sorted by their primary keys for the duplicate ScopeCodeVisIdx key,
+	 *		which may be an empty set.
+	 */
+	List<ICFBamValueObj> readValueByScopeCodeVisIdx( long TenantId,
+		long ScopeId,
+		ICFBamSchema.CodeVisibilityEnum CodeVis );
+
+	/**
+	 *	Get the map of CFBamValueObj instances sorted by their primary keys for the duplicate ScopeCodeVisIdx key.
+	 *
+	 *	@param	argTenantId	The Value key attribute of the instance generating the id.
+	 *
+	 *	@param	argScopeId	The Value key attribute of the instance generating the id.
+	 *
+	 *	@param	argCodeVis	The Value key attribute of the instance generating the id.
+	 *
+	 *	@return	List of CFBamValueObj cached instances sorted by their primary keys for the duplicate ScopeCodeVisIdx key,
+	 *		which may be an empty set.
+	 */
+	List<ICFBamValueObj> readValueByScopeCodeVisIdx( long TenantId,
+		long ScopeId,
+		ICFBamSchema.CodeVisibilityEnum CodeVis,
+		boolean forceRead );
+
 	ICFBamValueObj readCachedValueByIdIdx( long TenantId,
 		long Id );
 
@@ -438,6 +492,12 @@ public interface ICFBamValueTableObj
 		long ScopeId,
 		Long NextId );
 
+	List<ICFBamValueObj> readCachedValueByCodeVisIdx( ICFBamSchema.CodeVisibilityEnum CodeVis );
+
+	List<ICFBamValueObj> readCachedValueByScopeCodeVisIdx( long TenantId,
+		long ScopeId,
+		ICFBamSchema.CodeVisibilityEnum CodeVis );
+
 	void deepDisposeValueByIdIdx( long TenantId,
 		long Id );
 
@@ -466,6 +526,12 @@ public interface ICFBamValueTableObj
 	void deepDisposeValueByContNextIdx( long TenantId,
 		long ScopeId,
 		Long NextId );
+
+	void deepDisposeValueByCodeVisIdx( ICFBamSchema.CodeVisibilityEnum CodeVis );
+
+	void deepDisposeValueByScopeCodeVisIdx( long TenantId,
+		long ScopeId,
+		ICFBamSchema.CodeVisibilityEnum CodeVis );
 
 	/**
 	 *	Internal use only.
@@ -572,6 +638,26 @@ public interface ICFBamValueTableObj
 	void deleteValueByContNextIdx( long TenantId,
 		long ScopeId,
 		Long NextId );
+
+	/**
+	 *	Internal use only.
+	 *
+	 *	@param	argCodeVis	The Value key attribute of the instance generating the id.
+	 */
+	void deleteValueByCodeVisIdx( ICFBamSchema.CodeVisibilityEnum CodeVis );
+
+	/**
+	 *	Internal use only.
+	 *
+	 *	@param	argTenantId	The Value key attribute of the instance generating the id.
+	 *
+	 *	@param	argScopeId	The Value key attribute of the instance generating the id.
+	 *
+	 *	@param	argCodeVis	The Value key attribute of the instance generating the id.
+	 */
+	void deleteValueByScopeCodeVisIdx( long TenantId,
+		long ScopeId,
+		ICFBamSchema.CodeVisibilityEnum CodeVis );
 
 	/**
 	 *	Move the CFBamValueObj instance up in the chain.  The instance is always refreshed.

@@ -785,6 +785,12 @@ public class CFBamTableColHBuff
 					return( -1 );
 				}
 			}
+			{
+				int cmp = getRequiredCodeVis().compareTo( rhs.getRequiredCodeVis() );
+				if( cmp != 0 ) {
+					return( cmp );
+				}
+			}
 			if( getRequiredTableId() < rhs.getRequiredTableId() ) {
 				return( -1 );
 			}

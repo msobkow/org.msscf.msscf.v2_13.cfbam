@@ -1,5 +1,4 @@
-
-// Description: Java 11 Default Factory implementation for Value.
+// Description: Java 11 implementation of a Value by CodeVisIdx index key object.
 
 /*
  *	org.msscf.msscf.CFBam
@@ -49,6 +48,8 @@
 package org.msscf.msscf.v2_13.cfbam.CFBam;
 
 import java.lang.reflect.*;
+import java.io.*;
+import java.math.*;
 import java.net.*;
 import java.rmi.*;
 import java.sql.*;
@@ -59,96 +60,95 @@ import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
 import org.msscf.msscf.v2_13.cfsec.CFSec.*;
 import org.msscf.msscf.v2_13.cfint.CFInt.*;
 
-	/*
-	 *	CFBamValueFactory implementation for Value
-	 */
-public class CFBamValueDefaultFactory
-	implements ICFBamValueFactory
+public class CFBamValueByCodeVisIdxKey
+	implements Comparable<Object>,
+		Serializable
 {
-	public CFBamValueDefaultFactory() {
+	protected ICFBamSchema.CodeVisibilityEnum requiredCodeVis;
+	public CFBamValueByCodeVisIdxKey() {
+		requiredCodeVis = CFBamValueBuff.CODEVIS_INIT_VALUE;
 	}
 
-	public CFBamValuePKey newPKey() {
-		CFBamValuePKey pkey =
-			new CFBamValuePKey();
-		return( pkey );
+	public ICFBamSchema.CodeVisibilityEnum getRequiredCodeVis() {
+		return( requiredCodeVis );
 	}
 
-	public CFBamValueHPKey newHPKey() {
-		CFBamValueHPKey hpkey =
-			new CFBamValueHPKey();
-		return( hpkey );
+	public void setRequiredCodeVis( ICFBamSchema.CodeVisibilityEnum value ) {
+		if( value == null ) {
+			throw new CFLibNullArgumentException( getClass(),
+				"setRequiredCodeVis",
+				1,
+				"value" );
+		}
+		requiredCodeVis = value;
 	}
 
-	public CFBamValueByUNameIdxKey newUNameIdxKey() {
-		CFBamValueByUNameIdxKey key =
-			new CFBamValueByUNameIdxKey();
-		return( key );
+	public boolean equals( Object obj ) {
+		if( obj == null ) {
+			return( false );
+		}
+		else if( obj instanceof CFBamValueByCodeVisIdxKey ) {
+			CFBamValueByCodeVisIdxKey rhs = (CFBamValueByCodeVisIdxKey)obj;
+			if( ! getRequiredCodeVis().equals( rhs.getRequiredCodeVis() ) ) {
+				return( false );
+			}
+			return( true );
+		}
+		else if( obj instanceof CFBamValueBuff ) {
+			CFBamValueBuff rhs = (CFBamValueBuff)obj;
+			if( ! getRequiredCodeVis().equals( rhs.getRequiredCodeVis() ) ) {
+				return( false );
+			}
+			return( true );
+		}
+		else {
+			return( false );
+		}
 	}
 
-	public CFBamValueByValTentIdxKey newValTentIdxKey() {
-		CFBamValueByValTentIdxKey key =
-			new CFBamValueByValTentIdxKey();
-		return( key );
+	public int hashCode() {
+		int hashCode = 0;
+		hashCode = ( hashCode * 0x10000 ) + getRequiredCodeVis().ordinal();
+		return( hashCode & 0x7fffffff );
 	}
 
-	public CFBamValueByScopeIdxKey newScopeIdxKey() {
-		CFBamValueByScopeIdxKey key =
-			new CFBamValueByScopeIdxKey();
-		return( key );
+	public int compareTo( Object obj ) {
+		if( obj == null ) {
+			return( 1 );
+		}
+		else if( obj instanceof CFBamValueByCodeVisIdxKey ) {
+			CFBamValueByCodeVisIdxKey rhs = (CFBamValueByCodeVisIdxKey)obj;
+			{
+				int cmp = getRequiredCodeVis().compareTo( rhs.getRequiredCodeVis() );
+				if( cmp != 0 ) {
+					return( cmp );
+				}
+			}
+			return( 0 );
+		}
+		else if( obj instanceof CFBamValueBuff ) {
+			CFBamValueBuff rhs = (CFBamValueBuff)obj;
+			{
+				int cmp = getRequiredCodeVis().compareTo( rhs.getRequiredCodeVis() );
+				if( cmp != 0 ) {
+					return( cmp );
+				}
+			}
+			return( 0 );
+		}
+		else {
+			throw new CFLibUnsupportedClassException( getClass(),
+				"compareTo",
+				"obj",
+				obj,
+				null );
+		}
 	}
 
-	public CFBamValueByDefSchemaIdxKey newDefSchemaIdxKey() {
-		CFBamValueByDefSchemaIdxKey key =
-			new CFBamValueByDefSchemaIdxKey();
-		return( key );
-	}
-
-	public CFBamValueByPrevIdxKey newPrevIdxKey() {
-		CFBamValueByPrevIdxKey key =
-			new CFBamValueByPrevIdxKey();
-		return( key );
-	}
-
-	public CFBamValueByNextIdxKey newNextIdxKey() {
-		CFBamValueByNextIdxKey key =
-			new CFBamValueByNextIdxKey();
-		return( key );
-	}
-
-	public CFBamValueByContPrevIdxKey newContPrevIdxKey() {
-		CFBamValueByContPrevIdxKey key =
-			new CFBamValueByContPrevIdxKey();
-		return( key );
-	}
-
-	public CFBamValueByContNextIdxKey newContNextIdxKey() {
-		CFBamValueByContNextIdxKey key =
-			new CFBamValueByContNextIdxKey();
-		return( key );
-	}
-
-	public CFBamValueByCodeVisIdxKey newCodeVisIdxKey() {
-		CFBamValueByCodeVisIdxKey key =
-			new CFBamValueByCodeVisIdxKey();
-		return( key );
-	}
-
-	public CFBamValueByScopeCodeVisIdxKey newScopeCodeVisIdxKey() {
-		CFBamValueByScopeCodeVisIdxKey key =
-			new CFBamValueByScopeCodeVisIdxKey();
-		return( key );
-	}
-
-	public CFBamValueBuff newBuff() {
-		CFBamValueBuff buff =
-			new CFBamValueBuff();
-		return( buff );
-	}
-
-	public CFBamValueHBuff newHBuff() {
-		CFBamValueHBuff hbuff =
-			new CFBamValueHBuff();
-		return( hbuff );
+	public String toString() {
+		String ret = "<CFBamValueByCodeVisIdx"
+			+ " RequiredCodeVis=" + "\"" + getRequiredCodeVis().toString() + "\""
+			+ "/>";
+		return( ret );
 	}
 }

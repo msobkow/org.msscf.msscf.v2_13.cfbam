@@ -401,6 +401,60 @@ public interface ICFBamDateColTableObj
 		boolean forceRead );
 
 	/**
+	 *	Get the map of CFBamValueObj instances sorted by their primary keys for the duplicate CodeVisIdx key.
+	 *
+	 *	@param	argCodeVis	The DateCol key attribute of the instance generating the id.
+	 *
+	 *	@return	List of CFBamDateColObj cached instances sorted by their primary keys for the duplicate CodeVisIdx key,
+	 *		which may be an empty set.
+	 */
+	List<ICFBamDateColObj> readDateColByCodeVisIdx( ICFBamSchema.CodeVisibilityEnum CodeVis );
+
+	/**
+	 *	Get the map of CFBamDateColObj instances sorted by their primary keys for the duplicate CodeVisIdx key.
+	 *
+	 *	@param	argCodeVis	The DateCol key attribute of the instance generating the id.
+	 *
+	 *	@return	List of CFBamDateColObj cached instances sorted by their primary keys for the duplicate CodeVisIdx key,
+	 *		which may be an empty set.
+	 */
+	List<ICFBamDateColObj> readDateColByCodeVisIdx( ICFBamSchema.CodeVisibilityEnum CodeVis,
+		boolean forceRead );
+
+	/**
+	 *	Get the map of CFBamValueObj instances sorted by their primary keys for the duplicate ScopeCodeVisIdx key.
+	 *
+	 *	@param	argTenantId	The DateCol key attribute of the instance generating the id.
+	 *
+	 *	@param	argScopeId	The DateCol key attribute of the instance generating the id.
+	 *
+	 *	@param	argCodeVis	The DateCol key attribute of the instance generating the id.
+	 *
+	 *	@return	List of CFBamDateColObj cached instances sorted by their primary keys for the duplicate ScopeCodeVisIdx key,
+	 *		which may be an empty set.
+	 */
+	List<ICFBamDateColObj> readDateColByScopeCodeVisIdx( long TenantId,
+		long ScopeId,
+		ICFBamSchema.CodeVisibilityEnum CodeVis );
+
+	/**
+	 *	Get the map of CFBamDateColObj instances sorted by their primary keys for the duplicate ScopeCodeVisIdx key.
+	 *
+	 *	@param	argTenantId	The DateCol key attribute of the instance generating the id.
+	 *
+	 *	@param	argScopeId	The DateCol key attribute of the instance generating the id.
+	 *
+	 *	@param	argCodeVis	The DateCol key attribute of the instance generating the id.
+	 *
+	 *	@return	List of CFBamDateColObj cached instances sorted by their primary keys for the duplicate ScopeCodeVisIdx key,
+	 *		which may be an empty set.
+	 */
+	List<ICFBamDateColObj> readDateColByScopeCodeVisIdx( long TenantId,
+		long ScopeId,
+		ICFBamSchema.CodeVisibilityEnum CodeVis,
+		boolean forceRead );
+
+	/**
 	 *	Get the map of CFBamDateColObj instances sorted by their primary keys for the duplicate TableIdx key.
 	 *
 	 *	@param	argTenantId	The DateCol key attribute of the instance generating the id.
@@ -456,6 +510,12 @@ public interface ICFBamDateColTableObj
 		long ScopeId,
 		Long NextId );
 
+	List<ICFBamDateColObj> readCachedDateColByCodeVisIdx( ICFBamSchema.CodeVisibilityEnum CodeVis );
+
+	List<ICFBamDateColObj> readCachedDateColByScopeCodeVisIdx( long TenantId,
+		long ScopeId,
+		ICFBamSchema.CodeVisibilityEnum CodeVis );
+
 	List<ICFBamDateColObj> readCachedDateColByTableIdx( long TenantId,
 		long TableId );
 
@@ -487,6 +547,12 @@ public interface ICFBamDateColTableObj
 	void deepDisposeDateColByContNextIdx( long TenantId,
 		long ScopeId,
 		Long NextId );
+
+	void deepDisposeDateColByCodeVisIdx( ICFBamSchema.CodeVisibilityEnum CodeVis );
+
+	void deepDisposeDateColByScopeCodeVisIdx( long TenantId,
+		long ScopeId,
+		ICFBamSchema.CodeVisibilityEnum CodeVis );
 
 	void deepDisposeDateColByTableIdx( long TenantId,
 		long TableId );
@@ -596,6 +662,26 @@ public interface ICFBamDateColTableObj
 	void deleteDateColByContNextIdx( long TenantId,
 		long ScopeId,
 		Long NextId );
+
+	/**
+	 *	Internal use only.
+	 *
+	 *	@param	argCodeVis	The DateCol key attribute of the instance generating the id.
+	 */
+	void deleteDateColByCodeVisIdx( ICFBamSchema.CodeVisibilityEnum CodeVis );
+
+	/**
+	 *	Internal use only.
+	 *
+	 *	@param	argTenantId	The DateCol key attribute of the instance generating the id.
+	 *
+	 *	@param	argScopeId	The DateCol key attribute of the instance generating the id.
+	 *
+	 *	@param	argCodeVis	The DateCol key attribute of the instance generating the id.
+	 */
+	void deleteDateColByScopeCodeVisIdx( long TenantId,
+		long ScopeId,
+		ICFBamSchema.CodeVisibilityEnum CodeVis );
 
 	/**
 	 *	Internal use only.

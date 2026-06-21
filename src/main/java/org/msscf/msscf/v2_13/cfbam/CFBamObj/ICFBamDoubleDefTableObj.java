@@ -400,6 +400,60 @@ public interface ICFBamDoubleDefTableObj
 		Long NextId,
 		boolean forceRead );
 
+	/**
+	 *	Get the map of CFBamValueObj instances sorted by their primary keys for the duplicate CodeVisIdx key.
+	 *
+	 *	@param	argCodeVis	The DoubleDef key attribute of the instance generating the id.
+	 *
+	 *	@return	List of CFBamDoubleDefObj cached instances sorted by their primary keys for the duplicate CodeVisIdx key,
+	 *		which may be an empty set.
+	 */
+	List<ICFBamDoubleDefObj> readDoubleDefByCodeVisIdx( ICFBamSchema.CodeVisibilityEnum CodeVis );
+
+	/**
+	 *	Get the map of CFBamDoubleDefObj instances sorted by their primary keys for the duplicate CodeVisIdx key.
+	 *
+	 *	@param	argCodeVis	The DoubleDef key attribute of the instance generating the id.
+	 *
+	 *	@return	List of CFBamDoubleDefObj cached instances sorted by their primary keys for the duplicate CodeVisIdx key,
+	 *		which may be an empty set.
+	 */
+	List<ICFBamDoubleDefObj> readDoubleDefByCodeVisIdx( ICFBamSchema.CodeVisibilityEnum CodeVis,
+		boolean forceRead );
+
+	/**
+	 *	Get the map of CFBamValueObj instances sorted by their primary keys for the duplicate ScopeCodeVisIdx key.
+	 *
+	 *	@param	argTenantId	The DoubleDef key attribute of the instance generating the id.
+	 *
+	 *	@param	argScopeId	The DoubleDef key attribute of the instance generating the id.
+	 *
+	 *	@param	argCodeVis	The DoubleDef key attribute of the instance generating the id.
+	 *
+	 *	@return	List of CFBamDoubleDefObj cached instances sorted by their primary keys for the duplicate ScopeCodeVisIdx key,
+	 *		which may be an empty set.
+	 */
+	List<ICFBamDoubleDefObj> readDoubleDefByScopeCodeVisIdx( long TenantId,
+		long ScopeId,
+		ICFBamSchema.CodeVisibilityEnum CodeVis );
+
+	/**
+	 *	Get the map of CFBamDoubleDefObj instances sorted by their primary keys for the duplicate ScopeCodeVisIdx key.
+	 *
+	 *	@param	argTenantId	The DoubleDef key attribute of the instance generating the id.
+	 *
+	 *	@param	argScopeId	The DoubleDef key attribute of the instance generating the id.
+	 *
+	 *	@param	argCodeVis	The DoubleDef key attribute of the instance generating the id.
+	 *
+	 *	@return	List of CFBamDoubleDefObj cached instances sorted by their primary keys for the duplicate ScopeCodeVisIdx key,
+	 *		which may be an empty set.
+	 */
+	List<ICFBamDoubleDefObj> readDoubleDefByScopeCodeVisIdx( long TenantId,
+		long ScopeId,
+		ICFBamSchema.CodeVisibilityEnum CodeVis,
+		boolean forceRead );
+
 	ICFBamDoubleDefObj readCachedDoubleDefByIdIdx( long TenantId,
 		long Id );
 
@@ -429,6 +483,12 @@ public interface ICFBamDoubleDefTableObj
 		long ScopeId,
 		Long NextId );
 
+	List<ICFBamDoubleDefObj> readCachedDoubleDefByCodeVisIdx( ICFBamSchema.CodeVisibilityEnum CodeVis );
+
+	List<ICFBamDoubleDefObj> readCachedDoubleDefByScopeCodeVisIdx( long TenantId,
+		long ScopeId,
+		ICFBamSchema.CodeVisibilityEnum CodeVis );
+
 	void deepDisposeDoubleDefByIdIdx( long TenantId,
 		long Id );
 
@@ -457,6 +517,12 @@ public interface ICFBamDoubleDefTableObj
 	void deepDisposeDoubleDefByContNextIdx( long TenantId,
 		long ScopeId,
 		Long NextId );
+
+	void deepDisposeDoubleDefByCodeVisIdx( ICFBamSchema.CodeVisibilityEnum CodeVis );
+
+	void deepDisposeDoubleDefByScopeCodeVisIdx( long TenantId,
+		long ScopeId,
+		ICFBamSchema.CodeVisibilityEnum CodeVis );
 
 	/**
 	 *	Internal use only.
@@ -563,6 +629,26 @@ public interface ICFBamDoubleDefTableObj
 	void deleteDoubleDefByContNextIdx( long TenantId,
 		long ScopeId,
 		Long NextId );
+
+	/**
+	 *	Internal use only.
+	 *
+	 *	@param	argCodeVis	The DoubleDef key attribute of the instance generating the id.
+	 */
+	void deleteDoubleDefByCodeVisIdx( ICFBamSchema.CodeVisibilityEnum CodeVis );
+
+	/**
+	 *	Internal use only.
+	 *
+	 *	@param	argTenantId	The DoubleDef key attribute of the instance generating the id.
+	 *
+	 *	@param	argScopeId	The DoubleDef key attribute of the instance generating the id.
+	 *
+	 *	@param	argCodeVis	The DoubleDef key attribute of the instance generating the id.
+	 */
+	void deleteDoubleDefByScopeCodeVisIdx( long TenantId,
+		long ScopeId,
+		ICFBamSchema.CodeVisibilityEnum CodeVis );
 
 	/**
 	 *	Move the CFBamDoubleDefObj instance up in the chain.  The instance is always refreshed.

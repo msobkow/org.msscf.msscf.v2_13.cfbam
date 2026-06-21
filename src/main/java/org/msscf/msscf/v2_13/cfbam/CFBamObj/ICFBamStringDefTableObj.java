@@ -400,6 +400,60 @@ public interface ICFBamStringDefTableObj
 		Long NextId,
 		boolean forceRead );
 
+	/**
+	 *	Get the map of CFBamValueObj instances sorted by their primary keys for the duplicate CodeVisIdx key.
+	 *
+	 *	@param	argCodeVis	The StringDef key attribute of the instance generating the id.
+	 *
+	 *	@return	List of CFBamStringDefObj cached instances sorted by their primary keys for the duplicate CodeVisIdx key,
+	 *		which may be an empty set.
+	 */
+	List<ICFBamStringDefObj> readStringDefByCodeVisIdx( ICFBamSchema.CodeVisibilityEnum CodeVis );
+
+	/**
+	 *	Get the map of CFBamStringDefObj instances sorted by their primary keys for the duplicate CodeVisIdx key.
+	 *
+	 *	@param	argCodeVis	The StringDef key attribute of the instance generating the id.
+	 *
+	 *	@return	List of CFBamStringDefObj cached instances sorted by their primary keys for the duplicate CodeVisIdx key,
+	 *		which may be an empty set.
+	 */
+	List<ICFBamStringDefObj> readStringDefByCodeVisIdx( ICFBamSchema.CodeVisibilityEnum CodeVis,
+		boolean forceRead );
+
+	/**
+	 *	Get the map of CFBamValueObj instances sorted by their primary keys for the duplicate ScopeCodeVisIdx key.
+	 *
+	 *	@param	argTenantId	The StringDef key attribute of the instance generating the id.
+	 *
+	 *	@param	argScopeId	The StringDef key attribute of the instance generating the id.
+	 *
+	 *	@param	argCodeVis	The StringDef key attribute of the instance generating the id.
+	 *
+	 *	@return	List of CFBamStringDefObj cached instances sorted by their primary keys for the duplicate ScopeCodeVisIdx key,
+	 *		which may be an empty set.
+	 */
+	List<ICFBamStringDefObj> readStringDefByScopeCodeVisIdx( long TenantId,
+		long ScopeId,
+		ICFBamSchema.CodeVisibilityEnum CodeVis );
+
+	/**
+	 *	Get the map of CFBamStringDefObj instances sorted by their primary keys for the duplicate ScopeCodeVisIdx key.
+	 *
+	 *	@param	argTenantId	The StringDef key attribute of the instance generating the id.
+	 *
+	 *	@param	argScopeId	The StringDef key attribute of the instance generating the id.
+	 *
+	 *	@param	argCodeVis	The StringDef key attribute of the instance generating the id.
+	 *
+	 *	@return	List of CFBamStringDefObj cached instances sorted by their primary keys for the duplicate ScopeCodeVisIdx key,
+	 *		which may be an empty set.
+	 */
+	List<ICFBamStringDefObj> readStringDefByScopeCodeVisIdx( long TenantId,
+		long ScopeId,
+		ICFBamSchema.CodeVisibilityEnum CodeVis,
+		boolean forceRead );
+
 	ICFBamStringDefObj readCachedStringDefByIdIdx( long TenantId,
 		long Id );
 
@@ -429,6 +483,12 @@ public interface ICFBamStringDefTableObj
 		long ScopeId,
 		Long NextId );
 
+	List<ICFBamStringDefObj> readCachedStringDefByCodeVisIdx( ICFBamSchema.CodeVisibilityEnum CodeVis );
+
+	List<ICFBamStringDefObj> readCachedStringDefByScopeCodeVisIdx( long TenantId,
+		long ScopeId,
+		ICFBamSchema.CodeVisibilityEnum CodeVis );
+
 	void deepDisposeStringDefByIdIdx( long TenantId,
 		long Id );
 
@@ -457,6 +517,12 @@ public interface ICFBamStringDefTableObj
 	void deepDisposeStringDefByContNextIdx( long TenantId,
 		long ScopeId,
 		Long NextId );
+
+	void deepDisposeStringDefByCodeVisIdx( ICFBamSchema.CodeVisibilityEnum CodeVis );
+
+	void deepDisposeStringDefByScopeCodeVisIdx( long TenantId,
+		long ScopeId,
+		ICFBamSchema.CodeVisibilityEnum CodeVis );
 
 	/**
 	 *	Internal use only.
@@ -563,6 +629,26 @@ public interface ICFBamStringDefTableObj
 	void deleteStringDefByContNextIdx( long TenantId,
 		long ScopeId,
 		Long NextId );
+
+	/**
+	 *	Internal use only.
+	 *
+	 *	@param	argCodeVis	The StringDef key attribute of the instance generating the id.
+	 */
+	void deleteStringDefByCodeVisIdx( ICFBamSchema.CodeVisibilityEnum CodeVis );
+
+	/**
+	 *	Internal use only.
+	 *
+	 *	@param	argTenantId	The StringDef key attribute of the instance generating the id.
+	 *
+	 *	@param	argScopeId	The StringDef key attribute of the instance generating the id.
+	 *
+	 *	@param	argCodeVis	The StringDef key attribute of the instance generating the id.
+	 */
+	void deleteStringDefByScopeCodeVisIdx( long TenantId,
+		long ScopeId,
+		ICFBamSchema.CodeVisibilityEnum CodeVis );
 
 	/**
 	 *	Move the CFBamStringDefObj instance up in the chain.  The instance is always refreshed.

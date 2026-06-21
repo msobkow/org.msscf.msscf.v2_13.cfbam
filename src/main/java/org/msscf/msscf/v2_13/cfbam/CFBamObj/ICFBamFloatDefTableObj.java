@@ -400,6 +400,60 @@ public interface ICFBamFloatDefTableObj
 		Long NextId,
 		boolean forceRead );
 
+	/**
+	 *	Get the map of CFBamValueObj instances sorted by their primary keys for the duplicate CodeVisIdx key.
+	 *
+	 *	@param	argCodeVis	The FloatDef key attribute of the instance generating the id.
+	 *
+	 *	@return	List of CFBamFloatDefObj cached instances sorted by their primary keys for the duplicate CodeVisIdx key,
+	 *		which may be an empty set.
+	 */
+	List<ICFBamFloatDefObj> readFloatDefByCodeVisIdx( ICFBamSchema.CodeVisibilityEnum CodeVis );
+
+	/**
+	 *	Get the map of CFBamFloatDefObj instances sorted by their primary keys for the duplicate CodeVisIdx key.
+	 *
+	 *	@param	argCodeVis	The FloatDef key attribute of the instance generating the id.
+	 *
+	 *	@return	List of CFBamFloatDefObj cached instances sorted by their primary keys for the duplicate CodeVisIdx key,
+	 *		which may be an empty set.
+	 */
+	List<ICFBamFloatDefObj> readFloatDefByCodeVisIdx( ICFBamSchema.CodeVisibilityEnum CodeVis,
+		boolean forceRead );
+
+	/**
+	 *	Get the map of CFBamValueObj instances sorted by their primary keys for the duplicate ScopeCodeVisIdx key.
+	 *
+	 *	@param	argTenantId	The FloatDef key attribute of the instance generating the id.
+	 *
+	 *	@param	argScopeId	The FloatDef key attribute of the instance generating the id.
+	 *
+	 *	@param	argCodeVis	The FloatDef key attribute of the instance generating the id.
+	 *
+	 *	@return	List of CFBamFloatDefObj cached instances sorted by their primary keys for the duplicate ScopeCodeVisIdx key,
+	 *		which may be an empty set.
+	 */
+	List<ICFBamFloatDefObj> readFloatDefByScopeCodeVisIdx( long TenantId,
+		long ScopeId,
+		ICFBamSchema.CodeVisibilityEnum CodeVis );
+
+	/**
+	 *	Get the map of CFBamFloatDefObj instances sorted by their primary keys for the duplicate ScopeCodeVisIdx key.
+	 *
+	 *	@param	argTenantId	The FloatDef key attribute of the instance generating the id.
+	 *
+	 *	@param	argScopeId	The FloatDef key attribute of the instance generating the id.
+	 *
+	 *	@param	argCodeVis	The FloatDef key attribute of the instance generating the id.
+	 *
+	 *	@return	List of CFBamFloatDefObj cached instances sorted by their primary keys for the duplicate ScopeCodeVisIdx key,
+	 *		which may be an empty set.
+	 */
+	List<ICFBamFloatDefObj> readFloatDefByScopeCodeVisIdx( long TenantId,
+		long ScopeId,
+		ICFBamSchema.CodeVisibilityEnum CodeVis,
+		boolean forceRead );
+
 	ICFBamFloatDefObj readCachedFloatDefByIdIdx( long TenantId,
 		long Id );
 
@@ -429,6 +483,12 @@ public interface ICFBamFloatDefTableObj
 		long ScopeId,
 		Long NextId );
 
+	List<ICFBamFloatDefObj> readCachedFloatDefByCodeVisIdx( ICFBamSchema.CodeVisibilityEnum CodeVis );
+
+	List<ICFBamFloatDefObj> readCachedFloatDefByScopeCodeVisIdx( long TenantId,
+		long ScopeId,
+		ICFBamSchema.CodeVisibilityEnum CodeVis );
+
 	void deepDisposeFloatDefByIdIdx( long TenantId,
 		long Id );
 
@@ -457,6 +517,12 @@ public interface ICFBamFloatDefTableObj
 	void deepDisposeFloatDefByContNextIdx( long TenantId,
 		long ScopeId,
 		Long NextId );
+
+	void deepDisposeFloatDefByCodeVisIdx( ICFBamSchema.CodeVisibilityEnum CodeVis );
+
+	void deepDisposeFloatDefByScopeCodeVisIdx( long TenantId,
+		long ScopeId,
+		ICFBamSchema.CodeVisibilityEnum CodeVis );
 
 	/**
 	 *	Internal use only.
@@ -563,6 +629,26 @@ public interface ICFBamFloatDefTableObj
 	void deleteFloatDefByContNextIdx( long TenantId,
 		long ScopeId,
 		Long NextId );
+
+	/**
+	 *	Internal use only.
+	 *
+	 *	@param	argCodeVis	The FloatDef key attribute of the instance generating the id.
+	 */
+	void deleteFloatDefByCodeVisIdx( ICFBamSchema.CodeVisibilityEnum CodeVis );
+
+	/**
+	 *	Internal use only.
+	 *
+	 *	@param	argTenantId	The FloatDef key attribute of the instance generating the id.
+	 *
+	 *	@param	argScopeId	The FloatDef key attribute of the instance generating the id.
+	 *
+	 *	@param	argCodeVis	The FloatDef key attribute of the instance generating the id.
+	 */
+	void deleteFloatDefByScopeCodeVisIdx( long TenantId,
+		long ScopeId,
+		ICFBamSchema.CodeVisibilityEnum CodeVis );
 
 	/**
 	 *	Move the CFBamFloatDefObj instance up in the chain.  The instance is always refreshed.

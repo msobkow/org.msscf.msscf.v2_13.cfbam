@@ -400,6 +400,60 @@ public interface ICFBamBlobDefTableObj
 		Long NextId,
 		boolean forceRead );
 
+	/**
+	 *	Get the map of CFBamValueObj instances sorted by their primary keys for the duplicate CodeVisIdx key.
+	 *
+	 *	@param	argCodeVis	The BlobDef key attribute of the instance generating the id.
+	 *
+	 *	@return	List of CFBamBlobDefObj cached instances sorted by their primary keys for the duplicate CodeVisIdx key,
+	 *		which may be an empty set.
+	 */
+	List<ICFBamBlobDefObj> readBlobDefByCodeVisIdx( ICFBamSchema.CodeVisibilityEnum CodeVis );
+
+	/**
+	 *	Get the map of CFBamBlobDefObj instances sorted by their primary keys for the duplicate CodeVisIdx key.
+	 *
+	 *	@param	argCodeVis	The BlobDef key attribute of the instance generating the id.
+	 *
+	 *	@return	List of CFBamBlobDefObj cached instances sorted by their primary keys for the duplicate CodeVisIdx key,
+	 *		which may be an empty set.
+	 */
+	List<ICFBamBlobDefObj> readBlobDefByCodeVisIdx( ICFBamSchema.CodeVisibilityEnum CodeVis,
+		boolean forceRead );
+
+	/**
+	 *	Get the map of CFBamValueObj instances sorted by their primary keys for the duplicate ScopeCodeVisIdx key.
+	 *
+	 *	@param	argTenantId	The BlobDef key attribute of the instance generating the id.
+	 *
+	 *	@param	argScopeId	The BlobDef key attribute of the instance generating the id.
+	 *
+	 *	@param	argCodeVis	The BlobDef key attribute of the instance generating the id.
+	 *
+	 *	@return	List of CFBamBlobDefObj cached instances sorted by their primary keys for the duplicate ScopeCodeVisIdx key,
+	 *		which may be an empty set.
+	 */
+	List<ICFBamBlobDefObj> readBlobDefByScopeCodeVisIdx( long TenantId,
+		long ScopeId,
+		ICFBamSchema.CodeVisibilityEnum CodeVis );
+
+	/**
+	 *	Get the map of CFBamBlobDefObj instances sorted by their primary keys for the duplicate ScopeCodeVisIdx key.
+	 *
+	 *	@param	argTenantId	The BlobDef key attribute of the instance generating the id.
+	 *
+	 *	@param	argScopeId	The BlobDef key attribute of the instance generating the id.
+	 *
+	 *	@param	argCodeVis	The BlobDef key attribute of the instance generating the id.
+	 *
+	 *	@return	List of CFBamBlobDefObj cached instances sorted by their primary keys for the duplicate ScopeCodeVisIdx key,
+	 *		which may be an empty set.
+	 */
+	List<ICFBamBlobDefObj> readBlobDefByScopeCodeVisIdx( long TenantId,
+		long ScopeId,
+		ICFBamSchema.CodeVisibilityEnum CodeVis,
+		boolean forceRead );
+
 	ICFBamBlobDefObj readCachedBlobDefByIdIdx( long TenantId,
 		long Id );
 
@@ -429,6 +483,12 @@ public interface ICFBamBlobDefTableObj
 		long ScopeId,
 		Long NextId );
 
+	List<ICFBamBlobDefObj> readCachedBlobDefByCodeVisIdx( ICFBamSchema.CodeVisibilityEnum CodeVis );
+
+	List<ICFBamBlobDefObj> readCachedBlobDefByScopeCodeVisIdx( long TenantId,
+		long ScopeId,
+		ICFBamSchema.CodeVisibilityEnum CodeVis );
+
 	void deepDisposeBlobDefByIdIdx( long TenantId,
 		long Id );
 
@@ -457,6 +517,12 @@ public interface ICFBamBlobDefTableObj
 	void deepDisposeBlobDefByContNextIdx( long TenantId,
 		long ScopeId,
 		Long NextId );
+
+	void deepDisposeBlobDefByCodeVisIdx( ICFBamSchema.CodeVisibilityEnum CodeVis );
+
+	void deepDisposeBlobDefByScopeCodeVisIdx( long TenantId,
+		long ScopeId,
+		ICFBamSchema.CodeVisibilityEnum CodeVis );
 
 	/**
 	 *	Internal use only.
@@ -563,6 +629,26 @@ public interface ICFBamBlobDefTableObj
 	void deleteBlobDefByContNextIdx( long TenantId,
 		long ScopeId,
 		Long NextId );
+
+	/**
+	 *	Internal use only.
+	 *
+	 *	@param	argCodeVis	The BlobDef key attribute of the instance generating the id.
+	 */
+	void deleteBlobDefByCodeVisIdx( ICFBamSchema.CodeVisibilityEnum CodeVis );
+
+	/**
+	 *	Internal use only.
+	 *
+	 *	@param	argTenantId	The BlobDef key attribute of the instance generating the id.
+	 *
+	 *	@param	argScopeId	The BlobDef key attribute of the instance generating the id.
+	 *
+	 *	@param	argCodeVis	The BlobDef key attribute of the instance generating the id.
+	 */
+	void deleteBlobDefByScopeCodeVisIdx( long TenantId,
+		long ScopeId,
+		ICFBamSchema.CodeVisibilityEnum CodeVis );
 
 	/**
 	 *	Move the CFBamBlobDefObj instance up in the chain.  The instance is always refreshed.

@@ -401,6 +401,60 @@ public interface ICFBamId64GenTableObj
 		boolean forceRead );
 
 	/**
+	 *	Get the map of CFBamValueObj instances sorted by their primary keys for the duplicate CodeVisIdx key.
+	 *
+	 *	@param	argCodeVis	The Id64Gen key attribute of the instance generating the id.
+	 *
+	 *	@return	List of CFBamId64GenObj cached instances sorted by their primary keys for the duplicate CodeVisIdx key,
+	 *		which may be an empty set.
+	 */
+	List<ICFBamId64GenObj> readId64GenByCodeVisIdx( ICFBamSchema.CodeVisibilityEnum CodeVis );
+
+	/**
+	 *	Get the map of CFBamId64GenObj instances sorted by their primary keys for the duplicate CodeVisIdx key.
+	 *
+	 *	@param	argCodeVis	The Id64Gen key attribute of the instance generating the id.
+	 *
+	 *	@return	List of CFBamId64GenObj cached instances sorted by their primary keys for the duplicate CodeVisIdx key,
+	 *		which may be an empty set.
+	 */
+	List<ICFBamId64GenObj> readId64GenByCodeVisIdx( ICFBamSchema.CodeVisibilityEnum CodeVis,
+		boolean forceRead );
+
+	/**
+	 *	Get the map of CFBamValueObj instances sorted by their primary keys for the duplicate ScopeCodeVisIdx key.
+	 *
+	 *	@param	argTenantId	The Id64Gen key attribute of the instance generating the id.
+	 *
+	 *	@param	argScopeId	The Id64Gen key attribute of the instance generating the id.
+	 *
+	 *	@param	argCodeVis	The Id64Gen key attribute of the instance generating the id.
+	 *
+	 *	@return	List of CFBamId64GenObj cached instances sorted by their primary keys for the duplicate ScopeCodeVisIdx key,
+	 *		which may be an empty set.
+	 */
+	List<ICFBamId64GenObj> readId64GenByScopeCodeVisIdx( long TenantId,
+		long ScopeId,
+		ICFBamSchema.CodeVisibilityEnum CodeVis );
+
+	/**
+	 *	Get the map of CFBamId64GenObj instances sorted by their primary keys for the duplicate ScopeCodeVisIdx key.
+	 *
+	 *	@param	argTenantId	The Id64Gen key attribute of the instance generating the id.
+	 *
+	 *	@param	argScopeId	The Id64Gen key attribute of the instance generating the id.
+	 *
+	 *	@param	argCodeVis	The Id64Gen key attribute of the instance generating the id.
+	 *
+	 *	@return	List of CFBamId64GenObj cached instances sorted by their primary keys for the duplicate ScopeCodeVisIdx key,
+	 *		which may be an empty set.
+	 */
+	List<ICFBamId64GenObj> readId64GenByScopeCodeVisIdx( long TenantId,
+		long ScopeId,
+		ICFBamSchema.CodeVisibilityEnum CodeVis,
+		boolean forceRead );
+
+	/**
 	 *	Get the map of CFBamInt64TypeObj instances sorted by their primary keys for the duplicate SchemaIdx key.
 	 *
 	 *	@param	argTenantId	The Id64Gen key attribute of the instance generating the id.
@@ -483,6 +537,12 @@ public interface ICFBamId64GenTableObj
 		long ScopeId,
 		Long NextId );
 
+	List<ICFBamId64GenObj> readCachedId64GenByCodeVisIdx( ICFBamSchema.CodeVisibilityEnum CodeVis );
+
+	List<ICFBamId64GenObj> readCachedId64GenByScopeCodeVisIdx( long TenantId,
+		long ScopeId,
+		ICFBamSchema.CodeVisibilityEnum CodeVis );
+
 	List<ICFBamId64GenObj> readCachedId64GenBySchemaIdx( long TenantId,
 		long SchemaDefId );
 
@@ -517,6 +577,12 @@ public interface ICFBamId64GenTableObj
 	void deepDisposeId64GenByContNextIdx( long TenantId,
 		long ScopeId,
 		Long NextId );
+
+	void deepDisposeId64GenByCodeVisIdx( ICFBamSchema.CodeVisibilityEnum CodeVis );
+
+	void deepDisposeId64GenByScopeCodeVisIdx( long TenantId,
+		long ScopeId,
+		ICFBamSchema.CodeVisibilityEnum CodeVis );
 
 	void deepDisposeId64GenBySchemaIdx( long TenantId,
 		long SchemaDefId );
@@ -629,6 +695,26 @@ public interface ICFBamId64GenTableObj
 	void deleteId64GenByContNextIdx( long TenantId,
 		long ScopeId,
 		Long NextId );
+
+	/**
+	 *	Internal use only.
+	 *
+	 *	@param	argCodeVis	The Id64Gen key attribute of the instance generating the id.
+	 */
+	void deleteId64GenByCodeVisIdx( ICFBamSchema.CodeVisibilityEnum CodeVis );
+
+	/**
+	 *	Internal use only.
+	 *
+	 *	@param	argTenantId	The Id64Gen key attribute of the instance generating the id.
+	 *
+	 *	@param	argScopeId	The Id64Gen key attribute of the instance generating the id.
+	 *
+	 *	@param	argCodeVis	The Id64Gen key attribute of the instance generating the id.
+	 */
+	void deleteId64GenByScopeCodeVisIdx( long TenantId,
+		long ScopeId,
+		ICFBamSchema.CodeVisibilityEnum CodeVis );
 
 	/**
 	 *	Internal use only.

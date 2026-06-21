@@ -401,6 +401,60 @@ public interface ICFBamTimestampTypeTableObj
 		boolean forceRead );
 
 	/**
+	 *	Get the map of CFBamValueObj instances sorted by their primary keys for the duplicate CodeVisIdx key.
+	 *
+	 *	@param	argCodeVis	The TimestampType key attribute of the instance generating the id.
+	 *
+	 *	@return	List of CFBamTimestampTypeObj cached instances sorted by their primary keys for the duplicate CodeVisIdx key,
+	 *		which may be an empty set.
+	 */
+	List<ICFBamTimestampTypeObj> readTimestampTypeByCodeVisIdx( ICFBamSchema.CodeVisibilityEnum CodeVis );
+
+	/**
+	 *	Get the map of CFBamTimestampTypeObj instances sorted by their primary keys for the duplicate CodeVisIdx key.
+	 *
+	 *	@param	argCodeVis	The TimestampType key attribute of the instance generating the id.
+	 *
+	 *	@return	List of CFBamTimestampTypeObj cached instances sorted by their primary keys for the duplicate CodeVisIdx key,
+	 *		which may be an empty set.
+	 */
+	List<ICFBamTimestampTypeObj> readTimestampTypeByCodeVisIdx( ICFBamSchema.CodeVisibilityEnum CodeVis,
+		boolean forceRead );
+
+	/**
+	 *	Get the map of CFBamValueObj instances sorted by their primary keys for the duplicate ScopeCodeVisIdx key.
+	 *
+	 *	@param	argTenantId	The TimestampType key attribute of the instance generating the id.
+	 *
+	 *	@param	argScopeId	The TimestampType key attribute of the instance generating the id.
+	 *
+	 *	@param	argCodeVis	The TimestampType key attribute of the instance generating the id.
+	 *
+	 *	@return	List of CFBamTimestampTypeObj cached instances sorted by their primary keys for the duplicate ScopeCodeVisIdx key,
+	 *		which may be an empty set.
+	 */
+	List<ICFBamTimestampTypeObj> readTimestampTypeByScopeCodeVisIdx( long TenantId,
+		long ScopeId,
+		ICFBamSchema.CodeVisibilityEnum CodeVis );
+
+	/**
+	 *	Get the map of CFBamTimestampTypeObj instances sorted by their primary keys for the duplicate ScopeCodeVisIdx key.
+	 *
+	 *	@param	argTenantId	The TimestampType key attribute of the instance generating the id.
+	 *
+	 *	@param	argScopeId	The TimestampType key attribute of the instance generating the id.
+	 *
+	 *	@param	argCodeVis	The TimestampType key attribute of the instance generating the id.
+	 *
+	 *	@return	List of CFBamTimestampTypeObj cached instances sorted by their primary keys for the duplicate ScopeCodeVisIdx key,
+	 *		which may be an empty set.
+	 */
+	List<ICFBamTimestampTypeObj> readTimestampTypeByScopeCodeVisIdx( long TenantId,
+		long ScopeId,
+		ICFBamSchema.CodeVisibilityEnum CodeVis,
+		boolean forceRead );
+
+	/**
 	 *	Get the map of CFBamTimestampTypeObj instances sorted by their primary keys for the duplicate SchemaIdx key.
 	 *
 	 *	@param	argTenantId	The TimestampType key attribute of the instance generating the id.
@@ -456,6 +510,12 @@ public interface ICFBamTimestampTypeTableObj
 		long ScopeId,
 		Long NextId );
 
+	List<ICFBamTimestampTypeObj> readCachedTimestampTypeByCodeVisIdx( ICFBamSchema.CodeVisibilityEnum CodeVis );
+
+	List<ICFBamTimestampTypeObj> readCachedTimestampTypeByScopeCodeVisIdx( long TenantId,
+		long ScopeId,
+		ICFBamSchema.CodeVisibilityEnum CodeVis );
+
 	List<ICFBamTimestampTypeObj> readCachedTimestampTypeBySchemaIdx( long TenantId,
 		long SchemaDefId );
 
@@ -487,6 +547,12 @@ public interface ICFBamTimestampTypeTableObj
 	void deepDisposeTimestampTypeByContNextIdx( long TenantId,
 		long ScopeId,
 		Long NextId );
+
+	void deepDisposeTimestampTypeByCodeVisIdx( ICFBamSchema.CodeVisibilityEnum CodeVis );
+
+	void deepDisposeTimestampTypeByScopeCodeVisIdx( long TenantId,
+		long ScopeId,
+		ICFBamSchema.CodeVisibilityEnum CodeVis );
 
 	void deepDisposeTimestampTypeBySchemaIdx( long TenantId,
 		long SchemaDefId );
@@ -596,6 +662,26 @@ public interface ICFBamTimestampTypeTableObj
 	void deleteTimestampTypeByContNextIdx( long TenantId,
 		long ScopeId,
 		Long NextId );
+
+	/**
+	 *	Internal use only.
+	 *
+	 *	@param	argCodeVis	The TimestampType key attribute of the instance generating the id.
+	 */
+	void deleteTimestampTypeByCodeVisIdx( ICFBamSchema.CodeVisibilityEnum CodeVis );
+
+	/**
+	 *	Internal use only.
+	 *
+	 *	@param	argTenantId	The TimestampType key attribute of the instance generating the id.
+	 *
+	 *	@param	argScopeId	The TimestampType key attribute of the instance generating the id.
+	 *
+	 *	@param	argCodeVis	The TimestampType key attribute of the instance generating the id.
+	 */
+	void deleteTimestampTypeByScopeCodeVisIdx( long TenantId,
+		long ScopeId,
+		ICFBamSchema.CodeVisibilityEnum CodeVis );
 
 	/**
 	 *	Internal use only.

@@ -526,6 +526,16 @@ public class CFBamValueEditObj
 		return( getValueBuff().getOptionalNextId() );
 	}
 
+	public ICFBamSchema.CodeVisibilityEnum getRequiredCodeVis() {
+		return( getValueBuff().getRequiredCodeVis() );
+	}
+
+	public void setRequiredCodeVis( ICFBamSchema.CodeVisibilityEnum value ) {
+		if( getValueBuff().getRequiredCodeVis() != value ) {
+			getValueBuff().setRequiredCodeVis( value );
+		}
+	}
+
 	public ICFSecTenantObj getRequiredOwnerTenant() {
 		return( getRequiredOwnerTenant( false ) );
 	}

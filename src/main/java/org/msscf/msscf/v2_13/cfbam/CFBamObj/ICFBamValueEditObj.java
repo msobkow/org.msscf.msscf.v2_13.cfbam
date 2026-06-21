@@ -224,6 +224,20 @@ public interface ICFBamValueEditObj
 	void setRequiredImplementsPolymorph( boolean value );
 
 	/**
+	 *	Get the required ICFBamSchema.CodeVisibilityEnum attribute CodeVis.
+	 *
+	 *	@return	The ICFBamSchema.CodeVisibilityEnum value of the attribute CodeVis.
+	 */
+	ICFBamSchema.CodeVisibilityEnum getRequiredCodeVis();
+
+	/**
+	 *	Set the required ICFBamSchema.CodeVisibilityEnum attribute CodeVis.
+	 *
+	 *	@param	value	the ICFBamSchema.CodeVisibilityEnum value of the attribute CodeVis.
+	 */
+	void setRequiredCodeVis( ICFBamSchema.CodeVisibilityEnum value );
+
+	/**
 	 *	Get the ICFSecTenantObj instance referenced by the Tenant key.
 	 *
 	 *	@return	The ICFSecTenantObj instance referenced by the Tenant key.

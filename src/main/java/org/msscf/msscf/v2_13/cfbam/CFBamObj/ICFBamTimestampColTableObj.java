@@ -401,6 +401,60 @@ public interface ICFBamTimestampColTableObj
 		boolean forceRead );
 
 	/**
+	 *	Get the map of CFBamValueObj instances sorted by their primary keys for the duplicate CodeVisIdx key.
+	 *
+	 *	@param	argCodeVis	The TimestampCol key attribute of the instance generating the id.
+	 *
+	 *	@return	List of CFBamTimestampColObj cached instances sorted by their primary keys for the duplicate CodeVisIdx key,
+	 *		which may be an empty set.
+	 */
+	List<ICFBamTimestampColObj> readTimestampColByCodeVisIdx( ICFBamSchema.CodeVisibilityEnum CodeVis );
+
+	/**
+	 *	Get the map of CFBamTimestampColObj instances sorted by their primary keys for the duplicate CodeVisIdx key.
+	 *
+	 *	@param	argCodeVis	The TimestampCol key attribute of the instance generating the id.
+	 *
+	 *	@return	List of CFBamTimestampColObj cached instances sorted by their primary keys for the duplicate CodeVisIdx key,
+	 *		which may be an empty set.
+	 */
+	List<ICFBamTimestampColObj> readTimestampColByCodeVisIdx( ICFBamSchema.CodeVisibilityEnum CodeVis,
+		boolean forceRead );
+
+	/**
+	 *	Get the map of CFBamValueObj instances sorted by their primary keys for the duplicate ScopeCodeVisIdx key.
+	 *
+	 *	@param	argTenantId	The TimestampCol key attribute of the instance generating the id.
+	 *
+	 *	@param	argScopeId	The TimestampCol key attribute of the instance generating the id.
+	 *
+	 *	@param	argCodeVis	The TimestampCol key attribute of the instance generating the id.
+	 *
+	 *	@return	List of CFBamTimestampColObj cached instances sorted by their primary keys for the duplicate ScopeCodeVisIdx key,
+	 *		which may be an empty set.
+	 */
+	List<ICFBamTimestampColObj> readTimestampColByScopeCodeVisIdx( long TenantId,
+		long ScopeId,
+		ICFBamSchema.CodeVisibilityEnum CodeVis );
+
+	/**
+	 *	Get the map of CFBamTimestampColObj instances sorted by their primary keys for the duplicate ScopeCodeVisIdx key.
+	 *
+	 *	@param	argTenantId	The TimestampCol key attribute of the instance generating the id.
+	 *
+	 *	@param	argScopeId	The TimestampCol key attribute of the instance generating the id.
+	 *
+	 *	@param	argCodeVis	The TimestampCol key attribute of the instance generating the id.
+	 *
+	 *	@return	List of CFBamTimestampColObj cached instances sorted by their primary keys for the duplicate ScopeCodeVisIdx key,
+	 *		which may be an empty set.
+	 */
+	List<ICFBamTimestampColObj> readTimestampColByScopeCodeVisIdx( long TenantId,
+		long ScopeId,
+		ICFBamSchema.CodeVisibilityEnum CodeVis,
+		boolean forceRead );
+
+	/**
 	 *	Get the map of CFBamTimestampColObj instances sorted by their primary keys for the duplicate TableIdx key.
 	 *
 	 *	@param	argTenantId	The TimestampCol key attribute of the instance generating the id.
@@ -456,6 +510,12 @@ public interface ICFBamTimestampColTableObj
 		long ScopeId,
 		Long NextId );
 
+	List<ICFBamTimestampColObj> readCachedTimestampColByCodeVisIdx( ICFBamSchema.CodeVisibilityEnum CodeVis );
+
+	List<ICFBamTimestampColObj> readCachedTimestampColByScopeCodeVisIdx( long TenantId,
+		long ScopeId,
+		ICFBamSchema.CodeVisibilityEnum CodeVis );
+
 	List<ICFBamTimestampColObj> readCachedTimestampColByTableIdx( long TenantId,
 		long TableId );
 
@@ -487,6 +547,12 @@ public interface ICFBamTimestampColTableObj
 	void deepDisposeTimestampColByContNextIdx( long TenantId,
 		long ScopeId,
 		Long NextId );
+
+	void deepDisposeTimestampColByCodeVisIdx( ICFBamSchema.CodeVisibilityEnum CodeVis );
+
+	void deepDisposeTimestampColByScopeCodeVisIdx( long TenantId,
+		long ScopeId,
+		ICFBamSchema.CodeVisibilityEnum CodeVis );
 
 	void deepDisposeTimestampColByTableIdx( long TenantId,
 		long TableId );
@@ -596,6 +662,26 @@ public interface ICFBamTimestampColTableObj
 	void deleteTimestampColByContNextIdx( long TenantId,
 		long ScopeId,
 		Long NextId );
+
+	/**
+	 *	Internal use only.
+	 *
+	 *	@param	argCodeVis	The TimestampCol key attribute of the instance generating the id.
+	 */
+	void deleteTimestampColByCodeVisIdx( ICFBamSchema.CodeVisibilityEnum CodeVis );
+
+	/**
+	 *	Internal use only.
+	 *
+	 *	@param	argTenantId	The TimestampCol key attribute of the instance generating the id.
+	 *
+	 *	@param	argScopeId	The TimestampCol key attribute of the instance generating the id.
+	 *
+	 *	@param	argCodeVis	The TimestampCol key attribute of the instance generating the id.
+	 */
+	void deleteTimestampColByScopeCodeVisIdx( long TenantId,
+		long ScopeId,
+		ICFBamSchema.CodeVisibilityEnum CodeVis );
 
 	/**
 	 *	Internal use only.

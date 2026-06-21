@@ -400,6 +400,60 @@ public interface ICFBamTextDefTableObj
 		Long NextId,
 		boolean forceRead );
 
+	/**
+	 *	Get the map of CFBamValueObj instances sorted by their primary keys for the duplicate CodeVisIdx key.
+	 *
+	 *	@param	argCodeVis	The TextDef key attribute of the instance generating the id.
+	 *
+	 *	@return	List of CFBamTextDefObj cached instances sorted by their primary keys for the duplicate CodeVisIdx key,
+	 *		which may be an empty set.
+	 */
+	List<ICFBamTextDefObj> readTextDefByCodeVisIdx( ICFBamSchema.CodeVisibilityEnum CodeVis );
+
+	/**
+	 *	Get the map of CFBamTextDefObj instances sorted by their primary keys for the duplicate CodeVisIdx key.
+	 *
+	 *	@param	argCodeVis	The TextDef key attribute of the instance generating the id.
+	 *
+	 *	@return	List of CFBamTextDefObj cached instances sorted by their primary keys for the duplicate CodeVisIdx key,
+	 *		which may be an empty set.
+	 */
+	List<ICFBamTextDefObj> readTextDefByCodeVisIdx( ICFBamSchema.CodeVisibilityEnum CodeVis,
+		boolean forceRead );
+
+	/**
+	 *	Get the map of CFBamValueObj instances sorted by their primary keys for the duplicate ScopeCodeVisIdx key.
+	 *
+	 *	@param	argTenantId	The TextDef key attribute of the instance generating the id.
+	 *
+	 *	@param	argScopeId	The TextDef key attribute of the instance generating the id.
+	 *
+	 *	@param	argCodeVis	The TextDef key attribute of the instance generating the id.
+	 *
+	 *	@return	List of CFBamTextDefObj cached instances sorted by their primary keys for the duplicate ScopeCodeVisIdx key,
+	 *		which may be an empty set.
+	 */
+	List<ICFBamTextDefObj> readTextDefByScopeCodeVisIdx( long TenantId,
+		long ScopeId,
+		ICFBamSchema.CodeVisibilityEnum CodeVis );
+
+	/**
+	 *	Get the map of CFBamTextDefObj instances sorted by their primary keys for the duplicate ScopeCodeVisIdx key.
+	 *
+	 *	@param	argTenantId	The TextDef key attribute of the instance generating the id.
+	 *
+	 *	@param	argScopeId	The TextDef key attribute of the instance generating the id.
+	 *
+	 *	@param	argCodeVis	The TextDef key attribute of the instance generating the id.
+	 *
+	 *	@return	List of CFBamTextDefObj cached instances sorted by their primary keys for the duplicate ScopeCodeVisIdx key,
+	 *		which may be an empty set.
+	 */
+	List<ICFBamTextDefObj> readTextDefByScopeCodeVisIdx( long TenantId,
+		long ScopeId,
+		ICFBamSchema.CodeVisibilityEnum CodeVis,
+		boolean forceRead );
+
 	ICFBamTextDefObj readCachedTextDefByIdIdx( long TenantId,
 		long Id );
 
@@ -429,6 +483,12 @@ public interface ICFBamTextDefTableObj
 		long ScopeId,
 		Long NextId );
 
+	List<ICFBamTextDefObj> readCachedTextDefByCodeVisIdx( ICFBamSchema.CodeVisibilityEnum CodeVis );
+
+	List<ICFBamTextDefObj> readCachedTextDefByScopeCodeVisIdx( long TenantId,
+		long ScopeId,
+		ICFBamSchema.CodeVisibilityEnum CodeVis );
+
 	void deepDisposeTextDefByIdIdx( long TenantId,
 		long Id );
 
@@ -457,6 +517,12 @@ public interface ICFBamTextDefTableObj
 	void deepDisposeTextDefByContNextIdx( long TenantId,
 		long ScopeId,
 		Long NextId );
+
+	void deepDisposeTextDefByCodeVisIdx( ICFBamSchema.CodeVisibilityEnum CodeVis );
+
+	void deepDisposeTextDefByScopeCodeVisIdx( long TenantId,
+		long ScopeId,
+		ICFBamSchema.CodeVisibilityEnum CodeVis );
 
 	/**
 	 *	Internal use only.
@@ -563,6 +629,26 @@ public interface ICFBamTextDefTableObj
 	void deleteTextDefByContNextIdx( long TenantId,
 		long ScopeId,
 		Long NextId );
+
+	/**
+	 *	Internal use only.
+	 *
+	 *	@param	argCodeVis	The TextDef key attribute of the instance generating the id.
+	 */
+	void deleteTextDefByCodeVisIdx( ICFBamSchema.CodeVisibilityEnum CodeVis );
+
+	/**
+	 *	Internal use only.
+	 *
+	 *	@param	argTenantId	The TextDef key attribute of the instance generating the id.
+	 *
+	 *	@param	argScopeId	The TextDef key attribute of the instance generating the id.
+	 *
+	 *	@param	argCodeVis	The TextDef key attribute of the instance generating the id.
+	 */
+	void deleteTextDefByScopeCodeVisIdx( long TenantId,
+		long ScopeId,
+		ICFBamSchema.CodeVisibilityEnum CodeVis );
 
 	/**
 	 *	Move the CFBamTextDefObj instance up in the chain.  The instance is always refreshed.

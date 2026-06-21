@@ -401,6 +401,60 @@ public interface ICFBamTokenTypeTableObj
 		boolean forceRead );
 
 	/**
+	 *	Get the map of CFBamValueObj instances sorted by their primary keys for the duplicate CodeVisIdx key.
+	 *
+	 *	@param	argCodeVis	The TokenType key attribute of the instance generating the id.
+	 *
+	 *	@return	List of CFBamTokenTypeObj cached instances sorted by their primary keys for the duplicate CodeVisIdx key,
+	 *		which may be an empty set.
+	 */
+	List<ICFBamTokenTypeObj> readTokenTypeByCodeVisIdx( ICFBamSchema.CodeVisibilityEnum CodeVis );
+
+	/**
+	 *	Get the map of CFBamTokenTypeObj instances sorted by their primary keys for the duplicate CodeVisIdx key.
+	 *
+	 *	@param	argCodeVis	The TokenType key attribute of the instance generating the id.
+	 *
+	 *	@return	List of CFBamTokenTypeObj cached instances sorted by their primary keys for the duplicate CodeVisIdx key,
+	 *		which may be an empty set.
+	 */
+	List<ICFBamTokenTypeObj> readTokenTypeByCodeVisIdx( ICFBamSchema.CodeVisibilityEnum CodeVis,
+		boolean forceRead );
+
+	/**
+	 *	Get the map of CFBamValueObj instances sorted by their primary keys for the duplicate ScopeCodeVisIdx key.
+	 *
+	 *	@param	argTenantId	The TokenType key attribute of the instance generating the id.
+	 *
+	 *	@param	argScopeId	The TokenType key attribute of the instance generating the id.
+	 *
+	 *	@param	argCodeVis	The TokenType key attribute of the instance generating the id.
+	 *
+	 *	@return	List of CFBamTokenTypeObj cached instances sorted by their primary keys for the duplicate ScopeCodeVisIdx key,
+	 *		which may be an empty set.
+	 */
+	List<ICFBamTokenTypeObj> readTokenTypeByScopeCodeVisIdx( long TenantId,
+		long ScopeId,
+		ICFBamSchema.CodeVisibilityEnum CodeVis );
+
+	/**
+	 *	Get the map of CFBamTokenTypeObj instances sorted by their primary keys for the duplicate ScopeCodeVisIdx key.
+	 *
+	 *	@param	argTenantId	The TokenType key attribute of the instance generating the id.
+	 *
+	 *	@param	argScopeId	The TokenType key attribute of the instance generating the id.
+	 *
+	 *	@param	argCodeVis	The TokenType key attribute of the instance generating the id.
+	 *
+	 *	@return	List of CFBamTokenTypeObj cached instances sorted by their primary keys for the duplicate ScopeCodeVisIdx key,
+	 *		which may be an empty set.
+	 */
+	List<ICFBamTokenTypeObj> readTokenTypeByScopeCodeVisIdx( long TenantId,
+		long ScopeId,
+		ICFBamSchema.CodeVisibilityEnum CodeVis,
+		boolean forceRead );
+
+	/**
 	 *	Get the map of CFBamTokenTypeObj instances sorted by their primary keys for the duplicate SchemaIdx key.
 	 *
 	 *	@param	argTenantId	The TokenType key attribute of the instance generating the id.
@@ -456,6 +510,12 @@ public interface ICFBamTokenTypeTableObj
 		long ScopeId,
 		Long NextId );
 
+	List<ICFBamTokenTypeObj> readCachedTokenTypeByCodeVisIdx( ICFBamSchema.CodeVisibilityEnum CodeVis );
+
+	List<ICFBamTokenTypeObj> readCachedTokenTypeByScopeCodeVisIdx( long TenantId,
+		long ScopeId,
+		ICFBamSchema.CodeVisibilityEnum CodeVis );
+
 	List<ICFBamTokenTypeObj> readCachedTokenTypeBySchemaIdx( long TenantId,
 		long SchemaDefId );
 
@@ -487,6 +547,12 @@ public interface ICFBamTokenTypeTableObj
 	void deepDisposeTokenTypeByContNextIdx( long TenantId,
 		long ScopeId,
 		Long NextId );
+
+	void deepDisposeTokenTypeByCodeVisIdx( ICFBamSchema.CodeVisibilityEnum CodeVis );
+
+	void deepDisposeTokenTypeByScopeCodeVisIdx( long TenantId,
+		long ScopeId,
+		ICFBamSchema.CodeVisibilityEnum CodeVis );
 
 	void deepDisposeTokenTypeBySchemaIdx( long TenantId,
 		long SchemaDefId );
@@ -596,6 +662,26 @@ public interface ICFBamTokenTypeTableObj
 	void deleteTokenTypeByContNextIdx( long TenantId,
 		long ScopeId,
 		Long NextId );
+
+	/**
+	 *	Internal use only.
+	 *
+	 *	@param	argCodeVis	The TokenType key attribute of the instance generating the id.
+	 */
+	void deleteTokenTypeByCodeVisIdx( ICFBamSchema.CodeVisibilityEnum CodeVis );
+
+	/**
+	 *	Internal use only.
+	 *
+	 *	@param	argTenantId	The TokenType key attribute of the instance generating the id.
+	 *
+	 *	@param	argScopeId	The TokenType key attribute of the instance generating the id.
+	 *
+	 *	@param	argCodeVis	The TokenType key attribute of the instance generating the id.
+	 */
+	void deleteTokenTypeByScopeCodeVisIdx( long TenantId,
+		long ScopeId,
+		ICFBamSchema.CodeVisibilityEnum CodeVis );
 
 	/**
 	 *	Internal use only.

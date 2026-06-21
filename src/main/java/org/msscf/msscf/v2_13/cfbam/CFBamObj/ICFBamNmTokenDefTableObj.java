@@ -400,6 +400,60 @@ public interface ICFBamNmTokenDefTableObj
 		Long NextId,
 		boolean forceRead );
 
+	/**
+	 *	Get the map of CFBamValueObj instances sorted by their primary keys for the duplicate CodeVisIdx key.
+	 *
+	 *	@param	argCodeVis	The NmTokenDef key attribute of the instance generating the id.
+	 *
+	 *	@return	List of CFBamNmTokenDefObj cached instances sorted by their primary keys for the duplicate CodeVisIdx key,
+	 *		which may be an empty set.
+	 */
+	List<ICFBamNmTokenDefObj> readNmTokenDefByCodeVisIdx( ICFBamSchema.CodeVisibilityEnum CodeVis );
+
+	/**
+	 *	Get the map of CFBamNmTokenDefObj instances sorted by their primary keys for the duplicate CodeVisIdx key.
+	 *
+	 *	@param	argCodeVis	The NmTokenDef key attribute of the instance generating the id.
+	 *
+	 *	@return	List of CFBamNmTokenDefObj cached instances sorted by their primary keys for the duplicate CodeVisIdx key,
+	 *		which may be an empty set.
+	 */
+	List<ICFBamNmTokenDefObj> readNmTokenDefByCodeVisIdx( ICFBamSchema.CodeVisibilityEnum CodeVis,
+		boolean forceRead );
+
+	/**
+	 *	Get the map of CFBamValueObj instances sorted by their primary keys for the duplicate ScopeCodeVisIdx key.
+	 *
+	 *	@param	argTenantId	The NmTokenDef key attribute of the instance generating the id.
+	 *
+	 *	@param	argScopeId	The NmTokenDef key attribute of the instance generating the id.
+	 *
+	 *	@param	argCodeVis	The NmTokenDef key attribute of the instance generating the id.
+	 *
+	 *	@return	List of CFBamNmTokenDefObj cached instances sorted by their primary keys for the duplicate ScopeCodeVisIdx key,
+	 *		which may be an empty set.
+	 */
+	List<ICFBamNmTokenDefObj> readNmTokenDefByScopeCodeVisIdx( long TenantId,
+		long ScopeId,
+		ICFBamSchema.CodeVisibilityEnum CodeVis );
+
+	/**
+	 *	Get the map of CFBamNmTokenDefObj instances sorted by their primary keys for the duplicate ScopeCodeVisIdx key.
+	 *
+	 *	@param	argTenantId	The NmTokenDef key attribute of the instance generating the id.
+	 *
+	 *	@param	argScopeId	The NmTokenDef key attribute of the instance generating the id.
+	 *
+	 *	@param	argCodeVis	The NmTokenDef key attribute of the instance generating the id.
+	 *
+	 *	@return	List of CFBamNmTokenDefObj cached instances sorted by their primary keys for the duplicate ScopeCodeVisIdx key,
+	 *		which may be an empty set.
+	 */
+	List<ICFBamNmTokenDefObj> readNmTokenDefByScopeCodeVisIdx( long TenantId,
+		long ScopeId,
+		ICFBamSchema.CodeVisibilityEnum CodeVis,
+		boolean forceRead );
+
 	ICFBamNmTokenDefObj readCachedNmTokenDefByIdIdx( long TenantId,
 		long Id );
 
@@ -429,6 +483,12 @@ public interface ICFBamNmTokenDefTableObj
 		long ScopeId,
 		Long NextId );
 
+	List<ICFBamNmTokenDefObj> readCachedNmTokenDefByCodeVisIdx( ICFBamSchema.CodeVisibilityEnum CodeVis );
+
+	List<ICFBamNmTokenDefObj> readCachedNmTokenDefByScopeCodeVisIdx( long TenantId,
+		long ScopeId,
+		ICFBamSchema.CodeVisibilityEnum CodeVis );
+
 	void deepDisposeNmTokenDefByIdIdx( long TenantId,
 		long Id );
 
@@ -457,6 +517,12 @@ public interface ICFBamNmTokenDefTableObj
 	void deepDisposeNmTokenDefByContNextIdx( long TenantId,
 		long ScopeId,
 		Long NextId );
+
+	void deepDisposeNmTokenDefByCodeVisIdx( ICFBamSchema.CodeVisibilityEnum CodeVis );
+
+	void deepDisposeNmTokenDefByScopeCodeVisIdx( long TenantId,
+		long ScopeId,
+		ICFBamSchema.CodeVisibilityEnum CodeVis );
 
 	/**
 	 *	Internal use only.
@@ -563,6 +629,26 @@ public interface ICFBamNmTokenDefTableObj
 	void deleteNmTokenDefByContNextIdx( long TenantId,
 		long ScopeId,
 		Long NextId );
+
+	/**
+	 *	Internal use only.
+	 *
+	 *	@param	argCodeVis	The NmTokenDef key attribute of the instance generating the id.
+	 */
+	void deleteNmTokenDefByCodeVisIdx( ICFBamSchema.CodeVisibilityEnum CodeVis );
+
+	/**
+	 *	Internal use only.
+	 *
+	 *	@param	argTenantId	The NmTokenDef key attribute of the instance generating the id.
+	 *
+	 *	@param	argScopeId	The NmTokenDef key attribute of the instance generating the id.
+	 *
+	 *	@param	argCodeVis	The NmTokenDef key attribute of the instance generating the id.
+	 */
+	void deleteNmTokenDefByScopeCodeVisIdx( long TenantId,
+		long ScopeId,
+		ICFBamSchema.CodeVisibilityEnum CodeVis );
 
 	/**
 	 *	Move the CFBamNmTokenDefObj instance up in the chain.  The instance is always refreshed.

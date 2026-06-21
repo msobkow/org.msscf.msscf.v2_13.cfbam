@@ -401,6 +401,60 @@ public interface ICFBamDbKeyHash128TypeTableObj
 		boolean forceRead );
 
 	/**
+	 *	Get the map of CFBamValueObj instances sorted by their primary keys for the duplicate CodeVisIdx key.
+	 *
+	 *	@param	argCodeVis	The DbKeyHash128Type key attribute of the instance generating the id.
+	 *
+	 *	@return	List of CFBamDbKeyHash128TypeObj cached instances sorted by their primary keys for the duplicate CodeVisIdx key,
+	 *		which may be an empty set.
+	 */
+	List<ICFBamDbKeyHash128TypeObj> readDbKeyHash128TypeByCodeVisIdx( ICFBamSchema.CodeVisibilityEnum CodeVis );
+
+	/**
+	 *	Get the map of CFBamDbKeyHash128TypeObj instances sorted by their primary keys for the duplicate CodeVisIdx key.
+	 *
+	 *	@param	argCodeVis	The DbKeyHash128Type key attribute of the instance generating the id.
+	 *
+	 *	@return	List of CFBamDbKeyHash128TypeObj cached instances sorted by their primary keys for the duplicate CodeVisIdx key,
+	 *		which may be an empty set.
+	 */
+	List<ICFBamDbKeyHash128TypeObj> readDbKeyHash128TypeByCodeVisIdx( ICFBamSchema.CodeVisibilityEnum CodeVis,
+		boolean forceRead );
+
+	/**
+	 *	Get the map of CFBamValueObj instances sorted by their primary keys for the duplicate ScopeCodeVisIdx key.
+	 *
+	 *	@param	argTenantId	The DbKeyHash128Type key attribute of the instance generating the id.
+	 *
+	 *	@param	argScopeId	The DbKeyHash128Type key attribute of the instance generating the id.
+	 *
+	 *	@param	argCodeVis	The DbKeyHash128Type key attribute of the instance generating the id.
+	 *
+	 *	@return	List of CFBamDbKeyHash128TypeObj cached instances sorted by their primary keys for the duplicate ScopeCodeVisIdx key,
+	 *		which may be an empty set.
+	 */
+	List<ICFBamDbKeyHash128TypeObj> readDbKeyHash128TypeByScopeCodeVisIdx( long TenantId,
+		long ScopeId,
+		ICFBamSchema.CodeVisibilityEnum CodeVis );
+
+	/**
+	 *	Get the map of CFBamDbKeyHash128TypeObj instances sorted by their primary keys for the duplicate ScopeCodeVisIdx key.
+	 *
+	 *	@param	argTenantId	The DbKeyHash128Type key attribute of the instance generating the id.
+	 *
+	 *	@param	argScopeId	The DbKeyHash128Type key attribute of the instance generating the id.
+	 *
+	 *	@param	argCodeVis	The DbKeyHash128Type key attribute of the instance generating the id.
+	 *
+	 *	@return	List of CFBamDbKeyHash128TypeObj cached instances sorted by their primary keys for the duplicate ScopeCodeVisIdx key,
+	 *		which may be an empty set.
+	 */
+	List<ICFBamDbKeyHash128TypeObj> readDbKeyHash128TypeByScopeCodeVisIdx( long TenantId,
+		long ScopeId,
+		ICFBamSchema.CodeVisibilityEnum CodeVis,
+		boolean forceRead );
+
+	/**
 	 *	Get the map of CFBamDbKeyHash128TypeObj instances sorted by their primary keys for the duplicate SchemaIdx key.
 	 *
 	 *	@param	argTenantId	The DbKeyHash128Type key attribute of the instance generating the id.
@@ -456,6 +510,12 @@ public interface ICFBamDbKeyHash128TypeTableObj
 		long ScopeId,
 		Long NextId );
 
+	List<ICFBamDbKeyHash128TypeObj> readCachedDbKeyHash128TypeByCodeVisIdx( ICFBamSchema.CodeVisibilityEnum CodeVis );
+
+	List<ICFBamDbKeyHash128TypeObj> readCachedDbKeyHash128TypeByScopeCodeVisIdx( long TenantId,
+		long ScopeId,
+		ICFBamSchema.CodeVisibilityEnum CodeVis );
+
 	List<ICFBamDbKeyHash128TypeObj> readCachedDbKeyHash128TypeBySchemaIdx( long TenantId,
 		long SchemaDefId );
 
@@ -487,6 +547,12 @@ public interface ICFBamDbKeyHash128TypeTableObj
 	void deepDisposeDbKeyHash128TypeByContNextIdx( long TenantId,
 		long ScopeId,
 		Long NextId );
+
+	void deepDisposeDbKeyHash128TypeByCodeVisIdx( ICFBamSchema.CodeVisibilityEnum CodeVis );
+
+	void deepDisposeDbKeyHash128TypeByScopeCodeVisIdx( long TenantId,
+		long ScopeId,
+		ICFBamSchema.CodeVisibilityEnum CodeVis );
 
 	void deepDisposeDbKeyHash128TypeBySchemaIdx( long TenantId,
 		long SchemaDefId );
@@ -596,6 +662,26 @@ public interface ICFBamDbKeyHash128TypeTableObj
 	void deleteDbKeyHash128TypeByContNextIdx( long TenantId,
 		long ScopeId,
 		Long NextId );
+
+	/**
+	 *	Internal use only.
+	 *
+	 *	@param	argCodeVis	The DbKeyHash128Type key attribute of the instance generating the id.
+	 */
+	void deleteDbKeyHash128TypeByCodeVisIdx( ICFBamSchema.CodeVisibilityEnum CodeVis );
+
+	/**
+	 *	Internal use only.
+	 *
+	 *	@param	argTenantId	The DbKeyHash128Type key attribute of the instance generating the id.
+	 *
+	 *	@param	argScopeId	The DbKeyHash128Type key attribute of the instance generating the id.
+	 *
+	 *	@param	argCodeVis	The DbKeyHash128Type key attribute of the instance generating the id.
+	 */
+	void deleteDbKeyHash128TypeByScopeCodeVisIdx( long TenantId,
+		long ScopeId,
+		ICFBamSchema.CodeVisibilityEnum CodeVis );
 
 	/**
 	 *	Internal use only.

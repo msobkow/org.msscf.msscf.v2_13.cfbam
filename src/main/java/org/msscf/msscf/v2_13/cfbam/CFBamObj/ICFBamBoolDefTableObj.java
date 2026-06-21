@@ -400,6 +400,60 @@ public interface ICFBamBoolDefTableObj
 		Long NextId,
 		boolean forceRead );
 
+	/**
+	 *	Get the map of CFBamValueObj instances sorted by their primary keys for the duplicate CodeVisIdx key.
+	 *
+	 *	@param	argCodeVis	The BoolDef key attribute of the instance generating the id.
+	 *
+	 *	@return	List of CFBamBoolDefObj cached instances sorted by their primary keys for the duplicate CodeVisIdx key,
+	 *		which may be an empty set.
+	 */
+	List<ICFBamBoolDefObj> readBoolDefByCodeVisIdx( ICFBamSchema.CodeVisibilityEnum CodeVis );
+
+	/**
+	 *	Get the map of CFBamBoolDefObj instances sorted by their primary keys for the duplicate CodeVisIdx key.
+	 *
+	 *	@param	argCodeVis	The BoolDef key attribute of the instance generating the id.
+	 *
+	 *	@return	List of CFBamBoolDefObj cached instances sorted by their primary keys for the duplicate CodeVisIdx key,
+	 *		which may be an empty set.
+	 */
+	List<ICFBamBoolDefObj> readBoolDefByCodeVisIdx( ICFBamSchema.CodeVisibilityEnum CodeVis,
+		boolean forceRead );
+
+	/**
+	 *	Get the map of CFBamValueObj instances sorted by their primary keys for the duplicate ScopeCodeVisIdx key.
+	 *
+	 *	@param	argTenantId	The BoolDef key attribute of the instance generating the id.
+	 *
+	 *	@param	argScopeId	The BoolDef key attribute of the instance generating the id.
+	 *
+	 *	@param	argCodeVis	The BoolDef key attribute of the instance generating the id.
+	 *
+	 *	@return	List of CFBamBoolDefObj cached instances sorted by their primary keys for the duplicate ScopeCodeVisIdx key,
+	 *		which may be an empty set.
+	 */
+	List<ICFBamBoolDefObj> readBoolDefByScopeCodeVisIdx( long TenantId,
+		long ScopeId,
+		ICFBamSchema.CodeVisibilityEnum CodeVis );
+
+	/**
+	 *	Get the map of CFBamBoolDefObj instances sorted by their primary keys for the duplicate ScopeCodeVisIdx key.
+	 *
+	 *	@param	argTenantId	The BoolDef key attribute of the instance generating the id.
+	 *
+	 *	@param	argScopeId	The BoolDef key attribute of the instance generating the id.
+	 *
+	 *	@param	argCodeVis	The BoolDef key attribute of the instance generating the id.
+	 *
+	 *	@return	List of CFBamBoolDefObj cached instances sorted by their primary keys for the duplicate ScopeCodeVisIdx key,
+	 *		which may be an empty set.
+	 */
+	List<ICFBamBoolDefObj> readBoolDefByScopeCodeVisIdx( long TenantId,
+		long ScopeId,
+		ICFBamSchema.CodeVisibilityEnum CodeVis,
+		boolean forceRead );
+
 	ICFBamBoolDefObj readCachedBoolDefByIdIdx( long TenantId,
 		long Id );
 
@@ -429,6 +483,12 @@ public interface ICFBamBoolDefTableObj
 		long ScopeId,
 		Long NextId );
 
+	List<ICFBamBoolDefObj> readCachedBoolDefByCodeVisIdx( ICFBamSchema.CodeVisibilityEnum CodeVis );
+
+	List<ICFBamBoolDefObj> readCachedBoolDefByScopeCodeVisIdx( long TenantId,
+		long ScopeId,
+		ICFBamSchema.CodeVisibilityEnum CodeVis );
+
 	void deepDisposeBoolDefByIdIdx( long TenantId,
 		long Id );
 
@@ -457,6 +517,12 @@ public interface ICFBamBoolDefTableObj
 	void deepDisposeBoolDefByContNextIdx( long TenantId,
 		long ScopeId,
 		Long NextId );
+
+	void deepDisposeBoolDefByCodeVisIdx( ICFBamSchema.CodeVisibilityEnum CodeVis );
+
+	void deepDisposeBoolDefByScopeCodeVisIdx( long TenantId,
+		long ScopeId,
+		ICFBamSchema.CodeVisibilityEnum CodeVis );
 
 	/**
 	 *	Internal use only.
@@ -563,6 +629,26 @@ public interface ICFBamBoolDefTableObj
 	void deleteBoolDefByContNextIdx( long TenantId,
 		long ScopeId,
 		Long NextId );
+
+	/**
+	 *	Internal use only.
+	 *
+	 *	@param	argCodeVis	The BoolDef key attribute of the instance generating the id.
+	 */
+	void deleteBoolDefByCodeVisIdx( ICFBamSchema.CodeVisibilityEnum CodeVis );
+
+	/**
+	 *	Internal use only.
+	 *
+	 *	@param	argTenantId	The BoolDef key attribute of the instance generating the id.
+	 *
+	 *	@param	argScopeId	The BoolDef key attribute of the instance generating the id.
+	 *
+	 *	@param	argCodeVis	The BoolDef key attribute of the instance generating the id.
+	 */
+	void deleteBoolDefByScopeCodeVisIdx( long TenantId,
+		long ScopeId,
+		ICFBamSchema.CodeVisibilityEnum CodeVis );
 
 	/**
 	 *	Move the CFBamBoolDefObj instance up in the chain.  The instance is always refreshed.

@@ -77,6 +77,7 @@ public class CFBamValueHBuff
 	public static final long PREVID_INIT_VALUE = 0L;
 	public static final long NEXTTENANTID_INIT_VALUE = 0L;
 	public static final long NEXTID_INIT_VALUE = 0L;
+	public static final ICFBamSchema.CodeVisibilityEnum CODEVIS_INIT_VALUE = CFBamSchema.ordinalToCodeVisibilityEnum( 0 );
 	public static final long TENANTID_MIN_VALUE = 0L;
 	public static final long SCOPEID_MIN_VALUE = 0L;
 	public static final long ID_MIN_VALUE = 0L;
@@ -86,6 +87,8 @@ public class CFBamValueHBuff
 	public static final long PREVID_MIN_VALUE = 0L;
 	public static final long NEXTTENANTID_MIN_VALUE = 0L;
 	public static final long NEXTID_MIN_VALUE = 0L;
+	public static final ICFBamSchema.CodeVisibilityEnum CODEVIS_MIN_VALUE = ICFBamSchema.CodeVisibilityEnum.Public;
+	public static final ICFBamSchema.CodeVisibilityEnum CODEVIS_MAX_VALUE = ICFBamSchema.CodeVisibilityEnum.Private;
 
 	protected long requiredTenantId;
 	protected long requiredScopeId;
@@ -105,6 +108,7 @@ public class CFBamValueHBuff
 	protected Long optionalPrevId;
 	protected Long optionalNextTenantId;
 	protected Long optionalNextId;
+	protected ICFBamSchema.CodeVisibilityEnum requiredCodeVis;
 	public CFBamValueHBuff() {
 		super();
 		requiredTenantId = CFBamValueBuff.TENANTID_INIT_VALUE;
@@ -125,6 +129,7 @@ public class CFBamValueHBuff
 		optionalPrevId = null;
 		optionalNextTenantId = null;
 		optionalNextId = null;
+		requiredCodeVis = CFBamValueBuff.CODEVIS_INIT_VALUE;
 	}
 
 	public String getClassCode() {
@@ -456,6 +461,20 @@ public class CFBamValueHBuff
 		}
 	}
 
+	public ICFBamSchema.CodeVisibilityEnum getRequiredCodeVis() {
+		return( requiredCodeVis );
+	}
+
+	public void setRequiredCodeVis( ICFBamSchema.CodeVisibilityEnum value ) {
+		if( value == null ) {
+			throw new CFLibNullArgumentException( getClass(),
+				"setRequiredCodeVis",
+				1,
+				"value" );
+		}
+		requiredCodeVis = value;
+	}
+
 	public boolean equals( Object obj ) {
 		if( obj == null ) {
 			return( false );
@@ -627,6 +646,9 @@ public class CFBamValueHBuff
 					return( false );
 				}
 			}
+			if( ! getRequiredCodeVis().equals( rhs.getRequiredCodeVis() ) ) {
+				return( false );
+			}
 			return( true );
 		}
 		else if( obj instanceof CFBamValueBuff ) {
@@ -796,6 +818,9 @@ public class CFBamValueHBuff
 					return( false );
 				}
 			}
+			if( ! getRequiredCodeVis().equals( rhs.getRequiredCodeVis() ) ) {
+				return( false );
+			}
 			return( true );
 		}
 		else if( obj instanceof CFBamValueByUNameIdxKey ) {
@@ -953,6 +978,26 @@ public class CFBamValueHBuff
 				if( rhs.getOptionalNextId() != null ) {
 					return( false );
 				}
+			}
+			return( true );
+		}
+		else if( obj instanceof CFBamValueByCodeVisIdxKey ) {
+			CFBamValueByCodeVisIdxKey rhs = (CFBamValueByCodeVisIdxKey)obj;
+			if( ! getRequiredCodeVis().equals( rhs.getRequiredCodeVis() ) ) {
+				return( false );
+			}
+			return( true );
+		}
+		else if( obj instanceof CFBamValueByScopeCodeVisIdxKey ) {
+			CFBamValueByScopeCodeVisIdxKey rhs = (CFBamValueByScopeCodeVisIdxKey)obj;
+			if( getRequiredTenantId() != rhs.getRequiredTenantId() ) {
+				return( false );
+			}
+			if( getRequiredScopeId() != rhs.getRequiredScopeId() ) {
+				return( false );
+			}
+			if( ! getRequiredCodeVis().equals( rhs.getRequiredCodeVis() ) ) {
+				return( false );
 			}
 			return( true );
 		}
@@ -1159,6 +1204,7 @@ public class CFBamValueHBuff
 		if( getOptionalNextId() != null ) {
 			hashCode = hashCode + getOptionalNextId().hashCode();
 		}
+		hashCode = ( hashCode * 0x10000 ) + getRequiredCodeVis().ordinal();
 		return( hashCode & 0x7fffffff );
 	}
 
@@ -1407,6 +1453,38 @@ public class CFBamValueHBuff
 			else {
 				if( rhs.getOptionalNextId() != null ) {
 					return( -1 );
+				}
+			}			return( 0 );
+		}
+		else if( obj instanceof CFBamValueByCodeVisIdxKey ) {
+			CFBamValueByCodeVisIdxKey rhs = (CFBamValueByCodeVisIdxKey)obj;
+
+			{
+				int cmp = getRequiredCodeVis().compareTo( rhs.getRequiredCodeVis() );
+				if( cmp != 0 ) {
+					return( cmp );
+				}
+			}			return( 0 );
+		}
+		else if( obj instanceof CFBamValueByScopeCodeVisIdxKey ) {
+			CFBamValueByScopeCodeVisIdxKey rhs = (CFBamValueByScopeCodeVisIdxKey)obj;
+
+			if( getRequiredTenantId() < rhs.getRequiredTenantId() ) {
+				return( -1 );
+			}
+			else if( getRequiredTenantId() > rhs.getRequiredTenantId() ) {
+				return( 1 );
+			}
+			if( getRequiredScopeId() < rhs.getRequiredScopeId() ) {
+				return( -1 );
+			}
+			else if( getRequiredScopeId() > rhs.getRequiredScopeId() ) {
+				return( 1 );
+			}
+			{
+				int cmp = getRequiredCodeVis().compareTo( rhs.getRequiredCodeVis() );
+				if( cmp != 0 ) {
+					return( cmp );
 				}
 			}			return( 0 );
 		}
@@ -1802,6 +1880,12 @@ public class CFBamValueHBuff
 					return( -1 );
 				}
 			}
+			{
+				int cmp = getRequiredCodeVis().compareTo( rhs.getRequiredCodeVis() );
+				if( cmp != 0 ) {
+					return( cmp );
+				}
+			}
 			return( 0 );
 		}
 		else if( obj instanceof CFBamValueHPKey ) {
@@ -1944,6 +2028,7 @@ public class CFBamValueHBuff
 		setOptionalPrevId( src.getOptionalPrevId() );
 		setOptionalNextTenantId( src.getOptionalNextTenantId() );
 		setOptionalNextId( src.getOptionalNextId() );
+		setRequiredCodeVis( src.getRequiredCodeVis() );
 		setRequiredRevision( src.getRequiredRevision() );
 	}
 
@@ -1970,6 +2055,7 @@ public class CFBamValueHBuff
 		setOptionalPrevId( src.getOptionalPrevId() );
 		setOptionalNextTenantId( src.getOptionalNextTenantId() );
 		setOptionalNextId( src.getOptionalNextId() );
+		setRequiredCodeVis( src.getRequiredCodeVis() );
 		setRequiredRevision( src.getRequiredRevision() );
 	}
 }

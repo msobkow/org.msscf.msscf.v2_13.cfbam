@@ -400,6 +400,60 @@ public interface ICFBamTZDateDefTableObj
 		Long NextId,
 		boolean forceRead );
 
+	/**
+	 *	Get the map of CFBamValueObj instances sorted by their primary keys for the duplicate CodeVisIdx key.
+	 *
+	 *	@param	argCodeVis	The TZDateDef key attribute of the instance generating the id.
+	 *
+	 *	@return	List of CFBamTZDateDefObj cached instances sorted by their primary keys for the duplicate CodeVisIdx key,
+	 *		which may be an empty set.
+	 */
+	List<ICFBamTZDateDefObj> readTZDateDefByCodeVisIdx( ICFBamSchema.CodeVisibilityEnum CodeVis );
+
+	/**
+	 *	Get the map of CFBamTZDateDefObj instances sorted by their primary keys for the duplicate CodeVisIdx key.
+	 *
+	 *	@param	argCodeVis	The TZDateDef key attribute of the instance generating the id.
+	 *
+	 *	@return	List of CFBamTZDateDefObj cached instances sorted by their primary keys for the duplicate CodeVisIdx key,
+	 *		which may be an empty set.
+	 */
+	List<ICFBamTZDateDefObj> readTZDateDefByCodeVisIdx( ICFBamSchema.CodeVisibilityEnum CodeVis,
+		boolean forceRead );
+
+	/**
+	 *	Get the map of CFBamValueObj instances sorted by their primary keys for the duplicate ScopeCodeVisIdx key.
+	 *
+	 *	@param	argTenantId	The TZDateDef key attribute of the instance generating the id.
+	 *
+	 *	@param	argScopeId	The TZDateDef key attribute of the instance generating the id.
+	 *
+	 *	@param	argCodeVis	The TZDateDef key attribute of the instance generating the id.
+	 *
+	 *	@return	List of CFBamTZDateDefObj cached instances sorted by their primary keys for the duplicate ScopeCodeVisIdx key,
+	 *		which may be an empty set.
+	 */
+	List<ICFBamTZDateDefObj> readTZDateDefByScopeCodeVisIdx( long TenantId,
+		long ScopeId,
+		ICFBamSchema.CodeVisibilityEnum CodeVis );
+
+	/**
+	 *	Get the map of CFBamTZDateDefObj instances sorted by their primary keys for the duplicate ScopeCodeVisIdx key.
+	 *
+	 *	@param	argTenantId	The TZDateDef key attribute of the instance generating the id.
+	 *
+	 *	@param	argScopeId	The TZDateDef key attribute of the instance generating the id.
+	 *
+	 *	@param	argCodeVis	The TZDateDef key attribute of the instance generating the id.
+	 *
+	 *	@return	List of CFBamTZDateDefObj cached instances sorted by their primary keys for the duplicate ScopeCodeVisIdx key,
+	 *		which may be an empty set.
+	 */
+	List<ICFBamTZDateDefObj> readTZDateDefByScopeCodeVisIdx( long TenantId,
+		long ScopeId,
+		ICFBamSchema.CodeVisibilityEnum CodeVis,
+		boolean forceRead );
+
 	ICFBamTZDateDefObj readCachedTZDateDefByIdIdx( long TenantId,
 		long Id );
 
@@ -429,6 +483,12 @@ public interface ICFBamTZDateDefTableObj
 		long ScopeId,
 		Long NextId );
 
+	List<ICFBamTZDateDefObj> readCachedTZDateDefByCodeVisIdx( ICFBamSchema.CodeVisibilityEnum CodeVis );
+
+	List<ICFBamTZDateDefObj> readCachedTZDateDefByScopeCodeVisIdx( long TenantId,
+		long ScopeId,
+		ICFBamSchema.CodeVisibilityEnum CodeVis );
+
 	void deepDisposeTZDateDefByIdIdx( long TenantId,
 		long Id );
 
@@ -457,6 +517,12 @@ public interface ICFBamTZDateDefTableObj
 	void deepDisposeTZDateDefByContNextIdx( long TenantId,
 		long ScopeId,
 		Long NextId );
+
+	void deepDisposeTZDateDefByCodeVisIdx( ICFBamSchema.CodeVisibilityEnum CodeVis );
+
+	void deepDisposeTZDateDefByScopeCodeVisIdx( long TenantId,
+		long ScopeId,
+		ICFBamSchema.CodeVisibilityEnum CodeVis );
 
 	/**
 	 *	Internal use only.
@@ -563,6 +629,26 @@ public interface ICFBamTZDateDefTableObj
 	void deleteTZDateDefByContNextIdx( long TenantId,
 		long ScopeId,
 		Long NextId );
+
+	/**
+	 *	Internal use only.
+	 *
+	 *	@param	argCodeVis	The TZDateDef key attribute of the instance generating the id.
+	 */
+	void deleteTZDateDefByCodeVisIdx( ICFBamSchema.CodeVisibilityEnum CodeVis );
+
+	/**
+	 *	Internal use only.
+	 *
+	 *	@param	argTenantId	The TZDateDef key attribute of the instance generating the id.
+	 *
+	 *	@param	argScopeId	The TZDateDef key attribute of the instance generating the id.
+	 *
+	 *	@param	argCodeVis	The TZDateDef key attribute of the instance generating the id.
+	 */
+	void deleteTZDateDefByScopeCodeVisIdx( long TenantId,
+		long ScopeId,
+		ICFBamSchema.CodeVisibilityEnum CodeVis );
 
 	/**
 	 *	Move the CFBamTZDateDefObj instance up in the chain.  The instance is always refreshed.

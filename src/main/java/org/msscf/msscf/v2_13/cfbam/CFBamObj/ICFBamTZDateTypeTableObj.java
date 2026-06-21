@@ -401,6 +401,60 @@ public interface ICFBamTZDateTypeTableObj
 		boolean forceRead );
 
 	/**
+	 *	Get the map of CFBamValueObj instances sorted by their primary keys for the duplicate CodeVisIdx key.
+	 *
+	 *	@param	argCodeVis	The TZDateType key attribute of the instance generating the id.
+	 *
+	 *	@return	List of CFBamTZDateTypeObj cached instances sorted by their primary keys for the duplicate CodeVisIdx key,
+	 *		which may be an empty set.
+	 */
+	List<ICFBamTZDateTypeObj> readTZDateTypeByCodeVisIdx( ICFBamSchema.CodeVisibilityEnum CodeVis );
+
+	/**
+	 *	Get the map of CFBamTZDateTypeObj instances sorted by their primary keys for the duplicate CodeVisIdx key.
+	 *
+	 *	@param	argCodeVis	The TZDateType key attribute of the instance generating the id.
+	 *
+	 *	@return	List of CFBamTZDateTypeObj cached instances sorted by their primary keys for the duplicate CodeVisIdx key,
+	 *		which may be an empty set.
+	 */
+	List<ICFBamTZDateTypeObj> readTZDateTypeByCodeVisIdx( ICFBamSchema.CodeVisibilityEnum CodeVis,
+		boolean forceRead );
+
+	/**
+	 *	Get the map of CFBamValueObj instances sorted by their primary keys for the duplicate ScopeCodeVisIdx key.
+	 *
+	 *	@param	argTenantId	The TZDateType key attribute of the instance generating the id.
+	 *
+	 *	@param	argScopeId	The TZDateType key attribute of the instance generating the id.
+	 *
+	 *	@param	argCodeVis	The TZDateType key attribute of the instance generating the id.
+	 *
+	 *	@return	List of CFBamTZDateTypeObj cached instances sorted by their primary keys for the duplicate ScopeCodeVisIdx key,
+	 *		which may be an empty set.
+	 */
+	List<ICFBamTZDateTypeObj> readTZDateTypeByScopeCodeVisIdx( long TenantId,
+		long ScopeId,
+		ICFBamSchema.CodeVisibilityEnum CodeVis );
+
+	/**
+	 *	Get the map of CFBamTZDateTypeObj instances sorted by their primary keys for the duplicate ScopeCodeVisIdx key.
+	 *
+	 *	@param	argTenantId	The TZDateType key attribute of the instance generating the id.
+	 *
+	 *	@param	argScopeId	The TZDateType key attribute of the instance generating the id.
+	 *
+	 *	@param	argCodeVis	The TZDateType key attribute of the instance generating the id.
+	 *
+	 *	@return	List of CFBamTZDateTypeObj cached instances sorted by their primary keys for the duplicate ScopeCodeVisIdx key,
+	 *		which may be an empty set.
+	 */
+	List<ICFBamTZDateTypeObj> readTZDateTypeByScopeCodeVisIdx( long TenantId,
+		long ScopeId,
+		ICFBamSchema.CodeVisibilityEnum CodeVis,
+		boolean forceRead );
+
+	/**
 	 *	Get the map of CFBamTZDateTypeObj instances sorted by their primary keys for the duplicate SchemaIdx key.
 	 *
 	 *	@param	argTenantId	The TZDateType key attribute of the instance generating the id.
@@ -456,6 +510,12 @@ public interface ICFBamTZDateTypeTableObj
 		long ScopeId,
 		Long NextId );
 
+	List<ICFBamTZDateTypeObj> readCachedTZDateTypeByCodeVisIdx( ICFBamSchema.CodeVisibilityEnum CodeVis );
+
+	List<ICFBamTZDateTypeObj> readCachedTZDateTypeByScopeCodeVisIdx( long TenantId,
+		long ScopeId,
+		ICFBamSchema.CodeVisibilityEnum CodeVis );
+
 	List<ICFBamTZDateTypeObj> readCachedTZDateTypeBySchemaIdx( long TenantId,
 		long SchemaDefId );
 
@@ -487,6 +547,12 @@ public interface ICFBamTZDateTypeTableObj
 	void deepDisposeTZDateTypeByContNextIdx( long TenantId,
 		long ScopeId,
 		Long NextId );
+
+	void deepDisposeTZDateTypeByCodeVisIdx( ICFBamSchema.CodeVisibilityEnum CodeVis );
+
+	void deepDisposeTZDateTypeByScopeCodeVisIdx( long TenantId,
+		long ScopeId,
+		ICFBamSchema.CodeVisibilityEnum CodeVis );
 
 	void deepDisposeTZDateTypeBySchemaIdx( long TenantId,
 		long SchemaDefId );
@@ -596,6 +662,26 @@ public interface ICFBamTZDateTypeTableObj
 	void deleteTZDateTypeByContNextIdx( long TenantId,
 		long ScopeId,
 		Long NextId );
+
+	/**
+	 *	Internal use only.
+	 *
+	 *	@param	argCodeVis	The TZDateType key attribute of the instance generating the id.
+	 */
+	void deleteTZDateTypeByCodeVisIdx( ICFBamSchema.CodeVisibilityEnum CodeVis );
+
+	/**
+	 *	Internal use only.
+	 *
+	 *	@param	argTenantId	The TZDateType key attribute of the instance generating the id.
+	 *
+	 *	@param	argScopeId	The TZDateType key attribute of the instance generating the id.
+	 *
+	 *	@param	argCodeVis	The TZDateType key attribute of the instance generating the id.
+	 */
+	void deleteTZDateTypeByScopeCodeVisIdx( long TenantId,
+		long ScopeId,
+		ICFBamSchema.CodeVisibilityEnum CodeVis );
 
 	/**
 	 *	Internal use only.

@@ -401,6 +401,60 @@ public interface ICFBamInt64ColTableObj
 		boolean forceRead );
 
 	/**
+	 *	Get the map of CFBamValueObj instances sorted by their primary keys for the duplicate CodeVisIdx key.
+	 *
+	 *	@param	argCodeVis	The Int64Col key attribute of the instance generating the id.
+	 *
+	 *	@return	List of CFBamInt64ColObj cached instances sorted by their primary keys for the duplicate CodeVisIdx key,
+	 *		which may be an empty set.
+	 */
+	List<ICFBamInt64ColObj> readInt64ColByCodeVisIdx( ICFBamSchema.CodeVisibilityEnum CodeVis );
+
+	/**
+	 *	Get the map of CFBamInt64ColObj instances sorted by their primary keys for the duplicate CodeVisIdx key.
+	 *
+	 *	@param	argCodeVis	The Int64Col key attribute of the instance generating the id.
+	 *
+	 *	@return	List of CFBamInt64ColObj cached instances sorted by their primary keys for the duplicate CodeVisIdx key,
+	 *		which may be an empty set.
+	 */
+	List<ICFBamInt64ColObj> readInt64ColByCodeVisIdx( ICFBamSchema.CodeVisibilityEnum CodeVis,
+		boolean forceRead );
+
+	/**
+	 *	Get the map of CFBamValueObj instances sorted by their primary keys for the duplicate ScopeCodeVisIdx key.
+	 *
+	 *	@param	argTenantId	The Int64Col key attribute of the instance generating the id.
+	 *
+	 *	@param	argScopeId	The Int64Col key attribute of the instance generating the id.
+	 *
+	 *	@param	argCodeVis	The Int64Col key attribute of the instance generating the id.
+	 *
+	 *	@return	List of CFBamInt64ColObj cached instances sorted by their primary keys for the duplicate ScopeCodeVisIdx key,
+	 *		which may be an empty set.
+	 */
+	List<ICFBamInt64ColObj> readInt64ColByScopeCodeVisIdx( long TenantId,
+		long ScopeId,
+		ICFBamSchema.CodeVisibilityEnum CodeVis );
+
+	/**
+	 *	Get the map of CFBamInt64ColObj instances sorted by their primary keys for the duplicate ScopeCodeVisIdx key.
+	 *
+	 *	@param	argTenantId	The Int64Col key attribute of the instance generating the id.
+	 *
+	 *	@param	argScopeId	The Int64Col key attribute of the instance generating the id.
+	 *
+	 *	@param	argCodeVis	The Int64Col key attribute of the instance generating the id.
+	 *
+	 *	@return	List of CFBamInt64ColObj cached instances sorted by their primary keys for the duplicate ScopeCodeVisIdx key,
+	 *		which may be an empty set.
+	 */
+	List<ICFBamInt64ColObj> readInt64ColByScopeCodeVisIdx( long TenantId,
+		long ScopeId,
+		ICFBamSchema.CodeVisibilityEnum CodeVis,
+		boolean forceRead );
+
+	/**
 	 *	Get the map of CFBamInt64ColObj instances sorted by their primary keys for the duplicate TableIdx key.
 	 *
 	 *	@param	argTenantId	The Int64Col key attribute of the instance generating the id.
@@ -456,6 +510,12 @@ public interface ICFBamInt64ColTableObj
 		long ScopeId,
 		Long NextId );
 
+	List<ICFBamInt64ColObj> readCachedInt64ColByCodeVisIdx( ICFBamSchema.CodeVisibilityEnum CodeVis );
+
+	List<ICFBamInt64ColObj> readCachedInt64ColByScopeCodeVisIdx( long TenantId,
+		long ScopeId,
+		ICFBamSchema.CodeVisibilityEnum CodeVis );
+
 	List<ICFBamInt64ColObj> readCachedInt64ColByTableIdx( long TenantId,
 		long TableId );
 
@@ -487,6 +547,12 @@ public interface ICFBamInt64ColTableObj
 	void deepDisposeInt64ColByContNextIdx( long TenantId,
 		long ScopeId,
 		Long NextId );
+
+	void deepDisposeInt64ColByCodeVisIdx( ICFBamSchema.CodeVisibilityEnum CodeVis );
+
+	void deepDisposeInt64ColByScopeCodeVisIdx( long TenantId,
+		long ScopeId,
+		ICFBamSchema.CodeVisibilityEnum CodeVis );
 
 	void deepDisposeInt64ColByTableIdx( long TenantId,
 		long TableId );
@@ -596,6 +662,26 @@ public interface ICFBamInt64ColTableObj
 	void deleteInt64ColByContNextIdx( long TenantId,
 		long ScopeId,
 		Long NextId );
+
+	/**
+	 *	Internal use only.
+	 *
+	 *	@param	argCodeVis	The Int64Col key attribute of the instance generating the id.
+	 */
+	void deleteInt64ColByCodeVisIdx( ICFBamSchema.CodeVisibilityEnum CodeVis );
+
+	/**
+	 *	Internal use only.
+	 *
+	 *	@param	argTenantId	The Int64Col key attribute of the instance generating the id.
+	 *
+	 *	@param	argScopeId	The Int64Col key attribute of the instance generating the id.
+	 *
+	 *	@param	argCodeVis	The Int64Col key attribute of the instance generating the id.
+	 */
+	void deleteInt64ColByScopeCodeVisIdx( long TenantId,
+		long ScopeId,
+		ICFBamSchema.CodeVisibilityEnum CodeVis );
 
 	/**
 	 *	Internal use only.

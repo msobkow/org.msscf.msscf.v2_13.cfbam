@@ -400,6 +400,60 @@ public interface ICFBamTimeDefTableObj
 		Long NextId,
 		boolean forceRead );
 
+	/**
+	 *	Get the map of CFBamValueObj instances sorted by their primary keys for the duplicate CodeVisIdx key.
+	 *
+	 *	@param	argCodeVis	The TimeDef key attribute of the instance generating the id.
+	 *
+	 *	@return	List of CFBamTimeDefObj cached instances sorted by their primary keys for the duplicate CodeVisIdx key,
+	 *		which may be an empty set.
+	 */
+	List<ICFBamTimeDefObj> readTimeDefByCodeVisIdx( ICFBamSchema.CodeVisibilityEnum CodeVis );
+
+	/**
+	 *	Get the map of CFBamTimeDefObj instances sorted by their primary keys for the duplicate CodeVisIdx key.
+	 *
+	 *	@param	argCodeVis	The TimeDef key attribute of the instance generating the id.
+	 *
+	 *	@return	List of CFBamTimeDefObj cached instances sorted by their primary keys for the duplicate CodeVisIdx key,
+	 *		which may be an empty set.
+	 */
+	List<ICFBamTimeDefObj> readTimeDefByCodeVisIdx( ICFBamSchema.CodeVisibilityEnum CodeVis,
+		boolean forceRead );
+
+	/**
+	 *	Get the map of CFBamValueObj instances sorted by their primary keys for the duplicate ScopeCodeVisIdx key.
+	 *
+	 *	@param	argTenantId	The TimeDef key attribute of the instance generating the id.
+	 *
+	 *	@param	argScopeId	The TimeDef key attribute of the instance generating the id.
+	 *
+	 *	@param	argCodeVis	The TimeDef key attribute of the instance generating the id.
+	 *
+	 *	@return	List of CFBamTimeDefObj cached instances sorted by their primary keys for the duplicate ScopeCodeVisIdx key,
+	 *		which may be an empty set.
+	 */
+	List<ICFBamTimeDefObj> readTimeDefByScopeCodeVisIdx( long TenantId,
+		long ScopeId,
+		ICFBamSchema.CodeVisibilityEnum CodeVis );
+
+	/**
+	 *	Get the map of CFBamTimeDefObj instances sorted by their primary keys for the duplicate ScopeCodeVisIdx key.
+	 *
+	 *	@param	argTenantId	The TimeDef key attribute of the instance generating the id.
+	 *
+	 *	@param	argScopeId	The TimeDef key attribute of the instance generating the id.
+	 *
+	 *	@param	argCodeVis	The TimeDef key attribute of the instance generating the id.
+	 *
+	 *	@return	List of CFBamTimeDefObj cached instances sorted by their primary keys for the duplicate ScopeCodeVisIdx key,
+	 *		which may be an empty set.
+	 */
+	List<ICFBamTimeDefObj> readTimeDefByScopeCodeVisIdx( long TenantId,
+		long ScopeId,
+		ICFBamSchema.CodeVisibilityEnum CodeVis,
+		boolean forceRead );
+
 	ICFBamTimeDefObj readCachedTimeDefByIdIdx( long TenantId,
 		long Id );
 
@@ -429,6 +483,12 @@ public interface ICFBamTimeDefTableObj
 		long ScopeId,
 		Long NextId );
 
+	List<ICFBamTimeDefObj> readCachedTimeDefByCodeVisIdx( ICFBamSchema.CodeVisibilityEnum CodeVis );
+
+	List<ICFBamTimeDefObj> readCachedTimeDefByScopeCodeVisIdx( long TenantId,
+		long ScopeId,
+		ICFBamSchema.CodeVisibilityEnum CodeVis );
+
 	void deepDisposeTimeDefByIdIdx( long TenantId,
 		long Id );
 
@@ -457,6 +517,12 @@ public interface ICFBamTimeDefTableObj
 	void deepDisposeTimeDefByContNextIdx( long TenantId,
 		long ScopeId,
 		Long NextId );
+
+	void deepDisposeTimeDefByCodeVisIdx( ICFBamSchema.CodeVisibilityEnum CodeVis );
+
+	void deepDisposeTimeDefByScopeCodeVisIdx( long TenantId,
+		long ScopeId,
+		ICFBamSchema.CodeVisibilityEnum CodeVis );
 
 	/**
 	 *	Internal use only.
@@ -563,6 +629,26 @@ public interface ICFBamTimeDefTableObj
 	void deleteTimeDefByContNextIdx( long TenantId,
 		long ScopeId,
 		Long NextId );
+
+	/**
+	 *	Internal use only.
+	 *
+	 *	@param	argCodeVis	The TimeDef key attribute of the instance generating the id.
+	 */
+	void deleteTimeDefByCodeVisIdx( ICFBamSchema.CodeVisibilityEnum CodeVis );
+
+	/**
+	 *	Internal use only.
+	 *
+	 *	@param	argTenantId	The TimeDef key attribute of the instance generating the id.
+	 *
+	 *	@param	argScopeId	The TimeDef key attribute of the instance generating the id.
+	 *
+	 *	@param	argCodeVis	The TimeDef key attribute of the instance generating the id.
+	 */
+	void deleteTimeDefByScopeCodeVisIdx( long TenantId,
+		long ScopeId,
+		ICFBamSchema.CodeVisibilityEnum CodeVis );
 
 	/**
 	 *	Move the CFBamTimeDefObj instance up in the chain.  The instance is always refreshed.

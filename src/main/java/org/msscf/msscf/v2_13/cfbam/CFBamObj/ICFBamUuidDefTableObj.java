@@ -400,6 +400,60 @@ public interface ICFBamUuidDefTableObj
 		Long NextId,
 		boolean forceRead );
 
+	/**
+	 *	Get the map of CFBamValueObj instances sorted by their primary keys for the duplicate CodeVisIdx key.
+	 *
+	 *	@param	argCodeVis	The UuidDef key attribute of the instance generating the id.
+	 *
+	 *	@return	List of CFBamUuidDefObj cached instances sorted by their primary keys for the duplicate CodeVisIdx key,
+	 *		which may be an empty set.
+	 */
+	List<ICFBamUuidDefObj> readUuidDefByCodeVisIdx( ICFBamSchema.CodeVisibilityEnum CodeVis );
+
+	/**
+	 *	Get the map of CFBamUuidDefObj instances sorted by their primary keys for the duplicate CodeVisIdx key.
+	 *
+	 *	@param	argCodeVis	The UuidDef key attribute of the instance generating the id.
+	 *
+	 *	@return	List of CFBamUuidDefObj cached instances sorted by their primary keys for the duplicate CodeVisIdx key,
+	 *		which may be an empty set.
+	 */
+	List<ICFBamUuidDefObj> readUuidDefByCodeVisIdx( ICFBamSchema.CodeVisibilityEnum CodeVis,
+		boolean forceRead );
+
+	/**
+	 *	Get the map of CFBamValueObj instances sorted by their primary keys for the duplicate ScopeCodeVisIdx key.
+	 *
+	 *	@param	argTenantId	The UuidDef key attribute of the instance generating the id.
+	 *
+	 *	@param	argScopeId	The UuidDef key attribute of the instance generating the id.
+	 *
+	 *	@param	argCodeVis	The UuidDef key attribute of the instance generating the id.
+	 *
+	 *	@return	List of CFBamUuidDefObj cached instances sorted by their primary keys for the duplicate ScopeCodeVisIdx key,
+	 *		which may be an empty set.
+	 */
+	List<ICFBamUuidDefObj> readUuidDefByScopeCodeVisIdx( long TenantId,
+		long ScopeId,
+		ICFBamSchema.CodeVisibilityEnum CodeVis );
+
+	/**
+	 *	Get the map of CFBamUuidDefObj instances sorted by their primary keys for the duplicate ScopeCodeVisIdx key.
+	 *
+	 *	@param	argTenantId	The UuidDef key attribute of the instance generating the id.
+	 *
+	 *	@param	argScopeId	The UuidDef key attribute of the instance generating the id.
+	 *
+	 *	@param	argCodeVis	The UuidDef key attribute of the instance generating the id.
+	 *
+	 *	@return	List of CFBamUuidDefObj cached instances sorted by their primary keys for the duplicate ScopeCodeVisIdx key,
+	 *		which may be an empty set.
+	 */
+	List<ICFBamUuidDefObj> readUuidDefByScopeCodeVisIdx( long TenantId,
+		long ScopeId,
+		ICFBamSchema.CodeVisibilityEnum CodeVis,
+		boolean forceRead );
+
 	ICFBamUuidDefObj readCachedUuidDefByIdIdx( long TenantId,
 		long Id );
 
@@ -429,6 +483,12 @@ public interface ICFBamUuidDefTableObj
 		long ScopeId,
 		Long NextId );
 
+	List<ICFBamUuidDefObj> readCachedUuidDefByCodeVisIdx( ICFBamSchema.CodeVisibilityEnum CodeVis );
+
+	List<ICFBamUuidDefObj> readCachedUuidDefByScopeCodeVisIdx( long TenantId,
+		long ScopeId,
+		ICFBamSchema.CodeVisibilityEnum CodeVis );
+
 	void deepDisposeUuidDefByIdIdx( long TenantId,
 		long Id );
 
@@ -457,6 +517,12 @@ public interface ICFBamUuidDefTableObj
 	void deepDisposeUuidDefByContNextIdx( long TenantId,
 		long ScopeId,
 		Long NextId );
+
+	void deepDisposeUuidDefByCodeVisIdx( ICFBamSchema.CodeVisibilityEnum CodeVis );
+
+	void deepDisposeUuidDefByScopeCodeVisIdx( long TenantId,
+		long ScopeId,
+		ICFBamSchema.CodeVisibilityEnum CodeVis );
 
 	/**
 	 *	Internal use only.
@@ -563,6 +629,26 @@ public interface ICFBamUuidDefTableObj
 	void deleteUuidDefByContNextIdx( long TenantId,
 		long ScopeId,
 		Long NextId );
+
+	/**
+	 *	Internal use only.
+	 *
+	 *	@param	argCodeVis	The UuidDef key attribute of the instance generating the id.
+	 */
+	void deleteUuidDefByCodeVisIdx( ICFBamSchema.CodeVisibilityEnum CodeVis );
+
+	/**
+	 *	Internal use only.
+	 *
+	 *	@param	argTenantId	The UuidDef key attribute of the instance generating the id.
+	 *
+	 *	@param	argScopeId	The UuidDef key attribute of the instance generating the id.
+	 *
+	 *	@param	argCodeVis	The UuidDef key attribute of the instance generating the id.
+	 */
+	void deleteUuidDefByScopeCodeVisIdx( long TenantId,
+		long ScopeId,
+		ICFBamSchema.CodeVisibilityEnum CodeVis );
 
 	/**
 	 *	Move the CFBamUuidDefObj instance up in the chain.  The instance is always refreshed.

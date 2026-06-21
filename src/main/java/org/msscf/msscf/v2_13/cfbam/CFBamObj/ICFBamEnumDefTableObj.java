@@ -400,6 +400,60 @@ public interface ICFBamEnumDefTableObj
 		Long NextId,
 		boolean forceRead );
 
+	/**
+	 *	Get the map of CFBamValueObj instances sorted by their primary keys for the duplicate CodeVisIdx key.
+	 *
+	 *	@param	argCodeVis	The EnumDef key attribute of the instance generating the id.
+	 *
+	 *	@return	List of CFBamEnumDefObj cached instances sorted by their primary keys for the duplicate CodeVisIdx key,
+	 *		which may be an empty set.
+	 */
+	List<ICFBamEnumDefObj> readEnumDefByCodeVisIdx( ICFBamSchema.CodeVisibilityEnum CodeVis );
+
+	/**
+	 *	Get the map of CFBamEnumDefObj instances sorted by their primary keys for the duplicate CodeVisIdx key.
+	 *
+	 *	@param	argCodeVis	The EnumDef key attribute of the instance generating the id.
+	 *
+	 *	@return	List of CFBamEnumDefObj cached instances sorted by their primary keys for the duplicate CodeVisIdx key,
+	 *		which may be an empty set.
+	 */
+	List<ICFBamEnumDefObj> readEnumDefByCodeVisIdx( ICFBamSchema.CodeVisibilityEnum CodeVis,
+		boolean forceRead );
+
+	/**
+	 *	Get the map of CFBamValueObj instances sorted by their primary keys for the duplicate ScopeCodeVisIdx key.
+	 *
+	 *	@param	argTenantId	The EnumDef key attribute of the instance generating the id.
+	 *
+	 *	@param	argScopeId	The EnumDef key attribute of the instance generating the id.
+	 *
+	 *	@param	argCodeVis	The EnumDef key attribute of the instance generating the id.
+	 *
+	 *	@return	List of CFBamEnumDefObj cached instances sorted by their primary keys for the duplicate ScopeCodeVisIdx key,
+	 *		which may be an empty set.
+	 */
+	List<ICFBamEnumDefObj> readEnumDefByScopeCodeVisIdx( long TenantId,
+		long ScopeId,
+		ICFBamSchema.CodeVisibilityEnum CodeVis );
+
+	/**
+	 *	Get the map of CFBamEnumDefObj instances sorted by their primary keys for the duplicate ScopeCodeVisIdx key.
+	 *
+	 *	@param	argTenantId	The EnumDef key attribute of the instance generating the id.
+	 *
+	 *	@param	argScopeId	The EnumDef key attribute of the instance generating the id.
+	 *
+	 *	@param	argCodeVis	The EnumDef key attribute of the instance generating the id.
+	 *
+	 *	@return	List of CFBamEnumDefObj cached instances sorted by their primary keys for the duplicate ScopeCodeVisIdx key,
+	 *		which may be an empty set.
+	 */
+	List<ICFBamEnumDefObj> readEnumDefByScopeCodeVisIdx( long TenantId,
+		long ScopeId,
+		ICFBamSchema.CodeVisibilityEnum CodeVis,
+		boolean forceRead );
+
 	ICFBamEnumDefObj readCachedEnumDefByIdIdx( long TenantId,
 		long Id );
 
@@ -429,6 +483,12 @@ public interface ICFBamEnumDefTableObj
 		long ScopeId,
 		Long NextId );
 
+	List<ICFBamEnumDefObj> readCachedEnumDefByCodeVisIdx( ICFBamSchema.CodeVisibilityEnum CodeVis );
+
+	List<ICFBamEnumDefObj> readCachedEnumDefByScopeCodeVisIdx( long TenantId,
+		long ScopeId,
+		ICFBamSchema.CodeVisibilityEnum CodeVis );
+
 	void deepDisposeEnumDefByIdIdx( long TenantId,
 		long Id );
 
@@ -457,6 +517,12 @@ public interface ICFBamEnumDefTableObj
 	void deepDisposeEnumDefByContNextIdx( long TenantId,
 		long ScopeId,
 		Long NextId );
+
+	void deepDisposeEnumDefByCodeVisIdx( ICFBamSchema.CodeVisibilityEnum CodeVis );
+
+	void deepDisposeEnumDefByScopeCodeVisIdx( long TenantId,
+		long ScopeId,
+		ICFBamSchema.CodeVisibilityEnum CodeVis );
 
 	/**
 	 *	Internal use only.
@@ -563,6 +629,26 @@ public interface ICFBamEnumDefTableObj
 	void deleteEnumDefByContNextIdx( long TenantId,
 		long ScopeId,
 		Long NextId );
+
+	/**
+	 *	Internal use only.
+	 *
+	 *	@param	argCodeVis	The EnumDef key attribute of the instance generating the id.
+	 */
+	void deleteEnumDefByCodeVisIdx( ICFBamSchema.CodeVisibilityEnum CodeVis );
+
+	/**
+	 *	Internal use only.
+	 *
+	 *	@param	argTenantId	The EnumDef key attribute of the instance generating the id.
+	 *
+	 *	@param	argScopeId	The EnumDef key attribute of the instance generating the id.
+	 *
+	 *	@param	argCodeVis	The EnumDef key attribute of the instance generating the id.
+	 */
+	void deleteEnumDefByScopeCodeVisIdx( long TenantId,
+		long ScopeId,
+		ICFBamSchema.CodeVisibilityEnum CodeVis );
 
 	/**
 	 *	Move the CFBamEnumDefObj instance up in the chain.  The instance is always refreshed.

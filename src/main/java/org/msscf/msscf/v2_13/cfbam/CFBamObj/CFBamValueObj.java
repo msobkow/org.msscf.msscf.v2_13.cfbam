@@ -458,6 +458,10 @@ public class CFBamValueObj
 		return( getValueBuff().getOptionalNextId() );
 	}
 
+	public ICFBamSchema.CodeVisibilityEnum getRequiredCodeVis() {
+		return( getValueBuff().getRequiredCodeVis() );
+	}
+
 	public ICFSecTenantObj getRequiredOwnerTenant() {
 		return( getRequiredOwnerTenant( false ) );
 	}

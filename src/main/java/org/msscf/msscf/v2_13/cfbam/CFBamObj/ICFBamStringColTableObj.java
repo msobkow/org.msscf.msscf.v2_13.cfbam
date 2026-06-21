@@ -401,6 +401,60 @@ public interface ICFBamStringColTableObj
 		boolean forceRead );
 
 	/**
+	 *	Get the map of CFBamValueObj instances sorted by their primary keys for the duplicate CodeVisIdx key.
+	 *
+	 *	@param	argCodeVis	The StringCol key attribute of the instance generating the id.
+	 *
+	 *	@return	List of CFBamStringColObj cached instances sorted by their primary keys for the duplicate CodeVisIdx key,
+	 *		which may be an empty set.
+	 */
+	List<ICFBamStringColObj> readStringColByCodeVisIdx( ICFBamSchema.CodeVisibilityEnum CodeVis );
+
+	/**
+	 *	Get the map of CFBamStringColObj instances sorted by their primary keys for the duplicate CodeVisIdx key.
+	 *
+	 *	@param	argCodeVis	The StringCol key attribute of the instance generating the id.
+	 *
+	 *	@return	List of CFBamStringColObj cached instances sorted by their primary keys for the duplicate CodeVisIdx key,
+	 *		which may be an empty set.
+	 */
+	List<ICFBamStringColObj> readStringColByCodeVisIdx( ICFBamSchema.CodeVisibilityEnum CodeVis,
+		boolean forceRead );
+
+	/**
+	 *	Get the map of CFBamValueObj instances sorted by their primary keys for the duplicate ScopeCodeVisIdx key.
+	 *
+	 *	@param	argTenantId	The StringCol key attribute of the instance generating the id.
+	 *
+	 *	@param	argScopeId	The StringCol key attribute of the instance generating the id.
+	 *
+	 *	@param	argCodeVis	The StringCol key attribute of the instance generating the id.
+	 *
+	 *	@return	List of CFBamStringColObj cached instances sorted by their primary keys for the duplicate ScopeCodeVisIdx key,
+	 *		which may be an empty set.
+	 */
+	List<ICFBamStringColObj> readStringColByScopeCodeVisIdx( long TenantId,
+		long ScopeId,
+		ICFBamSchema.CodeVisibilityEnum CodeVis );
+
+	/**
+	 *	Get the map of CFBamStringColObj instances sorted by their primary keys for the duplicate ScopeCodeVisIdx key.
+	 *
+	 *	@param	argTenantId	The StringCol key attribute of the instance generating the id.
+	 *
+	 *	@param	argScopeId	The StringCol key attribute of the instance generating the id.
+	 *
+	 *	@param	argCodeVis	The StringCol key attribute of the instance generating the id.
+	 *
+	 *	@return	List of CFBamStringColObj cached instances sorted by their primary keys for the duplicate ScopeCodeVisIdx key,
+	 *		which may be an empty set.
+	 */
+	List<ICFBamStringColObj> readStringColByScopeCodeVisIdx( long TenantId,
+		long ScopeId,
+		ICFBamSchema.CodeVisibilityEnum CodeVis,
+		boolean forceRead );
+
+	/**
 	 *	Get the map of CFBamStringColObj instances sorted by their primary keys for the duplicate TableIdx key.
 	 *
 	 *	@param	argTenantId	The StringCol key attribute of the instance generating the id.
@@ -456,6 +510,12 @@ public interface ICFBamStringColTableObj
 		long ScopeId,
 		Long NextId );
 
+	List<ICFBamStringColObj> readCachedStringColByCodeVisIdx( ICFBamSchema.CodeVisibilityEnum CodeVis );
+
+	List<ICFBamStringColObj> readCachedStringColByScopeCodeVisIdx( long TenantId,
+		long ScopeId,
+		ICFBamSchema.CodeVisibilityEnum CodeVis );
+
 	List<ICFBamStringColObj> readCachedStringColByTableIdx( long TenantId,
 		long TableId );
 
@@ -487,6 +547,12 @@ public interface ICFBamStringColTableObj
 	void deepDisposeStringColByContNextIdx( long TenantId,
 		long ScopeId,
 		Long NextId );
+
+	void deepDisposeStringColByCodeVisIdx( ICFBamSchema.CodeVisibilityEnum CodeVis );
+
+	void deepDisposeStringColByScopeCodeVisIdx( long TenantId,
+		long ScopeId,
+		ICFBamSchema.CodeVisibilityEnum CodeVis );
 
 	void deepDisposeStringColByTableIdx( long TenantId,
 		long TableId );
@@ -596,6 +662,26 @@ public interface ICFBamStringColTableObj
 	void deleteStringColByContNextIdx( long TenantId,
 		long ScopeId,
 		Long NextId );
+
+	/**
+	 *	Internal use only.
+	 *
+	 *	@param	argCodeVis	The StringCol key attribute of the instance generating the id.
+	 */
+	void deleteStringColByCodeVisIdx( ICFBamSchema.CodeVisibilityEnum CodeVis );
+
+	/**
+	 *	Internal use only.
+	 *
+	 *	@param	argTenantId	The StringCol key attribute of the instance generating the id.
+	 *
+	 *	@param	argScopeId	The StringCol key attribute of the instance generating the id.
+	 *
+	 *	@param	argCodeVis	The StringCol key attribute of the instance generating the id.
+	 */
+	void deleteStringColByScopeCodeVisIdx( long TenantId,
+		long ScopeId,
+		ICFBamSchema.CodeVisibilityEnum CodeVis );
 
 	/**
 	 *	Internal use only.

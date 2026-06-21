@@ -401,6 +401,60 @@ public interface ICFBamBoolTypeTableObj
 		boolean forceRead );
 
 	/**
+	 *	Get the map of CFBamValueObj instances sorted by their primary keys for the duplicate CodeVisIdx key.
+	 *
+	 *	@param	argCodeVis	The BoolType key attribute of the instance generating the id.
+	 *
+	 *	@return	List of CFBamBoolTypeObj cached instances sorted by their primary keys for the duplicate CodeVisIdx key,
+	 *		which may be an empty set.
+	 */
+	List<ICFBamBoolTypeObj> readBoolTypeByCodeVisIdx( ICFBamSchema.CodeVisibilityEnum CodeVis );
+
+	/**
+	 *	Get the map of CFBamBoolTypeObj instances sorted by their primary keys for the duplicate CodeVisIdx key.
+	 *
+	 *	@param	argCodeVis	The BoolType key attribute of the instance generating the id.
+	 *
+	 *	@return	List of CFBamBoolTypeObj cached instances sorted by their primary keys for the duplicate CodeVisIdx key,
+	 *		which may be an empty set.
+	 */
+	List<ICFBamBoolTypeObj> readBoolTypeByCodeVisIdx( ICFBamSchema.CodeVisibilityEnum CodeVis,
+		boolean forceRead );
+
+	/**
+	 *	Get the map of CFBamValueObj instances sorted by their primary keys for the duplicate ScopeCodeVisIdx key.
+	 *
+	 *	@param	argTenantId	The BoolType key attribute of the instance generating the id.
+	 *
+	 *	@param	argScopeId	The BoolType key attribute of the instance generating the id.
+	 *
+	 *	@param	argCodeVis	The BoolType key attribute of the instance generating the id.
+	 *
+	 *	@return	List of CFBamBoolTypeObj cached instances sorted by their primary keys for the duplicate ScopeCodeVisIdx key,
+	 *		which may be an empty set.
+	 */
+	List<ICFBamBoolTypeObj> readBoolTypeByScopeCodeVisIdx( long TenantId,
+		long ScopeId,
+		ICFBamSchema.CodeVisibilityEnum CodeVis );
+
+	/**
+	 *	Get the map of CFBamBoolTypeObj instances sorted by their primary keys for the duplicate ScopeCodeVisIdx key.
+	 *
+	 *	@param	argTenantId	The BoolType key attribute of the instance generating the id.
+	 *
+	 *	@param	argScopeId	The BoolType key attribute of the instance generating the id.
+	 *
+	 *	@param	argCodeVis	The BoolType key attribute of the instance generating the id.
+	 *
+	 *	@return	List of CFBamBoolTypeObj cached instances sorted by their primary keys for the duplicate ScopeCodeVisIdx key,
+	 *		which may be an empty set.
+	 */
+	List<ICFBamBoolTypeObj> readBoolTypeByScopeCodeVisIdx( long TenantId,
+		long ScopeId,
+		ICFBamSchema.CodeVisibilityEnum CodeVis,
+		boolean forceRead );
+
+	/**
 	 *	Get the map of CFBamBoolTypeObj instances sorted by their primary keys for the duplicate SchemaIdx key.
 	 *
 	 *	@param	argTenantId	The BoolType key attribute of the instance generating the id.
@@ -456,6 +510,12 @@ public interface ICFBamBoolTypeTableObj
 		long ScopeId,
 		Long NextId );
 
+	List<ICFBamBoolTypeObj> readCachedBoolTypeByCodeVisIdx( ICFBamSchema.CodeVisibilityEnum CodeVis );
+
+	List<ICFBamBoolTypeObj> readCachedBoolTypeByScopeCodeVisIdx( long TenantId,
+		long ScopeId,
+		ICFBamSchema.CodeVisibilityEnum CodeVis );
+
 	List<ICFBamBoolTypeObj> readCachedBoolTypeBySchemaIdx( long TenantId,
 		long SchemaDefId );
 
@@ -487,6 +547,12 @@ public interface ICFBamBoolTypeTableObj
 	void deepDisposeBoolTypeByContNextIdx( long TenantId,
 		long ScopeId,
 		Long NextId );
+
+	void deepDisposeBoolTypeByCodeVisIdx( ICFBamSchema.CodeVisibilityEnum CodeVis );
+
+	void deepDisposeBoolTypeByScopeCodeVisIdx( long TenantId,
+		long ScopeId,
+		ICFBamSchema.CodeVisibilityEnum CodeVis );
 
 	void deepDisposeBoolTypeBySchemaIdx( long TenantId,
 		long SchemaDefId );
@@ -596,6 +662,26 @@ public interface ICFBamBoolTypeTableObj
 	void deleteBoolTypeByContNextIdx( long TenantId,
 		long ScopeId,
 		Long NextId );
+
+	/**
+	 *	Internal use only.
+	 *
+	 *	@param	argCodeVis	The BoolType key attribute of the instance generating the id.
+	 */
+	void deleteBoolTypeByCodeVisIdx( ICFBamSchema.CodeVisibilityEnum CodeVis );
+
+	/**
+	 *	Internal use only.
+	 *
+	 *	@param	argTenantId	The BoolType key attribute of the instance generating the id.
+	 *
+	 *	@param	argScopeId	The BoolType key attribute of the instance generating the id.
+	 *
+	 *	@param	argCodeVis	The BoolType key attribute of the instance generating the id.
+	 */
+	void deleteBoolTypeByScopeCodeVisIdx( long TenantId,
+		long ScopeId,
+		ICFBamSchema.CodeVisibilityEnum CodeVis );
 
 	/**
 	 *	Internal use only.

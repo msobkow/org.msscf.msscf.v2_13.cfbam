@@ -400,6 +400,60 @@ public interface ICFBamTZTimeDefTableObj
 		Long NextId,
 		boolean forceRead );
 
+	/**
+	 *	Get the map of CFBamValueObj instances sorted by their primary keys for the duplicate CodeVisIdx key.
+	 *
+	 *	@param	argCodeVis	The TZTimeDef key attribute of the instance generating the id.
+	 *
+	 *	@return	List of CFBamTZTimeDefObj cached instances sorted by their primary keys for the duplicate CodeVisIdx key,
+	 *		which may be an empty set.
+	 */
+	List<ICFBamTZTimeDefObj> readTZTimeDefByCodeVisIdx( ICFBamSchema.CodeVisibilityEnum CodeVis );
+
+	/**
+	 *	Get the map of CFBamTZTimeDefObj instances sorted by their primary keys for the duplicate CodeVisIdx key.
+	 *
+	 *	@param	argCodeVis	The TZTimeDef key attribute of the instance generating the id.
+	 *
+	 *	@return	List of CFBamTZTimeDefObj cached instances sorted by their primary keys for the duplicate CodeVisIdx key,
+	 *		which may be an empty set.
+	 */
+	List<ICFBamTZTimeDefObj> readTZTimeDefByCodeVisIdx( ICFBamSchema.CodeVisibilityEnum CodeVis,
+		boolean forceRead );
+
+	/**
+	 *	Get the map of CFBamValueObj instances sorted by their primary keys for the duplicate ScopeCodeVisIdx key.
+	 *
+	 *	@param	argTenantId	The TZTimeDef key attribute of the instance generating the id.
+	 *
+	 *	@param	argScopeId	The TZTimeDef key attribute of the instance generating the id.
+	 *
+	 *	@param	argCodeVis	The TZTimeDef key attribute of the instance generating the id.
+	 *
+	 *	@return	List of CFBamTZTimeDefObj cached instances sorted by their primary keys for the duplicate ScopeCodeVisIdx key,
+	 *		which may be an empty set.
+	 */
+	List<ICFBamTZTimeDefObj> readTZTimeDefByScopeCodeVisIdx( long TenantId,
+		long ScopeId,
+		ICFBamSchema.CodeVisibilityEnum CodeVis );
+
+	/**
+	 *	Get the map of CFBamTZTimeDefObj instances sorted by their primary keys for the duplicate ScopeCodeVisIdx key.
+	 *
+	 *	@param	argTenantId	The TZTimeDef key attribute of the instance generating the id.
+	 *
+	 *	@param	argScopeId	The TZTimeDef key attribute of the instance generating the id.
+	 *
+	 *	@param	argCodeVis	The TZTimeDef key attribute of the instance generating the id.
+	 *
+	 *	@return	List of CFBamTZTimeDefObj cached instances sorted by their primary keys for the duplicate ScopeCodeVisIdx key,
+	 *		which may be an empty set.
+	 */
+	List<ICFBamTZTimeDefObj> readTZTimeDefByScopeCodeVisIdx( long TenantId,
+		long ScopeId,
+		ICFBamSchema.CodeVisibilityEnum CodeVis,
+		boolean forceRead );
+
 	ICFBamTZTimeDefObj readCachedTZTimeDefByIdIdx( long TenantId,
 		long Id );
 
@@ -429,6 +483,12 @@ public interface ICFBamTZTimeDefTableObj
 		long ScopeId,
 		Long NextId );
 
+	List<ICFBamTZTimeDefObj> readCachedTZTimeDefByCodeVisIdx( ICFBamSchema.CodeVisibilityEnum CodeVis );
+
+	List<ICFBamTZTimeDefObj> readCachedTZTimeDefByScopeCodeVisIdx( long TenantId,
+		long ScopeId,
+		ICFBamSchema.CodeVisibilityEnum CodeVis );
+
 	void deepDisposeTZTimeDefByIdIdx( long TenantId,
 		long Id );
 
@@ -457,6 +517,12 @@ public interface ICFBamTZTimeDefTableObj
 	void deepDisposeTZTimeDefByContNextIdx( long TenantId,
 		long ScopeId,
 		Long NextId );
+
+	void deepDisposeTZTimeDefByCodeVisIdx( ICFBamSchema.CodeVisibilityEnum CodeVis );
+
+	void deepDisposeTZTimeDefByScopeCodeVisIdx( long TenantId,
+		long ScopeId,
+		ICFBamSchema.CodeVisibilityEnum CodeVis );
 
 	/**
 	 *	Internal use only.
@@ -563,6 +629,26 @@ public interface ICFBamTZTimeDefTableObj
 	void deleteTZTimeDefByContNextIdx( long TenantId,
 		long ScopeId,
 		Long NextId );
+
+	/**
+	 *	Internal use only.
+	 *
+	 *	@param	argCodeVis	The TZTimeDef key attribute of the instance generating the id.
+	 */
+	void deleteTZTimeDefByCodeVisIdx( ICFBamSchema.CodeVisibilityEnum CodeVis );
+
+	/**
+	 *	Internal use only.
+	 *
+	 *	@param	argTenantId	The TZTimeDef key attribute of the instance generating the id.
+	 *
+	 *	@param	argScopeId	The TZTimeDef key attribute of the instance generating the id.
+	 *
+	 *	@param	argCodeVis	The TZTimeDef key attribute of the instance generating the id.
+	 */
+	void deleteTZTimeDefByScopeCodeVisIdx( long TenantId,
+		long ScopeId,
+		ICFBamSchema.CodeVisibilityEnum CodeVis );
 
 	/**
 	 *	Move the CFBamTZTimeDefObj instance up in the chain.  The instance is always refreshed.

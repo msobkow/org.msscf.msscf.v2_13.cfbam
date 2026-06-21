@@ -136,6 +136,20 @@ public interface ICFBamValueFactory
 	CFBamValueByContNextIdxKey newContNextIdxKey();
 
 	/**
+	 *	Allocate a CodeVisIdx key over Value instances.
+	 *
+	 *	@return	The new instance.
+	 */
+	CFBamValueByCodeVisIdxKey newCodeVisIdxKey();
+
+	/**
+	 *	Allocate a ScopeCodeVisIdx key over Value instances.
+	 *
+	 *	@return	The new instance.
+	 */
+	CFBamValueByScopeCodeVisIdxKey newScopeCodeVisIdxKey();
+
+	/**
 	 *	Allocate a Value instance buffer.
 	 *
 	 *	@return	The new instance.

@@ -401,6 +401,60 @@ public interface ICFBamDoubleTypeTableObj
 		boolean forceRead );
 
 	/**
+	 *	Get the map of CFBamValueObj instances sorted by their primary keys for the duplicate CodeVisIdx key.
+	 *
+	 *	@param	argCodeVis	The DoubleType key attribute of the instance generating the id.
+	 *
+	 *	@return	List of CFBamDoubleTypeObj cached instances sorted by their primary keys for the duplicate CodeVisIdx key,
+	 *		which may be an empty set.
+	 */
+	List<ICFBamDoubleTypeObj> readDoubleTypeByCodeVisIdx( ICFBamSchema.CodeVisibilityEnum CodeVis );
+
+	/**
+	 *	Get the map of CFBamDoubleTypeObj instances sorted by their primary keys for the duplicate CodeVisIdx key.
+	 *
+	 *	@param	argCodeVis	The DoubleType key attribute of the instance generating the id.
+	 *
+	 *	@return	List of CFBamDoubleTypeObj cached instances sorted by their primary keys for the duplicate CodeVisIdx key,
+	 *		which may be an empty set.
+	 */
+	List<ICFBamDoubleTypeObj> readDoubleTypeByCodeVisIdx( ICFBamSchema.CodeVisibilityEnum CodeVis,
+		boolean forceRead );
+
+	/**
+	 *	Get the map of CFBamValueObj instances sorted by their primary keys for the duplicate ScopeCodeVisIdx key.
+	 *
+	 *	@param	argTenantId	The DoubleType key attribute of the instance generating the id.
+	 *
+	 *	@param	argScopeId	The DoubleType key attribute of the instance generating the id.
+	 *
+	 *	@param	argCodeVis	The DoubleType key attribute of the instance generating the id.
+	 *
+	 *	@return	List of CFBamDoubleTypeObj cached instances sorted by their primary keys for the duplicate ScopeCodeVisIdx key,
+	 *		which may be an empty set.
+	 */
+	List<ICFBamDoubleTypeObj> readDoubleTypeByScopeCodeVisIdx( long TenantId,
+		long ScopeId,
+		ICFBamSchema.CodeVisibilityEnum CodeVis );
+
+	/**
+	 *	Get the map of CFBamDoubleTypeObj instances sorted by their primary keys for the duplicate ScopeCodeVisIdx key.
+	 *
+	 *	@param	argTenantId	The DoubleType key attribute of the instance generating the id.
+	 *
+	 *	@param	argScopeId	The DoubleType key attribute of the instance generating the id.
+	 *
+	 *	@param	argCodeVis	The DoubleType key attribute of the instance generating the id.
+	 *
+	 *	@return	List of CFBamDoubleTypeObj cached instances sorted by their primary keys for the duplicate ScopeCodeVisIdx key,
+	 *		which may be an empty set.
+	 */
+	List<ICFBamDoubleTypeObj> readDoubleTypeByScopeCodeVisIdx( long TenantId,
+		long ScopeId,
+		ICFBamSchema.CodeVisibilityEnum CodeVis,
+		boolean forceRead );
+
+	/**
 	 *	Get the map of CFBamDoubleTypeObj instances sorted by their primary keys for the duplicate SchemaIdx key.
 	 *
 	 *	@param	argTenantId	The DoubleType key attribute of the instance generating the id.
@@ -456,6 +510,12 @@ public interface ICFBamDoubleTypeTableObj
 		long ScopeId,
 		Long NextId );
 
+	List<ICFBamDoubleTypeObj> readCachedDoubleTypeByCodeVisIdx( ICFBamSchema.CodeVisibilityEnum CodeVis );
+
+	List<ICFBamDoubleTypeObj> readCachedDoubleTypeByScopeCodeVisIdx( long TenantId,
+		long ScopeId,
+		ICFBamSchema.CodeVisibilityEnum CodeVis );
+
 	List<ICFBamDoubleTypeObj> readCachedDoubleTypeBySchemaIdx( long TenantId,
 		long SchemaDefId );
 
@@ -487,6 +547,12 @@ public interface ICFBamDoubleTypeTableObj
 	void deepDisposeDoubleTypeByContNextIdx( long TenantId,
 		long ScopeId,
 		Long NextId );
+
+	void deepDisposeDoubleTypeByCodeVisIdx( ICFBamSchema.CodeVisibilityEnum CodeVis );
+
+	void deepDisposeDoubleTypeByScopeCodeVisIdx( long TenantId,
+		long ScopeId,
+		ICFBamSchema.CodeVisibilityEnum CodeVis );
 
 	void deepDisposeDoubleTypeBySchemaIdx( long TenantId,
 		long SchemaDefId );
@@ -596,6 +662,26 @@ public interface ICFBamDoubleTypeTableObj
 	void deleteDoubleTypeByContNextIdx( long TenantId,
 		long ScopeId,
 		Long NextId );
+
+	/**
+	 *	Internal use only.
+	 *
+	 *	@param	argCodeVis	The DoubleType key attribute of the instance generating the id.
+	 */
+	void deleteDoubleTypeByCodeVisIdx( ICFBamSchema.CodeVisibilityEnum CodeVis );
+
+	/**
+	 *	Internal use only.
+	 *
+	 *	@param	argTenantId	The DoubleType key attribute of the instance generating the id.
+	 *
+	 *	@param	argScopeId	The DoubleType key attribute of the instance generating the id.
+	 *
+	 *	@param	argCodeVis	The DoubleType key attribute of the instance generating the id.
+	 */
+	void deleteDoubleTypeByScopeCodeVisIdx( long TenantId,
+		long ScopeId,
+		ICFBamSchema.CodeVisibilityEnum CodeVis );
 
 	/**
 	 *	Internal use only.

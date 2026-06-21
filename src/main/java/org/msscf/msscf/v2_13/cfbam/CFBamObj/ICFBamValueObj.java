@@ -360,6 +360,13 @@ public interface ICFBamValueObj
 	Long getOptionalNextId();
 
 	/**
+	 *	Get the required ICFBamSchema.CodeVisibilityEnum attribute CodeVis.
+	 *
+	 *	@return	The required ICFBamSchema.CodeVisibilityEnum attribute CodeVis.
+	 */
+	ICFBamSchema.CodeVisibilityEnum getRequiredCodeVis();
+
+	/**
 	 *	Get the required ICFBamTenantObj instance referenced by the Tenant key.
 	 *
 	 *	@return	The required ICFBamTenantObj instance referenced by the Tenant key.

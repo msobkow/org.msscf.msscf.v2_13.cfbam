@@ -401,6 +401,60 @@ public interface ICFBamUInt32ColTableObj
 		boolean forceRead );
 
 	/**
+	 *	Get the map of CFBamValueObj instances sorted by their primary keys for the duplicate CodeVisIdx key.
+	 *
+	 *	@param	argCodeVis	The UInt32Col key attribute of the instance generating the id.
+	 *
+	 *	@return	List of CFBamUInt32ColObj cached instances sorted by their primary keys for the duplicate CodeVisIdx key,
+	 *		which may be an empty set.
+	 */
+	List<ICFBamUInt32ColObj> readUInt32ColByCodeVisIdx( ICFBamSchema.CodeVisibilityEnum CodeVis );
+
+	/**
+	 *	Get the map of CFBamUInt32ColObj instances sorted by their primary keys for the duplicate CodeVisIdx key.
+	 *
+	 *	@param	argCodeVis	The UInt32Col key attribute of the instance generating the id.
+	 *
+	 *	@return	List of CFBamUInt32ColObj cached instances sorted by their primary keys for the duplicate CodeVisIdx key,
+	 *		which may be an empty set.
+	 */
+	List<ICFBamUInt32ColObj> readUInt32ColByCodeVisIdx( ICFBamSchema.CodeVisibilityEnum CodeVis,
+		boolean forceRead );
+
+	/**
+	 *	Get the map of CFBamValueObj instances sorted by their primary keys for the duplicate ScopeCodeVisIdx key.
+	 *
+	 *	@param	argTenantId	The UInt32Col key attribute of the instance generating the id.
+	 *
+	 *	@param	argScopeId	The UInt32Col key attribute of the instance generating the id.
+	 *
+	 *	@param	argCodeVis	The UInt32Col key attribute of the instance generating the id.
+	 *
+	 *	@return	List of CFBamUInt32ColObj cached instances sorted by their primary keys for the duplicate ScopeCodeVisIdx key,
+	 *		which may be an empty set.
+	 */
+	List<ICFBamUInt32ColObj> readUInt32ColByScopeCodeVisIdx( long TenantId,
+		long ScopeId,
+		ICFBamSchema.CodeVisibilityEnum CodeVis );
+
+	/**
+	 *	Get the map of CFBamUInt32ColObj instances sorted by their primary keys for the duplicate ScopeCodeVisIdx key.
+	 *
+	 *	@param	argTenantId	The UInt32Col key attribute of the instance generating the id.
+	 *
+	 *	@param	argScopeId	The UInt32Col key attribute of the instance generating the id.
+	 *
+	 *	@param	argCodeVis	The UInt32Col key attribute of the instance generating the id.
+	 *
+	 *	@return	List of CFBamUInt32ColObj cached instances sorted by their primary keys for the duplicate ScopeCodeVisIdx key,
+	 *		which may be an empty set.
+	 */
+	List<ICFBamUInt32ColObj> readUInt32ColByScopeCodeVisIdx( long TenantId,
+		long ScopeId,
+		ICFBamSchema.CodeVisibilityEnum CodeVis,
+		boolean forceRead );
+
+	/**
 	 *	Get the map of CFBamUInt32ColObj instances sorted by their primary keys for the duplicate TableIdx key.
 	 *
 	 *	@param	argTenantId	The UInt32Col key attribute of the instance generating the id.
@@ -456,6 +510,12 @@ public interface ICFBamUInt32ColTableObj
 		long ScopeId,
 		Long NextId );
 
+	List<ICFBamUInt32ColObj> readCachedUInt32ColByCodeVisIdx( ICFBamSchema.CodeVisibilityEnum CodeVis );
+
+	List<ICFBamUInt32ColObj> readCachedUInt32ColByScopeCodeVisIdx( long TenantId,
+		long ScopeId,
+		ICFBamSchema.CodeVisibilityEnum CodeVis );
+
 	List<ICFBamUInt32ColObj> readCachedUInt32ColByTableIdx( long TenantId,
 		long TableId );
 
@@ -487,6 +547,12 @@ public interface ICFBamUInt32ColTableObj
 	void deepDisposeUInt32ColByContNextIdx( long TenantId,
 		long ScopeId,
 		Long NextId );
+
+	void deepDisposeUInt32ColByCodeVisIdx( ICFBamSchema.CodeVisibilityEnum CodeVis );
+
+	void deepDisposeUInt32ColByScopeCodeVisIdx( long TenantId,
+		long ScopeId,
+		ICFBamSchema.CodeVisibilityEnum CodeVis );
 
 	void deepDisposeUInt32ColByTableIdx( long TenantId,
 		long TableId );
@@ -596,6 +662,26 @@ public interface ICFBamUInt32ColTableObj
 	void deleteUInt32ColByContNextIdx( long TenantId,
 		long ScopeId,
 		Long NextId );
+
+	/**
+	 *	Internal use only.
+	 *
+	 *	@param	argCodeVis	The UInt32Col key attribute of the instance generating the id.
+	 */
+	void deleteUInt32ColByCodeVisIdx( ICFBamSchema.CodeVisibilityEnum CodeVis );
+
+	/**
+	 *	Internal use only.
+	 *
+	 *	@param	argTenantId	The UInt32Col key attribute of the instance generating the id.
+	 *
+	 *	@param	argScopeId	The UInt32Col key attribute of the instance generating the id.
+	 *
+	 *	@param	argCodeVis	The UInt32Col key attribute of the instance generating the id.
+	 */
+	void deleteUInt32ColByScopeCodeVisIdx( long TenantId,
+		long ScopeId,
+		ICFBamSchema.CodeVisibilityEnum CodeVis );
 
 	/**
 	 *	Internal use only.

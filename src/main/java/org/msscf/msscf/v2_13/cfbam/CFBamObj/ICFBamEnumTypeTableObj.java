@@ -401,6 +401,60 @@ public interface ICFBamEnumTypeTableObj
 		boolean forceRead );
 
 	/**
+	 *	Get the map of CFBamValueObj instances sorted by their primary keys for the duplicate CodeVisIdx key.
+	 *
+	 *	@param	argCodeVis	The EnumType key attribute of the instance generating the id.
+	 *
+	 *	@return	List of CFBamEnumTypeObj cached instances sorted by their primary keys for the duplicate CodeVisIdx key,
+	 *		which may be an empty set.
+	 */
+	List<ICFBamEnumTypeObj> readEnumTypeByCodeVisIdx( ICFBamSchema.CodeVisibilityEnum CodeVis );
+
+	/**
+	 *	Get the map of CFBamEnumTypeObj instances sorted by their primary keys for the duplicate CodeVisIdx key.
+	 *
+	 *	@param	argCodeVis	The EnumType key attribute of the instance generating the id.
+	 *
+	 *	@return	List of CFBamEnumTypeObj cached instances sorted by their primary keys for the duplicate CodeVisIdx key,
+	 *		which may be an empty set.
+	 */
+	List<ICFBamEnumTypeObj> readEnumTypeByCodeVisIdx( ICFBamSchema.CodeVisibilityEnum CodeVis,
+		boolean forceRead );
+
+	/**
+	 *	Get the map of CFBamValueObj instances sorted by their primary keys for the duplicate ScopeCodeVisIdx key.
+	 *
+	 *	@param	argTenantId	The EnumType key attribute of the instance generating the id.
+	 *
+	 *	@param	argScopeId	The EnumType key attribute of the instance generating the id.
+	 *
+	 *	@param	argCodeVis	The EnumType key attribute of the instance generating the id.
+	 *
+	 *	@return	List of CFBamEnumTypeObj cached instances sorted by their primary keys for the duplicate ScopeCodeVisIdx key,
+	 *		which may be an empty set.
+	 */
+	List<ICFBamEnumTypeObj> readEnumTypeByScopeCodeVisIdx( long TenantId,
+		long ScopeId,
+		ICFBamSchema.CodeVisibilityEnum CodeVis );
+
+	/**
+	 *	Get the map of CFBamEnumTypeObj instances sorted by their primary keys for the duplicate ScopeCodeVisIdx key.
+	 *
+	 *	@param	argTenantId	The EnumType key attribute of the instance generating the id.
+	 *
+	 *	@param	argScopeId	The EnumType key attribute of the instance generating the id.
+	 *
+	 *	@param	argCodeVis	The EnumType key attribute of the instance generating the id.
+	 *
+	 *	@return	List of CFBamEnumTypeObj cached instances sorted by their primary keys for the duplicate ScopeCodeVisIdx key,
+	 *		which may be an empty set.
+	 */
+	List<ICFBamEnumTypeObj> readEnumTypeByScopeCodeVisIdx( long TenantId,
+		long ScopeId,
+		ICFBamSchema.CodeVisibilityEnum CodeVis,
+		boolean forceRead );
+
+	/**
 	 *	Get the map of CFBamEnumTypeObj instances sorted by their primary keys for the duplicate SchemaIdx key.
 	 *
 	 *	@param	argTenantId	The EnumType key attribute of the instance generating the id.
@@ -456,6 +510,12 @@ public interface ICFBamEnumTypeTableObj
 		long ScopeId,
 		Long NextId );
 
+	List<ICFBamEnumTypeObj> readCachedEnumTypeByCodeVisIdx( ICFBamSchema.CodeVisibilityEnum CodeVis );
+
+	List<ICFBamEnumTypeObj> readCachedEnumTypeByScopeCodeVisIdx( long TenantId,
+		long ScopeId,
+		ICFBamSchema.CodeVisibilityEnum CodeVis );
+
 	List<ICFBamEnumTypeObj> readCachedEnumTypeBySchemaIdx( long TenantId,
 		long SchemaDefId );
 
@@ -487,6 +547,12 @@ public interface ICFBamEnumTypeTableObj
 	void deepDisposeEnumTypeByContNextIdx( long TenantId,
 		long ScopeId,
 		Long NextId );
+
+	void deepDisposeEnumTypeByCodeVisIdx( ICFBamSchema.CodeVisibilityEnum CodeVis );
+
+	void deepDisposeEnumTypeByScopeCodeVisIdx( long TenantId,
+		long ScopeId,
+		ICFBamSchema.CodeVisibilityEnum CodeVis );
 
 	void deepDisposeEnumTypeBySchemaIdx( long TenantId,
 		long SchemaDefId );
@@ -596,6 +662,26 @@ public interface ICFBamEnumTypeTableObj
 	void deleteEnumTypeByContNextIdx( long TenantId,
 		long ScopeId,
 		Long NextId );
+
+	/**
+	 *	Internal use only.
+	 *
+	 *	@param	argCodeVis	The EnumType key attribute of the instance generating the id.
+	 */
+	void deleteEnumTypeByCodeVisIdx( ICFBamSchema.CodeVisibilityEnum CodeVis );
+
+	/**
+	 *	Internal use only.
+	 *
+	 *	@param	argTenantId	The EnumType key attribute of the instance generating the id.
+	 *
+	 *	@param	argScopeId	The EnumType key attribute of the instance generating the id.
+	 *
+	 *	@param	argCodeVis	The EnumType key attribute of the instance generating the id.
+	 */
+	void deleteEnumTypeByScopeCodeVisIdx( long TenantId,
+		long ScopeId,
+		ICFBamSchema.CodeVisibilityEnum CodeVis );
 
 	/**
 	 *	Internal use only.

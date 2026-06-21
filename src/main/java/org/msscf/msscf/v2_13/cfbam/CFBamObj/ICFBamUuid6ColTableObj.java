@@ -401,6 +401,60 @@ public interface ICFBamUuid6ColTableObj
 		boolean forceRead );
 
 	/**
+	 *	Get the map of CFBamValueObj instances sorted by their primary keys for the duplicate CodeVisIdx key.
+	 *
+	 *	@param	argCodeVis	The Uuid6Col key attribute of the instance generating the id.
+	 *
+	 *	@return	List of CFBamUuid6ColObj cached instances sorted by their primary keys for the duplicate CodeVisIdx key,
+	 *		which may be an empty set.
+	 */
+	List<ICFBamUuid6ColObj> readUuid6ColByCodeVisIdx( ICFBamSchema.CodeVisibilityEnum CodeVis );
+
+	/**
+	 *	Get the map of CFBamUuid6ColObj instances sorted by their primary keys for the duplicate CodeVisIdx key.
+	 *
+	 *	@param	argCodeVis	The Uuid6Col key attribute of the instance generating the id.
+	 *
+	 *	@return	List of CFBamUuid6ColObj cached instances sorted by their primary keys for the duplicate CodeVisIdx key,
+	 *		which may be an empty set.
+	 */
+	List<ICFBamUuid6ColObj> readUuid6ColByCodeVisIdx( ICFBamSchema.CodeVisibilityEnum CodeVis,
+		boolean forceRead );
+
+	/**
+	 *	Get the map of CFBamValueObj instances sorted by their primary keys for the duplicate ScopeCodeVisIdx key.
+	 *
+	 *	@param	argTenantId	The Uuid6Col key attribute of the instance generating the id.
+	 *
+	 *	@param	argScopeId	The Uuid6Col key attribute of the instance generating the id.
+	 *
+	 *	@param	argCodeVis	The Uuid6Col key attribute of the instance generating the id.
+	 *
+	 *	@return	List of CFBamUuid6ColObj cached instances sorted by their primary keys for the duplicate ScopeCodeVisIdx key,
+	 *		which may be an empty set.
+	 */
+	List<ICFBamUuid6ColObj> readUuid6ColByScopeCodeVisIdx( long TenantId,
+		long ScopeId,
+		ICFBamSchema.CodeVisibilityEnum CodeVis );
+
+	/**
+	 *	Get the map of CFBamUuid6ColObj instances sorted by their primary keys for the duplicate ScopeCodeVisIdx key.
+	 *
+	 *	@param	argTenantId	The Uuid6Col key attribute of the instance generating the id.
+	 *
+	 *	@param	argScopeId	The Uuid6Col key attribute of the instance generating the id.
+	 *
+	 *	@param	argCodeVis	The Uuid6Col key attribute of the instance generating the id.
+	 *
+	 *	@return	List of CFBamUuid6ColObj cached instances sorted by their primary keys for the duplicate ScopeCodeVisIdx key,
+	 *		which may be an empty set.
+	 */
+	List<ICFBamUuid6ColObj> readUuid6ColByScopeCodeVisIdx( long TenantId,
+		long ScopeId,
+		ICFBamSchema.CodeVisibilityEnum CodeVis,
+		boolean forceRead );
+
+	/**
 	 *	Get the map of CFBamUuid6ColObj instances sorted by their primary keys for the duplicate TableIdx key.
 	 *
 	 *	@param	argTenantId	The Uuid6Col key attribute of the instance generating the id.
@@ -456,6 +510,12 @@ public interface ICFBamUuid6ColTableObj
 		long ScopeId,
 		Long NextId );
 
+	List<ICFBamUuid6ColObj> readCachedUuid6ColByCodeVisIdx( ICFBamSchema.CodeVisibilityEnum CodeVis );
+
+	List<ICFBamUuid6ColObj> readCachedUuid6ColByScopeCodeVisIdx( long TenantId,
+		long ScopeId,
+		ICFBamSchema.CodeVisibilityEnum CodeVis );
+
 	List<ICFBamUuid6ColObj> readCachedUuid6ColByTableIdx( long TenantId,
 		long TableId );
 
@@ -487,6 +547,12 @@ public interface ICFBamUuid6ColTableObj
 	void deepDisposeUuid6ColByContNextIdx( long TenantId,
 		long ScopeId,
 		Long NextId );
+
+	void deepDisposeUuid6ColByCodeVisIdx( ICFBamSchema.CodeVisibilityEnum CodeVis );
+
+	void deepDisposeUuid6ColByScopeCodeVisIdx( long TenantId,
+		long ScopeId,
+		ICFBamSchema.CodeVisibilityEnum CodeVis );
 
 	void deepDisposeUuid6ColByTableIdx( long TenantId,
 		long TableId );
@@ -596,6 +662,26 @@ public interface ICFBamUuid6ColTableObj
 	void deleteUuid6ColByContNextIdx( long TenantId,
 		long ScopeId,
 		Long NextId );
+
+	/**
+	 *	Internal use only.
+	 *
+	 *	@param	argCodeVis	The Uuid6Col key attribute of the instance generating the id.
+	 */
+	void deleteUuid6ColByCodeVisIdx( ICFBamSchema.CodeVisibilityEnum CodeVis );
+
+	/**
+	 *	Internal use only.
+	 *
+	 *	@param	argTenantId	The Uuid6Col key attribute of the instance generating the id.
+	 *
+	 *	@param	argScopeId	The Uuid6Col key attribute of the instance generating the id.
+	 *
+	 *	@param	argCodeVis	The Uuid6Col key attribute of the instance generating the id.
+	 */
+	void deleteUuid6ColByScopeCodeVisIdx( long TenantId,
+		long ScopeId,
+		ICFBamSchema.CodeVisibilityEnum CodeVis );
 
 	/**
 	 *	Internal use only.

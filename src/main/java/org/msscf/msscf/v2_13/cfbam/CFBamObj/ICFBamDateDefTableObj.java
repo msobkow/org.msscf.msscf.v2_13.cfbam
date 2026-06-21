@@ -400,6 +400,60 @@ public interface ICFBamDateDefTableObj
 		Long NextId,
 		boolean forceRead );
 
+	/**
+	 *	Get the map of CFBamValueObj instances sorted by their primary keys for the duplicate CodeVisIdx key.
+	 *
+	 *	@param	argCodeVis	The DateDef key attribute of the instance generating the id.
+	 *
+	 *	@return	List of CFBamDateDefObj cached instances sorted by their primary keys for the duplicate CodeVisIdx key,
+	 *		which may be an empty set.
+	 */
+	List<ICFBamDateDefObj> readDateDefByCodeVisIdx( ICFBamSchema.CodeVisibilityEnum CodeVis );
+
+	/**
+	 *	Get the map of CFBamDateDefObj instances sorted by their primary keys for the duplicate CodeVisIdx key.
+	 *
+	 *	@param	argCodeVis	The DateDef key attribute of the instance generating the id.
+	 *
+	 *	@return	List of CFBamDateDefObj cached instances sorted by their primary keys for the duplicate CodeVisIdx key,
+	 *		which may be an empty set.
+	 */
+	List<ICFBamDateDefObj> readDateDefByCodeVisIdx( ICFBamSchema.CodeVisibilityEnum CodeVis,
+		boolean forceRead );
+
+	/**
+	 *	Get the map of CFBamValueObj instances sorted by their primary keys for the duplicate ScopeCodeVisIdx key.
+	 *
+	 *	@param	argTenantId	The DateDef key attribute of the instance generating the id.
+	 *
+	 *	@param	argScopeId	The DateDef key attribute of the instance generating the id.
+	 *
+	 *	@param	argCodeVis	The DateDef key attribute of the instance generating the id.
+	 *
+	 *	@return	List of CFBamDateDefObj cached instances sorted by their primary keys for the duplicate ScopeCodeVisIdx key,
+	 *		which may be an empty set.
+	 */
+	List<ICFBamDateDefObj> readDateDefByScopeCodeVisIdx( long TenantId,
+		long ScopeId,
+		ICFBamSchema.CodeVisibilityEnum CodeVis );
+
+	/**
+	 *	Get the map of CFBamDateDefObj instances sorted by their primary keys for the duplicate ScopeCodeVisIdx key.
+	 *
+	 *	@param	argTenantId	The DateDef key attribute of the instance generating the id.
+	 *
+	 *	@param	argScopeId	The DateDef key attribute of the instance generating the id.
+	 *
+	 *	@param	argCodeVis	The DateDef key attribute of the instance generating the id.
+	 *
+	 *	@return	List of CFBamDateDefObj cached instances sorted by their primary keys for the duplicate ScopeCodeVisIdx key,
+	 *		which may be an empty set.
+	 */
+	List<ICFBamDateDefObj> readDateDefByScopeCodeVisIdx( long TenantId,
+		long ScopeId,
+		ICFBamSchema.CodeVisibilityEnum CodeVis,
+		boolean forceRead );
+
 	ICFBamDateDefObj readCachedDateDefByIdIdx( long TenantId,
 		long Id );
 
@@ -429,6 +483,12 @@ public interface ICFBamDateDefTableObj
 		long ScopeId,
 		Long NextId );
 
+	List<ICFBamDateDefObj> readCachedDateDefByCodeVisIdx( ICFBamSchema.CodeVisibilityEnum CodeVis );
+
+	List<ICFBamDateDefObj> readCachedDateDefByScopeCodeVisIdx( long TenantId,
+		long ScopeId,
+		ICFBamSchema.CodeVisibilityEnum CodeVis );
+
 	void deepDisposeDateDefByIdIdx( long TenantId,
 		long Id );
 
@@ -457,6 +517,12 @@ public interface ICFBamDateDefTableObj
 	void deepDisposeDateDefByContNextIdx( long TenantId,
 		long ScopeId,
 		Long NextId );
+
+	void deepDisposeDateDefByCodeVisIdx( ICFBamSchema.CodeVisibilityEnum CodeVis );
+
+	void deepDisposeDateDefByScopeCodeVisIdx( long TenantId,
+		long ScopeId,
+		ICFBamSchema.CodeVisibilityEnum CodeVis );
 
 	/**
 	 *	Internal use only.
@@ -563,6 +629,26 @@ public interface ICFBamDateDefTableObj
 	void deleteDateDefByContNextIdx( long TenantId,
 		long ScopeId,
 		Long NextId );
+
+	/**
+	 *	Internal use only.
+	 *
+	 *	@param	argCodeVis	The DateDef key attribute of the instance generating the id.
+	 */
+	void deleteDateDefByCodeVisIdx( ICFBamSchema.CodeVisibilityEnum CodeVis );
+
+	/**
+	 *	Internal use only.
+	 *
+	 *	@param	argTenantId	The DateDef key attribute of the instance generating the id.
+	 *
+	 *	@param	argScopeId	The DateDef key attribute of the instance generating the id.
+	 *
+	 *	@param	argCodeVis	The DateDef key attribute of the instance generating the id.
+	 */
+	void deleteDateDefByScopeCodeVisIdx( long TenantId,
+		long ScopeId,
+		ICFBamSchema.CodeVisibilityEnum CodeVis );
 
 	/**
 	 *	Move the CFBamDateDefObj instance up in the chain.  The instance is always refreshed.

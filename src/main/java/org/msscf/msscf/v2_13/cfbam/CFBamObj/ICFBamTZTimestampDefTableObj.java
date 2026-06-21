@@ -400,6 +400,60 @@ public interface ICFBamTZTimestampDefTableObj
 		Long NextId,
 		boolean forceRead );
 
+	/**
+	 *	Get the map of CFBamValueObj instances sorted by their primary keys for the duplicate CodeVisIdx key.
+	 *
+	 *	@param	argCodeVis	The TZTimestampDef key attribute of the instance generating the id.
+	 *
+	 *	@return	List of CFBamTZTimestampDefObj cached instances sorted by their primary keys for the duplicate CodeVisIdx key,
+	 *		which may be an empty set.
+	 */
+	List<ICFBamTZTimestampDefObj> readTZTimestampDefByCodeVisIdx( ICFBamSchema.CodeVisibilityEnum CodeVis );
+
+	/**
+	 *	Get the map of CFBamTZTimestampDefObj instances sorted by their primary keys for the duplicate CodeVisIdx key.
+	 *
+	 *	@param	argCodeVis	The TZTimestampDef key attribute of the instance generating the id.
+	 *
+	 *	@return	List of CFBamTZTimestampDefObj cached instances sorted by their primary keys for the duplicate CodeVisIdx key,
+	 *		which may be an empty set.
+	 */
+	List<ICFBamTZTimestampDefObj> readTZTimestampDefByCodeVisIdx( ICFBamSchema.CodeVisibilityEnum CodeVis,
+		boolean forceRead );
+
+	/**
+	 *	Get the map of CFBamValueObj instances sorted by their primary keys for the duplicate ScopeCodeVisIdx key.
+	 *
+	 *	@param	argTenantId	The TZTimestampDef key attribute of the instance generating the id.
+	 *
+	 *	@param	argScopeId	The TZTimestampDef key attribute of the instance generating the id.
+	 *
+	 *	@param	argCodeVis	The TZTimestampDef key attribute of the instance generating the id.
+	 *
+	 *	@return	List of CFBamTZTimestampDefObj cached instances sorted by their primary keys for the duplicate ScopeCodeVisIdx key,
+	 *		which may be an empty set.
+	 */
+	List<ICFBamTZTimestampDefObj> readTZTimestampDefByScopeCodeVisIdx( long TenantId,
+		long ScopeId,
+		ICFBamSchema.CodeVisibilityEnum CodeVis );
+
+	/**
+	 *	Get the map of CFBamTZTimestampDefObj instances sorted by their primary keys for the duplicate ScopeCodeVisIdx key.
+	 *
+	 *	@param	argTenantId	The TZTimestampDef key attribute of the instance generating the id.
+	 *
+	 *	@param	argScopeId	The TZTimestampDef key attribute of the instance generating the id.
+	 *
+	 *	@param	argCodeVis	The TZTimestampDef key attribute of the instance generating the id.
+	 *
+	 *	@return	List of CFBamTZTimestampDefObj cached instances sorted by their primary keys for the duplicate ScopeCodeVisIdx key,
+	 *		which may be an empty set.
+	 */
+	List<ICFBamTZTimestampDefObj> readTZTimestampDefByScopeCodeVisIdx( long TenantId,
+		long ScopeId,
+		ICFBamSchema.CodeVisibilityEnum CodeVis,
+		boolean forceRead );
+
 	ICFBamTZTimestampDefObj readCachedTZTimestampDefByIdIdx( long TenantId,
 		long Id );
 
@@ -429,6 +483,12 @@ public interface ICFBamTZTimestampDefTableObj
 		long ScopeId,
 		Long NextId );
 
+	List<ICFBamTZTimestampDefObj> readCachedTZTimestampDefByCodeVisIdx( ICFBamSchema.CodeVisibilityEnum CodeVis );
+
+	List<ICFBamTZTimestampDefObj> readCachedTZTimestampDefByScopeCodeVisIdx( long TenantId,
+		long ScopeId,
+		ICFBamSchema.CodeVisibilityEnum CodeVis );
+
 	void deepDisposeTZTimestampDefByIdIdx( long TenantId,
 		long Id );
 
@@ -457,6 +517,12 @@ public interface ICFBamTZTimestampDefTableObj
 	void deepDisposeTZTimestampDefByContNextIdx( long TenantId,
 		long ScopeId,
 		Long NextId );
+
+	void deepDisposeTZTimestampDefByCodeVisIdx( ICFBamSchema.CodeVisibilityEnum CodeVis );
+
+	void deepDisposeTZTimestampDefByScopeCodeVisIdx( long TenantId,
+		long ScopeId,
+		ICFBamSchema.CodeVisibilityEnum CodeVis );
 
 	/**
 	 *	Internal use only.
@@ -563,6 +629,26 @@ public interface ICFBamTZTimestampDefTableObj
 	void deleteTZTimestampDefByContNextIdx( long TenantId,
 		long ScopeId,
 		Long NextId );
+
+	/**
+	 *	Internal use only.
+	 *
+	 *	@param	argCodeVis	The TZTimestampDef key attribute of the instance generating the id.
+	 */
+	void deleteTZTimestampDefByCodeVisIdx( ICFBamSchema.CodeVisibilityEnum CodeVis );
+
+	/**
+	 *	Internal use only.
+	 *
+	 *	@param	argTenantId	The TZTimestampDef key attribute of the instance generating the id.
+	 *
+	 *	@param	argScopeId	The TZTimestampDef key attribute of the instance generating the id.
+	 *
+	 *	@param	argCodeVis	The TZTimestampDef key attribute of the instance generating the id.
+	 */
+	void deleteTZTimestampDefByScopeCodeVisIdx( long TenantId,
+		long ScopeId,
+		ICFBamSchema.CodeVisibilityEnum CodeVis );
 
 	/**
 	 *	Move the CFBamTZTimestampDefObj instance up in the chain.  The instance is always refreshed.
